@@ -22,8 +22,8 @@
     "prettier": "^1.19.1"
   },
   "husky": {
-    "hooks" : {
-      "pre-commit" : "prettier --write './**/*.{js,vue}' && git add ."
+    "hooks": {
+      "pre-commit": "prettier --write './**/*.{js,vue}' && git add ."
     }
   }
 }
