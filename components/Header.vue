@@ -29,7 +29,7 @@ export default {
   align-items: center;
   max-width: 1440px;
   width: 100%;
-  padding: 18px 3%;
+  padding: 18px 4%;
   border-bottom: 1px solid #e8e8e8;
 }
 .header__title {

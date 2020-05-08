@@ -32,17 +32,19 @@
   list-style: none;
   padding: 0;
 }
-.nav__link {
-  text-decoration: none;
-  color: black;
-}
 .nav__list-item {
   margin-left: 40px;
 }
 .nav__list-item:first-child {
   margin: 0;
 }
+.nav__link {
+  font-size: 18px;
+  line-height: 24px;
+  text-decoration: none;
+  color: black;
+}
 .nav__link_underline {
-  text-decoration: underline;
+  border-bottom: 1px solid black;
 }
 </style>
