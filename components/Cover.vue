@@ -1,6 +1,6 @@
 <template>
   <section class="cover">
-    <p class="cover-title">#РАКЛЕЧИТСЯ</p>
+    <h1 class="title cover-title">#РАКЛЕЧИТСЯ</h1>
     <a href="" class="cover-polygon"
       ><img src="./../static/polygon.png" alt="стрелка вниз"
     /></a>
@@ -12,6 +12,13 @@ export default {};
 </script>
 
 <style scoped>
+.title {
+  font-weight: bold;
+  font-size: 92px;
+  line-height: 111px;
+  text-transform: uppercase;
+}
+
 .cover {
   width: 100%;
   min-height: 689px;
@@ -21,10 +28,6 @@ export default {};
   margin: 0 auto;
 }
 .cover-title {
-  font-weight: bold;
-  font-size: 92px;
-  line-height: 111px;
-  text-transform: uppercase;
   color: #ffffff;
   margin-top: 290px;
 }

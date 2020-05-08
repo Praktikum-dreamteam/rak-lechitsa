@@ -7,7 +7,9 @@
       <History />
       <Slogan />
       <Instagram />
-      <Forma />git
+      <Forma />
+      <Statistics />
+      <Info />
     </div>
   </div>
 </template>
@@ -20,6 +22,8 @@ import Slogan from '@/components/Slogan';
 import History from '@/components/History';
 import Instagram from '@/components/Instagram';
 import Forma from '@/components/Forma';
+import Statistics from '@/components/Statistics';
+import Info from '@/components/Info';
 export default {
   components: {
     Logo,
@@ -29,6 +33,8 @@ export default {
     History,
     Instagram,
     Forma,
+    Statistics,
+    Info,
   },
 };
 </script>

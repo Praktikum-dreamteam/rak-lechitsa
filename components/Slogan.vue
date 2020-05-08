@@ -1,7 +1,7 @@
 <template>
-  <div class="slogan">
+  <section class="slogan">
     <p class="content-slogan">И В ОТЛИЧИЕ ОТ РАКА, #ЭТОНЕЛЕЧИТСЯ</p>
-  </div>
+  </section>
 </template>
 
 <script>

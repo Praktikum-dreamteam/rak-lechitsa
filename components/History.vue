@@ -1,5 +1,5 @@
 <template>
-  <div class="history content-margin">
+  <section class="history content-margin">
     <h1 class="content-title">Истории неизлечимых привычек</h1>
     <ul class="history-grids">
       <li class="history-grid">
@@ -60,7 +60,7 @@
       </li>
     </ul>
     <button class="button history-button">Больше статей</button>
-  </div>
+  </section>
 </template>
 
 <script>

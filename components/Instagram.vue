@@ -1,5 +1,5 @@
 <template>
-  <div class="stories content-margin">
+  <section class="stories content-margin">
     <div class="story">
       <a src="" class="story-src"
         ><h2 class="content-title story-title">Инстаграм</h2></a
@@ -21,7 +21,7 @@
       <li class="story-img"><img src="./../static/instagram.png" alt="" /></li>
       <li class="story-img"><img src="./../static/instagram.png" alt="" /></li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>
