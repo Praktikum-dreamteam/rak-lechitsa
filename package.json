@@ -20,5 +20,10 @@
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.2.5",
     "prettier": "^1.19.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "prettier --write './**/*.{js,vue}' && git add ."
+    }
   }
 }

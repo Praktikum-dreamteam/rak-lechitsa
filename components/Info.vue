@@ -1,7 +1,7 @@
 <template>
   <section class="info">
     <h1 class="title title-info">#РАКЛЕЧИТСЯ</h1>
-    <h2 class="content-title info-title"> О проекте </h2>
+    <h2 class="content-title info-title">О проекте</h2>
     <div class="info-content">
       <p class="content-subtitle info-subtitle"> Этот проект был создан благотворительным фондом Константина Хабенского. </p>
       <div class="ihfo-paragraphs">
@@ -17,13 +17,11 @@
 </template>
 
 <script>
-  export default {
-
-  }
+export default {};
 </script>
 
 <style scoped>
-  .title {
+.title {
   font-weight: bold;
   font-size: 92px;
   line-height: 111px;
@@ -41,11 +39,11 @@
 }
 
 .title-info {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .info-title {
-  color: #FFFFFF;
+  color: #ffffff;
   margin-top: 70px;
   margin-left: 0;
   text-align: left;
