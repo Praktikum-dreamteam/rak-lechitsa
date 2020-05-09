@@ -76,6 +76,7 @@
   .video-polygon {
     margin-top: 150px;
     margin-left: 0;
+    display: flex;
   }
 
   .video__card {
@@ -85,6 +86,13 @@
 
   .video__caption {
     text-align: left;
+  }
+
+  .video-button {
+    width: 40px;
+    height: 40px;
+    background: #FBFBFB;
+    margin: 0;
   }
 
 </style>

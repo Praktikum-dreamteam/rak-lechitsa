@@ -1,6 +1,7 @@
 <template>
   <section class="slogan">
-    <p class="content-slogan">И В ОТЛИЧИЕ ОТ РАКА, <span class="slogan-title">#ЭТОНЕЛЕЧИТСЯ</span></p>
+    <p class="content-slogan">РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ</p>
+    <h2 class="slogan-title">#ЭТОНЕЛЕЧИТСЯ</h2>
   </section>
 </template>
 
@@ -9,6 +10,7 @@ export default {};
 </script>
 
 <style scoped>
+
 .slogan {
   width: 100%;
   text-align: center;
@@ -24,6 +26,5 @@ export default {};
 
 .slogan-title {
   font-weight: bold;
-  font-size: 32px;
 }
 </style>
