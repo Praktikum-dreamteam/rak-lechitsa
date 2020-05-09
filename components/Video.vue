@@ -1,30 +1,25 @@
 <template>
   <section class="video content-margin">
     <div class="video-text">
-      <h2 class="content-title video-title">
-        Истории людей, победивших рак, но не свои привычки
-      </h2>
-      <p class="content-subtitle video-subtitle">
-        Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
-        страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с
-        их историями.
-      </p>
+      <h2 class="content-title video-title"> Истории людей, победивших рак, но не свои привычки </h2>
+      <p class="content-subtitle video-subtitle"> Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии, страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с их историями.</p>
       <div class="video-polygon">
-        <button class="button video-button">&#5176;</button>
-        <button class="button video-button">&#5171;</button>
+        <button class="button video-button">&#5176</button>
+        <button class="button video-button">&#5171</button>
       </div>
     </div>
-    <figure class="video__card">
-      <img class="video__image" src="./../static/video.png" alt="Видео" />
-      <figcaption class="video__caption">
-        Все видео вы можете найте на нашем YouTube канале.
-      </figcaption>
+    <figure class= "video__card">
+      <img class= "video__image" src="./../static/video.png" alt="Видео">
+      <figcaption class="video__caption">Все видео вы можете найте на нашем YouTube канале.</figcaption>
     </figure>
+
   </section>
 </template>
 
 <script>
-export default {};
+  export default {
+
+  };
 </script>
 
 <style scoped>
