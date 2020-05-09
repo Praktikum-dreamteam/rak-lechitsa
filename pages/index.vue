@@ -1,57 +1,11 @@
 <template>
   <div class="container">
-    <div class="test">
-      <Cover />
-      <Video />
-      <Slogan />
-      <History />
-      <Slogan2 />
-      <Instagram />
-      <Forma />
-      <Statistics />
-      <Info />
-    </div>
+    <story-card />
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue';
-import Cover from '@/components/Cover';
-import Video from '@/components/Video';
-import Slogan from '@/components/Slogan';
-import History from '@/components/History';
-import Slogan2 from '@/components/Slogan2';
-import Instagram from '@/components/Instagram';
-import Forma from '@/components/Forma';
-import Statistics from '@/components/Statistics';
-import Info from '@/components/Info';
-export default {
-  components: {
-    Logo,
-    Cover,
-    Video,
-    Slogan,
-    History,
-    Slogan2,
-    Instagram,
-    Forma,
-    Statistics,
-    Info,
-  },
-};
+export default {};
 </script>
 
-<style scoped>
-.container {
-  margin: 0 auto;
-  width: 1440px;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.test {
-  width: 100%;
-}
-</style>
+<style></style>
