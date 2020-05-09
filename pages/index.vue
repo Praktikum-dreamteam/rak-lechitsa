@@ -7,9 +7,13 @@
       <History />
       <Slogan2 />
       <Instagram />
-      <Forma />
+      <InfoBlock @openFormClick="openOrCloseForm" />
       <Statistics />
       <Info />
+      <Popup v-if="IsFormShow" @closeClick="openOrCloseForm">
+        <Form class="container__form"></Form>
+      </Popup>
+      <Overlay v-if="IsFormShow" />
     </div>
   </div>
 </template>
@@ -22,10 +26,23 @@ import Slogan from '@/components/Slogan';
 import History from '@/components/History';
 import Slogan2 from '@/components/Slogan2';
 import Instagram from '@/components/Instagram';
-import Forma from '@/components/Forma';
+import InfoBlock from '@/components/Info-block';
 import Statistics from '@/components/Statistics';
 import Info from '@/components/Info';
+import Popup from '@/components/PopUp';
+import Form from '@/components/Form';
+import Overlay from '@/components/ui/Overlay';
 export default {
+  data() {
+    return {
+      IsFormShow: false,
+    };
+  },
+  methods: {
+    openOrCloseForm() {
+      this.IsFormShow = !this.IsFormShow;
+    },
+  },
   components: {
     Logo,
     Cover,
@@ -34,9 +51,12 @@ export default {
     History,
     Slogan2,
     Instagram,
-    Forma,
+    InfoBlock,
     Statistics,
     Info,
+    Form,
+    Popup,
+    Overlay,
   },
 };
 </script>
@@ -49,11 +69,12 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+}
+.container__form {
+  min-height: 520px;
 }
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;

@@ -30,6 +30,7 @@ export default {};
 .cover-title {
   color: #ffffff;
   margin-top: 290px;
+  text-align: center;
 }
 .cover-polygon {
   min-width: 36px;

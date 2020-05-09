@@ -2,7 +2,7 @@
   <div class="popup">
     <div class="popup__header">
       <h2 class="popup__title">Шаг 1 из 12</h2>
-      <div class="popup__close"></div>
+      <div @click="$emit('closeClick')" class="popup__close"></div>
     </div>
     <slot>Содержимое окна</slot>
   </div>
@@ -18,7 +18,7 @@ export default {};
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 66%;
+  max-width: 920px;
   box-sizing: border-box;
   z-index: 2;
   padding: 38px;
@@ -32,9 +32,9 @@ export default {};
   font-size: 32px;
   line-height: 36px;
   font-weight: 600;
-  font-family: Inter;
 }
 .popup__close {
+  cursor: pointer;
   position: absolute;
   top: 35px;
   right: 35px;

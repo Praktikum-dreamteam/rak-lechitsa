@@ -18,13 +18,23 @@
       </p>
       <!-- <p class="forma-content"> Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, уточним детали вашей истории.</p> -->
     </div>
-    <button class="button forma-button">Заполнить форму</button>
+    <Button
+      @btn-click="$emit('openFormClick')"
+      class="forma-button"
+      theme="violet"
+      >Заполнить форму</Button
+    >
     <!-- <button class="button forma-button"> Оставить контакт </button> -->
   </section>
 </template>
 
 <script>
-export default {};
+import Button from '@/components/ui/Button';
+export default {
+  components: {
+    Button,
+  },
+};
 </script>
 
 <style scoped>
@@ -89,12 +99,6 @@ export default {};
 
 .forma-button {
   margin-top: 56px;
-  background-color: #613a93;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  padding: 17px 44px;
   margin-left: 680px;
-  color: #ffffff;
 }
 </style>
