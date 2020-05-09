@@ -10,7 +10,6 @@ export default {};
 </script>
 
 <style scoped>
-
 .slogan {
   width: 100%;
   text-align: center;

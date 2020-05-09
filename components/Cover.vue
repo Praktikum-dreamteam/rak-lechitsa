@@ -1,9 +1,9 @@
 <template>
   <section class="cover">
     <h1 class="title cover-title">#РАКЛЕЧИТСЯ</h1>
-    <a href="" class="cover-polygon"
-      ><img src="./../static/polygon.png" alt="стрелка вниз"
-    /></a>
+    <a href class="cover-polygon">
+      <img src="./../static/polygon.png" alt="стрелка вниз" />
+    </a>
   </section>
 </template>
 

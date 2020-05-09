@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Button from '~/components/ui/Button';
+import Button from '@/components/ui/Button';
 import Nav from '@/components/Nav';
 export default {
   components: {
