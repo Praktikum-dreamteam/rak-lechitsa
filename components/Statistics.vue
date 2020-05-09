@@ -1,63 +1,56 @@
 <template>
   <section class="statistics content-margin">
-    <h2 class="content-title statistics-title">
-      Статистика по онкозаболеваниям
-    </h2>
+    <h2 class="content-title statistics-title">Статистика по онкозаболеваниям</h2>
     <ul class="statistics-forms">
       <li class="statistics-form">
-        <p class="statistics-text">
-          Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918
-          000 человек.
-        </p>
+        <p class="statistics-text"> Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918 000 человек.</p>
         <div class="rectangle">
           <div id="rectangle-left rectangle-left_big"></div>
           <div id="rectangle-right"></div>
         </div>
-        <h3 class="statistics-subtitle">1 из 3</h3>
-        <p class="statistics-content">Левада-Центр 2018</p>
+        <h3 class="statistics-subtitle"> 1 из 3 </h3>
+        <p class="statistics-content"> Левада-Центр 2018 </p>
       </li>
       <li class="statistics-form">
-        <p class="statistics-text">2,6% Россиян имеют онкозаболевания.</p>
+        <p class="statistics-text"> 2,6% Россиян имеют онкозаболевания. </p>
         <div class="rectangle">
           <div id="rectangle-left rectangle-left_small"></div>
           <div id="rectangle-right"></div>
         </div>
-        <h3 class="statistics-subtitle">3 700 000</h3>
-        <p class="statistics-content">Росстат 2018</p>
+        <h3 class="statistics-subtitle"> 3 700 000 </h3>
+        <p class="statistics-content"> Росстат 2018 </p>
       </li>
       <li class="statistics-form">
-        <p class="statistics-text">
-          На 28% выросла доля выявления заболеваний на ранней стадии за 10 лет.
-        </p>
+        <p class="statistics-text"> На 28% выросла доля выявления заболеваний на ранней стадии за 10 лет. </p>
+        <div class="rectangle">
+          <div id="rectangle"> </div>
+          <div id="rectangle"></div>
+        </div>
+        <h3 class="statistics-subtitle"> &uarr;28% </h3>
+        <p class="statistics-content"> МНИОИ Герцена 2018 </p>
+      </li>
+      <li class="statistics-form">
+        <p class="statistics-text"> На 25% снизилась смертность в течение первого года после постановки диагноза. </p>
         <div class="rectangle">
           <div id="rectangle"></div>
           <div id="rectangle"></div>
         </div>
-        <h3 class="statistics-subtitle">&uarr;28%</h3>
-        <p class="statistics-content">МНИОИ Герцена 2018</p>
-      </li>
-      <li class="statistics-form">
-        <p class="statistics-text">
-          На 25% снизилась смертность в течение первого года после постановки
-          диагноза.
-        </p>
-        <div class="rectangle">
-          <div id="rectangle"></div>
-          <div id="rectangle"></div>
-        </div>
-        <h3 class="statistics-subtitle">&darr;25&#37;</h3>
-        <p class="statistics-content">МНИОИ Герцена 2018</p>
+        <h3 class="statistics-subtitle"> &darr;25&#37;</h3>
+        <p class="statistics-content"> МНИОИ Герцена 2018 </p>
       </li>
     </ul>
+
   </section>
 </template>
 
 <script>
-export default {};
+  export default {
+
+  }
 </script>
 
 <style scoped>
-.content-title {
+  .content-title {
   max-width: 413px;
   font-weight: 600;
   font-size: 32px;
@@ -76,6 +69,7 @@ export default {};
   padding-left: 0;
   display: flex;
   justify-content: space-between;
+
 }
 
 .statistics-form {
@@ -86,6 +80,7 @@ export default {};
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
+
 }
 
 .statistics-text {
@@ -118,8 +113,9 @@ export default {};
 }
 
 .rectangle {
-  background: #613a93;
+  background: #613A93;
   width: 100%;
   height: 40px;
 }
+
 </style>
