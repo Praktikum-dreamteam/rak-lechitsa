@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" ref="abv">
     <h2 class="header__title">
       Проект Благотворительного Фонда Константина Хабенского
     </h2>
@@ -52,5 +52,8 @@ export default {
 }
 .header__button:hover {
   cursor: pointer;
+}
+.header /deep/ .nav__link_underline {
+  border-bottom: 1px solid black;
 }
 </style>

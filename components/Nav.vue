@@ -24,7 +24,11 @@
   </nav>
 </template>
 
-<script></script>
+<script>
+export default {
+  props: ['classes'],
+};
+</script>
 
 <style scoped>
 .nav__list-items {
@@ -43,8 +47,5 @@
   line-height: 24px;
   text-decoration: none;
   color: black;
-}
-.nav__link_underline {
-  border-bottom: 1px solid black;
 }
 </style>
