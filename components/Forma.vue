@@ -50,7 +50,6 @@ export default {};
 
 .forma-text {
   display: flex;
-  /* justify-content: space-between; */
   align-content: space-between;
   font-weight: normal;
   font-size: 18px;
