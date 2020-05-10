@@ -17,6 +17,7 @@ export default {
 
 <style scoped>
 .btn {
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   line-height: 24px;
   background: none;
