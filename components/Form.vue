@@ -7,10 +7,16 @@
       @input="$emit('answerInput', $event)"
     />
     <div class="form__buttons">
-      <btn @btn-click="$emit('clickBack')" class="form__button" theme="grey"
+      <btn
+        type="button"
+        :isDisabledActive="isDisabledBackButton"
+        @btn-click="$emit('clickBack')"
+        class="form__button"
+        theme="grey"
         >Назад</btn
       >
       <btn
+        type="submit"
         @btn-click="$emit('clickNext')"
         class="form__button"
         theme="violet"
@@ -31,7 +37,13 @@ import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Label from '@/components/ui/Label';
 export default {
-  props: ['formQuestion', 'description', 'answer', 'isLast'],
+  props: [
+    'formQuestion',
+    'description',
+    'answer',
+    'isLast',
+    'isDisabledBackButton',
+  ],
   components: {
     btn: Button,
     inputForm: Input,
