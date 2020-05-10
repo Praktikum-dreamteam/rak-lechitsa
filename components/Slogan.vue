@@ -1,7 +1,8 @@
 <template>
   <section class="slogan">
     <p class="content-slogan">
-      И В ОТЛИЧИЕ ОТ РАКА, <span class="slogan-title">#ЭТОНЕЛЕЧИТСЯ</span>
+      <slot></slot>
+      <span class="slogan-title"> #этонелечится</span>
     </p>
   </section>
 </template>
@@ -22,6 +23,11 @@ export default {};
   padding-top: 20px;
   padding-bottom: 20px;
   text-transform: uppercase;
+}
+
+.content-slogan {
+  max-width: 750px;
+  margin: auto;
 }
 
 .slogan-title {

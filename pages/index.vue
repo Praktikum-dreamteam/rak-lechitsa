@@ -3,9 +3,13 @@
     <div class="test">
       <Cover />
       <Video />
-      <Slogan />
+      <Slogan>
+        И в отличии от рака,
+      </Slogan>
       <History />
-      <Slogan2 />
+      <Slogan>
+        Рассказывайте свои истории в Инстаграм
+      </Slogan>
       <Instagram />
       <InfoBlock @openFormClick="openForm" />
       <Statistics />
@@ -46,7 +50,6 @@ import Cover from '@/components/Cover';
 import Video from '@/components/Video';
 import Slogan from '@/components/Slogan';
 import History from '@/components/History';
-import Slogan2 from '@/components/Slogan2';
 import Instagram from '@/components/Instagram';
 import InfoBlock from '@/components/Info-block';
 import Statistics from '@/components/Statistics';
@@ -162,7 +165,6 @@ export default {
     Video,
     Slogan,
     History,
-    Slogan2,
     Instagram,
     InfoBlock,
     Statistics,

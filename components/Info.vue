@@ -1,14 +1,14 @@
 <template>
   <section class="info">
     <h1 class="title title-info">#РАКЛЕЧИТСЯ</h1>
-    <h2 class="content-title info-title">О проекте</h2>
+    <SectionTitle theme="violet">О проекте</SectionTitle>
     <div class="info-content">
-      <p class="content-subtitle info-subtitle">
+      <SectionText class="info-subtitle" theme="violet">
         Этот проект был создан благотворительным фондом Константина Хабенского.
-      </p>
+      </SectionText>
       <div class="ihfo-paragraphs">
-        <p class="ihfo-paragraph ihfo-paragraph_isactiv">Рак Лечится</p>
-        <p class="ihfo-paragraph">Фонд Хабенского</p>
+        <Radio theme="violet">Рак Лечится</Radio>
+        <Radio theme="violet">Фонд Хабенского</Radio>
       </div>
       <div class="ihfo-texts">
         <p class="ihfo-text">
@@ -31,7 +31,14 @@
 </template>
 
 <script>
-export default {};
+import SectionTitle from '@/components/SectionTitle';
+import Radio from '@/components/ui/Radio';
+export default {
+  components: {
+    SectionTitle,
+    Radio,
+  },
+};
 </script>
 
 <style scoped>
@@ -75,7 +82,6 @@ export default {};
 
 .info-subtitle {
   color: #dedede;
-  max-width: 340px;
 }
 
 .ihfo-paragraphs {

@@ -1,15 +1,15 @@
 <template>
   <section class="stories content-margin">
     <div class="story">
-      <a src="" class="story-src"
-        ><h2 class="content-title story-title">Инстаграм</h2></a
+      <a href="#" class="story-src"
+        ><SectionTitle theme="white">Инстаграм</SectionTitle></a
       >
-      <p class="content-subtitle story-subtitle">
+      <SectionText class="story-subtitle" theme="white">
         Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
         Все истории, где нет нецензурных выражений и запрещенного контента
         попадают сюда. Следите за правильным написанием хештега, чтобы мы не
         пропустили вашу историю.
-      </p>
+      </SectionText>
     </div>
     <ul class="story-images">
       <li class="story-img"><img src="./../static/instagram.png" alt="" /></li>
@@ -25,19 +25,17 @@
 </template>
 
 <script>
-export default {};
+import SectionTitle from '@/components/SectionTitle';
+import SectionText from '@/components/SectionText';
+export default {
+  components: {
+    SectionTitle,
+    SectionText,
+  },
+};
 </script>
 
 <style scoped>
-.content-title {
-  max-width: 413px;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
-  color: #000000;
-  text-align: left;
-}
-
 .content-subtitle {
   max-width: 413px;
   font-weight: normal;
