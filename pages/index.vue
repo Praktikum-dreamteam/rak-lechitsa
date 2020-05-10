@@ -3,9 +3,14 @@
     <div class="test">
       <Cover />
       <Video />
-      <Slogan />
+      <Slogan>
+        И в отличии от рака,
+      </Slogan>
       <History />
-      <Slogan2 />
+      <Slogan>
+        Рассказывайте свои истории в Инстаграм
+      </Slogan>
+      <!-- <Slogan2 /> -->
       <Instagram />
       <InfoBlock @openFormClick="openForm" />
       <Statistics />

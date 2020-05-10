@@ -10,20 +10,12 @@
           000 человек.
         </p>
         <ProgressBar :value="1" :maxValue="3" />
-        <!-- <div class="rectangle">
-          <div id="rectangle-left rectangle-left_big"></div>
-          <div id="rectangle-right"></div>
-        </div> -->
         <h3 class="statistics-subtitle">1 из 3</h3>
         <p class="statistics-content">Левада-Центр 2018</p>
       </li>
       <li class="statistics-form">
         <p class="statistics-text">2,6% Россиян имеют онкозаболевания.</p>
         <ProgressBar :value="2.6" :maxValue="100" />
-        <!-- <div class="rectangle">
-          <div id="rectangle-left rectangle-left_small"></div>
-          <div id="rectangle-right"></div>
-        </div> -->
         <h3 class="statistics-subtitle">3 700 000</h3>
         <p class="statistics-content">Росстат 2018</p>
       </li>
@@ -32,10 +24,6 @@
           На 28% выросла доля выявления заболеваний на ранней стадии за 10 лет.
         </p>
         <DoubleProgressBar :oldValue="50" :newValue="40" :maxValue="100" />
-        <!-- <div class="rectangle">
-          <div id="rectangle"></div>
-          <div id="rectangle"></div>
-        </div> -->
         <h3 class="statistics-subtitle">&uarr;28%</h3>
         <p class="statistics-content">МНИОИ Герцена 2018</p>
       </li>
@@ -45,10 +33,6 @@
           диагноза.
         </p>
         <DoubleProgressBar :oldValue="50" :newValue="40" :maxValue="100" />
-        <!-- <div class="rectangle">
-          <div id="rectangle"></div>
-          <div id="rectangle"></div>
-        </div> -->
         <h3 class="statistics-subtitle">&darr;25&#37;</h3>
         <p class="statistics-content">МНИОИ Герцена 2018</p>
       </li>
