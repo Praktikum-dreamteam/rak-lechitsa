@@ -1,11 +1,15 @@
 <template>
   <div>
-    <h2 class="section-title"><slot></slot></h2>
+    <h2 :class="['section-title', `section-title_theme_${theme}`]">
+      <slot></slot>
+    </h2>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['theme'],
+};
 </script>
 
 <style scoped>
@@ -14,7 +18,14 @@ export default {};
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-  color: #000000;
   text-align: left;
+}
+
+.section-title_theme_violet {
+  color: #fff;
+}
+
+.section-title_theme_white {
+  color: #000000;
 }
 </style>

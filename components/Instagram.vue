@@ -1,13 +1,15 @@
 <template>
   <section class="stories content-margin">
     <div class="story">
-      <a src="" class="story-src"><SectionTitle>Инстаграм</SectionTitle></a>
-      <p class="content-subtitle story-subtitle">
+      <a href="#" class="story-src"
+        ><SectionTitle theme="white">Инстаграм</SectionTitle></a
+      >
+      <SectionText class="story-subtitle" theme="white">
         Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
         Все истории, где нет нецензурных выражений и запрещенного контента
         попадают сюда. Следите за правильным написанием хештега, чтобы мы не
         пропустили вашу историю.
-      </p>
+      </SectionText>
     </div>
     <ul class="story-images">
       <li class="story-img"><img src="./../static/instagram.png" alt="" /></li>
@@ -24,9 +26,11 @@
 
 <script>
 import SectionTitle from '@/components/SectionTitle';
+import SectionText from '@/components/SectionText';
 export default {
   components: {
     SectionTitle,
+    SectionText,
   },
 };
 </script>

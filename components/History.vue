@@ -1,6 +1,6 @@
 <template>
   <section class="history content-margin">
-    <SectionTitle>Истории неизлечимых привычек</SectionTitle>
+    <SectionTitle theme="white">Истории неизлечимых привычек</SectionTitle>
     <ul class="history-grids">
       <li class="history-grid">
         <img class="history-img" src="./../static/history.png" alt="" />
