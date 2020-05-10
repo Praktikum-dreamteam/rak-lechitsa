@@ -1,7 +1,7 @@
 <template>
   <section class="info">
     <h1 class="title title-info">#РАКЛЕЧИТСЯ</h1>
-    <h2 class="content-title info-title">О проекте</h2>
+    <SectionTitle>О проекте</SectionTitle>
     <div class="info-content">
       <p class="content-subtitle info-subtitle">
         Этот проект был создан благотворительным фондом Константина Хабенского.
@@ -31,7 +31,12 @@
 </template>
 
 <script>
-export default {};
+import SectionTitle from '@/components/SectionTitle';
+export default {
+  components: {
+    SectionTitle,
+  },
+};
 </script>
 
 <style scoped>

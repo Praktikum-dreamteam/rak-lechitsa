@@ -1,9 +1,9 @@
 <template>
   <section class="video content-margin">
     <div class="video-text">
-      <h2 class="content-title video-title">
+      <SectionTitle class="content-title video-title">
         Истории людей, победивших рак, но не свои привычки
-      </h2>
+      </SectionTitle>
       <p class="content-subtitle video-subtitle">
         Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
         страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с
@@ -24,21 +24,17 @@
 </template>
 
 <script>
-export default {};
+import SectionTitle from '@/components/SectionTitle';
+export default {
+  components: {
+    SectionTitle,
+  },
+};
 </script>
 
 <style scoped>
 .button {
   background-color: #fbfbfb;
-}
-
-.content-title {
-  max-width: 413px;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
-  color: #000000;
-  text-align: left;
 }
 
 .content-subtitle {

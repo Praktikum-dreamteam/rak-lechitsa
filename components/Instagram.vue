@@ -1,9 +1,7 @@
 <template>
   <section class="stories content-margin">
     <div class="story">
-      <a src="" class="story-src"
-        ><h2 class="content-title story-title">Инстаграм</h2></a
-      >
+      <a src="" class="story-src"><SectionTitle>Инстаграм</SectionTitle></a>
       <p class="content-subtitle story-subtitle">
         Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
         Все истории, где нет нецензурных выражений и запрещенного контента
@@ -25,19 +23,15 @@
 </template>
 
 <script>
-export default {};
+import SectionTitle from '@/components/SectionTitle';
+export default {
+  components: {
+    SectionTitle,
+  },
+};
 </script>
 
 <style scoped>
-.content-title {
-  max-width: 413px;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
-  color: #000000;
-  text-align: left;
-}
-
 .content-subtitle {
   max-width: 413px;
   font-weight: normal;

@@ -1,6 +1,6 @@
 <template>
   <section class="forma-history">
-    <h2 class="content-title forma-title">Расскажите свою историю</h2>
+    <SectionTitle>Расскажите свою историю</SectionTitle>
     <div class="forma-text">
       <p class="content-subtitle forma-subtitle">
         Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
@@ -31,10 +31,12 @@
 <script>
 import Button from '@/components/ui/Button';
 import Checkbox from '@/components/ui/Checkbox';
+import SectionTitle from '@/components/SectionTitle';
 export default {
   components: {
     Button,
     Checkbox,
+    SectionTitle,
   },
 };
 </script>

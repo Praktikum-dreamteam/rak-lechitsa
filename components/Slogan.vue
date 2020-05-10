@@ -1,7 +1,7 @@
 <template>
   <section class="slogan">
     <p class="content-slogan">
-      <slot> </slot>
+      <slot></slot>
       <span class="slogan-title"> #этонелечится</span>
     </p>
   </section>

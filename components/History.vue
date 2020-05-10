@@ -1,6 +1,6 @@
 <template>
   <section class="history content-margin">
-    <h1 class="content-title">Истории неизлечимых привычек</h1>
+    <SectionTitle>Истории неизлечимых привычек</SectionTitle>
     <ul class="history-grids">
       <li class="history-grid">
         <img class="history-img" src="./../static/history.png" alt="" />
@@ -64,21 +64,17 @@
 </template>
 
 <script>
-export default {};
+import SectionTitle from '@/components/SectionTitle';
+export default {
+  components: {
+    SectionTitle,
+  },
+};
 </script>
 
 <style scoped>
 .button {
   background-color: #fbfbfb;
-}
-
-.content-title {
-  max-width: 413px;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
-  color: #000000;
-  text-align: left;
 }
 
 .content-margin {

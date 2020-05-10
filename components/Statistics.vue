@@ -1,8 +1,6 @@
 <template>
   <section class="statistics content-margin">
-    <h2 class="content-title statistics-title">
-      Статистика по онкозаболеваниям
-    </h2>
+    <SectionTitle>Статистика по онкозаболеваниям</SectionTitle>
     <ul class="statistics-forms">
       <li class="statistics-form">
         <p class="statistics-text">
