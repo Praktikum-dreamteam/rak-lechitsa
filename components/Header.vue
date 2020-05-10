@@ -1,17 +1,19 @@
 <template>
-  <header class="header" ref="abv">
+  <header class="header">
     <h2 class="header__title">
       Проект Благотворительного Фонда Константина Хабенского
     </h2>
     <div class="header__links">
       <header-nav />
-      <header-btn class="header__button">Рассказать историю</header-btn>
+      <header-btn @click="$emit(historyClick)" class="header__button"
+        >Рассказать историю</header-btn
+      >
     </div>
   </header>
 </template>
 
 <script>
-import Button from '~/components/ui/Button';
+import Button from '@/components/ui/Button';
 import Nav from '@/components/Nav';
 export default {
   components: {

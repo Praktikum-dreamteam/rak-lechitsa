@@ -1,6 +1,8 @@
 <template>
   <section class="slogan">
-    <p class="content-slogan">И В ОТЛИЧИЕ ОТ РАКА, <span class="slogan-title">#ЭТОНЕЛЕЧИТСЯ</span></p>
+    <p class="content-slogan">
+      И В ОТЛИЧИЕ ОТ РАКА, <span class="slogan-title">#ЭТОНЕЛЕЧИТСЯ</span>
+    </p>
   </section>
 </template>
 

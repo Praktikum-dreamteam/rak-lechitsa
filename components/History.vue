@@ -11,49 +11,49 @@
       </li>
       <li class="history-grid">
         <img class="history-img" src="./../static/history.png" alt="" />
-        <h2 class="history-title"> Владимир Познер </h2>
+        <h2 class="history-title">Владимир Познер</h2>
         <p class="history-subtitle">
           Я боюсь акул — и, в отличии от рака, это не лечится.
         </p>
       </li>
       <li class="history-grid">
         <img class="history-img" src="./../static/history.png" alt="" />
-        <h2 class="history-title"> Александр Тарханов </h2>
+        <h2 class="history-title">Александр Тарханов</h2>
         <p class="history-subtitle">
           Я не могу победить свою пунктуальность в отличии от рака.
         </p>
       </li>
       <li class="history-grid">
         <img class="history-img" src="./../static/history.png" alt="" />
-        <h2 class="history-title"> Владимир Тен </h2>
+        <h2 class="history-title">Владимир Тен</h2>
         <p class="history-subtitle">
           Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.
         </p>
       </li>
       <li class="history-grid">
         <img class="history-img" src="./../static/history.png" alt="" />
-        <h2 class="history-title"> Владимир Тен </h2>
+        <h2 class="history-title">Владимир Тен</h2>
         <p class="history-subtitle">
           Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.
         </p>
       </li>
       <li class="history-grid">
         <img class="history-img" src="./../static/history.png" alt="" />
-        <h2 class="history-title"> Владимир Познер </h2>
+        <h2 class="history-title">Владимир Познер</h2>
         <p class="history-subtitle">
           Я боюсь акул — и, в отличии от рака, это не лечится.
         </p>
       </li>
       <li class="history-grid">
         <img class="history-img" src="./../static/history.png" alt="" />
-        <h2 class="history-title"> Александр Тарханов </h2>
+        <h2 class="history-title">Александр Тарханов</h2>
         <p class="history-subtitle">
           Я не могу победить свою пунктуальность в отличии от рака.
         </p>
       </li>
       <li class="history-grid">
         <img class="history-img" src="./../static/history.png" alt="" />
-        <h2 class="history-title"> Владимир Тен </h2>
+        <h2 class="history-title">Владимир Тен</h2>
         <p class="history-subtitle">
           Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.
         </p>
