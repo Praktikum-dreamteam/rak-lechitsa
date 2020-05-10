@@ -8,8 +8,8 @@
         болезненных привязанностей.
       </p>
       <ul class="forma-stories">
-        <li class="forma-story">1-й вариант</li>
-        <li class="forma-story">2-й вариант</li>
+        <li class="forma-story"><Checkbox>1-й вариант</Checkbox></li>
+        <li class="forma-story"><Checkbox>2-й вариант</Checkbox></li>
       </ul>
       <p class="forma-content">
         Заполнить подробную форму прямо на сайте и мы опубликуем вашу историю
@@ -30,9 +30,11 @@
 
 <script>
 import Button from '@/components/ui/Button';
+import Checkbox from '@/components/ui/Checkbox';
 export default {
   components: {
     Button,
+    Checkbox,
   },
 };
 </script>
@@ -87,10 +89,10 @@ export default {
   max-width: 340px;
 }
 
-.forma-story {
+/* .forma-story {
   color: #000000;
-  /* color: #A2A2A2; */
-}
+  color: #A2A2A2;
+} */
 
 .forma-content {
   max-width: 640px;
