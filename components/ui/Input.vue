@@ -1,11 +1,24 @@
 <template>
   <div>
-    <input class="input" type="text" placeholder="Напишите тут" />
+    <input
+      @input="$emit('input', $event.target.value)"
+      class="input"
+      type="text"
+      placeholder="Напишите тут"
+      :value="value"
+    />
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['valueInput'],
+  computed: {
+    value() {
+      return this.valueInput;
+    },
+  },
+};
 </script>
 
 <style scoped>

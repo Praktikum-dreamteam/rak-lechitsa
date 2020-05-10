@@ -7,13 +7,35 @@
       <History />
       <Slogan2 />
       <Instagram />
-      <InfoBlock @openFormClick="openOrCloseForm" />
+      <InfoBlock @openFormClick="openForm" />
       <Statistics />
       <Info />
-      <Popup v-if="IsFormShow" @closeClick="openOrCloseForm">
-        <Form class="container__form"></Form>
+      <Popup
+        v-if="IsFormShow"
+        haveClose="true"
+        :title="titleForForm"
+        @closeClick="closeForm"
+      >
+        <Form
+          @clickBack="backStep"
+          @clickNext="nextStep"
+          @answerInput="writeAnswer"
+          :answer="questionnaire[currentStep].answer"
+          :formQuestion="questionnaire[currentStep].question"
+          :description="questionnaire[currentStep].description"
+          class="container__form"
+          :isLast="isLast"
+        ></Form>
       </Popup>
-      <Overlay v-if="IsFormShow" />
+      <Popup
+        v-if="isShowGratitude"
+        :haveClose="isLast"
+        class="index__popup"
+        title="Спасибо что приняли участие!"
+      >
+        <Button @btn-click="closeGratitude" theme="violet">Закрыть</Button>
+      </Popup>
+      <Overlay @overlayClick="closeForm" v-if="IsFormShow || isShowGratitude" />
     </div>
   </div>
 </template>
@@ -32,15 +54,106 @@ import Info from '@/components/Info';
 import Popup from '@/components/PopUp';
 import Form from '@/components/Form';
 import Overlay from '@/components/ui/Overlay';
+import Button from '@/components/ui/Button';
 export default {
   data() {
     return {
       IsFormShow: false,
+      questionnaire: [
+        {
+          question: 'Как вас зовут ?',
+          description: '',
+          answer: '',
+        },
+        {
+          question: 'Было ли у вас онкологическое заболевание?',
+          description:
+            'Если да – расскажите, пожалуйста, кратко, какой диагноз и текущий статус. Если нет — приглашаем Вас поделиться своей историей неизлечимых привычек в Инстаграм с хештегами #раклечится и #этонелечится.',
+          answer: '',
+        },
+        {
+          question: 'Какие занятия приносят Вам наибольшее удовольствие? ',
+          description:
+            'Расскажите о ваших неизлечимых привычках, чего Вы боитесь или без чего не можете жить.',
+          answer: '',
+        },
+        {
+          question:
+            'На что, кроме семьи, быта и работы, Вы тратите свое время?',
+          description: '',
+          answer: '',
+        },
+        {
+          question: 'Какие сильные увлечения у Вас есть?',
+          description:
+            'Расскажите о занятии, хобби или спорте, которые увлекают Вас с головой.',
+          answer: '',
+        },
+        {
+          question:
+            ' Ваши близкие, друзья или коллеги замечали за вами какие-нибудь необычные привычки или особенности?',
+          description: '',
+          answer: '',
+        },
+      ],
+      currentStep: 0,
+      titleForForm: '',
+      currentAnswer: '',
+      isLast: false,
+      isShowGratitude: false,
     };
   },
+  computed: {},
   methods: {
-    openOrCloseForm() {
-      this.IsFormShow = !this.IsFormShow;
+    openForm() {
+      this.IsFormShow = true;
+      this.updateTitleForForm();
+    },
+    closeForm() {
+      this.IsFormShow = false;
+    },
+    nextStep() {
+      if (this.isLast) {
+        this.sendData();
+        return;
+      }
+      if (this.currentStep < this.questionnaire.length - 1) {
+        this.currentStep++;
+        this.isLast = false;
+        this.updateTitleForForm();
+      }
+      if (this.currentStep == this.questionnaire.length - 1) {
+        this.isLast = true;
+      } else {
+        this.isLast = false;
+      }
+    },
+    closeGratitude() {
+      this.isShowGratitude = false;
+    },
+    sendData() {
+      console.log(JSON.stringify(this.questionnaire));
+      this.currentStep = 0;
+      this.isLast = false;
+      this.IsFormShow = false;
+      this.isShowGratitude = true;
+      this.questionnaire.forEach(item => (item.answer = ''));
+    },
+    backStep() {
+      if (this.currentStep > 0) {
+        this.currentStep--;
+        this.isLast = false;
+        this.updateTitleForForm();
+      }
+    },
+    updateTitleForForm() {
+      this.titleForForm = `Шаг ${this.currentStep + 1} из ${
+        this.questionnaire.length
+      }`;
+      this.currentAnswer = this.questionnaire[this.currentStep].answer;
+    },
+    writeAnswer(text) {
+      this.questionnaire[this.currentStep].answer = text;
     },
   },
   components: {
@@ -57,6 +170,7 @@ export default {
     Form,
     Popup,
     Overlay,
+    Button,
   },
 };
 </script>
@@ -93,5 +207,12 @@ export default {
 }
 .test {
   width: 100%;
+}
+.index__popup {
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>

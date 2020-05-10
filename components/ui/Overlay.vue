@@ -1,5 +1,5 @@
 <template>
-  <div class="overlay"></div>
+  <div @click="$emit('overlayClick')" class="overlay"></div>
 </template>
 
 <script>

@@ -23,6 +23,9 @@ export default {
   border: none;
   cursor: pointer;
 }
+.btn:focus {
+  outline: none;
+}
 .btn_theme_violet {
   color: #fff;
   background: #613a93;

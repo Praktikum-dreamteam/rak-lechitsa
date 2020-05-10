@@ -1,15 +1,23 @@
 <template>
   <div class="popup">
     <div class="popup__header">
-      <h2 class="popup__title">Шаг 1 из 12</h2>
-      <div @click="$emit('closeClick')" class="popup__close"></div>
+      <h2 class="popup__title" :class="{ popup__title_center: !haveClose }">
+        {{ title }}
+      </h2>
+      <div
+        v-if="haveClose"
+        @click="$emit('closeClick')"
+        class="popup__close"
+      ></div>
     </div>
     <slot>Содержимое окна</slot>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['title', 'haveClose'],
+};
 </script>
 
 <style scoped>
@@ -18,7 +26,7 @@ export default {};
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 920px;
+  width: 920px;
   box-sizing: border-box;
   z-index: 2;
   padding: 38px;
@@ -32,6 +40,9 @@ export default {};
   font-size: 32px;
   line-height: 36px;
   font-weight: 600;
+}
+.popup__title_center {
+  margin: 0 auto;
 }
 .popup__close {
   cursor: pointer;
