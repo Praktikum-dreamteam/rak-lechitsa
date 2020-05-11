@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import Nav from '@/components/Nav';
+import Nav from '~/components/ui/Nav';
 import Copyright from '@/components/Copyright';
 
 export default {

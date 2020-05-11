@@ -4,16 +4,17 @@
       <li class="nav__list-item">
         <nuxt-link
           to="/"
-          class="nav__link"
-          :class="{ nav__link_underline: $route.path == '/' }"
+          :class="['nav__link', { nav__link_underline: $route.path == '/' }]"
           >Главная</nuxt-link
         >
       </li>
       <li class="nav__list-item">
         <nuxt-link
           to="/stories"
-          class="nav__link"
-          :class="{ nav__link_underline: $route.path == '/stories' }"
+          :class="[
+            'nav__link',
+            { nav__link_underline: $route.path == '/stories' },
+          ]"
           >Истории</nuxt-link
         >
       </li>
@@ -21,11 +22,7 @@
   </nav>
 </template>
 
-<script>
-export default {
-  props: ['classes'],
-};
-</script>
+<script></script>
 
 <style scoped>
 .nav__list-items {
