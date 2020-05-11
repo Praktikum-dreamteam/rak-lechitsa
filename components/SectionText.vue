@@ -20,6 +20,19 @@ export default {
   text-align: left;
 }
 
+@media screen and (max-width: 1280px) {
+  .section-text {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .section-text {
+    font-size: 13px;
+    line-height: 16px;
+  }
+}
+
 .section-text_theme_violet {
   color: #dedede;
 }
