@@ -1,15 +1,20 @@
 <template>
-  <button
-    @click.prevent="$emit('btn-click')"
-    :class="['btn', `btn_theme_${theme}`]"
-  >
-    <slot></slot>
-  </button>
+  <div>
+    <button
+      v-bind:disabled="isDisabledActive"
+      :type="type"
+      @click.prevent="$emit('btn-click')"
+      :class="['btn', `btn_theme_${theme}`, { btn_disabled: isDisabledActive }]"
+    >
+      <slot></slot>
+    </button>
+  </div>
+
 </template>
 
 <script>
 export default {
-  props: ['theme'],
+  props: ['theme', 'type', 'isDisabledActive'],
 };
 </script>
 
@@ -22,6 +27,7 @@ export default {
   border: none;
   cursor: pointer;
 }
+
 .btn:focus {
   outline: none;
 }
@@ -34,6 +40,11 @@ export default {
 .btn_theme_grey {
   color: #666;
   line-height: 19px;
+}
+
+.btn_disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 @media screen and (max-width: 768px) {
