@@ -1,15 +1,15 @@
 <template>
-  <section class="video content-margin page__section">
-    <div class="video-text">
-      <SectionTitle class="content-title video-title">
+  <section class="video page__section">
+    <div class="video__text">
+      <SectionTitle class="content-title video__title" theme="white">
         Истории людей, победивших рак, но не свои привычки
       </SectionTitle>
-      <p class="content-subtitle video-subtitle">
+      <SectionText class="content-subtitle video-subtitle" theme="white">
         Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
         страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с
         их историями.
-      </p>
-      <div class="video-polygon">
+      </SectionText>
+      <div class="video__polygon">
         <!-- <button class="button video-button">&#5176</button> -->
         <!-- <button class="button video-button">&#5171</button> -->
       </div>
@@ -17,17 +17,20 @@
     <figure class="video__card">
       <img class="video__image" src="./../static/video.png" alt="Видео" />
       <figcaption class="video__caption">
-        Все видео вы можете найте на нашем YouTube канале.
+        Все видео вы можете найте на нашем <a href="">YouTube канале.</a>
       </figcaption>
     </figure>
+    пше
   </section>
 </template>
 
 <script>
 import SectionTitle from '@/components/SectionTitle';
+import SectionText from '@/components/SectionText';
 export default {
   components: {
     SectionTitle,
+    SectionText,
   },
 };
 </script>
@@ -37,39 +40,31 @@ export default {
   background-color: #fbfbfb;
 }
 
-.content-subtitle {
-  max-width: 413px;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: #666666;
-  text-align: left;
-}
 
 .video {
   padding-top: 100px;
+  padding-bottom: 100px;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 100px;
 }
 
-.video-text {
+.video__text {
   margin-right: 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.video-title {
+.video__title {
   margin-top: 10px;
   margin-bottom: 30px;
 }
 
-.video-subtitle {
+.video__subtitle {
   padding-right: 70px;
 }
 
-.video-polygon {
+.video__polygon {
   margin-top: 150px;
   margin-left: 0;
   display: flex;
@@ -81,6 +76,9 @@ export default {
 }
 
 .video__caption {
+  font-size: 12px;
+  line-height: 16px;
+  color: #666666;
   text-align: left;
 }
 
