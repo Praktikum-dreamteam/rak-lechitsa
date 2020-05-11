@@ -47,4 +47,19 @@
     font-size: 16px;
   }
 }
+@media screen and (max-width: 992px) {
+  .footer.nav.nav__list-items /deep/ {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer.nav.nav__list-item /deep/ {
+    margin: 0 0 14px 0;
+  }
+}
+@media screen and (max-width: 320px) {
+  .nav__link {
+    font-size: 13px;
+    line-height: 15px;
+  }
+}
 </style>

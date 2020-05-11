@@ -4,52 +4,54 @@
       <h2 class="footer__title">
         Спасибо всем, кто помог состояться этому проекту
       </h2>
-      <copyright>Рак Лечится 2020</copyright>
     </div>
     <footer-nav class="footer__nav" />
-    <div class="footer__container">
-      <ul class="footer__list-items">
-        <li class="footer__list-item">
-          <p class="asd">
-            Мы в
-            <a
-              href="https://instagram.com"
-              class="footer__social-link"
-              target="_blank"
-              >Инстаграме</a
-            >
-            и
-            <a
-              href="https://youtube.com"
-              class="footer__social-link"
-              target="_blank"
-              >Youtube</a
-            >
-          </p>
-        </li>
-        <li class="footer__list-item">
-          <a href="" class="footer__social-link">Поделитесь &#8599;</a>
-        </li>
-      </ul>
-      <copyright>Сделано студентами Яндекс Практикум</copyright>
-    </div>
+    <ul class="footer__list-items">
+      <li class="footer__list-item">
+        <p class="footer__subtitle">
+          Мы в
+          <a
+            href="https://www.instagram.com/raklechitsa/"
+            class="footer__social-link"
+            target="_blank"
+            >Инстаграме</a
+          >
+          и
+          <a
+            href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+            class="footer__social-link"
+            target="_blank"
+            >Youtube</a
+          >
+        </p>
+      </li>
+      <li class="footer__list-item">
+        <share-btn @btn-click="$emit('openFormClick')" theme="share"
+          >Поделитесь &#8599;</share-btn
+        >
+      </li>
+    </ul>
+    <copyright class="copyright footer__copyright">Рак Лечится 2020</copyright>
+    <copyright>Сделано студентами Яндекс Практикум</copyright>
   </footer>
 </template>
 
 <script>
 import Nav from '~/components/ui/Nav';
 import Copyright from '@/components/Copyright';
+import Button from '~/components/ui/Button';
 
 export default {
   components: {
     'footer-nav': Nav,
     copyright: Copyright,
+    'share-btn': Button,
   },
 };
 </script>
 
 <style scoped>
-.asd {
+.footer__subtitle {
   font-size: 18px;
   line-height: 24px;
 }
@@ -58,6 +60,7 @@ export default {
   max-width: 1440px;
   padding: 60px 4%;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   background-color: #fbfbfb;
 }
@@ -72,10 +75,9 @@ export default {
   margin-left: 8.5%;
 }
 .footer__list-items {
-  align-self: flex-end;
+  margin: 0 0 126px auto;
   list-style: none;
   padding: 0;
-  margin-bottom: 126px;
 }
 .footer__list-item {
   margin: 0 56px 44px auto;
@@ -83,15 +85,91 @@ export default {
 .footer__list-item:last-child {
   margin-bottom: 0;
 }
-.footer__container {
-  margin: 0 0 0 auto;
-  display: flex;
-  flex-direction: column;
-}
 .footer__social-link {
   font-size: 18px;
   line-height: 24px;
   text-decoration: none;
   color: black;
+}
+.footer__copyright {
+  width: 400px;
+}
+.btn.btn_theme_share {
+  padding: 0;
+  font-size: 18px;
+  line-height: 24px;
+}
+@media screen and (max-width: 1280px) {
+  .footer__social-link {
+    font-size: 16px;
+  }
+  .footer__title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .footer /deep/ .nav__list-items {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer /deep/ .nav__list-item {
+    margin: 0 0 14px 0;
+  }
+  .footer__list-item {
+    margin-bottom: 14px;
+  }
+  .footer__list-item:last-child {
+    margin-bottom: 0;
+  }
+  .footer__title {
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .footer__nav {
+    margin-left: auto;
+  }
+  .footer__copyright {
+    width: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+  }
+  .footer__title {
+    margin-bottom: 50px;
+  }
+  .footer__nav {
+    margin: 0;
+  }
+  .footer__list-items {
+    margin: 0 0 50px 0;
+  }
+  .footer__copyright {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .copyright {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .footer__subtitle {
+    font-size: 13px;
+    line-height: 15px;
+  }
+  .footer__social-link {
+    font-size: 13px;
+    line-height: 15px;
+  }
+  .footer /deep/ .btn_theme_share {
+    font-size: 13px;
+    line-height: 15px;
+  }
+  .footer__title {
+    font-size: 18px;
+    line-height: 21px;
+  }
 }
 </style>

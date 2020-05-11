@@ -2,17 +2,48 @@
   <div>
     <Header />
     <nuxt />
-    <Footer />
+    <Popup
+      v-if="IsFormShow"
+      haveClose="true"
+      class="share__popup"
+      title="Поделитесь"
+      @closeClick="closeForm"
+    >
+      <Share />
+    </Popup>
+    <Overlay @overlayClick="closeForm" v-if="IsFormShow || isShowGratitude" />
+    <Footer @openFormClick="openForm" />
   </div>
 </template>
 
 <script>
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import Popup from '@/components/PopUp';
+import Overlay from '@/components/ui/Overlay';
+import Share from '@/components/Share';
+
 export default {
+  data() {
+    return {
+      IsFormShow: false,
+    };
+  },
+  computed: {},
+  methods: {
+    openForm() {
+      this.IsFormShow = true;
+    },
+    closeForm() {
+      this.IsFormShow = false;
+    },
+  },
   components: {
     Footer,
     Header,
+    Popup,
+    Overlay,
+    Share,
   },
 };
 </script>
@@ -35,5 +66,25 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+.popup.share__popup {
+  padding: 40px 0 108px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 800px;
+}
+@media screen and (max-width: 900px) {
+  .popup.share__popup {
+    width: 580px;
+    padding: 25px 0 70px 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .popup.share__popup {
+    width: 290px;
+    padding: 35px 0 70px 0;
+  }
 }
 </style>

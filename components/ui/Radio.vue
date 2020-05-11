@@ -18,6 +18,18 @@ export default {
   display: none;
 }
 
+.radio__label {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@media screen and (max-width: 768px) {
+  .radio__label {
+    font-size: 15px;
+    line-height: 19px;
+  }
+}
+
 .radio__label_theme_violet {
   color: #fff;
 }

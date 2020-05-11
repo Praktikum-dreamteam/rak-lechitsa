@@ -21,6 +21,19 @@ export default {
   text-align: left;
 }
 
+@media screen and (max-width: 1280px) {
+  .section-title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .section-title {
+    font-size: 13px;
+    line-height: 16px;
+  }
+}
+
 .section-title_theme_violet {
   color: #fff;
 }
