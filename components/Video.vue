@@ -1,5 +1,5 @@
 <template>
-  <section class="video content-margin">
+  <section class="video content-margin page__section">
     <div class="video-text">
       <SectionTitle class="content-title video-title">
         Истории людей, победивших рак, но не свои привычки
@@ -47,13 +47,14 @@ export default {
 }
 
 .content-margin {
-  margin: 100px 60px;
+  /* margin: 100px 60px; */
 }
 
 .video {
-  max-width: 100%;
+  padding-top: 100px;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 100px;
 }
 
 .video-text {
