@@ -1,4 +1,49 @@
+
 @font-face {
-  src: url(./Inter-VariableFont_slnt,wght.ttf);
+  src: url(./Inter-Thin-slnt=0.ttf);
   font-family: 'Inter';
+  font-weight: 100;
 }
+
+@font-face {
+  src: url(./Inter-ExtraLight-slnt=0.ttf);
+  font-family: 'Inter';
+  font-weight: 200;
+}
+@font-face {
+  src: url(./Inter-Light-slnt=0.ttf);
+  font-family: 'Inter';
+  font-weight: 300;
+}
+@font-face {
+  src: url(./Inter-Regular-slnt=0.ttf);
+  font-family: 'Inter';
+  font-weight: 400;
+}
+@font-face {
+  src: url(./Inter-Medium-slnt=0.ttf);
+  font-family: 'Inter';
+  font-weight: 500;
+}
+@font-face {
+  src: url(./Inter-SemiBold-slnt=0.ttf);
+  font-family: 'Inter';
+  font-weight: 600;
+}
+@font-face {
+  src: url(./Inter-Bold-slnt=0.ttf);
+  font-family: 'Inter';
+  font-weight: 700;
+}
+@font-face {
+  src: url(./Inter-ExtraBold-slnt=0.ttf);
+  font-family: 'Inter';
+  font-weight: 800;
+}
+@font-face {
+  src: url(./Inter-Bold-slnt=0.ttf);
+  font-family: 'Inter';
+  font-weight: 900;
+}
+
+

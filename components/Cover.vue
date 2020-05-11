@@ -24,7 +24,7 @@ export default {};
 .cover__title {
   color: #ffffff;
   text-align: center;
-  font-weight: bold;
+  font-weight: 800;
   font-size: 92px;
   line-height: 111px;
   text-transform: uppercase;

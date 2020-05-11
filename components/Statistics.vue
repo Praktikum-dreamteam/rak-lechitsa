@@ -55,6 +55,10 @@ export default {
 </script>
 
 <style scoped>
+.statistics {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
 .statistics__forms {
   margin-top: 70px;
   list-style: none;
