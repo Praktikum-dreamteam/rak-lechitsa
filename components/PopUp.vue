@@ -67,4 +67,10 @@ export default {
 .popup__close::after {
   transform: rotate(-45deg);
 }
+@media screen and (max-width: 650px) {
+  .popup__title {
+    font-size: 18px;
+    line-height: 21px;
+  }
+}
 </style>

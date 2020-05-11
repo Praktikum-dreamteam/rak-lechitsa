@@ -2,25 +2,56 @@
   <div>
     <Header />
     <nuxt />
-    <Footer />
+    <Popup
+      v-if="IsFormShow"
+      haveClose="true"
+      class="share__popup"
+      title="Поделитесь"
+      @closeClick="closeForm"
+    >
+      <Share />
+    </Popup>
+    <Overlay @overlayClick="closeForm" v-if="IsFormShow || isShowGratitude" />
+    <Footer @openFormClick="openForm" />
   </div>
 </template>
 
 <script>
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import Popup from '@/components/PopUp';
+import Overlay from '@/components/ui/Overlay';
+import Share from '@/components/Share';
+
 export default {
+  data() {
+    return {
+      IsFormShow: false,
+    };
+  },
+  computed: {},
+  methods: {
+    openForm() {
+      this.IsFormShow = true;
+    },
+    closeForm() {
+      this.IsFormShow = false;
+    },
+  },
   components: {
     Footer,
     Header,
+    Popup,
+    Overlay,
+    Share,
   },
 };
 </script>
 
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -36,33 +67,24 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.popup.share__popup {
+  padding: 40px 0 108px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 800px;
 }
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+@media screen and (max-width: 900px) {
+  .popup.share__popup {
+    width: 580px;
+    padding: 25px 0 70px 0;
+  }
 }
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+@media screen and (max-width: 650px) {
+  .popup.share__popup {
+    width: 290px;
+    padding: 35px 0 70px 0;
+  }
 }
 </style>
