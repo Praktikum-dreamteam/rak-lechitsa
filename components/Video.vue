@@ -40,7 +40,6 @@ export default {
   background-color: #fbfbfb;
 }
 
-
 .video {
   padding-top: 100px;
   padding-bottom: 100px;

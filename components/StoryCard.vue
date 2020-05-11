@@ -1,75 +1,68 @@
 <template>
-  <div class="story-card">
-    <a class="story-card__link" :href="link" target="_blank">
-      <div class="story-card__image-wrapper">
-        <img class="story-card__image" :src="image" :alt="imageAlt" />
-      </div>
-      <p class="story-card__hero" v-html="cardHero"></p>
-      <p class="story-card__description" v-html="cardDescription"></p>
-    </a>
-  </div>
+  <li class="history-card">
+    <nuxt-link class="history-card__link" :to="`/stories/${id}`">
+      <img
+        class="history-card__img"
+        src="./../static/history.png"
+        alt="Фотография"
+      />
+      <h2 class="history-card__title">{{ name }}</h2>
+      <p class="history-card__subtitle">{{ description }}</p>
+    </nuxt-link>
+  </li>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      link: '',
-      image: '',
-      imageAlt: '',
-      cardHero: '',
-      cardDescription: '',
-    };
-  },
+  props: ['id', 'src', 'name', 'description'],
 };
 </script>
 
 <style scoped>
-.story-card {
-  max-width: 300px;
-}
-
-.story-card__link {
+.history-card__link {
   text-decoration: none;
 }
-
-.story-card__image-wrapper {
-  width: 100%;
-  height: 300px;
-  margin-bottom: 20px;
-}
-
-.story-card__image {
-  width: 100%;
-  height: 100%;
-}
-
-.story-card__hero {
-  color: #000;
+.history-card__title {
+  margin-top: 20px;
   font-weight: 600;
   font-size: 22px;
   line-height: 22px;
-  margin-bottom: 10px;
+  color: #000;
 }
-
-.story-card__hero * {
-  margin: 0;
-}
-
-.story-card__description {
-  max-width: 250px;
-  color: #666;
+.history-card__subtitle {
+  max-width: 245px;
+  margin-top: 14px;
   font-size: 14px;
   line-height: 18px;
+  color: #666;
 }
-
-@media (max-width: 1281px) {
-  .story-card {
-    max-width: 265px;
+.history-card__img {
+  object-fit: cover;
+  width: 100%;
+}
+@media screen and (max-width: 1024px) {
+  .history-card__title {
+    margin-top: 14px;
   }
-
-  .story-card__image-wrapper {
-    height: 265px;
+  .history-card__subtitle {
+    max-width: 195px;
+  }
+}
+@media screen and (max-width: 950px) {
+  .history-card__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .history-card__subtitle {
+    font-size: 13px;
+    max-width: 190px;
+    line-height: 16px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .history-card__subtitle {
+    max-width: 290px;
+    margin-top: 12px;
   }
 }
 </style>

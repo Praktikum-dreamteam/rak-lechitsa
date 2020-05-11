@@ -1,121 +1,192 @@
 <template>
-  <section class="history content-margin">
+  <section class="history">
     <SectionTitle theme="white">Истории неизлечимых привычек</SectionTitle>
-    <ul class="history-grids">
-      <li class="history-grid">
-        <img class="history-img" src="./../static/history.png" alt="" />
-        <h2 class="history-title">Владимир Тен</h2>
-        <p class="history-subtitle">
-          Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.
-        </p>
-      </li>
-      <li class="history-grid">
-        <img class="history-img" src="./../static/history.png" alt="" />
-        <h2 class="history-title">Владимир Познер</h2>
-        <p class="history-subtitle">
-          Я боюсь акул — и, в отличии от рака, это не лечится.
-        </p>
-      </li>
-      <li class="history-grid">
-        <img class="history-img" src="./../static/history.png" alt="" />
-        <h2 class="history-title">Александр Тарханов</h2>
-        <p class="history-subtitle">
-          Я не могу победить свою пунктуальность в отличии от рака.
-        </p>
-      </li>
-      <li class="history-grid">
-        <img class="history-img" src="./../static/history.png" alt="" />
-        <h2 class="history-title">Владимир Тен</h2>
-        <p class="history-subtitle">
-          Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.
-        </p>
-      </li>
-      <li class="history-grid">
-        <img class="history-img" src="./../static/history.png" alt="" />
-        <h2 class="history-title">Владимир Тен</h2>
-        <p class="history-subtitle">
-          Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.
-        </p>
-      </li>
-      <li class="history-grid">
-        <img class="history-img" src="./../static/history.png" alt="" />
-        <h2 class="history-title">Владимир Познер</h2>
-        <p class="history-subtitle">
-          Я боюсь акул — и, в отличии от рака, это не лечится.
-        </p>
-      </li>
-      <li class="history-grid">
-        <img class="history-img" src="./../static/history.png" alt="" />
-        <h2 class="history-title">Александр Тарханов</h2>
-        <p class="history-subtitle">
-          Я не могу победить свою пунктуальность в отличии от рака.
-        </p>
-      </li>
-      <li class="history-grid">
-        <img class="history-img" src="./../static/history.png" alt="" />
-        <h2 class="history-title">Владимир Тен</h2>
-        <p class="history-subtitle">
-          Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.
-        </p>
-      </li>
+    <ul class="history__cards">
+      <StoryCard
+        v-for="story in stories"
+        :key="story.id"
+        src="./../static/history.png"
+        :id="story.id"
+        :name="story.name"
+        :description="story.description"
+      ></StoryCard>
     </ul>
-    <button class="button history-button">Больше статей</button>
+    <nuxt-link class="history__link" to="/">Больше статей</nuxt-link>
   </section>
 </template>
 
 <script>
 import SectionTitle from '@/components/SectionTitle';
+import StoryCard from '@/components/StoryCard';
 export default {
+  data() {
+    return {
+      stories: [
+        {
+          id: 1,
+          name: 'Владимир Тен',
+          description:
+            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
+          src: '',
+        },
+        {
+          id: 2,
+          name: 'Владимир Познер',
+          description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
+          src: '',
+        },
+        {
+          id: 3,
+          name: 'Александр Тарханов',
+          description:
+            'Я не могу победить свою пунктуальность в отличии от рака.',
+          src: '',
+        },
+        {
+          id: 4,
+          name: 'Владимир Тен',
+          description:
+            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
+          src: '',
+        },
+        {
+          id: 5,
+          name: 'Владимир Познер',
+          description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
+          src: '',
+        },
+        {
+          id: 6,
+          name: 'Александр Тарханов',
+          description:
+            'Я не могу победить свою пунктуальность в отличии от рака.',
+          src: '',
+        },
+        {
+          id: 7,
+          name: 'Владимир Тен',
+          description:
+            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
+          src: '',
+        },
+        {
+          id: 8,
+          name: 'Владимир Познер',
+          description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
+          src: '',
+        },
+      ],
+    };
+  },
   components: {
     SectionTitle,
+    StoryCard,
   },
 };
 </script>
 
 <style scoped>
-.button {
-  background-color: #fbfbfb;
+.history {
 }
-
-.content-margin {
-  margin: 100px 60px;
-}
-
-.history-grids {
-  margin: 70px 0;
+.history__cards {
+  padding: 0;
+  list-style-type: none;
+  margin-top: 65px;
   display: grid;
-  list-style: none;
-  padding-left: 0;
-  grid-template-columns: repeat(4, 300px);
-  grid-template-rows: 2fr;
-  grid-row: 70px;
-  grid-gap: 40px;
+  grid-template-columns: repeat(4, minmax(208px, 300px));
+  justify-content: center;
+  column-gap: 40px;
+  row-gap: 70px;
 }
-
-.history-title {
+.history__card-title {
   margin-top: 20px;
   font-weight: 600;
   font-size: 22px;
   line-height: 22px;
-  color: #000000;
-  text-align: left;
 }
-
-.history-subtitle {
-  font-weight: normal;
+.history__card-subtitle {
+  max-width: 245px;
+  margin-top: 14px;
   font-size: 14px;
   line-height: 18px;
-  color: #666666;
-  text-align: left;
-  margin-top: 14px;
+  color: #666;
 }
-
-.history-button {
+.history__card-img {
+  object-fit: cover;
+  width: 100%;
+}
+.history__link {
+  margin-top: 70px;
+  display: flex;
+  width: 100%;
+  height: 82px;
+  background-color: #fbfbfb;
+  color: #000;
+  align-items: center;
+  justify-content: center;
   font-size: 16px;
   line-height: 20px;
-  color: #000000;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 1280px) {
+  .history__cards {
+    row-gap: 70px;
+    margin-top: 55px;
+  }
+  .history__link {
+    height: 78px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .history__cards {
+    row-gap: 70px;
+    margin-top: 55px;
+    row-gap: 45px;
+    column-gap: 30px;
+  }
+  .history__card-title {
+    margin-top: 14px;
+  }
+  .history__link {
+    margin-top: 40px;
+    height: 50px;
+  }
+  .history__card-subtitle {
+    max-width: 195px;
+  }
+}
+@media screen and (max-width: 950px) {
+  .history__cards {
+    grid-template-columns: repeat(3, minmax(200px, 300px));
+    column-grap: 40px;
+    row-grap: 20px;
+  }
+  .history__card-title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .history__card-subtitle {
+    font-size: 13px;
+    max-width: 190px;
+    line-height: 16px;
+  }
+}
+@media screen and (max-width: 690px) {
+  .history__cards {
+    grid-template-columns: repeat(2, minmax(208px, 300px));
+  }
+}
+@media screen and (max-width: 450px) {
+  .history__cards {
+    grid-template-columns: repeat(1, minmax(208px, 300px));
+  }
+  .history__card-subtitle {
+    max-width: 290px;
+    margin-top: 12px;
+  }
+  .history__link {
+    font-size: 13px;
+  }
 }
 </style>
