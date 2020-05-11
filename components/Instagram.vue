@@ -116,16 +116,13 @@ export default {
 .stories {
   display: flex;
 }
-
 .story {
   margin-right: 40px;
 }
-
 .story-subtitle {
   margin-top: 32px;
   padding-right: 70px;
 }
-
 .story-src {
   text-decoration: none;
 }
@@ -138,7 +135,6 @@ export default {
   margin-top: 2px;
   max-width: 160px;
 }
-
 .content-subtitle {
   max-width: 413px;
   font-weight: normal;
@@ -147,11 +143,9 @@ export default {
   color: #666666;
   text-align: left;
 }
-
 .content-margin {
   margin: 100px 60px;
 }
-
 .story-images {
   max-width: 900px;
   display: grid;
@@ -161,12 +155,10 @@ export default {
   grid-template-rows: repeat(2, 195px);
   grid-gap: 30px;
 }
-
 .story-images__image {
   width: 100%;
   height: 100%;
 }
-
 @media (max-width: 1281px) {
   .story-images {
     max-width: 765px;
@@ -175,7 +167,6 @@ export default {
     grid-gap: 27px;
   }
 }
-
 @media (max-width: 1025px) {
   .story-images {
     max-width: 604px;
@@ -184,14 +175,12 @@ export default {
     grid-gap: 20px;
   }
 }
-
 @media (max-width: 769px) {
   .stories {
     flex-direction: column;
     margin: 0 auto;
     align-items: center;
   }
-
   .story-images {
     max-width: 688px;
     grid-template-columns: repeat(4, 157px);
@@ -199,7 +188,6 @@ export default {
     grid-gap: 20px;
   }
 }
-
 @media (max-width: 551px) {
   .story-images {
     max-width: 500px;
@@ -208,7 +196,6 @@ export default {
     grid-gap: 20px;
   }
 }
-
 @media (max-width: 425px) {
   .story-images {
     max-width: 400px;
@@ -217,7 +204,6 @@ export default {
     grid-gap: 10px;
   }
 }
-
 @media (max-width: 321px) {
   .story-images {
     max-width: 290px;

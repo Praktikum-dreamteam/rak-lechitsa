@@ -179,7 +179,6 @@ export default {
 .page {
   width: 100%;
 }
-
 .page /deep/ .page__section {
   max-width: 1440px;
   margin-left: auto;
@@ -187,11 +186,11 @@ export default {
   padding-left: 60px;
   padding-right: 60px;
 }
-
 .page /deep/ .page__section_cover {
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
-
 .container__form {
   min-height: 520px;
 }

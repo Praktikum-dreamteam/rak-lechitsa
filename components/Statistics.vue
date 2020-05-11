@@ -1,38 +1,38 @@
 <template>
-  <section class="statistics content-margin">
-    <SectionTitle>Статистика по онкозаболеваниям</SectionTitle>
-    <ul class="statistics-forms">
-      <li class="statistics-form">
-        <p class="statistics-text">
+  <section class="statistics content-margin page__section">
+    <SectionTitle theme="white">Статистика по онкозаболеваниям</SectionTitle>
+    <ul class="statistics__forms">
+      <li class="statistics__form">
+        <p class="statistics__text">
           Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918
           000 человек.
         </p>
         <ProgressBar :value="1" :maxValue="3" />
-        <h3 class="statistics-subtitle">1 из 3</h3>
-        <p class="statistics-content">Левада-Центр 2018</p>
+        <h3 class="statistics__subtitle">1 из 3</h3>
+        <p class="statistics__content">Левада-Центр 2018</p>
       </li>
-      <li class="statistics-form">
-        <p class="statistics-text">2,6% Россиян имеют онкозаболевания.</p>
+      <li class="statistics__form">
+        <p class="statistics__text">2,6% Россиян имеют онкозаболевания.</p>
         <ProgressBar :value="2.6" :maxValue="100" />
-        <h3 class="statistics-subtitle">3 700 000</h3>
-        <p class="statistics-content">Росстат 2018</p>
+        <h3 class="statistics__subtitle">3 700 000</h3>
+        <p class="statistics__content">Росстат 2018</p>
       </li>
-      <li class="statistics-form">
-        <p class="statistics-text">
+      <li class="statistics__form">
+        <p class="statistics__text">
           На 28% выросла доля выявления заболеваний на ранней стадии за 10 лет.
         </p>
         <DoubleProgressBar :oldValue="50" :newValue="40" :maxValue="100" />
-        <h3 class="statistics-subtitle">&uarr;28%</h3>
-        <p class="statistics-content">МНИОИ Герцена 2018</p>
+        <h3 class="statistics__subtitle">&uarr;28%</h3>
+        <p class="statistics__content">МНИОИ Герцена 2018</p>
       </li>
-      <li class="statistics-form">
-        <p class="statistics-text">
+      <li class="statistics__form">
+        <p class="statistics__text">
           На 25% снизилась смертность в течение первого года после постановки
           диагноза.
         </p>
         <DoubleProgressBar :oldValue="50" :newValue="40" :maxValue="100" />
-        <h3 class="statistics-subtitle">&darr;25&#37;</h3>
-        <p class="statistics-content">МНИОИ Герцена 2018</p>
+        <h3 class="statistics__subtitle">&darr;25&#37;</h3>
+        <p class="statistics__content">МНИОИ Герцена 2018</p>
       </li>
     </ul>
   </section>
@@ -41,39 +41,29 @@
 <script>
 import ProgressBar from '@/components/ui/ProgressBar';
 import DoubleProgressBar from '@/components/ui/DoubleProgressBar';
-
+import SectionTitle from '@/components/SectionTitle';
+import SectionText from '@/components/SectionText';
 export default {
   components: {
     ProgressBar,
     DoubleProgressBar,
+    SectionTitle,
+    SectionText,
   },
 };
 </script>
 
 <style scoped>
-.content-title {
-  max-width: 413px;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
-  color: #000000;
-  text-align: left;
-}
-
-.content-margin {
-  margin: 100px 60px;
-}
-
-.statistics-forms {
+.statistics__forms {
   margin-top: 70px;
   list-style: none;
   padding-left: 0;
   display: flex;
   justify-content: space-between;
 }
-
-.statistics-form {
-  min-width: 300px;
+.statistics__form {
+  flex-grow: 1;
+  max-width: 300px;
   min-height: 300px;
   padding: 20px;
   display: flex;
@@ -81,8 +71,7 @@ export default {
   justify-content: flex-end;
   position: relative;
 }
-
-.statistics-text {
+.statistics__text {
   font-weight: normal;
   font-size: 12px;
   line-height: 16px;
@@ -92,8 +81,7 @@ export default {
   top: 20px;
   left: 20px;
 }
-
-.statistics-subtitle {
+.statistics__subtitle {
   font-weight: 600;
   font-size: 38px;
   line-height: 40px;
@@ -101,8 +89,7 @@ export default {
   color: #000000;
   margin-top: 20px;
 }
-
-.statistics-content {
+.statistics__content {
   font-weight: normal;
   font-size: 12px;
   line-height: 16px;
@@ -110,10 +97,4 @@ export default {
   color: #666666;
   margin-top: 20px;
 }
-
-/* .rectangle {
-  background: #613a93;
-  width: 100%;
-  height: 40px;
-} */
 </style>

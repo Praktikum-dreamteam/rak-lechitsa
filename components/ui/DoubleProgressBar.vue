@@ -31,41 +31,34 @@ export default {
 
 <style scoped>
 .double-progress-bar {
-  width: 260px;
+  width: 100%;
   height: 40px;
   position: relative;
 }
-
 @media screen and (max-width: 1280px) {
   .double-progress-bar {
-    width: 230px;
     height: 35px;
   }
 }
 @media screen and (max-width: 1024px) {
   .double-progress-bar {
-    width: 188px;
     height: 28px;
   }
 }
 @media screen and (max-width: 768px) {
   .double-progress-bar {
-    width: 188px;
     height: 28px;
   }
 }
-
 .double-progress-bar__fill {
   position: absolute;
   height: 50%;
   left: 0;
 }
-
 .double-progress-bar__fill_type_old {
   top: 0;
   background: #f4f4f4;
 }
-
 .double-progress-bar__fill_type_new {
   bottom: 0;
   background: #613a93;
