@@ -46,10 +46,6 @@ export default {
   text-align: left;
 }
 
-.content-margin {
-  /* margin: 100px 60px; */
-}
-
 .video {
   padding-top: 100px;
   display: flex;

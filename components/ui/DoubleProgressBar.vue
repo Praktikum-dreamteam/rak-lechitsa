@@ -36,6 +36,25 @@ export default {
   position: relative;
 }
 
+@media screen and (max-width: 1280px) {
+  .double-progress-bar {
+    width: 230px;
+    height: 35px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .double-progress-bar {
+    width: 188px;
+    height: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .double-progress-bar {
+    width: 188px;
+    height: 28px;
+  }
+}
+
 .double-progress-bar__fill {
   position: absolute;
   height: 50%;
