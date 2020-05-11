@@ -20,7 +20,6 @@
         Все видео вы можете найте на нашем <a href="">YouTube канале.</a>
       </figcaption>
     </figure>
-    пше
   </section>
 </template>
 
@@ -39,7 +38,6 @@ export default {
 .button {
   background-color: #fbfbfb;
 }
-
 
 .video {
   padding-top: 100px;

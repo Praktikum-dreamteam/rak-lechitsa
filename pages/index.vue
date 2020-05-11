@@ -190,6 +190,8 @@ export default {
 
 .page /deep/ .page__section_cover {
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .container__form {
