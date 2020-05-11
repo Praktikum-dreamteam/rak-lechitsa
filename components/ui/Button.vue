@@ -9,6 +9,7 @@
       <slot></slot>
     </button>
   </div>
+
 </template>
 
 <script>
@@ -19,6 +20,7 @@ export default {
 
 <style scoped>
 .btn {
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   line-height: 24px;
   background: none;
@@ -39,10 +41,12 @@ export default {
   color: #666;
   line-height: 19px;
 }
+
 .btn_disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
 @media screen and (max-width: 768px) {
   .btn_theme_violet {
     padding: 14px 40px;

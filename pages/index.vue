@@ -1,43 +1,45 @@
 <template>
-  <div class="container">
-    <div class="test">
-      <Cover />
-      <Video />
-      <Slogan />
-      <History />
-      <Slogan2 />
-      <Instagram />
-      <InfoBlock @openFormClick="openForm" />
-      <Statistics />
-      <Info />
-      <Popup
-        v-if="IsFormShow"
-        haveClose="true"
-        :title="titleForForm"
-        @closeClick="closeForm"
-      >
-        <Form
-          @clickBack="backStep"
-          @clickNext="nextStep"
-          @answerInput="writeAnswer"
-          :answer="questionnaire[currentStep].answer"
-          :formQuestion="questionnaire[currentStep].question"
-          :description="questionnaire[currentStep].description"
-          :isDisabledBackButton="!isActiveBackButton"
-          class="container__form"
-          :isLast="isLast"
-        ></Form>
-      </Popup>
-      <Popup
-        v-if="isShowGratitude"
-        :haveClose="isLast"
-        class="index__popup"
-        title="Спасибо что приняли участие!"
-      >
-        <Button @btn-click="closeGratitude" theme="violet">Закрыть</Button>
-      </Popup>
-      <Overlay @overlayClick="closeForm" v-if="IsFormShow || isShowGratitude" />
-    </div>
+  <div class="page">
+    <Cover />
+    <Video />
+    <Slogan>
+      И в отличии от рака,
+    </Slogan>
+    <History />
+    <Slogan>
+      Рассказывайте свои истории в Инстаграм
+    </Slogan>
+    <Instagram />
+    <InfoBlock @openFormClick="openForm" />
+    <Statistics />
+    <Info />
+    <Popup
+      v-if="IsFormShow"
+      haveClose="true"
+      :title="titleForForm"
+      @closeClick="closeForm"
+    >
+      <Form
+        @clickBack="backStep"
+        @clickNext="nextStep"
+        @answerInput="writeAnswer"
+        :answer="questionnaire[currentStep].answer"
+        :formQuestion="questionnaire[currentStep].question"
+        :description="questionnaire[currentStep].description"
+        class="container__form"
+        :isLast="isLast"
+      ></Form>
+    </Popup>
+    <Popup
+      v-if="isShowGratitude"
+      :haveClose="isLast"
+      class="index__popup"
+      title="Спасибо что приняли участие!"
+    >
+      <Button @btn-click="closeGratitude" theme="violet">Закрыть</Button>
+    </Popup>
+    <Overlay @overlayClick="closeForm" v-if="IsFormShow || isShowGratitude" />
+
   </div>
 </template>
 
@@ -47,7 +49,6 @@ import Cover from '@/components/Cover';
 import Video from '@/components/Video';
 import Slogan from '@/components/Slogan';
 import History from '@/components/History';
-import Slogan2 from '@/components/Slogan2';
 import Instagram from '@/components/Instagram';
 import InfoBlock from '@/components/Info-block';
 import Statistics from '@/components/Statistics';
@@ -201,7 +202,6 @@ export default {
     Video,
     Slogan,
     History,
-    Slogan2,
     Instagram,
     InfoBlock,
     Statistics,
@@ -215,14 +215,22 @@ export default {
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  width: 1440px;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.page {
+  width: 100%;
 }
+
+.page /deep/ .page__section {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.page /deep/ .page__section_cover {
+  width: 100%;
+}
+
 .container__form {
   min-height: 520px;
 }
@@ -234,18 +242,8 @@ export default {
   color: #35495e;
   letter-spacing: 1px;
 }
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
 .links {
   padding-top: 15px;
-}
-.test {
-  width: 100%;
 }
 .index__popup {
   min-height: 600px;

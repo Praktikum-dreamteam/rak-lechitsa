@@ -3,22 +3,15 @@
     <h2 class="header__title">
       Проект Благотворительного Фонда Константина Хабенского
     </h2>
-    <div class="header__links">
-      <header-nav />
-      <header-btn @click="$emit(historyClick)" class="header__button"
-        >Рассказать историю</header-btn
-      >
-    </div>
+    <my-menu />
   </header>
 </template>
 
 <script>
-import Button from '@/components/ui/Button';
-import Nav from '@/components/Nav';
+import Menu from '@/components/Menu';
 export default {
   components: {
-    'header-btn': Button,
-    'header-nav': Nav,
+    'my-menu': Menu,
   },
 };
 </script>
@@ -31,31 +24,21 @@ export default {
   align-items: center;
   max-width: 1440px;
   width: 100%;
-  padding: 18px 4%;
+  padding: 20px 60px;
   border-bottom: 1px solid #e8e8e8;
 }
 .header__title {
   font-size: 16px;
-  line-height: 20px;
+  line-height: 18px;
   font-weight: 600;
   max-width: 340px;
 }
-.header__links {
-  display: flex;
-  align-items: center;
-}
-.header__button {
-  padding: 0;
-  margin-left: 40px;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: transparent;
-  border: none;
-}
-.header__button:hover {
-  cursor: pointer;
-}
 .header /deep/ .nav__link_underline {
   border-bottom: 1px solid black;
+}
+@media screen and (max-width: 1280px) {
+  .header {
+    padding: 20px 50px;
+  }
 }
 </style>

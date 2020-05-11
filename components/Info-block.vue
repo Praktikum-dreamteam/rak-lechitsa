@@ -1,21 +1,21 @@
 <template>
   <section class="forma-history">
-    <h2 class="content-title forma-title">Расскажите свою историю</h2>
+    <SectionTitle theme="white">Расскажите свою историю</SectionTitle>
     <div class="forma-text">
-      <p class="content-subtitle forma-subtitle">
+      <SectionText class="forma-subtitle" theme="white">
         Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
         поделиться своей историей неизлечимых привычек, навязчивых идей и
         болезненных привязанностей.
-      </p>
+      </SectionText>
       <ul class="forma-stories">
-        <li class="forma-story">1-й вариант</li>
-        <li class="forma-story">2-й вариант</li>
+        <li class="forma-story"><Radio theme="white">1-й вариант</Radio></li>
+        <li class="forma-story"><Radio theme="white">2-й вариант</Radio></li>
       </ul>
-      <p class="forma-content">
+      <SectionText class="forma-content" theme="white">
         Заполнить подробную форму прямо на сайте и мы опубликуем вашу историю
         после проверки. Пожалуйста, заполняйте все пункты корректно, если вы
         испытаете какие-то сложности, воспользуйтесь 2-м вариантом.
-      </p>
+      </SectionText>
       <!-- <p class="forma-content"> Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, уточним детали вашей истории.</p> -->
     </div>
     <Button
@@ -30,9 +30,15 @@
 
 <script>
 import Button from '@/components/ui/Button';
+import Radio from '@/components/ui/Radio';
+import SectionTitle from '@/components/SectionTitle';
+import SectionText from '@/components/SectionText';
 export default {
   components: {
     Button,
+    Radio,
+    SectionTitle,
+    SectionText,
   },
 };
 </script>
@@ -44,24 +50,6 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   padding: 100px 60px;
-}
-
-.content-title {
-  max-width: 413px;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
-  color: #000000;
-  text-align: left;
-}
-
-.content-subtitle {
-  max-width: 413px;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: #666666;
-  text-align: left;
 }
 
 .forma-text {
@@ -87,10 +75,10 @@ export default {
   max-width: 340px;
 }
 
-.forma-story {
+/* .forma-story {
   color: #000000;
-  /* color: #A2A2A2; */
-}
+  color: #A2A2A2;
+} */
 
 .forma-content {
   max-width: 640px;

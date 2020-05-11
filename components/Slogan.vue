@@ -1,7 +1,8 @@
 <template>
   <section class="slogan">
-    <p class="content-slogan">
-      И В ОТЛИЧИЕ ОТ РАКА, <span class="slogan-title">#ЭТОНЕЛЕЧИТСЯ</span>
+    <p class="slogan__content">
+      <slot></slot>
+      <span class="slogan__title">#этонелечится</span>
     </p>
   </section>
 </template>
@@ -19,13 +20,70 @@ export default {};
   font-weight: normal;
   font-size: 30px;
   line-height: 46px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 17px;
   text-transform: uppercase;
 }
 
-.slogan-title {
+.slogan__content {
+  max-width: 750px;
+  margin: auto;
+}
+
+.slogan__title {
   font-weight: bold;
-  font-size: 32px;
+  font-size: 40px;
+}
+@media screen and (max-width: 1280px) {
+  .slogan {
+    font-size: 28px;
+  }
+  .slogan__title {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .slogan {
+    font-size: 24px;
+    line-height: 40px;
+  }
+  .slogan__title {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .slogan {
+    font-size: 22px;
+    line-height: 36px;
+    padding: 12px 0;
+  }
+  .slogan__title {
+    font-size: 34px;
+  }
+  .slogan__content {
+    max-width: 509px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .slogan {
+    font-size: 18px;
+    line-height: 22px;
+    padding: 12px 0;
+  }
+  .slogan__title {
+    font-size: 23px;
+  }
+  .slogan__content {
+    max-width: 509px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .slogan {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 14px 0;
+  }
+  .slogan__content {
+    max-width: 250px;
+  }
 }
 </style>
