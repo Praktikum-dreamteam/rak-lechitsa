@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <button
-      @click.prevent="$emit('btn-click')"
-      :class="['btn', `btn_theme_${theme}`]"
-    >
-      <slot></slot>
-    </button>
-  </div>
+  <button
+    @click.prevent="$emit('btn-click')"
+    :class="['btn', `btn_theme_${theme}`]"
+  >
+    <slot></slot>
+  </button>
 </template>
 
 <script>
@@ -37,6 +35,7 @@ export default {
   color: #666;
   line-height: 19px;
 }
+
 @media screen and (max-width: 768px) {
   .btn_theme_violet {
     padding: 14px 40px;

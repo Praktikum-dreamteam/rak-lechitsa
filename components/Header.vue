@@ -24,16 +24,21 @@ export default {
   align-items: center;
   max-width: 1440px;
   width: 100%;
-  padding: 18px 4%;
+  padding: 20px 60px;
   border-bottom: 1px solid #e8e8e8;
 }
 .header__title {
   font-size: 16px;
-  line-height: 20px;
+  line-height: 18px;
   font-weight: 600;
   max-width: 340px;
 }
 .header /deep/ .nav__link_underline {
   border-bottom: 1px solid black;
+}
+@media screen and (max-width: 1280px) {
+  .header {
+    padding: 20px 50px;
+  }
 }
 </style>
