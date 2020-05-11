@@ -19,10 +19,23 @@ export default {
 .btn {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 19px;
   background: none;
   border: none;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1280px) {
+  .btn {
+    width: 230px;
+    height: 35px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .btn {
+    font-size: 15px;
+    line-height: 18px;
+  }
 }
 .btn:focus {
   outline: none;
