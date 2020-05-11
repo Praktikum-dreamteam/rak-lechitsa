@@ -136,7 +136,7 @@ export default {
     margin-left: auto;
   }
   .footer__copyright {
-    width: auto;
+    width: 300px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -153,6 +153,7 @@ export default {
     margin: 0 0 50px 0;
   }
   .footer__copyright {
+    width: auto;
     margin-bottom: 10px;
   }
 }
