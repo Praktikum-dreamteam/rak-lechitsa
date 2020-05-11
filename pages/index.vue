@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="page">
     <Cover />
     <Video />
     <Slogan>
@@ -176,8 +176,8 @@ export default {
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
+.page {
+  width: 100%;
 }
 .container__form {
   min-height: 520px;
