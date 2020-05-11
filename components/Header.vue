@@ -3,15 +3,15 @@
     <h2 class="header__title">
       Проект Благотворительного Фонда Константина Хабенского
     </h2>
-    <my-menu />
+    <my-menu isHeader="true" />
   </header>
 </template>
 
 <script>
-import Menu from '@/components/Menu';
+import Nav from '@/components/ui/Nav';
 export default {
   components: {
-    'my-menu': Menu,
+    'my-menu': Nav,
   },
 };
 </script>
@@ -32,9 +32,6 @@ export default {
   line-height: 18px;
   font-weight: 600;
   max-width: 340px;
-}
-.header /deep/ .nav__link_underline {
-  border-bottom: 1px solid black;
 }
 @media screen and (max-width: 1280px) {
   .header {

@@ -1,9 +1,5 @@
 <template>
   <div class="menu">
-    <header-nav />
-    <header-btn @click="$emit('historyClick')" theme="history"
-      >Рассказать историю</header-btn
-    >
     <menu-btn theme="menu">
       <svg
         class="svg"
