@@ -11,7 +11,7 @@
     >
       <Share />
     </Popup>
-    <Overlay @overlayClick="closeForm" v-if="IsFormShow || isShowGratitude" />
+    <Overlay @overlayClick="closeForm" v-if="IsFormShow" />
     <Footer @openFormClick="openForm" />
   </div>
 </template>
