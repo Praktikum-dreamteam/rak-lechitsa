@@ -78,10 +78,7 @@ html {
   margin: 0;
 }
 .menu.menu__open {
-  display: flex;
-  border-bottom: 1px solid #e8e8e8;
-  padding-top: 18px;
-  padding-bottom: 18px;
+  display: none;
 }
 .popup.share__popup {
   padding: 40px 0 108px 0;
@@ -91,10 +88,19 @@ html {
   align-items: center;
   width: 800px;
 }
+
 @media screen and (max-width: 900px) {
   .popup.share__popup {
     width: 580px;
     padding: 25px 0 70px 0;
+  }
+}
+@media screen and (max-width: 812px) {
+  .menu.menu__open {
+    display: flex;
+    border-bottom: 1px solid #e8e8e8;
+    padding-top: 18px;
+    padding-bottom: 18px;
   }
 }
 @media screen and (max-width: 650px) {

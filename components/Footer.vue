@@ -1,39 +1,43 @@
 <template>
-  <footer class="footer">
-    <div>
-      <h2 class="footer__title">
-        Спасибо всем, кто помог состояться этому проекту
-      </h2>
-    </div>
-    <footer-nav class="footer__nav" />
-    <ul class="footer__list-items">
-      <li class="footer__list-item">
-        <p class="footer__subtitle">
-          Мы в
-          <a
-            href="https://www.instagram.com/raklechitsa/"
-            class="footer__social-link"
-            target="_blank"
-            >Инстаграме</a
+  <div class="page">
+    <footer class="footer">
+      <div>
+        <h2 class="footer__title">
+          Спасибо всем, кто помог состояться этому проекту
+        </h2>
+      </div>
+      <footer-nav class="footer__nav" />
+      <ul class="footer__list-items">
+        <li class="footer__list-item">
+          <p class="footer__subtitle">
+            Мы в
+            <a
+              href="https://www.instagram.com/raklechitsa/"
+              class="footer__social-link"
+              target="_blank"
+              >Инстаграме</a
+            >
+            и
+            <a
+              href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+              class="footer__social-link"
+              target="_blank"
+              >Youtube</a
+            >
+          </p>
+        </li>
+        <li class="footer__list-item">
+          <share-btn @btn-click="$emit('openShare')" theme="share"
+            >Поделитесь &#8599;</share-btn
           >
-          и
-          <a
-            href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-            class="footer__social-link"
-            target="_blank"
-            >Youtube</a
-          >
-        </p>
-      </li>
-      <li class="footer__list-item">
-        <share-btn @btn-click="$emit('openShare')" theme="share"
-          >Поделитесь &#8599;</share-btn
-        >
-      </li>
-    </ul>
-    <copyright class="copyright footer__copyright">Рак Лечится 2020</copyright>
-    <copyright>Сделано студентами Яндекс Практикум</copyright>
-  </footer>
+        </li>
+      </ul>
+      <copyright class="copyright footer__copyright"
+        >Рак Лечится 2020</copyright
+      >
+      <copyright>Сделано студентами Яндекс Практикум</copyright>
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -51,9 +55,10 @@ export default {
 </script>
 
 <style scoped>
-.page__section {
+.page {
   background-color: #fbfbfb;
 }
+
 .footer__subtitle {
   font-size: 18px;
   line-height: 24px;
@@ -61,7 +66,7 @@ export default {
 .footer {
   margin: 0 auto;
   max-width: 1440px;
-  padding: 60px 60px;
+  padding: 60px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -102,10 +107,6 @@ export default {
   line-height: 24px;
 }
 @media screen and (max-width: 1280px) {
-  .footer {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
   .footer__social-link {
     font-size: 16px;
   }
@@ -114,7 +115,7 @@ export default {
     line-height: 32px;
   }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1000px) {
   .footer /deep/ .nav__list-items {
     display: flex;
     flex-direction: column;
