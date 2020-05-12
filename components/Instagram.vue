@@ -1,5 +1,5 @@
 <template>
-  <section class="stories content-margin">
+  <section class="stories content-margin page__section">
     <div class="story">
       <a
         class="story-src"

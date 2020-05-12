@@ -100,7 +100,7 @@ export default {
 .footer__copyright {
   width: 400px;
 }
-.btn.btn_theme_share {
+/deep/ .btn_theme_share {
   padding: 0;
   font-size: 18px;
   line-height: 24px;

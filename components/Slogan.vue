@@ -1,9 +1,11 @@
 <template>
-  <section class="slogan">
-    <p class="slogan__content">
-      <slot></slot>
-      <span class="slogan__title">#этонелечится</span>
-    </p>
+  <section class="slogan page__section">
+    <div class="slogan__container">
+      <p class="slogan__content">
+        <slot></slot>
+        <span class="slogan__title">#этонелечится</span>
+      </p>
+    </div>
   </section>
 </template>
 
@@ -12,8 +14,7 @@ export default {};
 </script>
 
 <style scoped>
-.slogan {
-  width: 100%;
+.slogan__container {
   text-align: center;
   color: #ffffff;
   background-color: #613a93;

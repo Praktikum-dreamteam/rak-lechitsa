@@ -3,11 +3,11 @@
     <Cover />
     <Video />
     <Slogan>
-      И в отличии от рака,
+      И в отличие от рака,
     </Slogan>
     <History />
     <Slogan>
-      Рассказывайте свои истории в Инстаграм
+      Рассказывайте ваши истории в Инстаграм
     </Slogan>
     <Instagram />
     <InfoBlock @openFormClick="openForm" />
@@ -92,8 +92,42 @@ export default {
         },
         {
           question:
-            ' Ваши близкие, друзья или коллеги замечали за вами какие-нибудь необычные привычки или особенности?',
+            'Ваши близкие, друзья или коллеги замечали за вами какие-нибудь необычные привычки или особенности?',
           description: '',
+          answer: '',
+        },
+        {
+          question:
+            'Существуют ли какие-то ритуалы/действия, которые Вы совершаете регулярно?',
+          description: 'Кроме необходимых, таких, как чистка зубов.',
+          answer: '',
+        },
+        {
+          question:
+            'Если вам выдался свободный день/вечер в одиночестве, чем вы займетесь?',
+          description: '',
+          answer: '',
+        },
+        {
+          question: 'Что Вас успокаивает/умиротворяет лучше всего?',
+          description: '',
+          answer: '',
+        },
+        {
+          question: 'Как вы обычно проводите выходные?',
+          description: '',
+          answer: '',
+        },
+        {
+          question:
+            'Какие события/ситуации или действия других людей обычно выводят Вас из себя?',
+          description: '',
+          answer: '',
+        },
+        {
+          question: 'Почта или телефон для связи',
+          description:
+            'Укажите удобный для вас формат связи. После обработки анкеты координатор проекта свяжется с Вами для размещения Вашей истории на сайте.',
           answer: '',
         },
       ],
@@ -102,6 +136,7 @@ export default {
       currentAnswer: '',
       isLast: false,
       isShowGratitude: false,
+      isActiveBackButton: false,
     };
   },
   computed: {},
@@ -114,6 +149,7 @@ export default {
       this.IsFormShow = false;
     },
     nextStep() {
+      this.isActiveBackButton = true;
       if (this.isLast) {
         this.sendData();
         return;
@@ -135,6 +171,7 @@ export default {
     sendData() {
       console.log(JSON.stringify(this.questionnaire));
       this.currentStep = 0;
+      this.isActiveBackButton = false;
       this.isLast = false;
       this.IsFormShow = false;
       this.isShowGratitude = true;
@@ -146,6 +183,7 @@ export default {
         this.isLast = false;
         this.updateTitleForForm();
       }
+      this.isActiveBackButton = this.currentStep > 0;
     },
     updateTitleForForm() {
       this.titleForForm = `Шаг ${this.currentStep + 1} из ${
@@ -186,10 +224,30 @@ export default {
   padding-left: 60px;
   padding-right: 60px;
 }
-.page /deep/ .page__section_cover {
+.page /deep/ .page__cover {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+}
+.page /deep/ .page__cover-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.page /deep/ .tabs {
+  display: flex;
+}
+.page /deep/ .tabs__radios {
+  text-align: right;
+  margin-right: 40px;
+}
+.page /deep/ .tabs__texts {
+  max-width: 640px;
+  color: #dedede;
+}
+.page /deep/ .tabs__text {
+  margin-bottom: 25px;
 }
 .container__form {
   min-height: 520px;
@@ -211,5 +269,22 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+@media screen and (max-width: 1280px) {
+  .page /deep/ .page__section {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .page /deep/ .tabs__texts {
+    width: 570px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .page /deep/ .tabs__texts {
+    width: 447px;
+  }
+  .page /deep/ .tabs__radios {
+    margin-right: 30px;
+  }
 }
 </style>

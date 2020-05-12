@@ -1,5 +1,5 @@
 <template>
-  <section class="history">
+  <section class="history page__section">
     <SectionTitle theme="white">Истории неизлечимых привычек</SectionTitle>
     <ul class="history__cards">
       <StoryCard
@@ -87,6 +87,8 @@ export default {
 
 <style scoped>
 .history {
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .history__cards {
   padding: 0;
