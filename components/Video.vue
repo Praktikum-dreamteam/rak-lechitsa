@@ -21,7 +21,6 @@
         Все видео вы можете найте на нашем <a href="#">YouTube канале.</a>
       </figcaption>
     </figure>
-    пше
   </section>
 </template>
 
