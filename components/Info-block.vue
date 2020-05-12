@@ -1,30 +1,40 @@
 <template>
-  <section class="forma-history">
-    <SectionTitle theme="white">Расскажите свою историю</SectionTitle>
-    <div class="forma-text">
-      <SectionText class="forma-subtitle" theme="white">
-        Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
-        поделиться своей историей неизлечимых привычек, навязчивых идей и
-        болезненных привязанностей.
-      </SectionText>
-      <ul class="forma-stories">
-        <li class="forma-story"><Radio theme="white">1-й вариант</Radio></li>
-        <li class="forma-story"><Radio theme="white">2-й вариант</Radio></li>
-      </ul>
-      <SectionText class="forma-content" theme="white">
-        Заполнить подробную форму прямо на сайте и мы опубликуем вашу историю
-        после проверки. Пожалуйста, заполняйте все пункты корректно, если вы
-        испытаете какие-то сложности, воспользуйтесь 2-м вариантом.
-      </SectionText>
-      <!-- <p class="forma-content"> Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, уточним детали вашей истории.</p> -->
+  <section class="form page__cover">
+    <div class="page__cover-container form__container">
+      <SectionTitle class="form__subtitle" theme="white"
+        >Расскажите свою историю</SectionTitle
+      >
+      <div class="form__content">
+        <SectionText class="form__subtitle" theme="white">
+          Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
+          поделиться своей историей неизлечимых привычек, навязчивых идей и
+          болезненных привязанностей.
+        </SectionText>
+        <div class="tabs">
+          <div class="tabs__radios">
+            <Radio theme="white">1-й вариант</Radio>
+            <Radio theme="white">2-й вариант</Radio>
+          </div>
+          <div class="tabs__texts">
+            <SectionText theme="white" class="tabs__text">
+              Заполнить подробную форму прямо на сайте и мы опубликуем вашу
+              историю после проверки. Пожалуйста, заполняйте все пункты
+              корректно, если вы испытаете какие-то сложности, воспользуйтесь
+              2-м вариантом.
+            </SectionText>
+            <Button
+              @btn-click="$emit('openFormClick')"
+              class="form__button"
+              theme="violet"
+              >Заполнить форму</Button
+            >
+          </div>
+        </div>
+
+        <!-- <p class="form__content"> Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, уточним детали вашей истории.</p> -->
+      </div>
     </div>
-    <Button
-      @btn-click="$emit('openFormClick')"
-      class="forma-button"
-      theme="violet"
-      >Заполнить форму</Button
-    >
-    <!-- <button class="button forma-button"> Оставить контакт </button> -->
+    <!-- <button class="button form__button"> Оставить контакт </button> -->
   </section>
 </template>
 
@@ -44,26 +54,21 @@ export default {
 </script>
 
 <style scoped>
-.forma-history {
+.form {
   background-color: #f7f7f7;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+}
+
+.form__container {
   padding: 100px 60px;
 }
-
-.forma-text {
+.form__content {
+  margin-top: 32px;
   display: flex;
-  align-content: space-between;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: #666666;
+  justify-content: space-between;
   text-align: left;
-  margin-top: 30px;
 }
 
-.forma-stories {
+.form__stories {
   min-width: 105px;
   list-style: none;
   padding-left: 0;
@@ -71,22 +76,23 @@ export default {
   margin-right: 40px;
 }
 
-.forma-subtitle {
+.form__subtitle {
   max-width: 340px;
 }
 
-/* .forma-story {
-  color: #000000;
-  color: #A2A2A2;
-} */
-
-.forma-content {
-  max-width: 640px;
-  margin-right: 0;
+.form__button {
+  margin-top: 56px;
 }
 
-.forma-button {
-  margin-top: 56px;
-  margin-left: 680px;
+@media screen and (max-width: 1280px) {
+  .info__subtitle {
+    max-width: 305px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .info__subtitle {
+    max-width: 260px;
+  }
 }
 </style>

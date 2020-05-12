@@ -3,11 +3,11 @@
     <Cover />
     <Video />
     <Slogan>
-      И в отличии от рака,
+      И в отличие от рака,
     </Slogan>
     <History />
     <Slogan>
-      Рассказывайте свои истории в Инстаграм
+      Рассказывайте ваши истории в Инстаграм
     </Slogan>
     <Instagram />
     <InfoBlock @openFormClick="openForm" />
@@ -39,7 +39,6 @@
       <Button @btn-click="closeGratitude" theme="violet">Закрыть</Button>
     </Popup>
     <Overlay @overlayClick="closeForm" v-if="IsFormShow || isShowGratitude" />
-
   </div>
 </template>
 
@@ -227,12 +226,36 @@ export default {
   padding-right: 60px;
 }
 
-.page /deep/ .page__section_cover {
+.page /deep/ .page__cover {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
+.page /deep/ .page__cover-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page /deep/ .tabs {
+  display: flex;
+}
+
+.page /deep/ .tabs__radios {
+  text-align: right;
+  margin-right: 40px;
+}
+
+.page /deep/ .tabs__texts {
+  max-width: 640px;
+  color: #dedede;
+}
+
+.page /deep/ .tabs__text {
+  margin-bottom: 25px;
+}
 .container__form {
   min-height: 520px;
 }
@@ -253,5 +276,24 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+@media screen and (max-width: 1280px) {
+  .page /deep/ .page__section {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .page /deep/ .tabs__texts {
+    width: 570px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .page /deep/ .tabs__texts {
+    width: 447px;
+  }
+  .page /deep/ .tabs__radios {
+    margin-right: 30px;
+  }
 }
 </style>

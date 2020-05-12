@@ -29,8 +29,8 @@ export default {
 }
 @media screen and (max-width: 1024px) {
   .section-title {
-    font-size: 13px;
-    line-height: 16px;
+    font-size: 24px;
+    line-height: 28px;
   }
 }
 
