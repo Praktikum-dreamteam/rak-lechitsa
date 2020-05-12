@@ -31,7 +31,43 @@
         <a class="story-images__link" href="#" target="blank">
           <img
             src="./../static/instagram.png"
-            alt
+            alt=""
+            class="story-images__image"
+          />
+        </a>
+      </li>
+      <li class="story-images__item">
+        <a class="story-images__link" href="#" target="blank">
+          <img
+            src="./../static/instagram.png"
+            alt=""
+            class="story-images__image"
+          />
+        </a>
+      </li>
+      <li class="story-images__item">
+        <a class="story-images__link" href="#" target="blank">
+          <img
+            src="./../static/instagram.png"
+            alt=""
+            class="story-images__image"
+          />
+        </a>
+      </li>
+      <li class="story-images__item">
+        <a class="story-images__link" href="#" target="blank">
+          <img
+            src="./../static/instagram.png"
+            alt=""
+            class="story-images__image"
+          />
+        </a>
+      </li>
+      <li class="story-images__item">
+        <a class="story-images__link" href="#" target="blank">
+          <img
+            src="./../static/instagram.png"
+            alt=""
             class="story-images__image"
           />
         </a>
@@ -49,43 +85,7 @@
         <a class="story-images__link" href="#" target="blank">
           <img
             src="./../static/instagram.png"
-            alt
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt
+            alt=""
             class="story-images__image"
           />
         </a>
