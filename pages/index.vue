@@ -2,13 +2,9 @@
   <div class="page">
     <Cover />
     <Video />
-    <Slogan>
-      И в отличие от рака,
-    </Slogan>
+    <Slogan>И в отличие от рака,</Slogan>
     <History />
-    <Slogan>
-      Рассказывайте ваши истории в Инстаграм
-    </Slogan>
+    <Slogan>Рассказывайте ваши истории в Инстаграм</Slogan>
     <Instagram />
     <InfoBlock @openFormClick="openForm" />
     <Statistics />
@@ -19,6 +15,7 @@
       :title="titleForForm"
       @closeClick="closeForm"
     >
+      <!-- Временные трудности, писалось до лекций использовали что могли -->
       <Form
         @clickBack="backStep"
         @clickNext="nextStep"
@@ -28,6 +25,7 @@
         :description="questionnaire[currentStep].description"
         class="container__form"
         :isLast="isLast"
+        :isDisabledBackButton="!isActiveBackButton"
       ></Form>
     </Popup>
     <Popup
