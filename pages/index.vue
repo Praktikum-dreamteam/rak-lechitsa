@@ -277,4 +277,23 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
+
+@media screen and (max-width: 1280px) {
+  .page /deep/ .page__section {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .page /deep/ .tabs__texts {
+    width: 570px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .page /deep/ .tabs__texts {
+    width: 447px;
+  }
+  .page /deep/ .tabs__radios {
+    margin-right: 30px;
+  }
+}
 </style>

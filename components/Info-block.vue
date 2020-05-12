@@ -22,17 +22,17 @@
               корректно, если вы испытаете какие-то сложности, воспользуйтесь
               2-м вариантом.
             </SectionText>
+            <Button
+              @btn-click="$emit('openFormClick')"
+              class="form__button"
+              theme="violet"
+              >Заполнить форму</Button
+            >
           </div>
         </div>
 
         <!-- <p class="form__content"> Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, уточним детали вашей истории.</p> -->
       </div>
-      <Button
-        @btn-click="$emit('openFormClick')"
-        class="form__button"
-        theme="violet"
-        >Заполнить форму</Button
-      >
     </div>
     <!-- <button class="button form__button"> Оставить контакт </button> -->
   </section>
@@ -82,6 +82,17 @@ export default {
 
 .form__button {
   margin-top: 56px;
-  margin-left: 680px;
+}
+
+@media screen and (max-width: 1280px) {
+  .info__subtitle {
+    max-width: 305px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .info__subtitle {
+    max-width: 260px;
+  }
 }
 </style>

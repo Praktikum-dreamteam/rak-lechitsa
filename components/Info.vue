@@ -82,4 +82,26 @@ export default {
 .info__subtitle {
   max-width: 340px;
 }
+
+@media screen and (max-width: 1280px) {
+  .info__subtitle {
+    max-width: 305px;
+  }
+  .info__title {
+    font-size: 58px;
+    line-height: 70px;
+    margin-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .info__subtitle {
+    max-width: 260px;
+  }
+  .info__title {
+    font-size: 52px;
+    line-height: 63px;
+    margin-bottom: 46px;
+  }
+}
 </style>
