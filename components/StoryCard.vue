@@ -1,11 +1,7 @@
 <template>
   <li class="history-card">
     <nuxt-link class="history-card__link" :to="`/stories/${id}`">
-      <img
-        class="history-card__img"
-        src="./../static/history.png"
-        alt="Фотография"
-      />
+      <img class="history-card__img" :src="src" alt="Фотография" />
       <h2 class="history-card__title">{{ name }}</h2>
       <p class="history-card__subtitle">{{ description }}</p>
     </nuxt-link>
