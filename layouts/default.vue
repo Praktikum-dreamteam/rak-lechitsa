@@ -1,18 +1,19 @@
 <template>
   <div>
-    <Header />
+    <Menu class="menu__open page__section" v-if="isOpenMenu"></Menu>
+    <Header @openMenuClick="openMenu" @closeMenuClick="closeMenu" />
     <nuxt />
     <Popup
-      v-if="IsFormShow"
+      v-if="IsShareShow"
       haveClose="true"
       class="share__popup"
       title="Поделитесь"
-      @closeClick="closeForm"
+      @closeClick="closeShare"
     >
       <Share />
     </Popup>
-    <Overlay @overlayClick="closeForm" v-if="IsFormShow" />
-    <Footer @openFormClick="openForm" />
+    <Overlay @overlayClick="closeShare" v-if="IsShareShow" />
+    <Footer @openShare="openShare" />
   </div>
 </template>
 
@@ -22,20 +23,28 @@ import Header from '@/components/Header';
 import Popup from '@/components/PopUp';
 import Overlay from '@/components/ui/Overlay';
 import Share from '@/components/Share';
+import Menu from '~/components/Menu';
 
 export default {
   data() {
     return {
-      IsFormShow: false,
+      IsShareShow: false,
+      isOpenMenu: false,
     };
   },
   computed: {},
   methods: {
-    openForm() {
-      this.IsFormShow = true;
+    openMenu() {
+      this.isOpenMenu = true;
     },
-    closeForm() {
-      this.IsFormShow = false;
+    closeMenu() {
+      this.isOpenMenu = false;
+    },
+    openShare() {
+      this.IsShareShow = true;
+    },
+    closeShare() {
+      this.IsShareShow = false;
     },
   },
   components: {
@@ -44,6 +53,7 @@ export default {
     Popup,
     Overlay,
     Share,
+    Menu,
   },
 };
 </script>
@@ -66,6 +76,12 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+.menu.menu__open {
+  display: flex;
+  border-bottom: 1px solid #e8e8e8;
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
 .popup.share__popup {
   padding: 40px 0 108px 0;

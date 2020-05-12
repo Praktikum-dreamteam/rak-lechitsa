@@ -26,7 +26,7 @@
         </p>
       </li>
       <li class="footer__list-item">
-        <share-btn @btn-click="$emit('openFormClick')" theme="share"
+        <share-btn @btn-click="$emit('openShare')" theme="share"
           >Поделитесь &#8599;</share-btn
         >
       </li>

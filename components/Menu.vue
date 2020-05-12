@@ -4,37 +4,6 @@
     <header-btn @click="$emit('historyClick')" theme="history"
       >Рассказать историю</header-btn
     >
-    <menu-btn theme="menu">
-      <svg
-        class="svg"
-        width="32"
-        height="3"
-        viewBox="0 0 32 3"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <line y1="1.5" x2="32" y2="1.5" stroke="black" stroke-width="3" />
-      </svg>
-      <svg
-        class="svg"
-        width="32"
-        height="3"
-        viewBox="0 0 32 3"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <line y1="1.5" x2="32" y2="1.5" stroke="black" stroke-width="3" />
-      </svg>
-      <svg
-        width="32"
-        height="3"
-        viewBox="0 0 32 3"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <line y1="1.5" x2="32" y2="1.5" stroke="black" stroke-width="3" />
-      </svg>
-    </menu-btn>
   </div>
 </template>
 
@@ -46,7 +15,6 @@ export default {
   components: {
     'header-btn': Button,
     'header-nav': Nav,
-    'menu-btn': Button,
   },
 };
 </script>
@@ -64,28 +32,14 @@ export default {
   background-color: transparent;
   border: none;
 }
-/deep/ .btn_theme_menu {
-  display: none;
-}
 @media screen and (max-width: 1280px) {
   .btn_theme_history {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 812px) {
-  .nav {
+  .menu {
     display: none;
-  }
-  /deep/ .btn_theme_history {
-    display: none;
-  }
-  /deep/ .btn_theme_menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .svg {
-    margin-bottom: 4px;
   }
 }
 </style>
