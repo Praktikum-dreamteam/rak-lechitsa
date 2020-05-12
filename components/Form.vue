@@ -24,7 +24,7 @@
       >
       <p v-if="isLast" class="form__personal-data-agreement">
         Нажимая на кнопку «отправить», вы даете согласие на
-        <nuxt-link class="form__link" to="/stories"
+        <nuxt-link class="form__link" to="/policy"
           >обработку персональных данных</nuxt-link
         >
       </p>
