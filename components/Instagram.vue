@@ -6,9 +6,7 @@
         href="https://www.instagram.com/raklechitsa/"
         target="_blank"
       >
-        <SectionTitle theme="white">
-          Инстаграм
-        </SectionTitle>
+        <SectionTitle theme="white">Инстаграм</SectionTitle>
       </a>
       <SectionText class="story-subtitle" theme="white">
         Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
@@ -24,7 +22,7 @@
         <a class="story-images__link" href="#" target="blank">
           <img
             src="./../static/instagram.png"
-            alt=""
+            alt
             class="story-images__image"
           />
         </a>
@@ -33,7 +31,7 @@
         <a class="story-images__link" href="#" target="blank">
           <img
             src="./../static/instagram.png"
-            alt=""
+            alt
             class="story-images__image"
           />
         </a>
@@ -42,7 +40,7 @@
         <a class="story-images__link" href="#" target="blank">
           <img
             src="./../static/instagram.png"
-            alt=""
+            alt
             class="story-images__image"
           />
         </a>
@@ -51,7 +49,7 @@
         <a class="story-images__link" href="#" target="blank">
           <img
             src="./../static/instagram.png"
-            alt=""
+            alt
             class="story-images__image"
           />
         </a>
@@ -60,7 +58,7 @@
         <a class="story-images__link" href="#" target="blank">
           <img
             src="./../static/instagram.png"
-            alt=""
+            alt
             class="story-images__image"
           />
         </a>
@@ -69,7 +67,7 @@
         <a class="story-images__link" href="#" target="blank">
           <img
             src="./../static/instagram.png"
-            alt=""
+            alt
             class="story-images__image"
           />
         </a>
@@ -78,7 +76,7 @@
         <a class="story-images__link" href="#" target="blank">
           <img
             src="./../static/instagram.png"
-            alt=""
+            alt
             class="story-images__image"
           />
         </a>
@@ -87,7 +85,7 @@
         <a class="story-images__link" href="#" target="blank">
           <img
             src="./../static/instagram.png"
-            alt=""
+            alt
             class="story-images__image"
           />
         </a>
@@ -115,25 +113,29 @@ export default {
 <style scoped>
 .stories {
   display: flex;
+  overflow: hidden;
+  justify-content: space-between;
 }
+
 .story {
-  margin-right: 40px;
+  margin-right: auto;
 }
+
 .story-subtitle {
   margin-top: 32px;
-  padding-right: 70px;
+  max-width: 80%;
 }
+
 .story-src {
   text-decoration: none;
 }
 /* Подчеркивание, нужен будет фикс! */
 .story-src::after {
   content: '';
-  height: 3px;
+  height: 2px;
   background: #000;
   display: block;
-  margin-top: 2px;
-  max-width: 160px;
+  width: 174px;
 }
 .content-subtitle {
   max-width: 413px;
@@ -166,6 +168,10 @@ export default {
     grid-template-rows: repeat(2, 171px);
     grid-gap: 27px;
   }
+
+  .story-src::after {
+    width: 153px;
+  }
 }
 @media (max-width: 1025px) {
   .story-images {
@@ -174,13 +180,38 @@ export default {
     grid-template-rows: repeat(2, 136px);
     grid-gap: 20px;
   }
+
+  .story-src::after {
+    width: 131px;
+  }
 }
-@media (max-width: 769px) {
+
+@media (max-width: 875px) {
   .stories {
+    max-width: 90%;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .story-images {
+    grid-gap: 5px;
+  }
+}
+
+@media (max-width: 820px) {
+  .stories {
+    max-width: 87%;
     flex-direction: column;
     margin: 0 auto;
     align-items: center;
   }
+
+  .story-subtitle {
+    max-width: 100%;
+    padding: 0;
+  }
+
   .story-images {
     max-width: 688px;
     grid-template-columns: repeat(4, 157px);
@@ -188,7 +219,7 @@ export default {
     grid-gap: 20px;
   }
 }
-@media (max-width: 551px) {
+@media (max-width: 765px) {
   .story-images {
     max-width: 500px;
     grid-template-columns: repeat(4, 110px);
@@ -196,7 +227,10 @@ export default {
     grid-gap: 20px;
   }
 }
-@media (max-width: 425px) {
+@media (max-width: 550px) {
+  .stories {
+    max-width: 90%;
+  }
   .story-images {
     max-width: 400px;
     grid-template-columns: repeat(2, 180px);
@@ -204,7 +238,7 @@ export default {
     grid-gap: 10px;
   }
 }
-@media (max-width: 321px) {
+@media (max-width: 410px) {
   .story-images {
     max-width: 290px;
     grid-template-columns: repeat(2, 140px);
