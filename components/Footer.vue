@@ -1,43 +1,39 @@
 <template>
-  <div class="page__section">
-    <footer class="footer">
-      <div>
-        <h2 class="footer__title">
-          Спасибо всем, кто помог состояться этому проекту
-        </h2>
-      </div>
-      <footer-nav class="footer__nav" />
-      <ul class="footer__list-items">
-        <li class="footer__list-item">
-          <p class="footer__subtitle">
-            Мы в
-            <a
-              href="https://www.instagram.com/raklechitsa/"
-              class="footer__social-link"
-              target="_blank"
-              >Инстаграме</a
-            >
-            и
-            <a
-              href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-              class="footer__social-link"
-              target="_blank"
-              >Youtube</a
-            >
-          </p>
-        </li>
-        <li class="footer__list-item">
-          <share-btn @btn-click="$emit('openFormClick')" theme="share"
-            >Поделитесь &#8599;</share-btn
+  <footer class="footer">
+    <div>
+      <h2 class="footer__title">
+        Спасибо всем, кто помог состояться этому проекту
+      </h2>
+    </div>
+    <footer-nav class="footer__nav" />
+    <ul class="footer__list-items">
+      <li class="footer__list-item">
+        <p class="footer__subtitle">
+          Мы в
+          <a
+            href="https://www.instagram.com/raklechitsa/"
+            class="footer__social-link"
+            target="_blank"
+            >Инстаграме</a
           >
-        </li>
-      </ul>
-      <copyright class="copyright footer__copyright"
-        >Рак Лечится 2020</copyright
-      >
-      <copyright>Сделано студентами Яндекс Практикум</copyright>
-    </footer>
-  </div>
+          и
+          <a
+            href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+            class="footer__social-link"
+            target="_blank"
+            >Youtube</a
+          >
+        </p>
+      </li>
+      <li class="footer__list-item">
+        <share-btn @btn-click="$emit('openFormClick')" theme="share"
+          >Поделитесь &#8599;</share-btn
+        >
+      </li>
+    </ul>
+    <copyright class="copyright footer__copyright">Рак Лечится 2020</copyright>
+    <copyright>Сделано студентами Яндекс Практикум</copyright>
+  </footer>
 </template>
 
 <script>
@@ -65,7 +61,7 @@ export default {
 .footer {
   margin: 0 auto;
   max-width: 1440px;
-  padding: 60px 4%;
+  padding: 60px 60px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -106,6 +102,10 @@ export default {
   line-height: 24px;
 }
 @media screen and (max-width: 1280px) {
+  .footer {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
   .footer__social-link {
     font-size: 16px;
   }
@@ -131,6 +131,7 @@ export default {
   .footer__title {
     font-size: 24px;
     line-height: 28px;
+    max-width: 240px;
   }
   .footer__nav {
     margin-left: auto;

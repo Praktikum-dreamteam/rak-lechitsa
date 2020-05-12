@@ -217,36 +217,35 @@ export default {
 .page {
   width: 100%;
 }
-.page /deep/ .page__section {
+.page__section {
   max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   padding-left: 60px;
   padding-right: 60px;
 }
-.page /deep/ .page__cover {
+.page__cover {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
-.page /deep/ .page__cover-container {
+.page__cover-container {
   width: 100%;
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
 }
-.page /deep/ .tabs {
+.tabs {
   display: flex;
 }
-.page /deep/ .tabs__radios {
+.tabs__radios {
   text-align: right;
   margin-right: 40px;
 }
-.page /deep/ .tabs__texts {
+.tabs__texts {
   max-width: 640px;
   color: #dedede;
 }
-.page /deep/ .tabs__text {
+.tabs__text {
   margin-bottom: 25px;
 }
 .container__form {
@@ -271,19 +270,19 @@ export default {
   align-items: center;
 }
 @media screen and (max-width: 1280px) {
-  .page /deep/ .page__section {
+  .page__section {
     padding-left: 50px;
     padding-right: 50px;
   }
-  .page /deep/ .tabs__texts {
+  .tabs__texts {
     width: 570px;
   }
 }
 @media screen and (max-width: 1024px) {
-  .page /deep/ .tabs__texts {
+  .tabs__texts {
     width: 447px;
   }
-  .page /deep/ .tabs__radios {
+  .tabs__radios {
     margin-right: 30px;
   }
 }

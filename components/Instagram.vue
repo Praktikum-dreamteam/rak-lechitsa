@@ -1,5 +1,5 @@
 <template>
-  <section class="stories content-margin page__section">
+  <section class="stories page__section content-margin">
     <div class="story">
       <a
         class="story-src"
@@ -144,7 +144,7 @@ export default {
   text-align: left;
 }
 .content-margin {
-  margin: 100px 60px;
+  margin: 100px auto;
 }
 .story-images {
   max-width: 900px;
