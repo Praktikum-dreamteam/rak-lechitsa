@@ -115,7 +115,7 @@ export default {
     line-height: 32px;
   }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1000px) {
   .footer /deep/ .nav__list-items {
     display: flex;
     flex-direction: column;
