@@ -35,7 +35,7 @@ export default {};
   font-size: 40px;
 }
 @media screen and (max-width: 1280px) {
-  .slogan {
+  .slogan__content {
     font-size: 28px;
   }
   .slogan__title {
@@ -43,7 +43,7 @@ export default {};
   }
 }
 @media screen and (max-width: 1024px) {
-  .slogan {
+  .slogan__content {
     font-size: 24px;
     line-height: 40px;
   }
@@ -52,38 +52,32 @@ export default {};
   }
 }
 @media screen and (max-width: 768px) {
-  .slogan {
+  .slogan__content {
     font-size: 22px;
     line-height: 36px;
     padding: 12px 0;
+    max-width: 509px;
   }
   .slogan__title {
     font-size: 34px;
   }
-  .slogan__content {
-    max-width: 509px;
-  }
 }
 @media screen and (max-width: 550px) {
-  .slogan {
+  .slogan__content {
     font-size: 18px;
     line-height: 22px;
     padding: 12px 0;
+    max-width: 509px;
   }
   .slogan__title {
     font-size: 23px;
   }
-  .slogan__content {
-    max-width: 509px;
-  }
 }
 @media screen and (max-width: 425px) {
-  .slogan {
+  .slogan__content {
     font-size: 16px;
     line-height: 20px;
     padding: 14px 0;
-  }
-  .slogan__content {
     max-width: 250px;
   }
 }
