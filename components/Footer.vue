@@ -51,14 +51,12 @@ export default {
 </script>
 
 <style scoped>
-.page__section {
-  background-color: #fbfbfb;
-}
 .footer__subtitle {
   font-size: 18px;
   line-height: 24px;
 }
 .footer {
+  background-color: #fbfbfb;
   margin: 0 auto;
   max-width: 1440px;
   padding: 60px 60px;
