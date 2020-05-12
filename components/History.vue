@@ -11,7 +11,7 @@
         :description="story.description"
       ></StoryCard>
     </ul>
-    <nuxt-link class="history__link" to="/">Больше статей</nuxt-link>
+    <nuxt-link class="history__link" to="/stories">Больше статей</nuxt-link>
   </section>
 </template>
 
