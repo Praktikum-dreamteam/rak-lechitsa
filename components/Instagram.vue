@@ -121,6 +121,11 @@ export default {
   margin-right: auto;
 }
 
+.section-title {
+  align-self: center;
+  text-align: center;
+}
+
 .story-subtitle {
   margin-top: 32px;
   max-width: 80%;
@@ -129,7 +134,7 @@ export default {
 .story-src {
   text-decoration: none;
 }
-/* Подчеркивание, нужен будет фикс! */
+
 .story-src::after {
   content: '';
   height: 2px;
@@ -203,12 +208,19 @@ export default {
   .stories {
     max-width: 87%;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 80px auto;
+    align-items: center;
+  }
+
+  .story {
+    margin: 0 auto 60px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
 
   .story-subtitle {
-    max-width: 100%;
+    max-width: 380px;
     padding: 0;
   }
 
@@ -220,6 +232,10 @@ export default {
   }
 }
 @media (max-width: 765px) {
+  .stories {
+    margin-top: 70px;
+  }
+
   .story-images {
     max-width: 500px;
     grid-template-columns: repeat(4, 110px);
@@ -239,10 +255,20 @@ export default {
   }
 }
 @media (max-width: 410px) {
+  .stories {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
   .story-images {
     max-width: 290px;
     grid-template-columns: repeat(2, 140px);
     grid-template-rows: repeat(4, 140px);
+  }
+
+  .story {
+    align-items: flex-start;
+    margin-bottom: 40px;
   }
 }
 </style>
