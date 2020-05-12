@@ -217,7 +217,6 @@ export default {
 .page {
   width: 100%;
 }
-
 .page /deep/ .page__section {
   max-width: 1440px;
   margin-left: auto;
@@ -225,34 +224,28 @@ export default {
   padding-left: 60px;
   padding-right: 60px;
 }
-
 .page /deep/ .page__cover {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
-
 .page /deep/ .page__cover-container {
   width: 100%;
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
 }
-
 .page /deep/ .tabs {
   display: flex;
 }
-
 .page /deep/ .tabs__radios {
   text-align: right;
   margin-right: 40px;
 }
-
 .page /deep/ .tabs__texts {
   max-width: 640px;
   color: #dedede;
 }
-
 .page /deep/ .tabs__text {
   margin-bottom: 25px;
 }
@@ -277,7 +270,6 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
-
 @media screen and (max-width: 1280px) {
   .page /deep/ .page__section {
     padding-left: 50px;
@@ -287,7 +279,6 @@ export default {
     width: 570px;
   }
 }
-
 @media screen and (max-width: 1024px) {
   .page /deep/ .tabs__texts {
     width: 447px;

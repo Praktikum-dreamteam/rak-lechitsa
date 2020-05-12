@@ -56,7 +56,7 @@ export default {
   display: flex;
   align-items: center;
 }
-.btn_theme_history {
+/deep/ .btn_theme_history {
   padding: 0;
   margin-left: 40px;
   font-size: 18px;
@@ -64,7 +64,7 @@ export default {
   background-color: transparent;
   border: none;
 }
-.btn_theme_menu {
+/deep/ .btn_theme_menu {
   display: none;
 }
 @media screen and (max-width: 1280px) {
@@ -76,10 +76,10 @@ export default {
   .nav {
     display: none;
   }
-  .btn_theme_history {
+  /deep/ .btn_theme_history {
     display: none;
   }
-  .btn_theme_menu {
+  /deep/ .btn_theme_menu {
     display: flex;
     flex-direction: column;
     justify-content: space-between;

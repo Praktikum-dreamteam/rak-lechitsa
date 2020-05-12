@@ -25,7 +25,6 @@ export default {
   position: relative;
   background: #f4f4f4;
 }
-
 @media screen and (max-width: 1280px) {
   .progress-bar {
     height: 35px;
@@ -41,7 +40,6 @@ export default {
     height: 28px;
   }
 }
-
 .progress-bar__fill {
   position: absolute;
   height: 100%;

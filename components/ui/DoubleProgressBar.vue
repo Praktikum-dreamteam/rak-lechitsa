@@ -35,7 +35,6 @@ export default {
   height: 40px;
   position: relative;
 }
-
 @media screen and (max-width: 1280px) {
   .double-progress-bar {
     height: 35px;
@@ -51,18 +50,15 @@ export default {
     height: 28px;
   }
 }
-
 .double-progress-bar__fill {
   position: absolute;
   height: 50%;
   left: 0;
 }
-
 .double-progress-bar__fill_type_old {
   top: 0;
   background: #f4f4f4;
 }
-
 .double-progress-bar__fill_type_new {
   bottom: 0;
   background: #613a93;

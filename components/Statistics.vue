@@ -64,7 +64,6 @@ import ProgressBar from '@/components/ui/ProgressBar';
 import DoubleProgressBar from '@/components/ui/DoubleProgressBar';
 import SectionTitle from '@/components/SectionTitle';
 import SectionText from '@/components/SectionText';
-
 export default {
   components: {
     ProgressBar,
@@ -87,12 +86,10 @@ export default {
   list-style: none;
   padding-left: 0;
 }
-
 .statistics__form-height {
   position: relative;
   padding-top: 100%;
 }
-
 .statistics__form-content {
   position: absolute;
   top: 0;
@@ -112,11 +109,9 @@ export default {
   height: 100%;
   position: relative;
 }
-
 .statistics__form:last-of-type {
   margin: 0;
 }
-
 .statistics__text {
   width: auto;
   font-weight: normal;
@@ -125,7 +120,6 @@ export default {
   color: #000000;
   text-align: left;
 }
-
 .statistics__subtitle {
   font-weight: 600;
   font-size: 38px;
@@ -134,7 +128,6 @@ export default {
   color: #000000;
   margin-top: 20px;
 }
-
 .statistics__content {
   font-weight: normal;
   font-size: 12px;
@@ -143,28 +136,23 @@ export default {
   color: #666666;
   margin-top: 20px;
 }
-
 @media screen and (max-width: 1280px) {
   .statistics__form-content {
     padding: 18px;
   }
 }
-
 @media screen and (max-width: 1024px) {
   .statistics__subtitle {
     font-size: 26px;
     line-height: 30px;
   }
-
   .statistics__form-content {
     padding: 10px;
   }
-
   .statistics__form {
     margin-right: 30px;
     flex-basis: calc((100% - 90px) / 4);
   }
-
   .statistics__content {
     font-size: 10px;
     line-height: 14px;
@@ -178,7 +166,6 @@ export default {
   .statistics__form-content {
     padding: 10px;
   }
-
   .statistics__form {
     margin-right: 20px;
     flex-basis: 216px;
