@@ -10,8 +10,12 @@
         </SectionText>
         <div class="tabs">
           <div class="tabs__radios">
-            <Radio class="tabs__radio" theme="white">1-й вариант</Radio>
-            <Radio class="tabs__radio" theme="white">2-й вариант</Radio>
+            <Radio class="tabs__radio" theme="white" name="form" id="long"
+              >1-й вариант</Radio
+            >
+            <Radio class="tabs__radio" theme="white" name="form" id="short"
+              >2-й вариант</Radio
+            >
           </div>
           <div class="tabs__texts">
             <p theme="white" class="tabs__text">

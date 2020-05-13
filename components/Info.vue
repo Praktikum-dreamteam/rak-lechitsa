@@ -10,8 +10,12 @@
         </SectionText>
         <div class="tabs">
           <div class="tabs__radios">
-            <Radio class="tabs__radio" theme="violet">Рак Лечится</Radio>
-            <Radio class="tabs__radio" theme="violet">Фонд Хабенского</Radio>
+            <Radio class="tabs__radio" theme="violet" name="about" id="project"
+              >Рак Лечится</Radio
+            >
+            <Radio class="tabs__radio" theme="violet" name="about" id="found"
+              >Фонд Хабенского</Radio
+            >
           </div>
           <div class="tabs__texts">
             <p class="tabs__text tabs__text_theme_violet">
