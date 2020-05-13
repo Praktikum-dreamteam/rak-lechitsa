@@ -5,7 +5,7 @@
       <StoryCard
         v-for="story in stories"
         :key="story.id"
-        src="./../static/history.png"
+        :src="story.src"
         :id="story.id"
         :name="story.name"
         :description="story.description"
@@ -14,7 +14,6 @@
     <nuxt-link class="history__link" to="/stories">Больше статей</nuxt-link>
   </section>
 </template>
-
 <script>
 import SectionTitle from '@/components/SectionTitle';
 import StoryCard from '@/components/StoryCard';
@@ -27,53 +26,53 @@ export default {
           name: 'Владимир Тен',
           description:
             'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          src: '',
+          src: '/history.png',
         },
         {
           id: 2,
           name: 'Владимир Познер',
           description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-          src: '',
+          src: '/history.png',
         },
         {
           id: 3,
           name: 'Александр Тарханов',
           description:
             'Я не могу победить свою пунктуальность в отличии от рака.',
-          src: '',
+          src: '/history.png',
         },
         {
           id: 4,
           name: 'Владимир Тен',
           description:
             'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          src: '',
+          src: '/history.png',
         },
         {
           id: 5,
           name: 'Владимир Познер',
           description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-          src: '',
+          src: '/history.png',
         },
         {
           id: 6,
           name: 'Александр Тарханов',
           description:
             'Я не могу победить свою пунктуальность в отличии от рака.',
-          src: '',
+          src: '/history.png',
         },
         {
           id: 7,
           name: 'Владимир Тен',
           description:
             'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          src: '',
+          src: '/history.png',
         },
         {
           id: 8,
           name: 'Владимир Познер',
           description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-          src: '',
+          src: '/history.png',
         },
       ],
     };
