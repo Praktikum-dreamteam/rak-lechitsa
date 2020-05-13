@@ -34,6 +34,13 @@ export default {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .section-title {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 .section-title_theme_violet {
   color: #fff;
 }

@@ -14,9 +14,6 @@ export default {
 </script>
 
 <style scoped>
-.radio {
-  margin-bottom: 10px;
-}
 .radio__input {
   display: none;
 }
