@@ -141,7 +141,7 @@ export default {
     padding: 18px;
   }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1150px) {
   .statistics__subtitle {
     font-size: 26px;
     line-height: 30px;
@@ -162,7 +162,7 @@ export default {
     line-height: 14px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 950px) {
   .statistics__form-content {
     padding: 10px;
   }
