@@ -239,12 +239,23 @@ export default {
   text-align: right;
   margin-right: 40px;
 }
+
+.tabs__radio {
+  margin-bottom: 10px;
+}
 .tabs__texts {
   max-width: 640px;
-  color: #dedede;
+  color: #666666;
 }
 .tabs__text {
+  text-align: left;
+  font-size: 18px;
+  line-height: 22px;
   margin-bottom: 25px;
+}
+
+.tabs__text_theme_violet {
+  color: #dedede;
 }
 .container__form {
   min-height: 520px;
@@ -273,15 +284,45 @@ export default {
     padding-right: 50px;
   }
   .tabs__texts {
-    width: 570px;
+    max-width: 570px;
   }
 }
 @media screen and (max-width: 1024px) {
   .tabs__texts {
-    width: 447px;
+    max-width: 447px;
   }
   .tabs__radios {
     margin-right: 30px;
+  }
+  .tabs__text {
+    font-size: 15px;
+    line-height: 19px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .tabs {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 380px;
+  }
+
+  .tabs__radios {
+    width: 100%;
+    margin: 0;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+
+  .tabs__radio {
+    font-size: 0;
+    display: inline-block;
+    margin-right: 30px;
+  }
+
+  .tabs__radio:last-of-type {
+    margin-right: 0px;
   }
 }
 </style>

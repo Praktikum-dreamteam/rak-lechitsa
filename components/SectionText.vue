@@ -33,6 +33,12 @@ export default {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .section-text {
+    max-width: 100%;
+  }
+}
+
 .section-text_theme_violet {
   color: #dedede;
 }

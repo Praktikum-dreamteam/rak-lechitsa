@@ -1,9 +1,7 @@
 <template>
   <section class="form page__cover">
     <div class="page__cover-container form__container">
-      <SectionTitle class="form__subtitle" theme="white"
-        >Расскажите свою историю</SectionTitle
-      >
+      <SectionTitle theme="white">Расскажите свою историю</SectionTitle>
       <div class="form__content">
         <SectionText class="form__subtitle" theme="white">
           Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
@@ -12,16 +10,20 @@
         </SectionText>
         <div class="tabs">
           <div class="tabs__radios">
-            <Radio theme="white">1-й вариант</Radio>
-            <Radio theme="white">2-й вариант</Radio>
+            <Radio class="tabs__radio" theme="white" name="form" id="long"
+              >1-й вариант</Radio
+            >
+            <Radio class="tabs__radio" theme="white" name="form" id="short"
+              >2-й вариант</Radio
+            >
           </div>
           <div class="tabs__texts">
-            <SectionText theme="white" class="tabs__text">
+            <p theme="white" class="tabs__text">
               Заполнить подробную форму прямо на сайте и мы опубликуем вашу
               историю после проверки. Пожалуйста, заполняйте все пункты
               корректно, если вы испытаете какие-то сложности, воспользуйтесь
               2-м вариантом.
-            </SectionText>
+            </p>
             <Button
               @btn-click="$emit('openFormClick')"
               class="form__button"
@@ -57,7 +59,6 @@ export default {
 .form {
   background-color: #f7f7f7;
 }
-
 .form__container {
   padding: 100px 60px;
 }
@@ -85,14 +86,33 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
-  .info__subtitle {
+  .form__subtitle {
     max-width: 305px;
+  }
+  .form__container {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .info__subtitle {
+  .form__subtitle {
     max-width: 260px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .form__content {
+    margin-top: 26px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 380px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .form__subtitle {
+    max-width: 100%;
   }
 }
 </style>

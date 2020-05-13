@@ -10,15 +10,36 @@
         их историями.
       </SectionText>
       <!-- <div class="video__polygon"> -->
-      <!-- <button class="button video-button">&#5176</button> -->
-      <!-- <button class="button video-button">&#5171</button> -->
+      <button class="button video__button video__button_next">
+        <svg
+          width="10"
+          height="18"
+          viewBox="0 0 10 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M1 17L9 9L1 1" stroke="black" />
+        </svg>
+      </button>
+      <button class="button video__button video__button_prev">
+        <svg
+          width="10"
+          height="18"
+          viewBox="0 0 10 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M1 17L9 9L1 1" stroke="black" />
+        </svg>
+      </button>
       <!-- </div> -->
     </div>
     <figure class="video__card">
       <div class="video__image" alt="Видео"></div>
       <!-- тут будет iframe -->
       <figcaption class="video__caption">
-        Все видео вы можете найте на нашем <a href="#">YouTube канале.</a>
+        Все видео вы можете найте на нашем
+        <a href="#" class="video__link">YouTube канале</a>.
       </figcaption>
     </figure>
   </section>
@@ -41,6 +62,7 @@ export default {
 }
 
 .video {
+  position: relative;
   padding-top: 100px;
   padding-bottom: 100px;
   display: flex;
@@ -87,13 +109,29 @@ export default {
   background-color: #ededed;
 }
 
-.video-button {
+.video__button {
+  border: none;
+  position: absolute;
   width: 40px;
   height: 40px;
   background: #fbfbfb;
-  margin: 0;
+  bottom: 90px;
 }
 
+.video__button_prev {
+  transform: rotate(180deg);
+  left: 90px;
+}
+.video__button_next {
+  left: 130px;
+}
+
+.video__link {
+  text-decoration: none;
+  color: inherit;
+  font-size: 12px;
+  line-height: 16px;
+}
 @media screen and (max-width: 1280px) {
   .video__title {
     max-width: 367px;
