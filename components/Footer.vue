@@ -111,6 +111,10 @@ export default {
   line-height: 24px;
 }
 @media screen and (max-width: 1280px) {
+  .footer {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
   .footer__social-link {
     font-size: 16px;
   }
