@@ -1,7 +1,12 @@
 <template>
   <div>
-    <Menu class="menu__open page__section" v-if="isOpenMenu"></Menu>
-    <Header @openMenuClick="openMenu" @closeMenuClick="closeMenu" />
+    <client-only
+      ><mobile-menu
+        v-if="isMobileMenuOpened"
+        class="menu__open page__section"
+      ></mobile-menu
+    ></client-only>
+    <Header />
     <nuxt />
     <Popup
       v-if="IsShareShow"
@@ -29,17 +34,14 @@ export default {
   data() {
     return {
       IsShareShow: false,
-      isOpenMenu: false,
     };
   },
-  computed: {},
+  computed: {
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
+    },
+  },
   methods: {
-    openMenu() {
-      this.isOpenMenu = true;
-    },
-    closeMenu() {
-      this.isOpenMenu = false;
-    },
     openShare() {
       this.IsShareShow = true;
     },
@@ -53,7 +55,7 @@ export default {
     Popup,
     Overlay,
     Share,
-    Menu,
+    'mobile-menu': Menu,
   },
 };
 </script>
@@ -95,7 +97,7 @@ html {
     padding: 25px 0 70px 0;
   }
 }
-@media screen and (max-width: 812px) {
+@media screen and (max-width: 792px) {
   .menu.menu__open {
     display: flex;
     border-bottom: 1px solid #e8e8e8;
@@ -107,6 +109,15 @@ html {
   .popup.share__popup {
     width: 290px;
     padding: 35px 0 70px 0;
+  }
+}
+@media screen and (max-width: 452px) {
+  .menu.menu__open {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 18px;
+    padding-bottom: 18px;
   }
 }
 </style>

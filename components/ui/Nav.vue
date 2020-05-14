@@ -2,21 +2,10 @@
   <nav class="nav">
     <ul class="nav__list-items">
       <li class="nav__list-item">
-        <nuxt-link
-          to="/"
-          :class="['nav__link', { nav__link_underline: $route.path == '/' }]"
-          >Главная</nuxt-link
-        >
+        <nuxt-link to="/" class="nav__link">Главная</nuxt-link>
       </li>
       <li class="nav__list-item">
-        <nuxt-link
-          to="/stories"
-          :class="[
-            'nav__link',
-            { nav__link_underline: $route.path == '/stories' },
-          ]"
-          >Истории</nuxt-link
-        >
+        <nuxt-link to="/stories" class="nav__link">Истории</nuxt-link>
       </li>
     </ul>
   </nav>
@@ -42,9 +31,16 @@
   text-decoration: none;
   color: black;
 }
+.nav__link:hover {
+  opacity: 0.8;
+  transition: 0.3s;
+}
 @media screen and (max-width: 1280px) {
   .nav__link {
     font-size: 16px;
+  }
+  .nav__list-item {
+    margin-left: 30px;
   }
 }
 @media screen and (max-width: 992px) {
@@ -56,7 +52,7 @@
     margin: 0 0 14px 0;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 452px) {
   .nav__link {
     font-size: 13px;
     line-height: 15px;

@@ -325,4 +325,10 @@ export default {
     margin-right: 0px;
   }
 }
+@media screen and (max-width: 452px) {
+  .page__section {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 </style>
