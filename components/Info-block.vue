@@ -10,33 +10,52 @@
         </SectionText>
         <div class="tabs">
           <div class="tabs__radios">
-            <Radio class="tabs__radio" theme="white" name="form" id="long"
+            <Radio
+              @radio-click="addLongText"
+              class="tabs__radio"
+              :class="{ active: isLongText }"
+              name="form"
+              id="long"
               >1-й вариант</Radio
             >
-            <Radio class="tabs__radio" theme="white" name="form" id="short"
+            <Radio
+              @radio-click="addShortText"
+              class="tabs__radio"
+              :class="{ active: !isLongText }"
+              name="form"
+              id="short"
               >2-й вариант</Radio
             >
           </div>
           <div class="tabs__texts">
-            <p theme="white" class="tabs__text">
+            <p v-if="isLongText" class="tabs__text">
               Заполнить подробную форму прямо на сайте и мы опубликуем вашу
               историю после проверки. Пожалуйста, заполняйте все пункты
               корректно, если вы испытаете какие-то сложности, воспользуйтесь
               2-м вариантом.
             </p>
+            <p v-if="!isLongText" class="tabs__text">
+              Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
+              зададим вопросы, уточним детали вашей истории.
+            </p>
             <Button
+              v-if="isLongText"
               @btn-click="$emit('openFormClick')"
               class="form__button"
               theme="violet"
               >Заполнить форму</Button
             >
+            <Button
+              v-if="!isLongText"
+              @btn-click="$emit('openFormClick')"
+              class="form__button"
+              theme="violet"
+              >Оставить контакт</Button
+            >
           </div>
         </div>
-
-        <!-- <p class="form__content"> Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, уточним детали вашей истории.</p> -->
       </div>
     </div>
-    <!-- <button class="button form__button"> Оставить контакт </button> -->
   </section>
 </template>
 
@@ -51,6 +70,19 @@ export default {
     Radio,
     SectionTitle,
     SectionText,
+  },
+  computed: {
+    isLongText() {
+      return this.$store.getters['infoBlock/getTextState'];
+    },
+  },
+  methods: {
+    addLongText() {
+      this.$store.commit('infoBlock/addLong');
+    },
+    addShortText() {
+      this.$store.commit('infoBlock/addShort');
+    },
   },
 };
 </script>
@@ -84,7 +116,12 @@ export default {
 .form__button {
   margin-top: 56px;
 }
-
+.radio /deep/ {
+  color: #a2a2a2;
+}
+.radio.active {
+  color: black;
+}
 @media screen and (max-width: 1280px) {
   .form__subtitle {
     max-width: 305px;
@@ -113,6 +150,9 @@ export default {
   }
   .form__subtitle {
     max-width: 100%;
+  }
+  .radio.active {
+    border-bottom: 2px solid #613a93;
   }
 }
 </style>

@@ -1,7 +1,11 @@
 <template>
   <div class="radio">
     <input type="radio" class="radio__input" :id="id" :name="name" />
-    <label :class="['radio__label', `radio__label_theme_${theme}`]" :for="id">
+    <label
+      @click="$emit('radio-click')"
+      :class="['radio__label', `radio__label_theme_${theme}`]"
+      :for="id"
+    >
       <slot></slot>
     </label>
   </div>
@@ -25,13 +29,10 @@ export default {
   font-size: 18px;
   line-height: 22px;
 }
-
-.radio__input:checked + .radio__label_theme_violet {
-  color: #fff;
-}
-
-.radio__input:checked + .radio__label_theme_white {
-  color: #000000;
+.radio__label:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.3s;
 }
 
 .radio__label_theme_violet {
@@ -39,9 +40,8 @@ export default {
 }
 
 .radio__label_theme_white {
-  color: #a2a2a2;
+  color: inherit;
 }
-
 @media screen and (max-width: 1280px) {
   .radio {
     width: 130px;
@@ -60,11 +60,8 @@ export default {
     padding-bottom: 6px;
     border-bottom: 2px solid transparent;
   }
-  .radio__input:checked + .radio__label_theme_violet {
+  .radio.active {
     border-bottom: 2px solid #ffffff;
-  }
-  .radio__input:checked + .radio__label_theme_white {
-    border-bottom: 2px solid #613a93;
   }
 }
 </style>

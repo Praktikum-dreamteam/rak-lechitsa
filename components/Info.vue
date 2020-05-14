@@ -10,15 +10,25 @@
         </SectionText>
         <div class="tabs">
           <div class="tabs__radios">
-            <Radio class="tabs__radio" theme="violet" name="about" id="project"
+            <Radio
+              @radio-click="addLongText"
+              class="tabs__radio"
+              :class="{ active: isLongText }"
+              name="about"
+              id="project"
               >Рак Лечится</Radio
             >
-            <Radio class="tabs__radio" theme="violet" name="about" id="found"
+            <Radio
+              @radio-click="addShortText"
+              class="tabs__radio"
+              :class="{ active: !isLongText }"
+              name="about"
+              id="found"
               >Фонд Хабенского</Radio
             >
           </div>
           <div class="tabs__texts">
-            <p class="tabs__text tabs__text_theme_violet">
+            <p v-if="isLongText" class="tabs__text tabs__text_theme_violet">
               Есть вещи, которые не лечатся. Особенности характера, страстные
               увлечения, привычки, ставшие частью нашего «я», фобии, которые мы
               приобрели в детстве. Список можно продолжать до бесконечности, но
@@ -48,6 +58,19 @@ export default {
     SectionTitle,
     SectionText,
     Radio,
+  },
+  computed: {
+    isLongText() {
+      return this.$store.getters['info/getTextState'];
+    },
+  },
+  methods: {
+    addLongText() {
+      this.$store.commit('info/addLong');
+    },
+    addShortText() {
+      this.$store.commit('info/addShort');
+    },
   },
 };
 </script>
@@ -86,7 +109,12 @@ export default {
 .info__subtitle {
   max-width: 340px;
 }
-
+.radio /deep/ {
+  color: #c9c9c9;
+}
+.radio.active {
+  color: white;
+}
 @media screen and (max-width: 1280px) {
   .info__subtitle {
     max-width: 305px;
@@ -128,6 +156,9 @@ export default {
   }
   .info__subtitle {
     max-width: 100%;
+  }
+  .radio.active {
+    border-bottom: 2px solid white;
   }
 }
 </style>

@@ -244,6 +244,9 @@ export default {
   margin-bottom: 10px;
 }
 .tabs__texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   max-width: 640px;
   color: #666666;
 }

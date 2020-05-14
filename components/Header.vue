@@ -16,11 +16,6 @@ export default {
     'my-menu': Menu,
     mobileIcon: MobileIcon,
   },
-  data() {
-    return {
-      isMenuOpen: false,
-    };
-  },
 };
 </script>
 
