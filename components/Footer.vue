@@ -31,9 +31,17 @@
         </li>
       </ul>
       <copyright class="copyright footer__copyright"
-        >Рак Лечится 2020</copyright
+        >Рак Лечится {{ getDate() }}</copyright
       >
-      <copyright>Сделано студентами Яндекс Практикум</copyright>
+      <copyright
+        >Сделано студентами
+        <a
+          class="footer__link"
+          href="https://praktikum.yandex.ru"
+          target="_blank"
+          >Яндекс Практикум</a
+        ></copyright
+      >
     </Container>
   </footer>
 </template>
@@ -45,6 +53,12 @@ import Button from '@/components/ui/Button';
 import Container from '@/components/Container';
 
 export default {
+  methods: {
+    getDate() {
+      let data = new Date();
+      return data.getFullYear();
+    },
+  },
   components: {
     'footer-nav': Nav,
     copyright: Copyright,
@@ -80,7 +94,7 @@ export default {
   margin-bottom: 110px;
 }
 .footer__nav {
-  margin-left: 8.5%;
+  margin-left: 113px;
 }
 .footer__list-items {
   margin: 0 0 126px auto;
@@ -99,17 +113,17 @@ export default {
   text-decoration: none;
   color: black;
 }
+.footer__link {
+  color: #898989;
+  text-decoration: none;
+}
+.footer__link:hover,
 .footer__social-link:hover {
   opacity: 0.8;
   transition: 0.3s;
 }
 .footer__copyright {
   width: 400px;
-}
-/deep/ .btn_theme_share {
-  padding: 0;
-  font-size: 18px;
-  line-height: 24px;
 }
 @media screen and (max-width: 1280px) {
   .footer__social-link {
@@ -119,6 +133,9 @@ export default {
     font-size: 28px;
     line-height: 32px;
   }
+  .footer__nav {
+    margin-left: 102px;
+  }
 }
 @media screen and (max-width: 1024px) {
   .footer__title {
@@ -126,15 +143,11 @@ export default {
     line-height: 28px;
     max-width: 240px;
   }
+  .footer__nav {
+    margin-left: 30px;
+  }
 }
 @media screen and (max-width: 1000px) {
-  .footer /deep/ .nav__list-items {
-    display: flex;
-    flex-direction: column;
-  }
-  .footer /deep/ .nav__list-item {
-    margin: 0 0 14px 0;
-  }
   .footer__list-item {
     margin-bottom: 14px;
   }
@@ -148,7 +161,8 @@ export default {
     width: 300px;
   }
 }
-@media screen and (max-width: 739px) {
+
+@media screen and (max-width: 750px) {
   .footer__container {
     flex-direction: column;
   }
@@ -170,10 +184,6 @@ export default {
     font-size: 16px;
     line-height: 24px;
   }
-  /deep/ .btn_theme_share {
-    font-size: 16px;
-    line-height: 24px;
-  }
 }
 @media screen and (max-width: 452px) {
   .copyright {
@@ -185,10 +195,6 @@ export default {
     line-height: 15px;
   }
   .footer__social-link {
-    font-size: 13px;
-    line-height: 15px;
-  }
-  /deep/ .btn_theme_share {
     font-size: 13px;
     line-height: 15px;
   }
