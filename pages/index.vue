@@ -244,6 +244,9 @@ export default {
   margin-bottom: 10px;
 }
 .tabs__texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   max-width: 640px;
   color: #666666;
 }
@@ -323,6 +326,12 @@ export default {
 
   .tabs__radio:last-of-type {
     margin-right: 0px;
+  }
+}
+@media screen and (max-width: 452px) {
+  .page__section {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 </style>

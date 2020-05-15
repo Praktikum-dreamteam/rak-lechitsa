@@ -33,13 +33,33 @@ export default {
   border: none;
 }
 @media screen and (max-width: 1280px) {
-  .btn_theme_history {
+  /deep/ .btn_theme_history {
     font-size: 16px;
+    margin-left: 30px;
   }
 }
-@media screen and (max-width: 812px) {
+@media screen and (max-width: 792px) {
   .menu {
     display: none;
+  }
+}
+@media screen and (max-width: 452px) {
+  /deep/ .btn_theme_history {
+    margin: 0 0 18px 0;
+  }
+  .menu /deep/ .nav__list-items {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .menu /deep/ .nav__list-item {
+    margin: 0 0 18px 0;
+  }
+  .menu /deep/ .nav__list-item:first-child {
+    margin: 0 0 18px 0;
+  }
+  .menu /deep/ .btn_theme_history {
+    font-size: 13px;
+    line-height: 15px;
   }
 }
 </style>

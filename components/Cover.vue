@@ -1,7 +1,7 @@
 <template>
   <section class="cover">
     <h1 class="cover__title">#Раклечится</h1>
-    <a href class="cover__polygon">
+    <a href="#video" class="cover__polygon">
       <img src="./../static/polygon.png" alt="стрелка вниз" />
     </a>
   </section>

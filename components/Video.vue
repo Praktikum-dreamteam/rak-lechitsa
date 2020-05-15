@@ -1,5 +1,5 @@
 <template>
-  <section class="video page__section">
+  <section class="video page__section" id="video">
     <div class="video__text">
       <SectionTitle class="video__title" theme="white">
         Истории людей, победивших рак, но не свои привычки
@@ -60,7 +60,6 @@ export default {
 .button {
   background-color: #fbfbfb;
 }
-
 .video {
   position: relative;
   padding-top: 100px;
