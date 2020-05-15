@@ -98,6 +98,10 @@ export default {
   text-decoration: none;
   color: black;
 }
+.footer__social-link:hover {
+  opacity: 0.8;
+  transition: 0.3s;
+}
 .footer__copyright {
   width: 400px;
 }
@@ -107,12 +111,23 @@ export default {
   line-height: 24px;
 }
 @media screen and (max-width: 1280px) {
+  .footer {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
   .footer__social-link {
     font-size: 16px;
   }
   .footer__title {
     font-size: 28px;
     line-height: 32px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .footer__title {
+    font-size: 24px;
+    line-height: 28px;
+    max-width: 240px;
   }
 }
 @media screen and (max-width: 1000px) {
@@ -129,11 +144,6 @@ export default {
   .footer__list-item:last-child {
     margin-bottom: 0;
   }
-  .footer__title {
-    font-size: 24px;
-    line-height: 28px;
-    max-width: 240px;
-  }
   .footer__nav {
     margin-left: auto;
   }
@@ -141,12 +151,13 @@ export default {
     width: 300px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 739px) {
   .footer {
     flex-direction: column;
   }
   .footer__title {
     margin-bottom: 50px;
+    max-width: 400px;
   }
   .footer__nav {
     margin: 0;
@@ -158,8 +169,19 @@ export default {
     width: auto;
     margin-bottom: 10px;
   }
+  .footer__subtitle {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  /deep/ .btn_theme_share {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 452px) {
+  .footer {
+    padding: 50px 15px;
+  }
   .copyright {
     font-size: 13px;
     line-height: 18px;
@@ -172,7 +194,7 @@ export default {
     font-size: 13px;
     line-height: 15px;
   }
-  .footer /deep/ .btn_theme_share {
+  /deep/ .btn_theme_share {
     font-size: 13px;
     line-height: 15px;
   }
