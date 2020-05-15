@@ -1,10 +1,7 @@
 <template>
   <div>
     <client-only
-      ><mobile-menu
-        v-if="isMobileMenuOpened"
-        class="menu__open page__section"
-      ></mobile-menu
+      ><mobile-menu v-if="isMobileMenuOpened" class="menu__open"></mobile-menu
     ></client-only>
     <Header />
     <nuxt />
@@ -28,7 +25,7 @@ import Header from '@/components/Header';
 import Popup from '@/components/PopUp';
 import Overlay from '@/components/ui/Overlay';
 import Share from '@/components/Share';
-import Menu from '~/components/Menu';
+import Menu from '@/components/Menu';
 
 export default {
   data() {
@@ -101,8 +98,7 @@ html {
   .menu.menu__open {
     display: flex;
     border-bottom: 1px solid #e8e8e8;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding: 18px 50px;
   }
 }
 @media screen and (max-width: 650px) {
@@ -116,8 +112,7 @@ html {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding: 18px 15px;
   }
 }
 </style>

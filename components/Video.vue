@@ -1,57 +1,61 @@
 <template>
-  <section class="video page__section" id="video">
-    <div class="video__text">
-      <SectionTitle class="video__title" theme="white">
-        Истории людей, победивших рак, но не свои привычки
-      </SectionTitle>
-      <SectionText class="video__subtitle" theme="white">
-        Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
-        страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с
-        их историями.
-      </SectionText>
-      <!-- <div class="video__polygon"> -->
-      <button class="button video__button video__button_next">
-        <svg
-          width="10"
-          height="18"
-          viewBox="0 0 10 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M1 17L9 9L1 1" stroke="black" />
-        </svg>
-      </button>
-      <button class="button video__button video__button_prev">
-        <svg
-          width="10"
-          height="18"
-          viewBox="0 0 10 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M1 17L9 9L1 1" stroke="black" />
-        </svg>
-      </button>
-      <!-- </div> -->
-    </div>
-    <figure class="video__card">
-      <div class="video__image" alt="Видео"></div>
-      <!-- тут будет iframe -->
-      <figcaption class="video__caption">
-        Все видео вы можете найте на нашем
-        <a href="#" class="video__link">YouTube канале</a>.
-      </figcaption>
-    </figure>
-  </section>
+  <Container>
+    <section class="video" id="video">
+      <div class="video__text">
+        <SectionTitle class="video__title" theme="white">
+          Истории людей, победивших рак, но не свои привычки
+        </SectionTitle>
+        <SectionText class="video__subtitle" theme="white">
+          Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
+          страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди
+          с их историями.
+        </SectionText>
+        <!-- <div class="video__polygon"> -->
+        <button class="button video__button video__button_next">
+          <svg
+            width="10"
+            height="18"
+            viewBox="0 0 10 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M1 17L9 9L1 1" stroke="black" />
+          </svg>
+        </button>
+        <button class="button video__button video__button_prev">
+          <svg
+            width="10"
+            height="18"
+            viewBox="0 0 10 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M1 17L9 9L1 1" stroke="black" />
+          </svg>
+        </button>
+        <!-- </div> -->
+      </div>
+      <figure class="video__card">
+        <div class="video__image" alt="Видео"></div>
+        <!-- тут будет iframe -->
+        <figcaption class="video__caption">
+          Все видео вы можете найте на нашем
+          <a href="#" class="video__link">YouTube канале</a>.
+        </figcaption>
+      </figure>
+    </section>
+  </Container>
 </template>
 
 <script>
 import SectionTitle from '@/components/SectionTitle';
 import SectionText from '@/components/SectionText';
+import Container from '@/components/Container';
 export default {
   components: {
     SectionTitle,
     SectionText,
+    Container,
   },
 };
 </script>

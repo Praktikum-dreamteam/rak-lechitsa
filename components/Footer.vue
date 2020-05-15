@@ -1,11 +1,9 @@
 <template>
-  <div class="page">
-    <footer class="footer">
-      <div>
-        <h2 class="footer__title">
-          Спасибо всем, кто помог состояться этому проекту
-        </h2>
-      </div>
+  <footer class="footer">
+    <Container class="footer__container">
+      <h2 class="footer__title">
+        Спасибо всем, кто помог состояться этому проекту
+      </h2>
       <footer-nav class="footer__nav" />
       <ul class="footer__list-items">
         <li class="footer__list-item">
@@ -36,27 +34,34 @@
         >Рак Лечится 2020</copyright
       >
       <copyright>Сделано студентами Яндекс Практикум</copyright>
-    </footer>
-  </div>
+    </Container>
+  </footer>
 </template>
 
 <script>
-import Nav from '~/components/ui/Nav';
+import Nav from '@/components/ui/Nav';
 import Copyright from '@/components/Copyright';
-import Button from '~/components/ui/Button';
+import Button from '@/components/ui/Button';
+import Container from '@/components/Container';
 
 export default {
   components: {
     'footer-nav': Nav,
     copyright: Copyright,
     'share-btn': Button,
+    Container,
   },
 };
 </script>
 
 <style scoped>
-.page {
-  background-color: #fbfbfb;
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .footer__subtitle {
@@ -64,12 +69,8 @@ export default {
   line-height: 24px;
 }
 .footer {
-  margin: 0 auto;
-  max-width: 1440px;
-  padding: 60px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  width: 100%;
+  background-color: #fbfbfb;
 }
 .footer__title {
   font-size: 32px;
@@ -111,10 +112,6 @@ export default {
   line-height: 24px;
 }
 @media screen and (max-width: 1280px) {
-  .footer {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
   .footer__social-link {
     font-size: 16px;
   }
@@ -152,7 +149,7 @@ export default {
   }
 }
 @media screen and (max-width: 739px) {
-  .footer {
+  .footer__container {
     flex-direction: column;
   }
   .footer__title {
@@ -179,9 +176,6 @@ export default {
   }
 }
 @media screen and (max-width: 452px) {
-  .footer {
-    padding: 50px 15px;
-  }
   .copyright {
     font-size: 13px;
     line-height: 18px;

@@ -1,5 +1,5 @@
 <template>
-  <section class="form page__cover">
+  <section class="form">
     <div class="page__cover-container form__container">
       <SectionTitle theme="white">Расскажите свою историю</SectionTitle>
       <div class="form__content">

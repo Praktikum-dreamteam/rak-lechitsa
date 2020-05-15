@@ -6,9 +6,9 @@
     <History />
     <Slogan>Рассказывайте ваши истории в Инстаграм</Slogan>
     <Instagram />
-    <InfoBlock @openFormClick="openForm" />
+    <InfoBlock @openFormClick="openForm" class="page__cover" />
     <Statistics />
-    <Info />
+    <Info class="page__cover" />
     <Popup
       v-if="IsFormShow"
       haveClose="true"
@@ -215,12 +215,6 @@ export default {
 .page {
   width: 100%;
 }
-.page__section {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding-left: 60px;
-  padding-right: 60px;
-}
 .page__cover {
   width: 100%;
   margin-left: auto;
@@ -282,10 +276,6 @@ export default {
   align-items: center;
 }
 @media screen and (max-width: 1280px) {
-  .page__section {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
   .tabs__texts {
     max-width: 570px;
   }
@@ -326,12 +316,6 @@ export default {
 
   .tabs__radio:last-of-type {
     margin-right: 0px;
-  }
-}
-@media screen and (max-width: 452px) {
-  .page__section {
-    padding-left: 15px;
-    padding-right: 15px;
   }
 }
 </style>

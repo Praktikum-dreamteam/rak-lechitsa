@@ -1,14 +1,21 @@
 <template>
   <section class="cover">
-    <h1 class="cover__title">#Раклечится</h1>
-    <a href="#video" class="cover__polygon">
-      <img src="./../static/polygon.png" alt="стрелка вниз" />
-    </a>
+    <Container>
+      <h1 class="cover__title">#Раклечится</h1>
+      <a href="#video" class="cover__polygon">
+        <img src="./../static/polygon.png" alt="стрелка вниз" />
+      </a>
+    </Container>
   </section>
 </template>
 
 <script>
-export default {};
+import Container from '@/components/Container';
+export default {
+  components: {
+    Container,
+  },
+};
 </script>
 
 <style scoped>

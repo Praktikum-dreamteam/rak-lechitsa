@@ -1,7 +1,7 @@
 <template>
   <section class="info page__cover">
     <div class="page__cover-container info__container">
-      <p class="info__title">#РАКЛЕЧИТСЯ</p>
+      <p class="info__title">#раклечится</p>
       <SectionTitle theme="violet">О проекте</SectionTitle>
       <div class="info__content">
         <SectionText class="info__subtitle" theme="violet">

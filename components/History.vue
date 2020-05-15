@@ -1,22 +1,25 @@
 <template>
-  <section class="history page__section">
-    <SectionTitle theme="white">Истории неизлечимых привычек</SectionTitle>
-    <ul class="history__cards">
-      <StoryCard
-        v-for="story in stories"
-        :key="story.id"
-        :src="story.src"
-        :id="story.id"
-        :name="story.name"
-        :description="story.description"
-      ></StoryCard>
-    </ul>
-    <nuxt-link class="history__link" to="/stories">Больше статей</nuxt-link>
-  </section>
+  <Container>
+    <section class="history">
+      <SectionTitle theme="white">Истории неизлечимых привычек</SectionTitle>
+      <ul class="history__cards">
+        <StoryCard
+          v-for="story in stories"
+          :key="story.id"
+          :src="story.src"
+          :id="story.id"
+          :name="story.name"
+          :description="story.description"
+        ></StoryCard>
+      </ul>
+      <nuxt-link class="history__link" to="/stories">Больше статей</nuxt-link>
+    </section>
+  </Container>
 </template>
 <script>
 import SectionTitle from '@/components/SectionTitle';
 import StoryCard from '@/components/StoryCard';
+import Container from '@/components/Container';
 export default {
   data() {
     return {
@@ -80,6 +83,7 @@ export default {
   components: {
     SectionTitle,
     StoryCard,
+    Container,
   },
 };
 </script>
