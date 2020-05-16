@@ -164,8 +164,8 @@ export default {
 @media screen and (max-width: 950px) {
   .history__cards {
     grid-template-columns: repeat(3, minmax(200px, 300px));
-    column-grap: 40px;
-    row-grap: 20px;
+    column-gap: 40px;
+    row-gap: 20px;
   }
   .history__card-title {
     font-size: 18px;
