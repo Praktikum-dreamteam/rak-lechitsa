@@ -1,6 +1,6 @@
 <template>
   <section class="form">
-    <div class="page__cover-container form__container">
+    <Container class="form__container">
       <SectionTitle theme="white">Расскажите свою историю</SectionTitle>
       <div class="form__content">
         <SectionText class="form__subtitle" theme="white">
@@ -55,7 +55,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   </section>
 </template>
 
@@ -64,12 +64,14 @@ import Button from '@/components/ui/Button';
 import Radio from '@/components/ui/Radio';
 import SectionTitle from '@/components/SectionTitle';
 import SectionText from '@/components/SectionText';
+import Container from '@/components/Container';
 export default {
   components: {
     Button,
     Radio,
     SectionTitle,
     SectionText,
+    Container,
   },
   computed: {
     isLongText() {
@@ -92,7 +94,8 @@ export default {
   background-color: #f7f7f7;
 }
 .form__container {
-  padding: 100px 60px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .form__content {
   margin-top: 32px;

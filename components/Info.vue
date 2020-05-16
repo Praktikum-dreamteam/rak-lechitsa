@@ -1,6 +1,6 @@
 <template>
-  <section class="info page__cover">
-    <div class="page__cover-container info__container">
+  <section class="info">
+    <Container class="info__container">
       <p class="info__title">#раклечится</p>
       <SectionTitle theme="violet">О проекте</SectionTitle>
       <div class="info__content">
@@ -45,7 +45,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   </section>
 </template>
 
@@ -53,11 +53,13 @@
 import SectionTitle from '@/components/SectionTitle';
 import SectionText from '@/components/SectionText';
 import Radio from '@/components/ui/Radio';
+import Container from '@/components/Container';
 export default {
   components: {
     SectionTitle,
     SectionText,
     Radio,
+    Container,
   },
   computed: {
     isLongText() {
@@ -96,7 +98,8 @@ export default {
 }
 
 .info__container {
-  padding: 90px 60px 100px 60px;
+  padding-top: 60px;
+  padding-bottom: 100px;
 }
 
 .info__content {

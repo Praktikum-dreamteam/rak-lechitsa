@@ -110,7 +110,7 @@ export default {
     padding: 18px;
   }
 }
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1160px) {
   .stats-card__subtitle {
     font-size: 26px;
     line-height: 30px;
