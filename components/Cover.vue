@@ -3,7 +3,7 @@
     <Container>
       <h1 class="cover__title">#Раклечится</h1>
       <a href="#video" class="cover__polygon">
-        <img src="./../static/polygon.png" alt="стрелка вниз" />
+        <img src="/polygon.png" alt="стрелка вниз" />
       </a>
     </Container>
   </section>
@@ -29,7 +29,7 @@ export default {
   justify-content: center;
 }
 .cover__title {
-  color: #ffffff;
+  color: #fff;
   text-align: center;
   font-weight: 800;
   font-size: 92px;
@@ -40,7 +40,7 @@ export default {
   position: absolute;
   min-width: 36px;
   min-height: 12px;
-  color: #ffffff;
+  color: #fff;
   bottom: 40px;
   right: 50%;
   transform: translateX(50%);
