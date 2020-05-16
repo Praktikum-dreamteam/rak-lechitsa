@@ -25,7 +25,7 @@
           </p>
         </li>
         <li class="footer__list-item">
-          <share-btn @btn-click="$emit('openShare')" theme="share"
+          <share-btn @btn-click="openPopup" theme="share"
             >Поделитесь &#8599;</share-btn
           >
         </li>
@@ -33,15 +33,15 @@
       <copyright class="copyright footer__copyright"
         >Рак Лечится {{ getDate() }}</copyright
       >
-      <copyright
-        >Сделано студентами
+      <copyright>
+        Сделано студентами
         <a
           class="footer__link"
           href="https://praktikum.yandex.ru"
           target="_blank"
           >Яндекс Практикум</a
-        ></copyright
-      >
+        >
+      </copyright>
     </Container>
   </footer>
 </template>
@@ -57,6 +57,9 @@ export default {
     getDate() {
       let data = new Date();
       return data.getFullYear();
+    },
+    openPopup() {
+      this.$store.commit('popup/open');
     },
   },
   components: {

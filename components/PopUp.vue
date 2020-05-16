@@ -4,11 +4,7 @@
       <h2 class="popup__title" :class="{ popup__title_center: !haveClose }">
         {{ title }}
       </h2>
-      <div
-        v-if="haveClose"
-        @click="$emit('closeClick')"
-        class="popup__close"
-      ></div>
+      <div v-if="haveClose" @click="close" class="popup__close"></div>
     </div>
     <slot>Содержимое окна</slot>
   </div>
@@ -17,6 +13,11 @@
 <script>
 export default {
   props: ['title', 'haveClose'],
+  methods: {
+    close() {
+      this.$store.commit('popup/close');
+    },
+  },
 };
 </script>
 

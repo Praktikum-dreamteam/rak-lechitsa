@@ -6,37 +6,9 @@
     <History />
     <Slogan>Рассказывайте ваши истории в Инстаграм</Slogan>
     <Instagram />
-    <InfoBlock @openFormClick="openForm" class="page__cover" />
+    <InfoBlock class="page__cover" />
     <Statistics />
     <Info class="page__cover" />
-    <Popup
-      v-if="IsFormShow"
-      haveClose="true"
-      :title="titleForForm"
-      @closeClick="closeForm"
-    >
-      <!-- Временные трудности, писалось до лекций использовали что могли -->
-      <Form
-        @clickBack="backStep"
-        @clickNext="nextStep"
-        @answerInput="writeAnswer"
-        :answer="questionnaire[currentStep].answer"
-        :formQuestion="questionnaire[currentStep].question"
-        :description="questionnaire[currentStep].description"
-        class="container__form"
-        :isLast="isLast"
-        :isDisabledBackButton="!isActiveBackButton"
-      ></Form>
-    </Popup>
-    <Popup
-      v-if="isShowGratitude"
-      :haveClose="isLast"
-      class="index__popup"
-      title="Спасибо что приняли участие!"
-    >
-      <Button @btn-click="closeGratitude" theme="violet">Закрыть</Button>
-    </Popup>
-    <Overlay @overlayClick="closeForm" v-if="IsFormShow || isShowGratitude" />
   </div>
 </template>
 
@@ -57,7 +29,6 @@ import Button from '@/components/ui/Button';
 export default {
   data() {
     return {
-      IsFormShow: false,
       questionnaire: [
         {
           question: 'Как вас зовут ?',
@@ -129,70 +100,9 @@ export default {
           answer: '',
         },
       ],
-      currentStep: 0,
-      titleForForm: '',
-      currentAnswer: '',
-      isLast: false,
-      isShowGratitude: false,
-      isActiveBackButton: false,
     };
   },
-  computed: {},
-  methods: {
-    openForm() {
-      this.IsFormShow = true;
-      this.updateTitleForForm();
-    },
-    closeForm() {
-      this.IsFormShow = false;
-    },
-    nextStep() {
-      this.isActiveBackButton = true;
-      if (this.isLast) {
-        this.sendData();
-        return;
-      }
-      if (this.currentStep < this.questionnaire.length - 1) {
-        this.currentStep++;
-        this.isLast = false;
-        this.updateTitleForForm();
-      }
-      if (this.currentStep == this.questionnaire.length - 1) {
-        this.isLast = true;
-      } else {
-        this.isLast = false;
-      }
-    },
-    closeGratitude() {
-      this.isShowGratitude = false;
-    },
-    sendData() {
-      console.log(JSON.stringify(this.questionnaire));
-      this.currentStep = 0;
-      this.isActiveBackButton = false;
-      this.isLast = false;
-      this.IsFormShow = false;
-      this.isShowGratitude = true;
-      this.questionnaire.forEach(item => (item.answer = ''));
-    },
-    backStep() {
-      if (this.currentStep > 0) {
-        this.currentStep--;
-        this.isLast = false;
-        this.updateTitleForForm();
-      }
-      this.isActiveBackButton = this.currentStep > 0;
-    },
-    updateTitleForForm() {
-      this.titleForForm = `Шаг ${this.currentStep + 1} из ${
-        this.questionnaire.length
-      }`;
-      this.currentAnswer = this.questionnaire[this.currentStep].answer;
-    },
-    writeAnswer(text) {
-      this.questionnaire[this.currentStep].answer = text;
-    },
-  },
+  methods: {},
   components: {
     Logo,
     Cover,

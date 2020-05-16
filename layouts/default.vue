@@ -1,12 +1,12 @@
 <template>
   <div>
-    <client-only
-      ><mobile-menu v-if="isMobileMenuOpened" class="menu__open"></mobile-menu
-    ></client-only>
+    <client-only>
+      <mobile-menu v-if="isMobileMenuOpened" class="menu__open"></mobile-menu>
+    </client-only>
     <Header />
     <nuxt />
     <Popup
-      v-if="IsShareShow"
+      v-if="popupVisible"
       haveClose="true"
       class="share__popup"
       title="Поделитесь"
@@ -14,8 +14,8 @@
     >
       <Share />
     </Popup>
-    <Overlay @overlayClick="closeShare" v-if="IsShareShow" />
-    <Footer @openShare="openShare" />
+    <Overlay @overlayClick="closeShare" v-if="popupVisible" />
+    <Footer />
   </div>
 </template>
 
@@ -36,6 +36,10 @@ export default {
   computed: {
     isMobileMenuOpened() {
       return this.$store.getters['mobile-menu/getMobileMenuState'];
+    },
+    popupVisible() {
+      const { popup } = this.$store.state;
+      return popup.visible;
     },
   },
   methods: {

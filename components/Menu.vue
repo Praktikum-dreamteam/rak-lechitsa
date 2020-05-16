@@ -1,7 +1,7 @@
 <template>
   <div class="menu">
     <header-nav />
-    <header-btn @click="$emit('historyClick')" theme="history"
+    <header-btn @btn-click="openPopup" theme="history"
       >Рассказать историю</header-btn
     >
   </div>
@@ -15,6 +15,11 @@ export default {
   components: {
     'header-btn': Button,
     'header-nav': Nav,
+  },
+  methods: {
+    openPopup() {
+      this.$store.commit('popup/open');
+    },
   },
 };
 </script>
