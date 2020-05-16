@@ -103,6 +103,11 @@ li {
     max-width: 1180px;
   }
 
+  .title {
+    line-height: 32px;
+    font-size: 28px;
+  }
+
   .stories-container {
     margin-left: auto;
     margin-right: auto;
@@ -114,16 +119,31 @@ li {
     max-width: 922px;
   }
 
+  .input-container__input {
+    height: 46px;
+  }
+
+  .input-container__button {
+    height: 46px;
+  }
+
   .stories-container {
     grid-column-gap: 30px;
     grid-row-gap: 46px;
   }
 }
 
-/* Обрезать! */
 @media (max-width: 920px) {
   .page {
     max-width: 688px;
+    padding-top: 80px;
+  }
+
+  .title {
+    line-height: 28px;
+    font-size: 24px;
+    text-align: center;
+    margin: 0 auto 50px;
   }
 
   .stories-container {
@@ -134,9 +154,29 @@ li {
   }
 }
 
-@media (max-width: 675px) {
+@media (max-width: 685px) {
+  .page {
+    max-width: 90%;
+  }
+
+  .stories-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 20px;
+  }
+}
+
+@media (max-width: 500px) {
   .page {
     max-width: 290px;
+    padding-top: 50px;
+  }
+
+  .title {
+    line-height: 21px;
+    font-size: 18px;
+    text-align: left;
   }
 
   .stories-container {
