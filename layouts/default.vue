@@ -14,7 +14,6 @@
     >
       <Share />
     </Popup>
-    <Overlay @overlayClick="closeShare" v-if="popupVisible" />
     <Footer />
   </div>
 </template>
@@ -23,7 +22,6 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Popup from '@/components/PopUp';
-import Overlay from '@/components/ui/Overlay';
 import Share from '@/components/Share';
 import Menu from '@/components/Menu';
 
@@ -42,19 +40,11 @@ export default {
       return popup.visible;
     },
   },
-  methods: {
-    openShare() {
-      this.IsShareShow = true;
-    },
-    closeShare() {
-      this.IsShareShow = false;
-    },
-  },
+  methods: {},
   components: {
     Footer,
     Header,
     Popup,
-    Overlay,
     Share,
     'mobile-menu': Menu,
   },

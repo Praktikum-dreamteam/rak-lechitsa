@@ -1,22 +1,29 @@
 <template>
-  <div class="popup">
-    <div class="popup__header">
-      <h2 class="popup__title" :class="{ popup__title_center: !haveClose }">
-        {{ title }}
-      </h2>
-      <div v-if="haveClose" @click="close" class="popup__close"></div>
+  <div>
+    <div class="popup">
+      <div class="popup__header">
+        <h2 class="popup__title" :class="{ popup__title_center: !haveClose }">
+          {{ title }}
+        </h2>
+        <div v-if="haveClose" @click="close" class="popup__close"></div>
+      </div>
+      <slot>Содержимое окна</slot>
     </div>
-    <slot>Содержимое окна</slot>
+    <Overlay @overlayClick="close"></Overlay>
   </div>
 </template>
 
 <script>
+import Overlay from '@/components/ui/Overlay';
 export default {
   props: ['title', 'haveClose'],
   methods: {
     close() {
       this.$store.commit('popup/close');
     },
+  },
+  components: {
+    Overlay,
   },
 };
 </script>
