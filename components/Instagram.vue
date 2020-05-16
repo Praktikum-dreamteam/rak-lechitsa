@@ -16,76 +16,12 @@
       </SectionText>
     </div>
 
-    <!-- переделать на v-for(?) когда будут данные -->
     <ul class="story-images">
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
+      <li v-for="post in posts" :key="post.id" class="story-images__item">
+        <a class="story-images__link" :href="post.data.url" target="blank">
           <img
-            src="./../static/instagram.png"
-            alt
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt=""
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt=""
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt=""
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt=""
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt=""
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt=""
+            :src="post.data.img"
+            :alt="post.data.alt"
             class="story-images__image"
           />
         </a>
@@ -102,10 +38,10 @@ export default {
     SectionTitle,
     SectionText,
   },
-  data() {
-    return {
-      //?
-    };
+  computed: {
+    posts() {
+      return this.$store.getters['instagram-posts/getPosts'];
+    },
   },
 };
 </script>

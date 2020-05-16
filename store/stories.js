@@ -10,8 +10,8 @@ export const state = () => ({
       id: 1,
       cards: {
         id: 1,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Pozner',
+        src: '/history.png',
+        name: 'Владимир Тен',
         description:
           'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
       },
@@ -20,136 +20,145 @@ export const state = () => ({
       id: 2,
       cards: {
         id: 2,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Adolf',
-        description: 'GERMANY',
+        src: '/history.png',
+        name: 'Владимир Познер',
+        description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
       },
     },
     {
       id: 3,
       cards: {
         id: 3,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Stalin',
-        description: 'SOVIET UNION',
+        src: '/history.png',
+        name: 'Александр Тарханов',
+        description:
+          'Я не могу победить свою пунктуальность в отличии от рака.',
       },
     },
     {
       id: 4,
       cards: {
         id: 4,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Roosevelt',
-        description: 'USA',
+        src: '/history.png',
+        name: 'Владимир Тен',
+        description:
+          'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
       },
     },
     {
       id: 5,
       cards: {
         id: 5,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Roosevelt',
-        description: 'USA',
+        src: '/history.png',
+        name: 'Владимир Познер',
+        description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
       },
     },
     {
       id: 6,
       cards: {
         id: 6,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Roosevelt',
-        description: 'USA',
+        src: '/history.png',
+        name: 'Александр Тарханов',
+        description:
+          'Я не могу победить свою пунктуальность в отличии от рака.',
       },
     },
     {
       id: 7,
       cards: {
         id: 7,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Churchill',
-        description: 'USA',
+        src: '/history.png',
+        name: 'Владимир Тен',
+        description:
+          'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
       },
     },
     {
       id: 8,
       cards: {
         id: 8,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Mussolini',
-        description: 'Italy',
+        src: '/history.png',
+        name: 'Владимир Познер',
+        description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
       },
     },
     {
       id: 9,
       cards: {
         id: 9,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Pozner',
+        src: '/history.png',
+        name: 'Александр Тарханов',
         description:
-          'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
+          'Я не могу победить свою пунктуальность в отличии от рака.',
       },
     },
     {
       id: 10,
       cards: {
         id: 10,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Adolf',
-        description: 'GERMANY',
+        src: '/history.png',
+        name: 'Владимир Тен',
+        description:
+          'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
       },
     },
     {
       id: 11,
       cards: {
         id: 11,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Stalin',
-        description: 'SOVIET UNION',
+        src: '/history.png',
+        name: 'Владимир Познер',
+        description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
       },
     },
     {
       id: 12,
       cards: {
         id: 12,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Roosevelt',
-        description: 'USA',
+        src: '/history.png',
+        name: 'Александр Тарханов',
+        description:
+          'Я не могу победить свою пунктуальность в отличии от рака.',
       },
     },
     {
       id: 13,
       cards: {
         id: 13,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Roosevelt',
-        description: 'USA',
+        src: '/history.png',
+        name: 'Владимир Тен',
+        description:
+          'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
       },
     },
     {
       id: 14,
       cards: {
         id: 14,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Roosevelt',
-        description: 'USA',
+        src: '/history.png',
+        name: 'Владимир Познер',
+        description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
       },
     },
     {
       id: 15,
       cards: {
         id: 15,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Churchill',
-        description: 'USA',
+        src: '/history.png',
+        name: 'Александр Тарханов',
+        description:
+          'Я не могу победить свою пунктуальность в отличии от рака.',
       },
     },
     {
       id: 16,
       cards: {
         id: 16,
-        src: 'https://i.gifer.com/E8SJ.gif',
-        name: 'Mussolini',
-        description: 'Italy',
+        src: '/history.png',
+        name: 'Владимир Тен',
+        description:
+          'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
       },
     },
   ],
