@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <Cover />
+    <!-- <Cover />
     <Video />
     <Slogan>И в отличие от рака,</Slogan>
     <History />
@@ -8,7 +8,8 @@
     <Instagram />
     <InfoBlock />
     <Statistics />
-    <Info />
+    <Info /> -->
+    <Form></Form>
   </div>
 </template>
 
@@ -126,6 +127,7 @@ export default {
   width: 100%;
 }
 .tabs {
+  height: 100%;
   display: flex;
 }
 .tabs__radios {
