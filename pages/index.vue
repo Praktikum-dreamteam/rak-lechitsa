@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <!-- <Cover />
+    <Cover />
     <Video />
     <Slogan>И в отличие от рака,</Slogan>
     <History />
@@ -8,8 +8,9 @@
     <Instagram />
     <InfoBlock />
     <Statistics />
-    <Info /> -->
-    <Form></Form>
+    <Info />
+    <!-- <Popup>
+    <Form></Form></Popup> -->
   </div>
 </template>
 
