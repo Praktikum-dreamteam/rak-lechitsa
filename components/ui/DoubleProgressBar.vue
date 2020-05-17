@@ -15,7 +15,7 @@
 export default {
   props: {
     oldValue: Number,
-    newValue: Number,
+    value: Number,
     maxValue: Number,
   },
   computed: {
@@ -23,7 +23,7 @@ export default {
       return `width: ${(this.oldValue / this.maxValue) * 100}%`;
     },
     newStyle() {
-      return `width: ${(this.newValue / this.maxValue) * 100}%`;
+      return `width: ${(this.value / this.maxValue) * 100}%`;
     },
   },
 };

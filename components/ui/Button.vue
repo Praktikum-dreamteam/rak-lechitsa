@@ -43,9 +43,45 @@ export default {
   opacity: 0.5;
   cursor: not-allowed;
 }
+.btn_theme_share {
+  padding: 0;
+  font-size: 18px;
+  line-height: 24px;
+}
+.btn_theme_history {
+  padding: 0;
+  margin-left: 40px;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: transparent;
+  border: none;
+}
+@media screen and (max-width: 1280px) {
+  .btn_theme_history {
+    font-size: 16px;
+    margin-left: 30px;
+  }
+}
 @media screen and (max-width: 768px) {
   .btn_theme_violet {
     padding: 14px 40px;
+  }
+}
+.btn_theme_share {
+  font-size: 16px;
+  line-height: 24px;
+}
+@media screen and (max-width: 452px) {
+  .btn_theme_share {
+    font-size: 13px;
+    line-height: 15px;
+  }
+  .btn_theme_history {
+    margin: 0 0 18px 0;
+  }
+  .menu .btn_theme_history {
+    font-size: 13px;
+    line-height: 15px;
   }
 }
 </style>

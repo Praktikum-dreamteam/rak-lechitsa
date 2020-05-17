@@ -1,6 +1,6 @@
 <template>
   <form @click="test" class="form">
-    <customLabel :labelText="formQuestion" :description="description" />
+    <customLabel :labelText="formQuestion" :additionalText="description" />
     <inputForm
       :valueInput="currentAnswer"
       v-model="currentAnswer"

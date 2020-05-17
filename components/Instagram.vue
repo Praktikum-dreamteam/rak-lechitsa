@@ -1,111 +1,51 @@
 <template>
-  <section class="stories page__section content-margin">
-    <div class="story">
-      <a
-        class="story-src"
-        href="https://www.instagram.com/raklechitsa/"
-        target="_blank"
-      >
-        <SectionTitle theme="white">Инстаграм</SectionTitle>
-      </a>
-      <SectionText class="story-subtitle" theme="white">
-        Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
-        Все истории, где нет нецензурных выражений и запрещенного контента
-        попадают сюда. Следите за правильным написанием хештега, чтобы мы не
-        пропустили вашу историю.
-      </SectionText>
-    </div>
+  <Container>
+    <section class="stories content-margin">
+      <div class="story">
+        <a
+          class="story-src"
+          href="https://www.instagram.com/raklechitsa/"
+          target="_blank"
+        >
+          <SectionTitle theme="white">Инстаграм</SectionTitle>
+        </a>
+        <SectionText class="story-subtitle" theme="white">
+          Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
+          Все истории, где нет нецензурных выражений и запрещенного контента
+          попадают сюда. Следите за правильным написанием хештега, чтобы мы не
+          пропустили вашу историю.
+        </SectionText>
+      </div>
 
-    <!-- переделать на v-for(?) когда будут данные -->
-    <ul class="story-images">
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt=""
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt=""
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt=""
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt=""
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt=""
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt
-            class="story-images__image"
-          />
-        </a>
-      </li>
-      <li class="story-images__item">
-        <a class="story-images__link" href="#" target="blank">
-          <img
-            src="./../static/instagram.png"
-            alt=""
-            class="story-images__image"
-          />
-        </a>
-      </li>
-    </ul>
-  </section>
+      <ul class="story-images">
+        <li v-for="post in posts" :key="post.id" class="story-images__item">
+          <a class="story-images__link" :href="post.data.url" target="blank">
+            <img
+              :src="post.data.img"
+              :alt="post.data.alt"
+              class="story-images__image"
+            />
+          </a>
+        </li>
+      </ul>
+    </section>
+  </Container>
 </template>
 
 <script>
 import SectionTitle from '@/components/SectionTitle';
 import SectionText from '@/components/SectionText';
+import Container from '@/components/Container';
 export default {
   components: {
     SectionTitle,
     SectionText,
+    Container,
   },
-  data() {
-    return {
-      //?
-    };
+  computed: {
+    posts() {
+      return this.$store.getters['instagram-posts/getPosts'];
+    },
   },
 };
 </script>

@@ -1,85 +1,49 @@
 <template>
-  <section class="history page__section">
-    <SectionTitle theme="white">Истории неизлечимых привычек</SectionTitle>
-    <ul class="history__cards">
-      <StoryCard
-        v-for="story in stories"
-        :key="story.id"
-        :src="story.src"
-        :id="story.id"
-        :name="story.name"
-        :description="story.description"
-      ></StoryCard>
-    </ul>
-    <nuxt-link class="history__link" to="/stories">Больше статей</nuxt-link>
-  </section>
+  <Container>
+    <section class="history">
+      <SectionTitle theme="white">Истории неизлечимых привычек</SectionTitle>
+      <ul class="history__cards">
+        <li
+          v-for="story in stories"
+          :key="story.id"
+          class="stories-container__item"
+        >
+          <story-card
+            :id="story.cards.id"
+            :src="story.cards.src"
+            :name="story.cards.name"
+            :description="story.cards.description"
+          >
+          </story-card>
+        </li>
+      </ul>
+      <nuxt-link class="history__link" to="/stories">Больше статей</nuxt-link>
+    </section>
+  </Container>
 </template>
+
 <script>
 import SectionTitle from '@/components/SectionTitle';
 import StoryCard from '@/components/StoryCard';
+import Container from '@/components/Container';
 export default {
-  data() {
-    return {
-      stories: [
-        {
-          id: 1,
-          name: 'Владимир Тен',
-          description:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          src: '/history.png',
-        },
-        {
-          id: 2,
-          name: 'Владимир Познер',
-          description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-          src: '/history.png',
-        },
-        {
-          id: 3,
-          name: 'Александр Тарханов',
-          description:
-            'Я не могу победить свою пунктуальность в отличии от рака.',
-          src: '/history.png',
-        },
-        {
-          id: 4,
-          name: 'Владимир Тен',
-          description:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          src: '/history.png',
-        },
-        {
-          id: 5,
-          name: 'Владимир Познер',
-          description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-          src: '/history.png',
-        },
-        {
-          id: 6,
-          name: 'Александр Тарханов',
-          description:
-            'Я не могу победить свою пунктуальность в отличии от рака.',
-          src: '/history.png',
-        },
-        {
-          id: 7,
-          name: 'Владимир Тен',
-          description:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          src: '/history.png',
-        },
-        {
-          id: 8,
-          name: 'Владимир Познер',
-          description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-          src: '/history.png',
-        },
-      ],
-    };
-  },
   components: {
+    Container,
     SectionTitle,
-    StoryCard,
+    'story-card': StoryCard,
+  },
+  computed: {
+    stories() {
+      if (process.browser) {
+        if (window.innerWidth > 950) {
+          return this.$store.getters['stories/getStories'].slice(0, 8);
+        } else if (window.innerWidth <= 950 && window.innerWidth >= 690) {
+          return this.$store.getters['stories/getStories'].slice(0, 9);
+        } else {
+          return this.$store.getters['stories/getStories'].slice(0, 6);
+        }
+      }
+    },
   },
 };
 </script>
@@ -160,8 +124,8 @@ export default {
 @media screen and (max-width: 950px) {
   .history__cards {
     grid-template-columns: repeat(3, minmax(200px, 300px));
-    column-grap: 40px;
-    row-grap: 20px;
+    column-gap: 40px;
+    row-gap: 20px;
   }
   .history__card-title {
     font-size: 18px;
