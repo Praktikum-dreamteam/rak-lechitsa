@@ -66,14 +66,46 @@
       </button>
     </div>
 
-    <div></div>
+    <ul class="stories-container">
+      <li
+        v-for="story in stories"
+        :key="story.id"
+        class="stories-container__item"
+      >
+        <story-card
+          :id="story.cards.id"
+          :src="story.cards.src"
+          :name="story.cards.name"
+          :description="story.cards.description"
+        >
+        </story-card>
+      </li>
+    </ul>
 
     <nuxt-link class="" :to="`/stories`">Больше статей</nuxt-link>
   </div>
 </template>
 
 <script>
-export default {};
+import StoryCard from '@/components/StoryCard';
+export default {
+  components: {
+    'story-card': StoryCard,
+  },
+  computed: {
+    stories() {
+      if (process.browser) {
+        if (window.innerWidth > 950) {
+          return this.$store.getters['stories/getStories'].slice(0, 4);
+        } else if (window.innerWidth <= 950 && window.innerWidth >= 690) {
+          return this.$store.getters['stories/getStories'].slice(0, 3);
+        } else {
+          return this.$store.getters['stories/getStories'].slice(0, 2);
+        }
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -135,6 +167,16 @@ export default {};
 
 .text-paragraph__bold {
   font-weight: 500;
+}
+
+.stories-container {
+  max-width: 922px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
 }
 
 @media (max-width: 1281px) {
@@ -208,6 +250,12 @@ export default {};
     max-width: 640px;
     margin: 0 auto;
   }
+
+  .stories-container {
+    max-width: 688px;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+  }
 }
 
 @media (max-width: 555px) {
@@ -245,6 +293,13 @@ export default {};
   .text-paragraph {
     font-size: 13px;
     line-height: 16px;
+  }
+
+  .stories-container {
+    max-width: 290px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 30px;
   }
 }
 </style>
