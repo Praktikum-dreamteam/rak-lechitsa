@@ -1,10 +1,11 @@
 <template>
   <div>
     <input
-      @input="$emit('input', $event.target.value)"
+      @input="handleInput"
       class="input"
-      :type="type || 'text'"
+      :type="type"
       :placeholder="placeholder"
+      v-model="content"
     />
   </div>
 </template>
@@ -14,6 +15,27 @@ export default {
   props: {
     placeholder: String,
     type: String,
+    value: {
+      type: String,
+      default: '',
+    },
+  },
+  data() {
+    return {
+      content: this.value,
+    };
+  },
+  watch: {
+    value(newVal, oldVal) {
+      if (newVal !== this.content) {
+        this.content = newVal;
+      }
+    },
+  },
+  methods: {
+    handleInput() {
+      this.$emit('input', this.content);
+    },
   },
 };
 </script>

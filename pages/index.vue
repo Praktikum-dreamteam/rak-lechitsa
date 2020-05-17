@@ -22,9 +22,6 @@ import Instagram from '@/components/Instagram';
 import InfoBlock from '@/components/Info-block';
 import Statistics from '@/components/Statistics';
 import Info from '@/components/Info';
-import Popup from '@/components/PopUp';
-import Form from '@/components/Form';
-import Overlay from '@/components/ui/Overlay';
 import Button from '@/components/ui/Button';
 export default {
   data() {
@@ -113,9 +110,6 @@ export default {
     InfoBlock,
     Statistics,
     Info,
-    Form,
-    Popup,
-    Overlay,
     Button,
   },
 };
