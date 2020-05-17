@@ -3,6 +3,7 @@
     <input
       @input="$emit('input', $event.target.value)"
       class="input"
+      :id="id"
       :type="type || 'text'"
       :placeholder="placeholder"
     />
@@ -12,6 +13,7 @@
 <script>
 export default {
   props: {
+    id: String,
     placeholder: String,
     type: String,
   },

@@ -1,36 +1,28 @@
 <template>
   <form @click="test" class="form">
-    <div class="form__fieldset">
-      <customLabel labelText="Как вас зовут?" for="name" />
-      <inputForm id="name" placeholder="Напишите тут" />
-    </div>
-    <div class="form__container">
-      <div class="form__fieldset">
-        <customLabel labelText="Электронная почта" for="email" />
-        <inputForm id="email" placeholder="pochta@example.com" />
-      </div>
-      <div class="form__fieldset">
-        <customLabel labelText="Телефон" for="phone" />
-        <inputForm id="phone" placeholder="+7 000 000 00 00" />
-      </div>
-    </div>
-    <div class="form__fieldset">
-      <customLabel
-        labelText="Напишите, если есть предпочтительный способ связи и удобное время"
-        for="comment"
-      />
-      <inputForm id="comment" placeholder="Телефон / почта и удобное время" />
-    </div>
+    <customLabel :labelText="formQuestion" :additionalText="description" />
+    <inputForm
+      :valueInput="currentAnswer"
+      v-model="currentAnswer"
+      @input="$emit('answerInput', $event)"
+    />
     <div class="form__buttons">
       <btn
         type="button"
         :isDisabledActive="isDisabledBackButton"
         @btn-click="$emit('clickBack')"
         class="form__button"
-        theme="violet"
-        >Оставьте контакт для связи</btn
+        theme="grey"
+        >Назад</btn
       >
-      <p class="form__personal-data-agreement">
+      <btn
+        type="submit"
+        @btn-click="$emit('clickNext')"
+        class="form__button"
+        theme="violet"
+        >{{ isLast ? 'Отправить' : 'Далее' }}</btn
+      >
+      <p v-if="isLast" class="form__personal-data-agreement">
         Нажимая на кнопку «отправить», вы даете согласие на
         <nuxt-link class="form__link" to="/policy"
           >обработку персональных данных</nuxt-link
@@ -100,14 +92,5 @@ export default {
 }
 .form__link {
   color: #666;
-}
-
-.form__fieldset {
-  margin: 20px;
-  width: 100%;
-}
-.form__container {
-  display: flex;
-  justify-content: stretch;
 }
 </style>
