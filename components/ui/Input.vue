@@ -13,6 +13,7 @@
 <script>
 export default {
   props: {
+    id: String,
     placeholder: String,
     type: String,
     value: {

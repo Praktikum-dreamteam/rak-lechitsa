@@ -120,6 +120,7 @@ export default {
   width: 100%;
 }
 .tabs {
+  height: 100%;
   display: flex;
 }
 .tabs__radios {

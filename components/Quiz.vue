@@ -3,9 +3,9 @@
     <h3 class="form-quiz__title">{{ currentQuestion.title }}</h3>
     <p class="form-quiz__question">
       <span class="form-quiz__text-main">{{ currentQuestion.question }}</span>
-      <span class="form-quiz__text-additional">{{
-        currentQuestion.description
-      }}</span>
+      <span class="form-quiz__text-additional">
+        {{ currentQuestion.description }}
+      </span>
     </p>
     <inputForm
       class="form-quiz__input"
