@@ -11,6 +11,7 @@
           :author="stat.author"
           :value="stat.value"
           :maxValue="stat.maxValue"
+          :oldValue="stat.oldValue"
         ></StatsCard>
       </ul>
     </section>
