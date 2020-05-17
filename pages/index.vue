@@ -6,9 +6,9 @@
     <History />
     <Slogan>Рассказывайте ваши истории в Инстаграм</Slogan>
     <Instagram />
-    <InfoBlock class="page__cover" />
+    <InfoBlock />
     <Statistics />
-    <Info class="page__cover" />
+    <Info />
   </div>
 </template>
 
@@ -124,17 +124,6 @@ export default {
 <style>
 .page {
   width: 100%;
-}
-.page__cover {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.page__cover-container {
-  width: 100%;
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
 }
 .tabs {
   display: flex;
