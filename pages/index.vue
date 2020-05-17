@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue';
+import Logo from '@/components/Logo.vue';
 import Cover from '@/components/Cover';
 import Video from '@/components/Video';
 import Slogan from '@/components/Slogan';

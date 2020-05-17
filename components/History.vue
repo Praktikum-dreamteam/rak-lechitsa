@@ -17,7 +17,13 @@
           </story-card>
         </li>
       </ul>
-      <nuxt-link class="history__link" to="/stories">Больше статей</nuxt-link>
+      <nuxt-link
+        class="history__link"
+        to="/stories"
+        @mouseover="hover = true"
+        @mouseleave="hover = false"
+        >Больше статей</nuxt-link
+      >
     </section>
   </Container>
 </template>
@@ -44,6 +50,11 @@ export default {
         }
       }
     },
+  },
+  data() {
+    return {
+      hover: false,
+    };
   },
 };
 </script>
@@ -93,6 +104,9 @@ export default {
   line-height: 20px;
   text-decoration: none;
   cursor: pointer;
+}
+.history__link:hover {
+  background-color: #f8f8f8;
 }
 @media screen and (max-width: 1280px) {
   .history__cards {

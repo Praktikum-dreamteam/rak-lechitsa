@@ -16,6 +16,8 @@
               :class="{ active: isLongText }"
               name="form"
               id="long"
+              @mousemove="hover = true"
+              @mouseleave="hover = false"
               >1-й вариант</Radio
             >
             <Radio
@@ -24,6 +26,8 @@
               :class="{ active: !isLongText }"
               name="form"
               id="short"
+              @mousemove="hover = true"
+              @mouseleave="hover = false"
               >2-й вариант</Radio
             >
           </div>
@@ -89,6 +93,11 @@ export default {
       this.$store.commit('popup/open');
     },
   },
+  data() {
+    return {
+      hover: false,
+    };
+  },
 };
 </script>
 
@@ -126,7 +135,7 @@ export default {
   color: #a2a2a2;
 }
 .radio.active {
-  color: black;
+  color: #000000;
 }
 @media screen and (max-width: 1280px) {
   .form__subtitle {
