@@ -2,33 +2,32 @@
   <Container>
     <section class="stories content-margin">
       <div class="story">
-        <div class="story">
-      <a
-        class="story-src"
-        href="https://www.instagram.com/raklechitsa/"
-        target="_blank"
-      >
-        <SectionTitle theme="white">Инстаграм</SectionTitle>
-      </a>
-      <SectionText class="story-subtitle" theme="white">
-        Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
-        Все истории, где нет нецензурных выражений и запрещенного контента
-        попадают сюда. Следите за правильным написанием хештега, чтобы мы не
-        пропустили вашу историю.
-      </SectionText>
-    </div>
-
-    <ul class="story-images">
-      <li v-for="post in posts" :key="post.id" class="story-images__item">
-        <a class="story-images__link" :href="post.data.url" target="blank">
-          <img
-            :src="post.data.img"
-            :alt="post.data.alt"
-            class="story-images__image"
-          />
+        <a
+          class="story-src"
+          href="https://www.instagram.com/raklechitsa/"
+          target="_blank"
+        >
+          <SectionTitle theme="white">Инстаграм</SectionTitle>
         </a>
-      </li>
-    </ul>
+        <SectionText class="story-subtitle" theme="white">
+          Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
+          Все истории, где нет нецензурных выражений и запрещенного контента
+          попадают сюда. Следите за правильным написанием хештега, чтобы мы не
+          пропустили вашу историю.
+        </SectionText>
+      </div>
+
+      <ul class="story-images">
+        <li v-for="post in posts" :key="post.id" class="story-images__item">
+          <a class="story-images__link" :href="post.data.url" target="blank">
+            <img
+              :src="post.data.img"
+              :alt="post.data.alt"
+              class="story-images__image"
+            />
+          </a>
+        </li>
+      </ul>
     </section>
   </Container>
 </template>

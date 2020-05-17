@@ -2,23 +2,23 @@
   <Container>
     <section class="history">
       <SectionTitle theme="white">Истории неизлечимых привычек</SectionTitle>
-    <ul class="history__cards">
-      <li
-        v-for="story in stories"
-        :key="story.id"
-        class="stories-container__item"
-      >
-        <story-card
-          :id="story.cards.id"
-          :src="story.cards.src"
-          :name="story.cards.name"
-          :description="story.cards.description"
+      <ul class="history__cards">
+        <li
+          v-for="story in stories"
+          :key="story.id"
+          class="stories-container__item"
         >
-        </story-card>
-      </li>
-    </ul>
-    <nuxt-link class="history__link" to="/stories">Больше статей</nuxt-link>
-  </section>
+          <story-card
+            :id="story.cards.id"
+            :src="story.cards.src"
+            :name="story.cards.name"
+            :description="story.cards.description"
+          >
+          </story-card>
+        </li>
+      </ul>
+      <nuxt-link class="history__link" to="/stories">Больше статей</nuxt-link>
+    </section>
   </Container>
 </template>
 
@@ -27,7 +27,7 @@ import SectionTitle from '@/components/SectionTitle';
 import StoryCard from '@/components/StoryCard';
 import Container from '@/components/Container';
 export default {
-  components: {  
+  components: {
     Container,
     SectionTitle,
     'story-card': StoryCard,
