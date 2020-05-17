@@ -3,20 +3,17 @@
     <input
       @input="$emit('input', $event.target.value)"
       class="input"
-      type="text"
-      placeholder="Напишите тут"
-      :value="value"
+      :type="type || 'text'"
+      :placeholder="placeholder"
     />
   </div>
 </template>
 
 <script>
 export default {
-  props: ['valueInput'],
-  computed: {
-    value() {
-      return this.valueInput;
-    },
+  props: {
+    placeholder: String,
+    type: String,
   },
 };
 </script>
@@ -35,6 +32,6 @@ export default {
 }
 .input:focus {
   outline: none;
-  border-bottom: 1px solid rgb(0, 173, 253);
+  border-bottom: 1px solid #3c9dd0;
 }
 </style>

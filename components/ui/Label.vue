@@ -1,13 +1,18 @@
 <template>
-  <div>
-    <label class="label" for>{{ labelText }}</label>
-    <span class="label__description">{{ description }}</span>
+  <div class="label">
+    <label class="label__main-text" :for="For">{{ labelText }}</label>
+    <span class="label__additional-text">{{ additionalText }}</span>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['for', 'labelText', 'description'],
+  //TODO По случаю переделать компонент
+  props: {
+    For: String,
+    labelText: String,
+    additionalText: String,
+  },
 };
 </script>
 
@@ -17,7 +22,7 @@ export default {
   line-height: 24px;
   font-weight: 500;
 }
-.label__description {
+.label__additional-text {
   color: #666;
 }
 </style>

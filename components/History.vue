@@ -1,6 +1,7 @@
 <template>
-  <section class="history page__section">
-    <SectionTitle theme="white">Истории неизлечимых привычек</SectionTitle>
+  <Container>
+    <section class="history">
+      <SectionTitle theme="white">Истории неизлечимых привычек</SectionTitle>
     <ul class="history__cards">
       <li
         v-for="story in stories"
@@ -18,12 +19,16 @@
     </ul>
     <nuxt-link class="history__link" to="/stories">Больше статей</nuxt-link>
   </section>
+  </Container>
 </template>
+
 <script>
 import SectionTitle from '@/components/SectionTitle';
 import StoryCard from '@/components/StoryCard';
+import Container from '@/components/Container';
 export default {
-  components: {
+  components: {  
+    Container,
     SectionTitle,
     'story-card': StoryCard,
   },
@@ -119,8 +124,8 @@ export default {
 @media screen and (max-width: 950px) {
   .history__cards {
     grid-template-columns: repeat(3, minmax(200px, 300px));
-    column-grap: 40px;
-    row-grap: 20px;
+    column-gap: 40px;
+    row-gap: 20px;
   }
   .history__card-title {
     font-size: 18px;

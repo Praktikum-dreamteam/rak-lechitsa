@@ -1,6 +1,6 @@
 <template>
-  <section class="form page__cover">
-    <div class="page__cover-container form__container">
+  <section class="form">
+    <Container class="form__container">
       <SectionTitle theme="white">Расскажите свою историю</SectionTitle>
       <div class="form__content">
         <SectionText class="form__subtitle" theme="white">
@@ -10,33 +10,52 @@
         </SectionText>
         <div class="tabs">
           <div class="tabs__radios">
-            <Radio class="tabs__radio" theme="white" name="form" id="long"
+            <Radio
+              @radio-click="addLongText"
+              class="tabs__radio"
+              :class="{ active: isLongText }"
+              name="form"
+              id="long"
               >1-й вариант</Radio
             >
-            <Radio class="tabs__radio" theme="white" name="form" id="short"
+            <Radio
+              @radio-click="addShortText"
+              class="tabs__radio"
+              :class="{ active: !isLongText }"
+              name="form"
+              id="short"
               >2-й вариант</Radio
             >
           </div>
           <div class="tabs__texts">
-            <p theme="white" class="tabs__text">
+            <p v-if="isLongText" class="tabs__text">
               Заполнить подробную форму прямо на сайте и мы опубликуем вашу
               историю после проверки. Пожалуйста, заполняйте все пункты
               корректно, если вы испытаете какие-то сложности, воспользуйтесь
               2-м вариантом.
             </p>
+            <p v-if="!isLongText" class="tabs__text">
+              Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
+              зададим вопросы, уточним детали вашей истории.
+            </p>
             <Button
-              @btn-click="$emit('openFormClick')"
+              v-if="isLongText"
+              @btn-click="openPopup"
               class="form__button"
               theme="violet"
               >Заполнить форму</Button
             >
+            <Button
+              v-if="!isLongText"
+              @btn-click="openPopup"
+              class="form__button"
+              theme="violet"
+              >Оставить контакт</Button
+            >
           </div>
         </div>
-
-        <!-- <p class="form__content"> Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, уточним детали вашей истории.</p> -->
       </div>
-    </div>
-    <!-- <button class="button form__button"> Оставить контакт </button> -->
+    </Container>
   </section>
 </template>
 
@@ -45,12 +64,30 @@ import Button from '@/components/ui/Button';
 import Radio from '@/components/ui/Radio';
 import SectionTitle from '@/components/SectionTitle';
 import SectionText from '@/components/SectionText';
+import Container from '@/components/Container';
 export default {
   components: {
     Button,
     Radio,
     SectionTitle,
     SectionText,
+    Container,
+  },
+  computed: {
+    isLongText() {
+      return this.$store.getters['infoBlock/getTextState'];
+    },
+  },
+  methods: {
+    addLongText() {
+      this.$store.commit('infoBlock/addLong');
+    },
+    addShortText() {
+      this.$store.commit('infoBlock/addShort');
+    },
+    openPopup() {
+      this.$store.commit('popup/open');
+    },
   },
 };
 </script>
@@ -60,7 +97,8 @@ export default {
   background-color: #f7f7f7;
 }
 .form__container {
-  padding: 100px 60px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .form__content {
   margin-top: 32px;
@@ -84,7 +122,12 @@ export default {
 .form__button {
   margin-top: 56px;
 }
-
+.radio /deep/ {
+  color: #a2a2a2;
+}
+.radio.active {
+  color: black;
+}
 @media screen and (max-width: 1280px) {
   .form__subtitle {
     max-width: 305px;
@@ -113,6 +156,9 @@ export default {
   }
   .form__subtitle {
     max-width: 100%;
+  }
+  .radio.active {
+    border-bottom: 2px solid #613a93;
   }
 }
 </style>

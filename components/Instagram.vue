@@ -1,6 +1,8 @@
 <template>
-  <section class="stories page__section content-margin">
-    <div class="story">
+  <Container>
+    <section class="stories content-margin">
+      <div class="story">
+        <div class="story">
       <a
         class="story-src"
         href="https://www.instagram.com/raklechitsa/"
@@ -27,16 +29,19 @@
         </a>
       </li>
     </ul>
-  </section>
+    </section>
+  </Container>
 </template>
 
 <script>
 import SectionTitle from '@/components/SectionTitle';
 import SectionText from '@/components/SectionText';
+import Container from '@/components/Container';
 export default {
   components: {
     SectionTitle,
     SectionText,
+    Container,
   },
   computed: {
     posts() {

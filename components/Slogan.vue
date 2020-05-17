@@ -1,16 +1,23 @@
 <template>
-  <section class="slogan page__section">
-    <div class="slogan__container">
-      <p class="slogan__content">
-        <slot></slot>
-        <span class="slogan__title">#этонелечится</span>
-      </p>
-    </div>
-  </section>
+  <Container>
+    <section class="slogan">
+      <div class="slogan__container">
+        <p class="slogan__content">
+          <slot></slot>
+          <span class="slogan__title">#этонелечится</span>
+        </p>
+      </div>
+    </section>
+  </Container>
 </template>
 
 <script>
-export default {};
+import Container from '@/components/Container';
+export default {
+  components: {
+    Container,
+  },
+};
 </script>
 
 <style scoped>

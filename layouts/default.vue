@@ -1,10 +1,12 @@
 <template>
   <div>
-    <Menu class="menu__open page__section" v-if="isOpenMenu"></Menu>
-    <Header @openMenuClick="openMenu" @closeMenuClick="closeMenu" />
+    <client-only>
+      <mobile-menu v-if="isMobileMenuOpened" class="menu__open"></mobile-menu>
+    </client-only>
+    <Header />
     <nuxt />
     <Popup
-      v-if="IsShareShow"
+      v-if="popupVisible"
       haveClose="true"
       class="share__popup"
       title="Поделитесь"
@@ -12,8 +14,7 @@
     >
       <Share />
     </Popup>
-    <Overlay @overlayClick="closeShare" v-if="IsShareShow" />
-    <Footer @openShare="openShare" />
+    <Footer />
   </div>
 </template>
 
@@ -21,39 +22,31 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Popup from '@/components/PopUp';
-import Overlay from '@/components/ui/Overlay';
 import Share from '@/components/Share';
-import Menu from '~/components/Menu';
+import Menu from '@/components/Menu';
 
 export default {
   data() {
     return {
       IsShareShow: false,
-      isOpenMenu: false,
     };
   },
-  computed: {},
-  methods: {
-    openMenu() {
-      this.isOpenMenu = true;
+  computed: {
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
     },
-    closeMenu() {
-      this.isOpenMenu = false;
-    },
-    openShare() {
-      this.IsShareShow = true;
-    },
-    closeShare() {
-      this.IsShareShow = false;
+    popupVisible() {
+      const { popup } = this.$store.state;
+      return popup.visible;
     },
   },
+  methods: {},
   components: {
     Footer,
     Header,
     Popup,
-    Overlay,
     Share,
-    Menu,
+    'mobile-menu': Menu,
   },
 };
 </script>
@@ -95,18 +88,25 @@ html {
     padding: 25px 0 70px 0;
   }
 }
-@media screen and (max-width: 812px) {
+@media screen and (max-width: 792px) {
   .menu.menu__open {
     display: flex;
     border-bottom: 1px solid #e8e8e8;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding: 18px 50px;
   }
 }
 @media screen and (max-width: 650px) {
   .popup.share__popup {
     width: 290px;
     padding: 35px 0 70px 0;
+  }
+}
+@media screen and (max-width: 452px) {
+  .menu.menu__open {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 18px 15px;
   }
 }
 </style>
