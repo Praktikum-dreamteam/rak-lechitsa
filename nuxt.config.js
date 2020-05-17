@@ -14,7 +14,10 @@ export default {
         content: process.env.npm_package_description || '',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '/fonts/fonts.css' },
+    ],
   },
   /*
    ** Customize the progress-bar color
@@ -23,11 +26,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [{ src: '@/assets/main.css' }],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: '@/plugins/route.js' }],
   /*
    ** Nuxt.js dev-modules
    */
