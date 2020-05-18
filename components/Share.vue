@@ -66,6 +66,7 @@ export default {
 .share {
   display: flex;
   flex-direction: column;
+  padding-bottom: 70px;
 }
 .share__title {
   margin: 0 auto;
@@ -79,7 +80,7 @@ export default {
   list-style: none;
   padding: 0;
   width: 388px;
-  margin: 100px auto 70px auto;
+  margin: 100px auto 0 auto;
   align-items: center;
 }
 @media screen and (max-width: 452px) {
@@ -93,7 +94,10 @@ export default {
   }
   .share__list-items {
     width: 240px;
-    margin: 70px auto 40px auto;
+    margin: 70px auto 0 auto;
+  }
+  .share {
+    padding-bottom: 40px;
   }
 }
 </style>
