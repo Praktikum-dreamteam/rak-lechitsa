@@ -3,13 +3,19 @@
     <h1 class="error-title">404</h1>
     <p class="error-subtitle">
       Страница не найдена.
-      <a class="error-subtitle_link" href="/index.vue">Перейти на главную.</a>
+      <nuxt-link to="/index" class="error-subtitle_link"
+        >Перейти на главную.</nuxt-link
+      >
     </p>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  meta: {
+    layout: 'error',
+  },
+};
 </script>
 
 <style scoped>
