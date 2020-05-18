@@ -20,6 +20,7 @@ export default {
 <style scoped>
 .btn {
   font-family: 'Inter', sans-serif;
+  font-weight: 500;
   font-size: 16px;
   line-height: 24px;
   background: none;
@@ -33,7 +34,7 @@ export default {
   color: #fff;
   background: #613a93;
   line-height: 19px;
-  padding: 16px 80px;
+  padding: 16px 90px;
 }
 .btn_theme_violet:hover {
   opacity: 0.9;
@@ -67,14 +68,14 @@ export default {
     font-size: 16px;
     margin-left: 30px;
   }
+  .btn_theme_violet {
+    padding: 14px 75px;
+  }
 }
 @media screen and (max-width: 768px) {
   .btn {
     font-size: 15px;
     line-height: 18px;
-  }
-  .btn_theme_violet {
-    padding: 14px 75px;
   }
 }
 .btn_theme_share {
@@ -82,6 +83,10 @@ export default {
   line-height: 24px;
 }
 @media screen and (max-width: 452px) {
+  .btn {
+    font-size: 13px;
+    line-height: 16px;
+  }
   .btn_theme_share {
     font-size: 13px;
     line-height: 15px;
