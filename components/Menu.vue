@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     openPopup() {
-      this.$store.commit('popup/open');
+      this.$store.commit('popup/openQuiz');
     },
   },
 };

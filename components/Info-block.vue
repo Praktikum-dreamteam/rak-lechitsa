@@ -44,14 +44,14 @@
             </p>
             <Button
               v-if="isLongText"
-              @btn-click="openPopup"
+              @btn-click="openQuiz"
               class="form__button"
               theme="violet"
               >Заполнить форму</Button
             >
             <Button
               v-if="!isLongText"
-              @btn-click="openPopup"
+              @btn-click="openForm"
               class="form__button"
               theme="violet"
               >Оставить контакт</Button
@@ -89,8 +89,11 @@ export default {
     addShortText() {
       this.$store.commit('infoBlock/addShort');
     },
-    openPopup() {
-      this.$store.commit('popup/open');
+    openQuiz() {
+      this.$store.commit('popup/openQuiz');
+    },
+    openForm() {
+      this.$store.commit('popup/openForm');
     },
   },
   data() {
