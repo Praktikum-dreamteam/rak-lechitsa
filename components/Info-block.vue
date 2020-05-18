@@ -16,6 +16,8 @@
               :class="{ active: isLongText }"
               name="form"
               id="long"
+              @mousemove="hover = true"
+              @mouseleave="hover = false"
               >1-й вариант</Radio
             >
             <Radio
@@ -24,6 +26,8 @@
               :class="{ active: !isLongText }"
               name="form"
               id="short"
+              @mousemove="hover = true"
+              @mouseleave="hover = false"
               >2-й вариант</Radio
             >
           </div>
@@ -40,14 +44,14 @@
             </p>
             <Button
               v-if="isLongText"
-              @btn-click="openPopup"
+              @btn-click="openQuiz"
               class="form__button"
               theme="violet"
               >Заполнить форму</Button
             >
             <Button
               v-if="!isLongText"
-              @btn-click="openPopup"
+              @btn-click="openForm"
               class="form__button"
               theme="violet"
               >Оставить контакт</Button
@@ -85,9 +89,17 @@ export default {
     addShortText() {
       this.$store.commit('infoBlock/addShort');
     },
-    openPopup() {
-      this.$store.commit('popup/open');
+    openQuiz() {
+      this.$store.commit('popup/openQuiz');
     },
+    openForm() {
+      this.$store.commit('popup/openForm');
+    },
+  },
+  data() {
+    return {
+      hover: false,
+    };
   },
 };
 </script>
@@ -136,7 +148,7 @@ export default {
   color: #a2a2a2;
 }
 .radio.active {
-  color: black;
+  color: #000000;
 }
 @media screen and (max-width: 1280px) {
   .form__subtitle {

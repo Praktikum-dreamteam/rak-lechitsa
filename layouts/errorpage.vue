@@ -5,23 +5,23 @@
     </client-only>
     <Header />
     <nuxt />
-    <Popup v-if="popupVisible" :haveClose="true" title="Поделитесь">
-      <Share v-if="shareVisible" />
-      <form-quiz v-if="quizVisible" />
-      <Form v-if="formVisible" />
+    <Popup
+      v-if="popupVisible"
+      haveClose="true"
+      class="share__popup"
+      title="Поделитесь"
+      @closeClick="closeShare"
+    >
+      <Share />
     </Popup>
-    <Footer />
   </div>
 </template>
 
 <script>
-import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Popup from '@/components/PopUp';
 import Share from '@/components/Share';
 import Menu from '@/components/Menu';
-import Quiz from '@/components/Quiz';
-import Form from '@/components/Form';
 
 export default {
   data() {
@@ -37,28 +37,15 @@ export default {
       const { popup } = this.$store.state;
       return popup.visible;
     },
-    quizVisible() {
-      const { popup } = this.$store.state;
-      return popup.isQuiz;
-    },
-    shareVisible() {
-      const { popup } = this.$store.state;
-      return popup.isShare;
-    },
-    formVisible() {
-      const { popup } = this.$store.state;
-      return popup.isForm;
-    },
   },
+  methods: {},
   components: {
-    Footer,
     Header,
     Popup,
     Share,
-    Form,
     'mobile-menu': Menu,
-    'form-quiz': Quiz,
   },
+  name: 'error',
 };
 </script>
 

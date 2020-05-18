@@ -59,7 +59,7 @@ export default {
       return data.getFullYear();
     },
     openPopup() {
-      this.$store.commit('popup/open');
+      this.$store.commit('popup/openShare');
     },
   },
   components: {

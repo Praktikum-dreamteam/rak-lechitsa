@@ -57,4 +57,23 @@ export default {
   outline: none;
   border-bottom: 1px solid #3c9dd0;
 }
+
+@media screen and (max-width: 1280px) {
+  .input {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .input {
+    font-size: 15px;
+    line-height: 19px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .input {
+    font-size: 13px;
+    line-height: 16px;
+  }
+}
 </style>

@@ -87,7 +87,8 @@ export default {
     max-width: 800px;
   }
 }
-@media screen and (max-width: 875px) {
+
+@media screen and (max-width: 900px) {
   .popup {
     max-width: 580px;
   }
