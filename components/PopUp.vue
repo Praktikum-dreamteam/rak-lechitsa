@@ -80,6 +80,23 @@ export default {
 .popup__close::after {
   transform: rotate(-45deg);
 }
+@media screen and (max-width: 1280px) {
+  .popup {
+    max-width: 800px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .popup {
+    max-width: 580px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .popup {
+    width: 90%;
+    min-width: 290px;
+  }
+}
 @media screen and (max-width: 650px) {
   .popup__title {
     font-size: 18px;
