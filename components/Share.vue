@@ -1,11 +1,14 @@
 <template>
-  <ul class="share__list-items">
-    <li class="share__list-item" v-for="icon in icons" :key="icon.id">
-      <a :href="icon.href" target="_blank"
-        ><img :src="icon.src" :alt="icon.alt"
-      /></a>
-    </li>
-  </ul>
+  <div class="share">
+    <h2 class="share__title">Поделитесь</h2>
+    <ul class="share__list-items">
+      <li class="share__list-item" v-for="icon in icons" :key="icon.id">
+        <a :href="icon.href" target="_blank"
+          ><img class="share__img" :src="icon.src" :alt="icon.alt"
+        /></a>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -60,19 +63,37 @@ export default {
 </script>
 
 <style scoped>
+.share {
+  display: flex;
+  flex-direction: column;
+}
+.share__title {
+  margin: 0 auto;
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 600;
+}
 .share__list-items {
   display: flex;
   justify-content: space-between;
   list-style: none;
   padding: 0;
   width: 388px;
-  margin-top: 100px;
+  margin: 100px auto 70px auto;
   align-items: center;
 }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 452px) {
+  .share__title {
+    font-size: 18px;
+    line-height: 21px;
+  }
+  .share__img {
+    max-width: 25px;
+    max-height: 25px;
+  }
   .share__list-items {
-    width: 282px;
-    margin-top: 70px;
+    width: 240px;
+    margin: 70px auto 40px auto;
   }
 }
 </style>
