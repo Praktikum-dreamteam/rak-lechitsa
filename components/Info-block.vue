@@ -103,17 +103,20 @@ export default {
 
 <style scoped>
 .form {
+  min-height: 522px;
   background-color: #f7f7f7;
 }
 .form__container {
   padding-top: 100px;
   padding-bottom: 100px;
+  height: 100%;
 }
 .form__content {
   margin-top: 32px;
   display: flex;
   justify-content: space-between;
   text-align: left;
+  height: 100%;
 }
 
 .form__stories {
@@ -129,8 +132,15 @@ export default {
 }
 
 .form__button {
-  margin-top: 56px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
+
+.tabs__texts {
+  position: relative;
+}
+
 .radio /deep/ {
   color: #a2a2a2;
 }
