@@ -69,8 +69,12 @@ export default {
   }
 }
 @media screen and (max-width: 768px) {
+  .btn {
+    font-size: 15px;
+    line-height: 18px;
+  }
   .btn_theme_violet {
-    padding: 14px 40px;
+    padding: 14px 75px;
   }
 }
 .btn_theme_share {

@@ -12,6 +12,7 @@
 
 <script>
 import Overlay from '@/components/ui/Overlay';
+import Container from '@/components/Container';
 export default {
   props: {
     title: String,
@@ -25,11 +26,15 @@ export default {
   },
   components: {
     Overlay,
+    container: Container,
   },
 };
 </script>
 
 <style scoped>
+.test {
+  padding: 15px;
+}
 .popup {
   position: fixed;
   top: 50%;
@@ -82,22 +87,21 @@ export default {
     max-width: 800px;
   }
 }
+
 @media screen and (max-width: 900px) {
   .popup {
     max-width: 580px;
   }
 }
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .popup {
-    width: 90%;
-    min-width: 290px;
+    max-width: 450px;
   }
 }
-@media screen and (max-width: 650px) {
-  .popup__title {
-    font-size: 18px;
-    line-height: 21px;
+@media screen and (max-width: 452px) {
+  .popup {
+    max-width: 290px;
+    padding: 15px;
   }
 }
 </style>
