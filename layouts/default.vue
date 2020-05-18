@@ -7,7 +7,8 @@
     <nuxt />
     <Popup v-if="popupVisible" :haveClose="true" title="Поделитесь">
       <!-- <Share /> -->
-      <form-quiz />
+      <!-- <form-quiz /> -->
+      <Form />
     </Popup>
     <Footer />
   </div>
@@ -20,6 +21,7 @@ import Popup from '@/components/PopUp';
 import Share from '@/components/Share';
 import Menu from '@/components/Menu';
 import Quiz from '@/components/Quiz';
+import Form from '@/components/Form';
 
 export default {
   data() {
@@ -41,6 +43,7 @@ export default {
     Header,
     Popup,
     Share,
+    Form,
     'mobile-menu': Menu,
     'form-quiz': Quiz,
   },
