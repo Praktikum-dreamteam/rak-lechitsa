@@ -5,6 +5,8 @@
       :type="type"
       @click.prevent="$emit('btn-click')"
       :class="['btn', `btn_theme_${theme}`, { btn_disabled: isDisabledActive }]"
+      @mousemove="hover = true"
+      @mouseleave="hover - false"
     >
       <slot></slot>
     </button>
@@ -14,6 +16,11 @@
 <script>
 export default {
   props: ['theme', 'type', 'isDisabledActive'],
+  data() {
+    return {
+      hover: false,
+    };
+  },
 };
 </script>
 
@@ -35,6 +42,9 @@ export default {
   line-height: 19px;
   padding: 16px 80px;
 }
+.btn_theme_violet:hover {
+  opacity: 0.9;
+}
 .btn_theme_grey {
   color: #666;
   line-height: 19px;
@@ -47,6 +57,9 @@ export default {
   padding: 0;
   font-size: 18px;
   line-height: 24px;
+}
+.btn_theme_share:hover {
+  opacity: 0.8;
 }
 .btn_theme_history {
   padding: 0;

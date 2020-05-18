@@ -16,6 +16,8 @@
               :class="{ active: isLongText }"
               name="about"
               id="project"
+              @mousemove="hover = true"
+              @mouseleave="hover = false"
               >Рак Лечится</Radio
             >
             <Radio
@@ -24,6 +26,8 @@
               :class="{ active: !isLongText }"
               name="about"
               id="found"
+              @mousemove="hover = true"
+              @mouseleave="hover = false"
               >Фонд Хабенского</Radio
             >
           </div>
@@ -74,6 +78,11 @@ export default {
       this.$store.commit('info/addShort');
     },
   },
+  data() {
+    return {
+      hover: false,
+    };
+  },
 };
 </script>
 
@@ -116,7 +125,7 @@ export default {
   color: #c9c9c9;
 }
 .radio.active {
-  color: white;
+  color: #ffffff;
 }
 @media screen and (max-width: 1280px) {
   .info__subtitle {
