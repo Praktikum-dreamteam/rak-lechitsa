@@ -6,9 +6,9 @@
     <Header />
     <nuxt />
     <Popup v-if="popupVisible" :haveClose="true" title="Поделитесь">
-      <!-- <Share /> -->
-      <!-- <form-quiz /> -->
-      <Form />
+      <Share v-if="shareVisible" />
+      <form-quiz v-if="quizVisible" />
+      <Form v-if="formVisible" />
     </Popup>
     <Footer />
   </div>
@@ -36,6 +36,18 @@ export default {
     popupVisible() {
       const { popup } = this.$store.state;
       return popup.visible;
+    },
+    quizVisible() {
+      const { popup } = this.$store.state;
+      return popup.isQuiz;
+    },
+    shareVisible() {
+      const { popup } = this.$store.state;
+      return popup.isShare;
+    },
+    formVisible() {
+      const { popup } = this.$store.state;
+      return popup.isForm;
     },
   },
   components: {
