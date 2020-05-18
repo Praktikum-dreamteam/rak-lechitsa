@@ -1,28 +1,48 @@
 <template>
-  <form @click="test" class="form">
-    <customLabel :labelText="formQuestion" :additionalText="description" />
+  <form class="form-quiz">
+    <h3 class="form-quiz__title">{{ currentQuestion.title }}</h3>
+    <p class="form-quiz__question">
+      <span class="form-quiz__text-main">{{ currentQuestion.question }}</span>
+      <span class="form-quiz__text-additional">
+        {{ currentQuestion.description }}
+      </span>
+    </p>
     <inputForm
-      :valueInput="currentAnswer"
-      v-model="currentAnswer"
-      @input="$emit('answerInput', $event)"
+      class="form-quiz__input"
+      placeholder="Напишите тут"
+      type="text"
+      v-model="answer"
     />
-    <div class="form__buttons">
+    <div class="form-quiz__buttons">
       <btn
+        :disabled="this.$store.state.formQuiz.currentQuestion === 1"
         type="button"
-        :isDisabledActive="isDisabledBackButton"
-        @btn-click="$emit('clickBack')"
-        class="form__button"
+        @btn-click="prevQuestion"
+        class="form-quiz__button"
         theme="grey"
         >Назад</btn
       >
+      <!-- TODO: Исправить условия -->
       <btn
+        v-if="this.$store.state.formQuiz.currentQuestion !== 12"
         type="submit"
-        @btn-click="$emit('clickNext')"
-        class="form__button"
+        @btn-click="nextQuestion"
+        class="form-quiz__button"
         theme="violet"
-        >{{ isLast ? 'Отправить' : 'Далее' }}</btn
+        >Далее</btn
       >
-      <p v-if="isLast" class="form__personal-data-agreement">
+      <btn
+        v-if="this.$store.state.formQuiz.currentQuestion === 12"
+        type="submit"
+        @btn-click="sendQuiz"
+        class="form-quiz__button"
+        theme="violet"
+        >Отправить</btn
+      >
+      <p
+        v-if="this.$store.state.formQuiz.currentQuestion === 12"
+        class="form__personal-data-agreement"
+      >
         Нажимая на кнопку «отправить», вы даете согласие на
         <nuxt-link class="form__link" to="/policy"
           >обработку персональных данных</nuxt-link
@@ -35,50 +55,72 @@
 <script>
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import Label from '@/components/ui/Label';
 export default {
-  props: [
-    'formQuestion',
-    'description',
-    'answer',
-    'isLast',
-    'isDisabledBackButton',
-  ],
   components: {
     btn: Button,
     inputForm: Input,
-    customLabel: Label,
   },
   data() {
-    return {};
+    return {
+      answer: '',
+    };
   },
   computed: {
-    currentAnswer: {
-      get() {
-        return this.answer;
-      },
-      set(value) {},
+    currentQuestion() {
+      const { formQuiz } = this.$store.state;
+      const { currentQuestion, questions } = formQuiz;
+      return questions[currentQuestion];
+    },
+    initialAnswer() {
+      const { formQuiz } = this.$store.state;
+      const { currentQuestion, answers } = formQuiz;
+      return answers[currentQuestion] || '';
     },
   },
   methods: {
-    test() {},
+    async nextQuestion() {
+      await this.$store.dispatch('formQuiz/nextQuestion', {
+        answer: this.answer,
+      });
+      this.answer = this.initialAnswer;
+    },
+    async prevQuestion() {
+      await this.$store.dispatch('formQuiz/prevQuestion');
+      this.answer = this.initialAnswer;
+    },
+    sendQuiz() {
+      console.log('Пошла форма!');
+    },
   },
 };
 </script>
 
 <style scoped>
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-top: 40px;
+.form-quiz__title {
+  font-size: 28px;
+  line-height: 32px;
+  color: #000;
 }
-.form__buttons {
-  padding-top: 100px;
+.form-quiz__question {
+  font-size: 16px;
+  line-height: 22px;
+  margin-top: 40px;
+}
+.form-quiz__text-main {
+  font-weight: 500;
+}
+.form-quiz__text-additional {
+  color: #666;
+}
+.form-quiz__buttons {
+  margin-top: 200px;
   display: flex;
   align-items: center;
 }
-.form__button {
+.form-quiz__input {
+  margin-top: 134px;
+}
+.form-quiz__button {
   margin-right: 30px;
 }
 .form__button:last-child {

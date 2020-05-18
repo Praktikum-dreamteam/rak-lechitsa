@@ -2,9 +2,6 @@
   <div>
     <div class="popup">
       <div class="popup__header">
-        <h2 :class="[popup__title, { popup__title_center: isTitleCenter }]">
-          {{ title }}
-        </h2>
         <div v-if="haveClose" @click="close" class="popup__close"></div>
       </div>
       <slot>Содержимое окна</slot>

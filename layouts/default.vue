@@ -5,14 +5,10 @@
     </client-only>
     <Header />
     <nuxt />
-    <Popup
-      v-if="popupVisible"
-      haveClose="true"
-      class="share__popup"
-      title="Поделитесь"
-      @closeClick="closeShare"
-    >
-      <Share />
+    <Popup v-if="popupVisible" :haveClose="true" title="Поделитесь">
+      <!-- <Share /> -->
+      <!-- <form-quiz /> -->
+      <Form />
     </Popup>
     <Footer />
   </div>
@@ -24,6 +20,8 @@ import Header from '@/components/Header';
 import Popup from '@/components/PopUp';
 import Share from '@/components/Share';
 import Menu from '@/components/Menu';
+import Quiz from '@/components/Quiz';
+import Form from '@/components/Form';
 
 export default {
   data() {
@@ -40,13 +38,14 @@ export default {
       return popup.visible;
     },
   },
-  methods: {},
   components: {
     Footer,
     Header,
     Popup,
     Share,
+    Form,
     'mobile-menu': Menu,
+    'form-quiz': Quiz,
   },
 };
 </script>

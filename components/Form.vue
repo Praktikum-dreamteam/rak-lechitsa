@@ -56,7 +56,7 @@
         @btn-click="$emit('clickBack')"
         class="form__button"
         theme="violet"
-        >Оставьте контакт для связи</btn
+        >Отправить</btn
       >
       <p class="form__personal-data-agreement">
         Нажимая на кнопку «отправить», вы даете согласие на
@@ -104,6 +104,7 @@ export default {
 
 <style scoped>
 .form {
+  margin: 2px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -132,7 +133,7 @@ export default {
 
 .form__fieldset {
   margin: 0 20px;
-  width: 100%;
+  width: auto;
 }
 .form__title {
   font-size: 32px;
@@ -157,5 +158,68 @@ export default {
 .form__container {
   display: flex;
   justify-content: stretch;
+}
+
+@media screen and (max-width: 1280px) {
+  .form__title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .form__subtitle {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .form__title {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  .form__subtitle {
+    font-size: 15px;
+    line-height: 19px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .form__title {
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 35px;
+  }
+  .form__subtitle {
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 30px;
+  }
+  .form__container {
+    flex-wrap: wrap;
+  }
+  .form__fieldset {
+    flex-grow: 1;
+  }
+  .form__label {
+    margin-bottom: 20px;
+  }
+  .form__input {
+    margin-bottom: 30px;
+  }
+  .form__buttons {
+    flex-wrap: wrap;
+  }
+  .form__button {
+    margin: 0;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .form__button /deep/ .btn {
+    width: 100%;
+  }
+  .form__personal-data-agreement {
+    font-size: 11px;
+    line-height: 13px;
+  }
 }
 </style>

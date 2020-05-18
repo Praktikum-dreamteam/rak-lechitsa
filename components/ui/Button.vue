@@ -1,12 +1,10 @@
 <template>
   <div>
     <button
-      v-bind:disabled="isDisabledActive"
+      v-bind:disabled="disabled"
       :type="type"
       @click.prevent="$emit('btn-click')"
-      :class="['btn', `btn_theme_${theme}`, { btn_disabled: isDisabledActive }]"
-      @mousemove="hover = true"
-      @mouseleave="hover - false"
+      :class="['btn', `btn_theme_${theme}`, { btn_disabled: disabled }]"
     >
       <slot></slot>
     </button>
@@ -15,12 +13,7 @@
 
 <script>
 export default {
-  props: ['theme', 'type', 'isDisabledActive'],
-  data() {
-    return {
-      hover: false,
-    };
-  },
+  props: ['theme', 'type', 'disabled'],
 };
 </script>
 
