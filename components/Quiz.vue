@@ -3,9 +3,9 @@
     <h3 class="form-quiz__title">{{ currentQuestion.title }}</h3>
     <p class="form-quiz__question">
       <span class="form-quiz__text-main">{{ currentQuestion.question }}</span>
-      <span class="form-quiz__text-additional">
-        {{ currentQuestion.description }}
-      </span>
+      <span class="form-quiz__text-additional">{{
+        currentQuestion.description
+      }}</span>
     </p>
     <inputForm
       class="form-quiz__input"
@@ -123,16 +123,31 @@ export default {
 .form-quiz__button {
   margin-right: 30px;
 }
-.form__button:last-child {
+.form-quiz__button:last-child {
   margin-right: 0;
 }
-.form__personal-data-agreement {
-  max-width: 378px;
-  font-size: 14px;
-  line-height: 17px;
-  color: #666;
+@media screen and (max-width: 1280px) {
+  .form-quiz__buttons {
+    margin-top: 170px;
+  }
+  .form-quiz__input {
+    margin-top: 100px;
+  }
 }
-.form__link {
-  color: #666;
+@media screen and (max-width: 1024px) {
+  .form-quiz__title {
+    font-size: 26px;
+    line-height: 30px;
+  }
+  .form-quiz__question {
+    font-size: 15px;
+    line-height: 19px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .form-quiz__title {
+    font-size: 26px;
+    line-height: 30px;
+  }
 }
 </style>
