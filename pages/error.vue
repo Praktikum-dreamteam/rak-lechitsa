@@ -3,7 +3,7 @@
     <h1 class="error-title">404</h1>
     <p class="error-subtitle">
       Страница не найдена.
-      <nuxt-link to="/index" class="error-subtitle_link"
+      <nuxt-link to="/" class="error-subtitle_link"
         >Перейти на главную.</nuxt-link
       >
     </p>
@@ -12,9 +12,7 @@
 
 <script>
 export default {
-  meta: {
-    layout: 'error',
-  },
+  layout: 'errorpage',
 };
 </script>
 
