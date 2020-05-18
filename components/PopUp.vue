@@ -95,12 +95,13 @@ export default {
 }
 @media screen and (max-width: 600px) {
   .popup {
-    max-width: 390px;
+    max-width: 450px;
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 452px) {
   .popup {
     max-width: 290px;
+    padding: 15px;
   }
 }
 </style>
