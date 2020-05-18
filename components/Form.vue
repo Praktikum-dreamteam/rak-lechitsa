@@ -1,25 +1,53 @@
 <template>
   <form @click="test" class="form">
-    <div class="form__fieldset">
-      <customLabel labelText="Как вас зовут?" for="name" />
-      <inputForm id="name" placeholder="Напишите тут" />
-    </div>
-    <div class="form__container">
+    <h2 class="form__title">Оставьте контакт для связи</h2>
+    <p class="form__subtitle">
+      Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
+      и разместить ее на сайте.
+    </p>
+    <div class="form__content">
       <div class="form__fieldset">
-        <customLabel labelText="Электронная почта" for="email" />
-        <inputForm id="email" placeholder="pochta@example.com" />
+        <customLabel
+          labelText="Как вас зовут?"
+          for="name"
+          class="form__label"
+        />
+        <inputForm id="name" placeholder="Напишите тут" class="form__input" />
+      </div>
+      <div class="form__container">
+        <div class="form__fieldset">
+          <customLabel
+            labelText="Электронная почта"
+            for="email"
+            class="form__label"
+          />
+          <inputForm
+            id="email"
+            placeholder="pochta@example.com"
+            class="form__input"
+          />
+        </div>
+        <div class="form__fieldset">
+          <customLabel labelText="Телефон" for="phone" class="form__label" />
+          <inputForm
+            id="phone"
+            placeholder="+7 000 000 00 00"
+            class="form__input"
+          />
+        </div>
       </div>
       <div class="form__fieldset">
-        <customLabel labelText="Телефон" for="phone" />
-        <inputForm id="phone" placeholder="+7 000 000 00 00" />
+        <customLabel
+          labelText="Напишите, если есть предпочтительный способ связи и удобное время"
+          for="comment"
+          class="form__label"
+        />
+        <inputForm
+          id="comment"
+          placeholder="Телефон / почта и удобное время"
+          class="form__input"
+        />
       </div>
-    </div>
-    <div class="form__fieldset">
-      <customLabel
-        labelText="Напишите, если есть предпочтительный способ связи и удобное время"
-        for="comment"
-      />
-      <inputForm id="comment" placeholder="Телефон / почта и удобное время" />
     </div>
     <div class="form__buttons">
       <btn
@@ -79,10 +107,10 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 40px;
 }
+
 .form__buttons {
-  padding-top: 100px;
+  margin-top: 5px;
   display: flex;
   align-items: center;
 }
@@ -103,8 +131,28 @@ export default {
 }
 
 .form__fieldset {
-  margin: 20px;
+  margin: 0 20px;
   width: 100%;
+}
+.form__title {
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+.form__subtitle {
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 50px;
+}
+.form__content {
+  margin: 0 -20px;
+}
+.form__label {
+  margin-bottom: 30px;
+}
+.form__input {
+  margin-bottom: 40px;
 }
 .form__container {
   display: flex;

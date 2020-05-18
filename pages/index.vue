@@ -9,6 +9,7 @@
     <InfoBlock />
     <Statistics />
     <Info />
+
   </div>
 </template>
 
