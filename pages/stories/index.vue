@@ -24,32 +24,61 @@
         </story-card>
       </li>
     </ul>
+    <pagination
+      :totalItems="this.$store.state.stories.stories.length"
+      :itemsPerPage="itemsPerPage"
+      @onPageChanged="changeIndex"
+    >
+    </pagination>
   </div>
 </template>
 
 <script>
 import Button from '@/components/ui/Button';
 import StoryCard from '@/components/StoryCard';
+import Pagination from '@/components/ui/Pagination';
 export default {
+  data() {
+    return {
+      storiesName: '',
+      startIndex: 0,
+      itemsPerPage: 16,
+    };
+  },
   components: {
     'button-ui': Button,
     'story-card': StoryCard,
+    pagination: Pagination,
   },
   computed: {
     stories() {
-      return this.$store.getters['stories/getStories'];
+      if (process.browser) {
+        if (window.innerWidth > 920) {
+          this.itemsPerPage = 16;
+        } else if (window.innerWidth > 500 && window.innerWidth <= 920) {
+          this.itemsPerPage = 12;
+        } else {
+          this.itemsPerPage = 9;
+        }
+      }
+
+      const allStories = this.$store.getters['stories/getStories'];
+      return allStories.filter(
+        (item, index) =>
+          index >= this.startIndex &&
+          index <= this.startIndex + this.itemsPerPage - 1
+      );
+    },
+  },
+  methods: {
+    changeIndex(index) {
+      this.startIndex = (index - 1) * this.itemsPerPage;
     },
   },
 };
 </script>
 
 <style scoped>
-div,
-ul,
-li {
-  border: 1px solid tomato;
-}
-
 .page {
   padding-top: 100px;
   max-width: 1320px;

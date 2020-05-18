@@ -103,5 +103,13 @@ export default {
     max-width: 290px;
     padding: 15px;
   }
+  .popup__close {
+    top: 15px;
+    right: 15px;
+  }
+  .popup__close::after,
+  .popup__close::before {
+    height: 17px;
+  }
 }
 </style>

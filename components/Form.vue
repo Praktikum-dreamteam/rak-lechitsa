@@ -222,4 +222,9 @@ export default {
     line-height: 13px;
   }
 }
+@media screen and (max-width: 452px) {
+  .form__title {
+    max-width: 170px;
+  }
+}
 </style>
