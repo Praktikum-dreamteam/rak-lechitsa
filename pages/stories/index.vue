@@ -2,13 +2,16 @@
   <div class="page">
     <a href="#top" name="top"></a>
     <h1 class="title">Истории неизлечимых привычек</h1>
-    <div class="input-container">
-      <input class="input-container__input" type="text" name="name" />
+    <form class="input-container" @submit.prevent="search">
+      <input
+        class="input-container__input"
+        type="text"
+        name="name"
+        v-model="query"
+      />
       <!-- Дофиксить кнопку-->
-      <button-ui class="input-container__button" :theme="'violet'">
-        Поиск
-      </button-ui>
-    </div>
+      <button class="input-container__button">Поиск</button>
+    </form>
 
     <ul class="stories-container">
       <li
@@ -27,7 +30,7 @@
     </ul>
     <pagination
       href="#top"
-      :totalItems="this.$store.state.stories.stories.length"
+      :totalItems="this.allStories.length"
       :itemsPerPage="itemsPerPage"
       @onPageChanged="changeIndex"
     >
@@ -43,8 +46,10 @@ export default {
   data() {
     return {
       storiesName: '',
+      query: '',
       startIndex: 0,
       itemsPerPage: 16,
+      allStories: '',
     };
   },
   components: {
@@ -63,9 +68,10 @@ export default {
           this.itemsPerPage = 9;
         }
       }
-
-      const allStories = this.$store.getters['stories/getStories'];
-      return allStories.filter(
+      if (!this.allStories) {
+        this.allStories = this.$store.getters['stories/getStories'];
+      }
+      return this.allStories.filter(
         (item, index) =>
           index >= this.startIndex &&
           index <= this.startIndex + this.itemsPerPage - 1
@@ -75,6 +81,15 @@ export default {
   methods: {
     changeIndex(index) {
       this.startIndex = (index - 1) * this.itemsPerPage;
+    },
+    search() {
+      const stories = this.$store.getters['stories/getStories'];
+      this.allStories = stories.filter(item =>
+        Object.values(item.cards)
+          .join('')
+          .includes(this.query)
+      );
+      console.log(this.query, stories);
     },
   },
 };
