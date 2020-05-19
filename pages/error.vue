@@ -11,9 +11,7 @@
 </template>
 
 <script>
-export default {
-  layout: 'errorpage',
-};
+export default {};
 </script>
 
 <style scoped>
