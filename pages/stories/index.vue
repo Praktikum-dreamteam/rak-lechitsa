@@ -1,5 +1,6 @@
 <template>
   <div class="page">
+    <a href="#top" name="top"></a>
     <h1 class="title">Истории неизлечимых привычек</h1>
     <div class="input-container">
       <input class="input-container__input" type="text" name="name" />
@@ -25,6 +26,7 @@
       </li>
     </ul>
     <pagination
+      href="#top"
       :totalItems="this.$store.state.stories.stories.length"
       :itemsPerPage="itemsPerPage"
       @onPageChanged="changeIndex"
@@ -122,7 +124,6 @@ export default {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 40px;
   grid-row-gap: 70px;
 }

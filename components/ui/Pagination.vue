@@ -1,6 +1,7 @@
 <template>
   <div class="pagination">
     <div
+      href="top"
       v-for="index in pagesCount"
       :key="index"
       @click="setActive(index)"
@@ -42,6 +43,12 @@ export default {
     setActive(index) {
       this.active = index;
       this.$emit('onPageChanged', index);
+      let t, s; //Медленная прокрутка наверх, мб убрать
+      s = document.body.scrollTop || window.pageYOffset;
+      t = setInterval(function() {
+        if (s > 0) window.scroll(0, (s -= 15));
+        else clearInterval(t);
+      }, 1);
     },
   },
 };
