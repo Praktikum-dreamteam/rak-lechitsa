@@ -12,22 +12,23 @@
       <!-- Дофиксить кнопку-->
       <button class="input-container__button">Поиск</button>
     </form>
-
-    <ul class="stories-container">
-      <li
-        v-for="story in stories"
-        :key="story.id"
-        class="stories-container__item"
-      >
-        <story-card
-          :id="story.cards.id"
-          :src="story.cards.src"
-          :name="story.cards.name"
-          :description="story.cards.description"
+    <client-only>
+      <ul class="stories-container">
+        <li
+          v-for="story in stories"
+          :key="story.id"
+          class="stories-container__item"
         >
-        </story-card>
-      </li>
-    </ul>
+          <story-card
+            :id="story.cards.id"
+            :src="story.cards.src"
+            :name="story.cards.name"
+            :description="story.cards.description"
+          >
+          </story-card>
+        </li>
+      </ul>
+    </client-only>
     <pagination
       href="#top"
       :totalItems="this.allStories.length"

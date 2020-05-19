@@ -53,6 +53,16 @@ export default {
 }
 .btn_theme_share:hover {
   opacity: 0.8;
+  transition: 0.3s;
+}
+.btn_theme_share_long {
+  font-size: 18px;
+  line-height: 24px;
+  padding: 0;
+}
+.btn_theme_share_long:hover {
+  opacity: 0.8;
+  transition: 0.3s;
 }
 .btn_theme_history {
   padding: 0;
