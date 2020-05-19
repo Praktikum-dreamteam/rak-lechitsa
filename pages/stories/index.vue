@@ -1,13 +1,17 @@
 <template>
   <div class="page">
+    <a href="#top" name="top"></a>
     <h1 class="title">Истории неизлечимых привычек</h1>
-    <div class="input-container">
-      <input class="input-container__input" type="text" name="name" />
+    <form class="input-container" @submit.prevent="search">
+      <input
+        class="input-container__input"
+        type="text"
+        name="name"
+        v-model="query"
+      />
       <!-- Дофиксить кнопку-->
-      <button-ui class="input-container__button" :theme="'violet'">
-        Поиск
-      </button-ui>
-    </div>
+      <button class="input-container__button">Поиск</button>
+    </form>
 
     <ul class="stories-container">
       <li
@@ -24,32 +28,74 @@
         </story-card>
       </li>
     </ul>
+    <pagination
+      href="#top"
+      :totalItems="this.allStories.length"
+      :itemsPerPage="itemsPerPage"
+      @onPageChanged="changeIndex"
+    >
+    </pagination>
   </div>
 </template>
 
 <script>
 import Button from '@/components/ui/Button';
 import StoryCard from '@/components/StoryCard';
+import Pagination from '@/components/ui/Pagination';
 export default {
+  data() {
+    return {
+      storiesName: '',
+      query: '',
+      startIndex: 0,
+      itemsPerPage: 16,
+      allStories: '',
+    };
+  },
   components: {
     'button-ui': Button,
     'story-card': StoryCard,
+    pagination: Pagination,
   },
   computed: {
     stories() {
-      return this.$store.getters['stories/getStories'];
+      if (process.browser) {
+        if (window.innerWidth > 920) {
+          this.itemsPerPage = 16;
+        } else if (window.innerWidth > 500 && window.innerWidth <= 920) {
+          this.itemsPerPage = 12;
+        } else {
+          this.itemsPerPage = 9;
+        }
+      }
+      if (!this.allStories) {
+        this.allStories = this.$store.getters['stories/getStories'];
+      }
+      return this.allStories.filter(
+        (item, index) =>
+          index >= this.startIndex &&
+          index <= this.startIndex + this.itemsPerPage - 1
+      );
+    },
+  },
+  methods: {
+    changeIndex(index) {
+      this.startIndex = (index - 1) * this.itemsPerPage;
+    },
+    search() {
+      const stories = this.$store.getters['stories/getStories'];
+      this.allStories = stories.filter(item =>
+        Object.values(item.cards)
+          .join('')
+          .includes(this.query)
+      );
+      console.log(this.query, stories);
     },
   },
 };
 </script>
 
 <style scoped>
-div,
-ul,
-li {
-  border: 1px solid tomato;
-}
-
 .page {
   padding-top: 100px;
   max-width: 1320px;
@@ -93,7 +139,6 @@ li {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 40px;
   grid-row-gap: 70px;
 }

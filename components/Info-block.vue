@@ -31,17 +31,19 @@
               >2-й вариант</Radio
             >
           </div>
-          <div class="tabs__texts">
-            <p v-if="isLongText" class="tabs__text">
-              Заполнить подробную форму прямо на сайте и мы опубликуем вашу
-              историю после проверки. Пожалуйста, заполняйте все пункты
-              корректно, если вы испытаете какие-то сложности, воспользуйтесь
-              2-м вариантом.
-            </p>
-            <p v-if="!isLongText" class="tabs__text">
-              Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
-              зададим вопросы, уточним детали вашей истории.
-            </p>
+          <div class="tabs__column">
+            <div class="tabs__texts">
+              <p v-if="isLongText" class="tabs__text">
+                Заполнить подробную форму прямо на сайте и мы опубликуем вашу
+                историю после проверки. Пожалуйста, заполняйте все пункты
+                корректно, если вы испытаете какие-то сложности, воспользуйтесь
+                2-м вариантом.
+              </p>
+              <p v-if="!isLongText" class="tabs__text">
+                Оставить контакт (почту или номер телефона) и мы свяжемся с
+                вами, зададим вопросы, уточним детали вашей истории.
+              </p>
+            </div>
             <Button
               v-if="isLongText"
               @btn-click="openQuiz"
@@ -106,13 +108,12 @@ export default {
 
 <style scoped>
 .form {
-  min-height: 522px;
   background-color: #f7f7f7;
 }
 .form__container {
+  height: 100%;
   padding-top: 100px;
   padding-bottom: 100px;
-  height: 100%;
 }
 .form__content {
   margin-top: 32px;
@@ -121,7 +122,6 @@ export default {
   text-align: left;
   height: 100%;
 }
-
 .form__stories {
   min-width: 105px;
   list-style: none;
@@ -129,21 +129,15 @@ export default {
   margin-left: 195px;
   margin-right: 40px;
 }
-
 .form__subtitle {
   max-width: 340px;
 }
-
-.form__button {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.tabs__column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
 }
-
-.tabs__texts {
-  position: relative;
-}
-
 .radio /deep/ {
   color: #a2a2a2;
 }
@@ -159,13 +153,11 @@ export default {
     padding-bottom: 80px;
   }
 }
-
 @media screen and (max-width: 1024px) {
   .form__subtitle {
     max-width: 260px;
   }
 }
-
 @media screen and (max-width: 768px) {
   .form__content {
     margin-top: 26px;
