@@ -53,7 +53,6 @@ export default {
 <style scoped>
 .stories {
   display: flex;
-  overflow: hidden;
   justify-content: space-between;
 }
 
@@ -99,9 +98,9 @@ export default {
   list-style: none;
   padding-left: 0;
   grid-template-columns: repeat(4, 195px);
-  grid-template-rows: repeat(2, 195px);
   grid-gap: 30px;
 }
+
 .story-images__image {
   width: 100%;
   height: 100%;
@@ -110,19 +109,17 @@ export default {
   .story-images {
     max-width: 765px;
     grid-template-columns: repeat(4, 171px);
-    grid-template-rows: repeat(2, 171px);
-    grid-gap: 27px;
+    grid-gap: 23px;
   }
 
   .story-src::after {
     width: 153px;
   }
 }
-@media (max-width: 1025px) {
+@media (max-width: 1062px) {
   .story-images {
     max-width: 604px;
     grid-template-columns: repeat(4, 136px);
-    grid-template-rows: repeat(2, 136px);
     grid-gap: 20px;
   }
 
@@ -133,20 +130,6 @@ export default {
 
 @media (max-width: 875px) {
   .stories {
-    max-width: 90%;
-    padding: 0;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .story-images {
-    grid-gap: 5px;
-  }
-}
-
-@media (max-width: 820px) {
-  .stories {
-    max-width: 87%;
     flex-direction: column;
     margin: 80px auto;
     align-items: center;
@@ -167,7 +150,6 @@ export default {
   .story-images {
     max-width: 688px;
     grid-template-columns: repeat(4, 157px);
-    grid-template-rows: repeat(2, 157px);
     grid-gap: 20px;
   }
 }
@@ -178,8 +160,7 @@ export default {
 
   .story-images {
     max-width: 500px;
-    grid-template-columns: repeat(4, 110px);
-    grid-template-rows: repeat(2, 110px);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
   }
 }
@@ -189,8 +170,7 @@ export default {
   }
   .story-images {
     max-width: 400px;
-    grid-template-columns: repeat(2, 180px);
-    grid-template-rows: repeat(4, 180px);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
   }
 }
@@ -202,8 +182,7 @@ export default {
 
   .story-images {
     max-width: 290px;
-    grid-template-columns: repeat(2, 140px);
-    grid-template-rows: repeat(4, 140px);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .story {
