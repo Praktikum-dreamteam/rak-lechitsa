@@ -115,6 +115,9 @@ export default {
   padding-top: 100px;
   padding-bottom: 100px;
 }
+.form__button {
+  max-width: 280px;
+}
 .form__content {
   margin-top: 32px;
   display: flex;
@@ -152,6 +155,9 @@ export default {
     padding-top: 80px;
     padding-bottom: 80px;
   }
+  .form__button {
+    max-width: 230px;
+  }
 }
 @media screen and (max-width: 1024px) {
   .form__subtitle {
@@ -173,6 +179,11 @@ export default {
   }
   .radio.active {
     border-bottom: 2px solid #613a93;
+  }
+}
+@media screen and (max-width: 425px) {
+  .form__button {
+    max-width: 100%;
   }
 }
 </style>

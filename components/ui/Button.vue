@@ -34,7 +34,8 @@ export default {
   color: #fff;
   background: #613a93;
   line-height: 19px;
-  padding: 16px 90px;
+  padding: 16px 0;
+  width: 100%;
 }
 .btn_theme_violet:hover {
   opacity: 0.9;
@@ -96,7 +97,7 @@ export default {
     margin-left: 30px;
   }
   .btn_theme_violet {
-    padding: 14px 75px;
+    padding: 14px 0;
   }
 }
 @media screen and (max-width: 768px) {
