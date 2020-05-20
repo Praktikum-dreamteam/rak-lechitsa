@@ -83,6 +83,9 @@ export const mutations = {
   setQuestions(state, questions) {
     state.questions = questions;
   },
+  resetAnswers(state) {
+    state.answers = {};
+  },
 };
 
 export const actions = {
@@ -99,5 +102,10 @@ export const actions = {
       return;
     }
     commit('setCurrentQuestion', { currentQuestion: currentQuestion - 1 });
+  },
+  async sendQuiz({ commit, state }) {
+    await commit('setCurrentQuestion', { currentQuestion: 1 });
+    console.log(state.answers);
+    await commit('resetAnswers');
   },
 };

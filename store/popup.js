@@ -3,6 +3,7 @@ export const state = () => ({
   isShare: false,
   isQuiz: false,
   isForm: false,
+  isHaveClose: true,
 });
 
 export const mutations = {
@@ -29,5 +30,8 @@ export const mutations = {
     state.isShare = false;
     state.isQuiz = false;
     state.isForm = false;
+  },
+  toggleIconClose(state) {
+    state.isHaveClose = !state.isHaveClose;
   },
 };
