@@ -58,12 +58,7 @@
         theme="violet"
         >Отправить</btn
       >
-      <p class="form__personal-data-agreement">
-        Нажимая на кнопку «отправить», вы даете согласие на
-        <nuxt-link class="form__link" to="/policy"
-          >обработку персональных данных</nuxt-link
-        >
-      </p>
+      <personal-data-consent />
     </div>
   </form>
 </template>
@@ -72,6 +67,7 @@
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Label from '@/components/ui/Label';
+import PersonalDataConsent from '@/components/PersonalDataConsent';
 export default {
   props: [
     'formQuestion',
@@ -84,6 +80,7 @@ export default {
     btn: Button,
     inputForm: Input,
     customLabel: Label,
+    'personal-data-consent': PersonalDataConsent,
   },
   data() {
     return {};
@@ -122,16 +119,6 @@ export default {
 .form__button:last-child {
   margin-right: 0;
 }
-.form__personal-data-agreement {
-  max-width: 378px;
-  font-size: 14px;
-  line-height: 17px;
-  color: #666;
-}
-.form__link {
-  color: #666;
-}
-
 .form__fieldset {
   margin: 0 20px;
   width: auto;

@@ -43,6 +43,7 @@ export default {
 .btn_theme_grey {
   color: #666;
   line-height: 19px;
+  padding: 0;
 }
 .btn_disabled {
   opacity: 0.5;

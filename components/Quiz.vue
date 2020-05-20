@@ -3,9 +3,9 @@
     <h3 class="form-quiz__title">{{ currentQuestion.title }}</h3>
     <p class="form-quiz__question">
       <span class="form-quiz__text-main">{{ currentQuestion.question }}</span>
-      <span class="form-quiz__text-additional">{{
-        currentQuestion.description
-      }}</span>
+      <span class="form-quiz__text-additional">
+        {{ currentQuestion.description }}
+      </span>
     </p>
     <inputForm
       class="form-quiz__input"
@@ -13,41 +13,38 @@
       type="text"
       v-model="answer"
     />
-    <div class="form-quiz__buttons">
-      <btn
-        :disabled="this.$store.state.formQuiz.currentQuestion === 1"
-        type="button"
-        @btn-click="prevQuestion"
-        class="form-quiz__button"
-        theme="grey"
-        >Назад</btn
-      >
-      <!-- TODO: Исправить условия -->
-      <btn
-        v-if="this.$store.state.formQuiz.currentQuestion !== 12"
-        type="submit"
-        @btn-click="nextQuestion"
-        class="form-quiz__button form-quiz__button_next"
-        theme="violet"
-        >Далее</btn
-      >
-      <btn
-        v-if="this.$store.state.formQuiz.currentQuestion === 12"
-        type="submit"
-        @btn-click="sendQuiz"
-        class="form-quiz__button form-quiz__button_next"
-        theme="violet"
-        >Отправить</btn
-      >
-      <p
-        v-if="this.$store.state.formQuiz.currentQuestion === 12"
-        class="form-quiz__personal-data-agreement"
-      >
-        Нажимая на кнопку «отправить», вы даете согласие на
-        <nuxt-link class="form-quiz__link" to="/policy"
-          >обработку персональных данных</nuxt-link
+    <div class="form-quiz__footer">
+      <div class="form-quiz__buttons">
+        <btn
+          :disabled="this.$store.state.formQuiz.currentQuestion === 1"
+          type="button"
+          @btn-click="prevQuestion"
+          class="form-quiz__button"
+          theme="grey"
+          >Назад</btn
         >
-      </p>
+        <!-- TODO: Исправить условия -->
+        <btn
+          v-if="this.$store.state.formQuiz.currentQuestion !== 12"
+          type="submit"
+          @btn-click="nextQuestion"
+          class="form-quiz__button form-quiz__button_next"
+          theme="violet"
+          >Далее</btn
+        >
+        <btn
+          v-if="this.$store.state.formQuiz.currentQuestion === 12"
+          type="submit"
+          @btn-click="sendQuiz"
+          class="form-quiz__button form-quiz__button_next"
+          theme="violet"
+          >Отправить</btn
+        >
+      </div>
+      <personal-data-consent
+        class="form-quiz__personal-data"
+        v-if="this.$store.state.formQuiz.currentQuestion === 12"
+      />
     </div>
   </form>
 </template>
@@ -55,10 +52,12 @@
 <script>
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import PersonalDataConsent from '@/components/PersonalDataConsent';
 export default {
   components: {
     btn: Button,
     inputForm: Input,
+    'personal-data-consent': PersonalDataConsent,
   },
   data() {
     return {
@@ -112,8 +111,13 @@ export default {
 .form-quiz__text-additional {
   color: #666;
 }
-.form-quiz__buttons {
+.form-quiz__footer {
+  display: flex;
   margin-top: 200px;
+  align-items: center;
+}
+.form-quiz__buttons {
+  margin-right: 30px;
   display: flex;
   align-items: center;
 }
@@ -130,7 +134,7 @@ export default {
   width: 226px;
 }
 @media screen and (max-width: 1280px) {
-  .form-quiz__buttons {
+  .form-quiz__footer {
     margin-top: 170px;
   }
   .form-quiz__button_next {
@@ -154,6 +158,14 @@ export default {
   .form-quiz__title {
     font-size: 26px;
     line-height: 30px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .form-quiz__footer {
+    flex-wrap: wrap;
+  }
+  .form-quiz__personal-data {
+    margin-top: 10px;
   }
 }
 @media screen and (max-width: 452px) {
