@@ -1,67 +1,73 @@
 <template>
-  <form class="form-quiz">
-    <h3 class="form-quiz__title">{{ currentQuestion.title }}</h3>
-    <p class="form-quiz__question">
-      <span class="form-quiz__text-main">{{ currentQuestion.question }}</span>
-      <span class="form-quiz__text-additional">
-        {{ currentQuestion.description }}
-      </span>
-    </p>
-    <inputForm
-      class="form-quiz__input"
-      placeholder="Напишите тут"
-      type="text"
-      v-model="answer"
-    />
-    <div class="form-quiz__footer">
-      <div class="form-quiz__buttons">
-        <btn
-          :disabled="this.$store.state.formQuiz.currentQuestion === 1"
-          type="button"
-          @btn-click="prevQuestion"
-          class="form-quiz__button"
-          theme="grey"
-          >Назад</btn
-        >
-        <!-- TODO: Исправить условия -->
-        <btn
-          v-if="this.$store.state.formQuiz.currentQuestion !== 12"
-          type="submit"
-          @btn-click="nextQuestion"
-          class="form-quiz__button form-quiz__button_next"
-          theme="violet"
-          >Далее</btn
-        >
-        <btn
-          v-if="this.$store.state.formQuiz.currentQuestion === 12"
-          type="submit"
-          @btn-click="sendQuiz"
-          class="form-quiz__button form-quiz__button_next"
-          theme="violet"
-          >Отправить</btn
-        >
-      </div>
-      <personal-data-consent
-        class="form-quiz__personal-data"
-        v-if="this.$store.state.formQuiz.currentQuestion === 12"
+  <div class="quiz">
+    <gratitude v-if="isGratitudeShow"></gratitude>
+    <form v-else class="form-quiz">
+      <h3 class="form-quiz__title">{{ currentQuestion.title }}</h3>
+      <p class="form-quiz__question">
+        <span class="form-quiz__text-main">{{ currentQuestion.question }}</span>
+        <span class="form-quiz__text-additional">{{
+          currentQuestion.description
+        }}</span>
+      </p>
+      <inputForm
+        class="form-quiz__input"
+        placeholder="Напишите тут"
+        type="text"
+        v-model="answer"
       />
-    </div>
-  </form>
+      <div class="form-quiz__footer">
+        <div class="form-quiz__buttons">
+          <btn
+            :disabled="numberCurrentQuestion === 1"
+            type="button"
+            @btn-click="prevQuestion"
+            class="form-quiz__button"
+            theme="grey"
+            >Назад</btn
+          >
+          <!-- TODO: Исправить условия -->
+          <btn
+            v-if="numberCurrentQuestion !== numberAllQuestions"
+            type="submit"
+            @btn-click="nextQuestion"
+            class="form-quiz__button form-quiz__button_next"
+            theme="violet"
+            >Далее</btn
+          >
+          <btn
+            v-if="numberCurrentQuestion === numberAllQuestions"
+            type="submit"
+            @btn-click="sendQuiz"
+            class="form-quiz__button form-quiz__button_next"
+            theme="violet"
+            >Отправить</btn
+          >
+        </div>
+        <personal-data-consent
+          class="form-quiz__personal-data"
+          v-if="numberCurrentQuestion === numberAllQuestions"
+        />
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import PersonalDataConsent from '@/components/PersonalDataConsent';
+import Gratitude from '@/components/Gratitude';
 export default {
   components: {
     btn: Button,
     inputForm: Input,
     'personal-data-consent': PersonalDataConsent,
+    gratitude: Gratitude,
   },
   data() {
     return {
       answer: '',
+      isGratitudeShow: false,
     };
   },
   computed: {
@@ -69,6 +75,14 @@ export default {
       const { formQuiz } = this.$store.state;
       const { currentQuestion, questions } = formQuiz;
       return questions[currentQuestion];
+    },
+    numberCurrentQuestion() {
+      const { formQuiz } = this.$store.state;
+      return formQuiz.currentQuestion;
+    },
+    numberAllQuestions() {
+      const { formQuiz } = this.$store.state;
+      return Object.keys(formQuiz.questions).length;
     },
     initialAnswer() {
       const { formQuiz } = this.$store.state;
@@ -87,8 +101,11 @@ export default {
       await this.$store.dispatch('formQuiz/prevQuestion');
       this.answer = this.initialAnswer;
     },
-    sendQuiz() {
+    async sendQuiz() {
       console.log('Пошла форма!');
+      this.isGratitudeShow = true;
+      this.$store.commit('popup/toggleIconClose');
+      await this.$store.dispatch('formQuiz/sendQuiz');
     },
   },
 };

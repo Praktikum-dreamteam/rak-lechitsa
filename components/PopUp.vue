@@ -16,7 +16,6 @@ import Container from '@/components/Container';
 export default {
   props: {
     title: String,
-    haveClose: Boolean,
     isTitleCenter: Boolean,
   },
   methods: {
@@ -27,6 +26,12 @@ export default {
   components: {
     Overlay,
     container: Container,
+  },
+  computed: {
+    haveClose() {
+      const { popup } = this.$store.state;
+      return popup.isHaveClose;
+    },
   },
 };
 </script>
