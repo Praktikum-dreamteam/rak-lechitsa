@@ -117,6 +117,7 @@ export default {
 }
 .form__button {
   margin-right: 30px;
+  width: 226px;
 }
 .form__button:last-child {
   margin-right: 0;

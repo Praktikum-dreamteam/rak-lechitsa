@@ -3,9 +3,9 @@
     <h3 class="form-quiz__title">{{ currentQuestion.title }}</h3>
     <p class="form-quiz__question">
       <span class="form-quiz__text-main">{{ currentQuestion.question }}</span>
-      <span class="form-quiz__text-additional">
-        {{ currentQuestion.description }}
-      </span>
+      <span class="form-quiz__text-additional">{{
+        currentQuestion.description
+      }}</span>
     </p>
     <inputForm
       class="form-quiz__input"
@@ -27,7 +27,7 @@
         v-if="this.$store.state.formQuiz.currentQuestion !== 12"
         type="submit"
         @btn-click="nextQuestion"
-        class="form-quiz__button"
+        class="form-quiz__button form-quiz__button_next"
         theme="violet"
         >Далее</btn
       >
@@ -35,16 +35,16 @@
         v-if="this.$store.state.formQuiz.currentQuestion === 12"
         type="submit"
         @btn-click="sendQuiz"
-        class="form-quiz__button"
+        class="form-quiz__button form-quiz__button_next"
         theme="violet"
         >Отправить</btn
       >
       <p
         v-if="this.$store.state.formQuiz.currentQuestion === 12"
-        class="form__personal-data-agreement"
+        class="form-quiz__personal-data-agreement"
       >
         Нажимая на кнопку «отправить», вы даете согласие на
-        <nuxt-link class="form__link" to="/policy"
+        <nuxt-link class="form-quiz__link" to="/policy"
           >обработку персональных данных</nuxt-link
         >
       </p>
@@ -126,9 +126,15 @@ export default {
 .form-quiz__button:last-child {
   margin-right: 0;
 }
+.form-quiz__button_next {
+  width: 226px;
+}
 @media screen and (max-width: 1280px) {
   .form-quiz__buttons {
     margin-top: 170px;
+  }
+  .form-quiz__button_next {
+    width: 200px;
   }
   .form-quiz__input {
     margin-top: 100px;
@@ -164,6 +170,9 @@ export default {
   }
   .form-quiz__button {
     margin-right: 15px;
+  }
+  .form-quiz__button_next {
+    width: 206px;
   }
 }
 </style>
