@@ -1,48 +1,51 @@
 <template>
-  <div class="page">
-    <a href="#top" name="top"></a>
-    <h1 class="title">Истории неизлечимых привычек</h1>
-    <form class="input-container" @submit.prevent="search">
-      <input
-        class="input-container__input"
-        type="text"
-        name="name"
-        v-model="query"
-      />
-      <!-- Дофиксить кнопку-->
-      <button class="input-container__button">Поиск</button>
-    </form>
-    <client-only>
-      <ul class="stories-container">
-        <li
-          v-for="story in stories"
-          :key="story.id"
-          class="stories-container__item"
-        >
-          <story-card
-            :id="story.cards.id"
-            :src="story.cards.src"
-            :name="story.cards.name"
-            :description="story.cards.description"
+  <Container>
+    <div class="stories">
+      <a href="#top" name="top"></a>
+      <h1 class="title">Истории неизлечимых привычек</h1>
+      <form class="input-container" @submit.prevent="search">
+        <input
+          class="input-container__input"
+          type="text"
+          name="name"
+          v-model="query"
+        />
+        <!-- Дофиксить кнопку-->
+        <button class="input-container__button">Поиск</button>
+      </form>
+      <client-only>
+        <ul class="stories-container">
+          <li
+            v-for="story in stories"
+            :key="story.id"
+            class="stories-container__item"
           >
-          </story-card>
-        </li>
-      </ul>
-    </client-only>
-    <pagination
-      href="#top"
-      :totalItems="this.allStories.length"
-      :itemsPerPage="itemsPerPage"
-      @onPageChanged="changeIndex"
-    >
-    </pagination>
-  </div>
+            <story-card
+              :id="story.cards.id"
+              :src="story.cards.src"
+              :name="story.cards.name"
+              :description="story.cards.description"
+            >
+            </story-card>
+          </li>
+        </ul>
+      </client-only>
+      <pagination
+        href="#top"
+        :totalItems="this.allStories.length"
+        :itemsPerPage="itemsPerPage"
+        @onPageChanged="changeIndex"
+      >
+      </pagination>
+    </div>
+  </Container>
 </template>
 
 <script>
 import Button from '@/components/ui/Button';
 import StoryCard from '@/components/StoryCard';
 import Pagination from '@/components/ui/Pagination';
+import Container from '@/components/Container';
 export default {
   data() {
     return {
@@ -57,6 +60,7 @@ export default {
     'button-ui': Button,
     'story-card': StoryCard,
     pagination: Pagination,
+    Container,
   },
   computed: {
     stories() {
@@ -97,10 +101,8 @@ export default {
 </script>
 
 <style scoped>
-.page {
+.stories {
   padding-top: 100px;
-  max-width: 1320px;
-  margin: 0 auto;
 }
 
 .title {
@@ -131,6 +133,17 @@ export default {
   padding: 0;
   width: 226px;
   height: 52px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 19px;
+  background-color: #613a93;
+  border: none;
+  cursor: pointer;
+}
+
+.input-container__button:hover {
+  opacity: 0.9;
+  transition: ease 0.3s;
 }
 
 .stories-container {
@@ -145,10 +158,6 @@ export default {
 }
 
 @media (max-width: 1320px) {
-  .page {
-    max-width: 1180px;
-  }
-
   .title {
     line-height: 32px;
     font-size: 28px;
@@ -161,10 +170,6 @@ export default {
 }
 
 @media (max-width: 1180px) {
-  .page {
-    max-width: 922px;
-  }
-
   .input-container__input {
     height: 46px;
   }
@@ -180,8 +185,7 @@ export default {
 }
 
 @media (max-width: 920px) {
-  .page {
-    max-width: 688px;
+  .stories {
     padding-top: 80px;
   }
 
@@ -201,10 +205,6 @@ export default {
 }
 
 @media (max-width: 685px) {
-  .page {
-    max-width: 90%;
-  }
-
   .stories-container {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
@@ -214,8 +214,7 @@ export default {
 }
 
 @media (max-width: 500px) {
-  .page {
-    max-width: 290px;
+  .stories {
     padding-top: 50px;
   }
 
@@ -223,6 +222,14 @@ export default {
     line-height: 21px;
     font-size: 18px;
     text-align: left;
+  }
+
+  .input-container__button {
+    color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    background-image: url('/search.svg');
   }
 
   .stories-container {
