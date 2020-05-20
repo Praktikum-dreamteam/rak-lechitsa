@@ -131,6 +131,17 @@ export default {
   padding: 0;
   width: 226px;
   height: 52px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 19px;
+  background-color: #613a93;
+  border: none;
+  cursor: pointer;
+}
+
+.input-container__button:hover {
+  opacity: 0.9;
+  transition: ease 0.3s;
 }
 
 .stories-container {
@@ -223,6 +234,14 @@ export default {
     line-height: 21px;
     font-size: 18px;
     text-align: left;
+  }
+
+  .input-container__button {
+    color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    background-image: url('/search.svg');
   }
 
   .stories-container {
