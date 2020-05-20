@@ -1,31 +1,37 @@
 <template>
   <div class="page">
+    <a href="#top" name="top"></a>
     <h1 class="title">Истории неизлечимых привычек</h1>
-    <div class="input-container">
-      <input class="input-container__input" type="text" name="name" />
+    <form class="input-container" @submit.prevent="search">
+      <input
+        class="input-container__input"
+        type="text"
+        name="name"
+        v-model="query"
+      />
       <!-- Дофиксить кнопку-->
-      <button-ui class="input-container__button" :theme="'violet'">
-        Поиск
-      </button-ui>
-    </div>
-
-    <ul class="stories-container">
-      <li
-        v-for="story in stories"
-        :key="story.id"
-        class="stories-container__item"
-      >
-        <story-card
-          :id="story.cards.id"
-          :src="story.cards.src"
-          :name="story.cards.name"
-          :description="story.cards.description"
+      <button class="input-container__button">Поиск</button>
+    </form>
+    <client-only>
+      <ul class="stories-container">
+        <li
+          v-for="story in stories"
+          :key="story.id"
+          class="stories-container__item"
         >
-        </story-card>
-      </li>
-    </ul>
+          <story-card
+            :id="story.cards.id"
+            :src="story.cards.src"
+            :name="story.cards.name"
+            :description="story.cards.description"
+          >
+          </story-card>
+        </li>
+      </ul>
+    </client-only>
     <pagination
-      :totalItems="this.$store.state.stories.stories.length"
+      href="#top"
+      :totalItems="this.allStories.length"
       :itemsPerPage="itemsPerPage"
       @onPageChanged="changeIndex"
     >
@@ -41,8 +47,10 @@ export default {
   data() {
     return {
       storiesName: '',
+      query: '',
       startIndex: 0,
       itemsPerPage: 16,
+      allStories: '',
     };
   },
   components: {
@@ -61,9 +69,10 @@ export default {
           this.itemsPerPage = 9;
         }
       }
-
-      const allStories = this.$store.getters['stories/getStories'];
-      return allStories.filter(
+      if (!this.allStories) {
+        this.allStories = this.$store.getters['stories/getStories'];
+      }
+      return this.allStories.filter(
         (item, index) =>
           index >= this.startIndex &&
           index <= this.startIndex + this.itemsPerPage - 1
@@ -73,6 +82,15 @@ export default {
   methods: {
     changeIndex(index) {
       this.startIndex = (index - 1) * this.itemsPerPage;
+    },
+    search() {
+      const stories = this.$store.getters['stories/getStories'];
+      this.allStories = stories.filter(item =>
+        Object.values(item.cards)
+          .join('')
+          .includes(this.query)
+      );
+      console.log(this.query, stories);
     },
   },
 };
@@ -122,7 +140,6 @@ export default {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 40px;
   grid-row-gap: 70px;
 }

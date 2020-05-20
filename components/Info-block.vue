@@ -136,7 +136,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 250px;
+  min-height: 220px;
 }
 .radio /deep/ {
   color: #a2a2a2;
