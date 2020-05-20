@@ -92,7 +92,9 @@ export default {
 
 .video__text {
   grid-column: 1/3;
-  max-width: 430px;
+  width: 100%;
+  max-width: 470px;
+  padding-right: 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

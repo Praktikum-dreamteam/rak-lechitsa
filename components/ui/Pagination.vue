@@ -1,6 +1,30 @@
 <template>
   <div class="pagination">
-    <div
+    <button
+      class="pagination__item pagination__item_type_text"
+      v-if="active > 1"
+      @click="setActive(1)"
+    >
+      Первая
+    </button>
+    <button class="pagination__item pagination__item_type_text" v-else disabled>
+      Первая
+    </button>
+    <button
+      class="pagination__item pagination__item_type_arrow"
+      v-if="active < pagesCount"
+      @click="setActive(active + 1)"
+    >
+      <img src="/prev.svg" alt="Предыдущая страница" />
+    </button>
+    <button
+      class="pagination__item pagination__item_type_arrow"
+      v-else
+      disabled
+    >
+      <img src="/prev.svg" alt="Предыдущая страница" />
+    </button>
+    <button
       href="top"
       v-for="index in pagesCount"
       :key="index"
@@ -13,7 +37,31 @@
       ]"
     >
       {{ index }}
-    </div>
+    </button>
+    <button
+      class="pagination__item pagination__item_type_arrow"
+      v-if="active > 1"
+      @click="setActive(active - 1)"
+    >
+      <img src="/next.svg" alt="Следующая страница" />
+    </button>
+    <button
+      class="pagination__item pagination__item_type_arrow"
+      v-else
+      disabled
+    >
+      <img src="/next.svg" alt="Следующая страница" />
+    </button>
+    <button
+      class="pagination__item pagination__item_type_text"
+      v-if="active !== pagesCount"
+      @click="setActive(pagesCount)"
+    >
+      Последняя
+    </button>
+    <button class="pagination__item pagination__item_type_text" v-else disabled>
+      Последняя
+    </button>
   </div>
 </template>
 
@@ -41,6 +89,7 @@ export default {
   },
   methods: {
     setActive(index) {
+      console.log(this.active);
       this.active = index;
       this.$emit('onPageChanged', index);
       let t, s; //Медленная прокрутка наверх, мб убрать
@@ -62,6 +111,7 @@ export default {
 }
 
 .pagination__item {
+  border: none;
   width: 58px;
   height: 58px;
   margin-left: 10px;
@@ -81,9 +131,24 @@ export default {
   margin-right: 0;
 }
 
-.pagination__item_active,
-.pagination__item:hover {
+.pagination__item_active {
   background: #f4f4f4;
+}
+
+.pagination__item:disabled {
+  color: #a2a2a2;
+}
+.pagination__item:active {
+  outline: none;
+}
+
+.pagination__item_type_text {
+  width: auto;
+  background: transparent;
+}
+
+.pagination__item_type_arrow {
+  background: transparent;
 }
 
 @media (max-width: 1025px) {
