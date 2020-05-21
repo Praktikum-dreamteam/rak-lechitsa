@@ -230,6 +230,7 @@ export default {
     background-position: center;
     background-size: 20px;
     background-image: url('/search.svg');
+    width: 48px;
   }
 
   .stories-container {
