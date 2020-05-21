@@ -1,34 +1,27 @@
 <template>
   <div class="pagination">
-    <button
+    <btn
       class="pagination__item pagination__item_type_text"
-      v-if="active > 1"
-      @click="setActive(1)"
+      type="button"
+      :disabled="active == 1"
+      @btn-click="setActive(1)"
     >
       Первая
-    </button>
-    <button class="pagination__item pagination__item_type_text" v-else disabled>
-      Первая
-    </button>
-    <button
+    </btn>
+    <btn
       class="pagination__item pagination__item_type_arrow"
-      v-if="active < pagesCount"
-      @click="setActive(active + 1)"
+      type="button"
+      :disabled="active == 1"
+      @btn-click="setActive(active - 1)"
     >
       <img src="/prev.svg" alt="Предыдущая страница" />
-    </button>
-    <button
-      class="pagination__item pagination__item_type_arrow"
-      v-else
-      disabled
-    >
-      <img src="/prev.svg" alt="Предыдущая страница" />
-    </button>
-    <button
+    </btn>
+    <btn
       href="top"
       v-for="index in pagesCount"
       :key="index"
-      @click="setActive(index)"
+      @btn-click="setActive(index)"
+      type="button"
       :class="[
         'pagination__item',
         {
@@ -37,36 +30,32 @@
       ]"
     >
       {{ index }}
-    </button>
-    <button
+    </btn>
+    <btn
       class="pagination__item pagination__item_type_arrow"
-      v-if="active > 1"
-      @click="setActive(active - 1)"
+      type="button"
+      :disabled="active == pagesCount"
+      @btn-click="setActive(active + 1)"
     >
       <img src="/next.svg" alt="Следующая страница" />
-    </button>
-    <button
-      class="pagination__item pagination__item_type_arrow"
-      v-else
-      disabled
-    >
-      <img src="/next.svg" alt="Следующая страница" />
-    </button>
-    <button
+    </btn>
+    <btn
       class="pagination__item pagination__item_type_text"
-      v-if="active !== pagesCount"
-      @click="setActive(pagesCount)"
+      type="button"
+      :disabled="active == pagesCount"
+      @btn-click="setActive(pagesCount)"
     >
       Последняя
-    </button>
-    <button class="pagination__item pagination__item_type_text" v-else disabled>
-      Последняя
-    </button>
+    </btn>
   </div>
 </template>
 
 <script>
+import Button from '@/components/ui/Button';
 export default {
+  components: {
+    btn: Button,
+  },
   props: {
     totalItems: {
       type: Number,
@@ -75,6 +64,10 @@ export default {
     itemsPerPage: {
       type: Number,
       default: 0,
+    },
+    disabled: Boolean,
+    components: {
+      btn: Button,
     },
   },
   data() {
@@ -88,8 +81,7 @@ export default {
     },
   },
   methods: {
-    setActive(index) {
-      console.log(this.active);
+    setActive(index, event) {
       this.active = index;
       this.$emit('onPageChanged', index);
       let t, s; //Медленная прокрутка наверх, мб убрать

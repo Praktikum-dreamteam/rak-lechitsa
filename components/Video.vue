@@ -22,8 +22,12 @@
         Все видео вы можете найте на нашем
         <a href="#" class="video__link">YouTube канале</a>.
       </p>
-      <btn theme="next" class="video__button video__button_next"> </btn>
-      <btn theme="prev" class="video__button video__button_prev"> </btn>
+      <btn theme="arrow" class="video__button video__button_next">
+        <img class="video__button-img" src="/next.svg" alt="Следующее видео" />
+      </btn>
+      <btn theme="arrow" class="video__button video__button_prev">
+        <img class="video__button-img" src="/prev.svg" alt="Предыдущее видео" />
+      </btn>
     </section>
   </Container>
 </template>
@@ -159,6 +163,12 @@ export default {
   color: inherit;
   font-size: 12px;
   line-height: 16px;
+}
+.video__button-img {
+  vertical-align: middle;
+}
+.swiper-button-disabled .video__button-img {
+  opacity: 0.5;
 }
 @media screen and (max-width: 1280px) {
   .video {
