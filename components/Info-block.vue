@@ -1,5 +1,5 @@
 <template>
-  <section class="info-block info-block">
+  <section class="info-block">
     <Container class="info-block__container">
       <SectionTitle theme="white">Расскажите свою историю</SectionTitle>
       <div class="info-block__content">
