@@ -103,7 +103,7 @@ export default {
   background-color: #613a93;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .info__container {

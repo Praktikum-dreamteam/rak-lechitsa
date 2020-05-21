@@ -1,9 +1,9 @@
 <template>
-  <section class="form">
-    <Container class="form__container">
+  <section class="info-block info-block">
+    <Container class="info-block__container">
       <SectionTitle theme="white">Расскажите свою историю</SectionTitle>
-      <div class="form__content">
-        <SectionText class="form__subtitle" theme="white">
+      <div class="info-block__content">
+        <SectionText class="info-block__subtitle" theme="white">
           Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
           поделиться своей историей неизлечимых привычек, навязчивых идей и
           болезненных привязанностей.
@@ -14,7 +14,7 @@
               @radio-click="addLongText"
               class="tabs__radio"
               :class="{ active: isLongText }"
-              name="form"
+              name="info-block"
               id="long"
               @mousemove="hover = true"
               @mouseleave="hover = false"
@@ -24,7 +24,7 @@
               @radio-click="addShortText"
               class="tabs__radio"
               :class="{ active: !isLongText }"
-              name="form"
+              name="info-block"
               id="short"
               @mousemove="hover = true"
               @mouseleave="hover = false"
@@ -47,14 +47,14 @@
             <Button
               v-if="isLongText"
               @btn-click="openQuiz"
-              class="form__button"
+              class="info-block__button"
               theme="violet"
               >Заполнить форму</Button
             >
             <Button
               v-if="!isLongText"
               @btn-click="openForm"
-              class="form__button"
+              class="info-block__button"
               theme="violet"
               >Оставить контакт</Button
             >
@@ -107,32 +107,32 @@ export default {
 </script>
 
 <style scoped>
-.form {
+.info-block {
   background-color: #f7f7f7;
 }
-.form__container {
+.info-block__container {
   height: 100%;
   padding-top: 100px;
   padding-bottom: 100px;
 }
-.form__button {
+.info-block__button {
   max-width: 280px;
 }
-.form__content {
+.info-block__content {
   margin-top: 32px;
   display: flex;
   justify-content: space-between;
   text-align: left;
   height: 100%;
 }
-.form__stories {
+.info-block__stories {
   min-width: 105px;
   list-style: none;
   padding-left: 0;
   margin-left: 195px;
   margin-right: 40px;
 }
-.form__subtitle {
+.info-block__subtitle {
   max-width: 340px;
 }
 .tabs__column {
@@ -148,24 +148,24 @@ export default {
   color: #000000;
 }
 @media screen and (max-width: 1280px) {
-  .form__subtitle {
+  .info-block__subtitle {
     max-width: 305px;
   }
-  .form__container {
+  .info-block__container {
     padding-top: 80px;
     padding-bottom: 80px;
   }
-  .form__button {
+  .info-block__button {
     max-width: 230px;
   }
 }
 @media screen and (max-width: 1024px) {
-  .form__subtitle {
+  .info-block__subtitle {
     max-width: 260px;
   }
 }
 @media screen and (max-width: 768px) {
-  .form__content {
+  .info-block__content {
     margin-top: 26px;
     margin-left: auto;
     margin-right: auto;
@@ -174,7 +174,7 @@ export default {
     justify-content: flex-start;
     align-items: center;
   }
-  .form__subtitle {
+  .info-block__subtitle {
     max-width: 100%;
   }
   .radio.active {
@@ -182,7 +182,7 @@ export default {
   }
 }
 @media screen and (max-width: 425px) {
-  .form__button {
+  .info-block__button {
     max-width: 100%;
   }
 }

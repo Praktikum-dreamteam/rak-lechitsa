@@ -83,6 +83,7 @@ export default {
   background-color: #fbfbfb;
 }
 .video {
+  max-height: 676px;
   padding-top: 100px;
   padding-bottom: 100px;
   display: grid;

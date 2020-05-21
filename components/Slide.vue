@@ -61,8 +61,10 @@ export default {
 .slide__background {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
+  max-height: 450px;
   height: 100%;
+  max-width: 867px;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
