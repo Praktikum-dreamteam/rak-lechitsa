@@ -1,30 +1,26 @@
 <template>
   <div class="pagination">
-    <button
+    <btn
       class="pagination__item pagination__item_type_text"
       v-if="active > 1"
       @click="setActive(1)"
     >
       Первая
-    </button>
-    <button class="pagination__item pagination__item_type_text" v-else disabled>
+    </btn>
+    <btn class="pagination__item pagination__item_type_text" v-else disabled>
       Первая
-    </button>
-    <button
+    </btn>
+    <btn
       class="pagination__item pagination__item_type_arrow"
       v-if="active < pagesCount"
       @click="setActive(active + 1)"
     >
       <img src="/prev.svg" alt="Предыдущая страница" />
-    </button>
-    <button
-      class="pagination__item pagination__item_type_arrow"
-      v-else
-      disabled
-    >
+    </btn>
+    <btn class="pagination__item pagination__item_type_arrow" v-else disabled>
       <img src="/prev.svg" alt="Предыдущая страница" />
-    </button>
-    <button
+    </btn>
+    <btn
       href="top"
       v-for="index in pagesCount"
       :key="index"
@@ -37,35 +33,32 @@
       ]"
     >
       {{ index }}
-    </button>
-    <button
+    </btn>
+    <btn
       class="pagination__item pagination__item_type_arrow"
       v-if="active > 1"
       @click="setActive(active - 1)"
     >
       <img src="/next.svg" alt="Следующая страница" />
-    </button>
-    <button
-      class="pagination__item pagination__item_type_arrow"
-      v-else
-      disabled
-    >
+    </btn>
+    <btn class="pagination__item pagination__item_type_arrow" v-else disabled>
       <img src="/next.svg" alt="Следующая страница" />
-    </button>
-    <button
+    </btn>
+    <btn
       class="pagination__item pagination__item_type_text"
       v-if="active !== pagesCount"
       @click="setActive(pagesCount)"
     >
       Последняя
-    </button>
-    <button class="pagination__item pagination__item_type_text" v-else disabled>
+    </btn>
+    <btn class="pagination__item pagination__item_type_text" v-else disabled>
       Последняя
-    </button>
+    </btn>
   </div>
 </template>
 
 <script>
+import Button from '@/components/ui/Button';
 export default {
   props: {
     totalItems: {
@@ -75,6 +68,9 @@ export default {
     itemsPerPage: {
       type: Number,
       default: 0,
+    },
+    components: {
+      btn: Button,
     },
   },
   data() {

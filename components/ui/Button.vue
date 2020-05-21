@@ -76,22 +76,13 @@ export default {
   border: none;
 }
 
-.btn_theme_next {
+.btn_theme_arrow {
+  font-size: 0;
   border: none;
   width: 40px;
   height: 40px;
-  background-image: url("data:image/svg+xml, %3Csvg width='10' height='18' viewBox='0 0 10 18' fill='none' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M1 17L9 9L1 1' stroke='black' /%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
 }
-.btn_theme_prev {
-  border: none;
-  width: 40px;
-  height: 40px;
-  background-image: url("data:image/svg+xml,%3Csvg width='10' height='18' viewBox='0 0 10 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 1L1 9L9 17' stroke='black'/%3E%3C/svg%3E%0A");
-  background-position: center;
-  background-repeat: no-repeat;
-}
+
 @media screen and (max-width: 1280px) {
   .btn_theme_history {
     font-size: 16px;
