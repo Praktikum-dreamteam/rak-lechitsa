@@ -8,7 +8,7 @@
           class="input-container__input"
           type="text"
           name="name"
-          v-model="query"
+          v-model="queries"
         />
         <!-- Дофиксить кнопку-->
         <button class="input-container__button">Поиск</button>
@@ -50,7 +50,7 @@ export default {
   data() {
     return {
       storiesName: '',
-      query: '',
+      queries: '',
       startIndex: 0,
       itemsPerPage: 16,
       allStories: '',
@@ -88,13 +88,18 @@ export default {
       this.startIndex = (index - 1) * this.itemsPerPage;
     },
     search() {
+      const arr = this.queries.split(' ');
+      console.log(arr);
       const stories = this.$store.getters['stories/getStories'];
-      this.allStories = stories.filter(item =>
-        Object.values(item.cards)
-          .join('')
-          .includes(this.query)
-      );
-      console.log(this.query, stories);
+      this.allStories = stories.filter(item => {
+        return arr.every(el => {
+          return Object.values(item.cards)
+            .join('')
+            .toLowerCase()
+            .includes(el.toLowerCase());
+        });
+      });
+      console.log(this.queries, stories);
     },
   },
 };
