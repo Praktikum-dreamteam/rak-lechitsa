@@ -5,9 +5,9 @@
       <h3 class="form-quiz__title">{{ currentQuestion.title }}</h3>
       <p class="form-quiz__question">
         <span class="form-quiz__text-main">{{ currentQuestion.question }}</span>
-        <span class="form-quiz__text-additional">{{
-          currentQuestion.description
-        }}</span>
+        <span class="form-quiz__text-additional">
+          {{ currentQuestion.description }}
+        </span>
       </p>
       <inputForm
         class="form-quiz__input"
@@ -121,6 +121,7 @@ export default {
   font-size: 16px;
   line-height: 22px;
   margin-top: 40px;
+  min-height: 115px;
 }
 .form-quiz__text-main {
   font-weight: 500;
@@ -139,7 +140,7 @@ export default {
   align-items: center;
 }
 .form-quiz__input {
-  margin-top: 134px;
+  margin-top: 41px;
 }
 .form-quiz__button {
   margin-right: 30px;
@@ -158,7 +159,7 @@ export default {
     width: 200px;
   }
   .form-quiz__input {
-    margin-top: 100px;
+    margin-top: 0px;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -184,6 +185,9 @@ export default {
   .form-quiz__personal-data {
     margin-top: 10px;
   }
+  .form-quiz__input {
+    margin-top: 6px;
+  }
 }
 @media screen and (max-width: 452px) {
   .form-quiz__title {
@@ -193,9 +197,10 @@ export default {
   .form-quiz__question {
     font-size: 13px;
     line-height: 16px;
+    min-height: 130px;
   }
   .form-quiz__input {
-    margin-top: 100px;
+    margin-top: 42px;
   }
   .form-quiz__button {
     margin-right: 15px;
