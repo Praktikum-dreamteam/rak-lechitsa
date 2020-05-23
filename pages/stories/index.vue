@@ -2,7 +2,7 @@
   <Container>
     <div class="stories">
       <a href="#top" name="top"></a>
-      <h1 class="title">Истории неизлечимых привычек</h1>
+      <h1 class="stories__title">Истории неизлечимых привычек</h1>
       <form class="input-container" @submit.prevent="search">
         <input
           class="input-container__input"
@@ -110,7 +110,7 @@ export default {
   padding-top: 100px;
 }
 
-.title {
+.stories__title {
   max-width: 413px;
   margin-bottom: 58px;
   font-weight: 600;
@@ -132,6 +132,8 @@ export default {
   border: 1px solid #e8e8e8;
   font-family: inherit;
   font-size: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .input-container__button {
@@ -163,7 +165,7 @@ export default {
 }
 
 @media (max-width: 1320px) {
-  .title {
+  .stories__title {
     line-height: 32px;
     font-size: 28px;
   }
@@ -194,7 +196,7 @@ export default {
     padding-top: 80px;
   }
 
-  .title {
+  .stories__title {
     line-height: 28px;
     font-size: 24px;
     text-align: center;
@@ -223,7 +225,7 @@ export default {
     padding-top: 50px;
   }
 
-  .title {
+  .stories__title {
     line-height: 21px;
     font-size: 18px;
     text-align: left;

@@ -1,9 +1,11 @@
 <template>
   <header class="header">
     <Container class="header__container">
-      <h2 class="header__title">
-        Проект Благотворительного Фонда Константина Хабенского
-      </h2>
+      <nuxt-link to="/" class="header__link"
+        ><h2 class="header__title">
+          Проект Благотворительного Фонда Константина Хабенского
+        </h2></nuxt-link
+      >
       <my-menu />
       <mobileIcon class="header__menu-icon" />
     </Container>
@@ -48,6 +50,12 @@ export default {
 }
 .header__menu-icon {
   display: none;
+}
+
+.header__link {
+  text-decoration: none;
+  color: inherit;
+  border: none;
 }
 @media screen and (max-width: 792px) {
   .header__menu-icon {

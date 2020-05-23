@@ -1,5 +1,5 @@
 <template>
-  <form @click="test" class="form">
+  <form class="form">
     <h2 class="form__title">Оставьте контакт для связи</h2>
     <p class="form__subtitle">
       Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
@@ -12,7 +12,12 @@
           for="name"
           class="form__label"
         />
-        <inputForm id="name" placeholder="Напишите тут" class="form__input" />
+        <inputForm
+          id="name"
+          placeholder="Напишите тут"
+          class="form__input"
+          v-model="name"
+        />
       </div>
       <div class="form__container">
         <div class="form__fieldset">
@@ -25,6 +30,7 @@
             id="email"
             placeholder="pochta@example.com"
             class="form__input"
+            v-model="email"
           />
         </div>
         <div class="form__fieldset">
@@ -33,6 +39,7 @@
             id="phone"
             placeholder="+7 000 000 00 00"
             class="form__input"
+            v-model="phone"
           />
         </div>
       </div>
@@ -46,14 +53,15 @@
           id="comment"
           placeholder="Телефон / почта и удобное время"
           class="form__input"
+          v-model="comment"
         />
       </div>
     </div>
     <div class="form__buttons">
       <btn
-        type="button"
-        :isDisabledActive="isDisabledBackButton"
-        @btn-click="$emit('clickBack')"
+        @btn-click="sendForm"
+        :disabled="!!!(this.email && this.name && this.phone && this.comment)"
+        type="submit"
         class="form__button"
         theme="violet"
         >Отправить</btn
@@ -83,7 +91,12 @@ export default {
     'personal-data-consent': PersonalDataConsent,
   },
   data() {
-    return {};
+    return {
+      email: '',
+      name: '',
+      phone: '',
+      comment: '',
+    };
   },
   computed: {
     currentAnswer: {
@@ -94,7 +107,12 @@ export default {
     },
   },
   methods: {
-    test() {},
+    sendForm() {
+      this.close();
+    },
+    close() {
+      this.$store.commit('popup/close');
+    },
   },
 };
 </script>

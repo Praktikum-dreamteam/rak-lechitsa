@@ -72,8 +72,6 @@ export default {
   z-index: 1;
 }
 .slide__button {
-  position: absolute;
-  /* transform: translate(-50%,-50%); */
   background-color: transparent;
   border: none;
   cursor: pointer;

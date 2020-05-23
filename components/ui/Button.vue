@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <button
-      v-bind:disabled="disabled"
-      :type="type"
-      @click.prevent="$emit('btn-click')"
-      :class="['btn', `btn_theme_${theme}`, { btn_disabled: disabled }]"
-    >
-      <slot></slot>
-    </button>
-  </div>
+  <button
+    v-bind:disabled="disabled"
+    :type="type"
+    @click.prevent="$emit('btn-click')"
+    :class="['btn', `btn_theme_${theme}`, { btn_disabled: disabled }]"
+  >
+    <slot></slot>
+  </button>
 </template>
 
 <script>
@@ -48,6 +46,9 @@ export default {
 .btn_disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+.btn_disabled:hover {
+  opacity: 0.5;
 }
 .btn_theme_share {
   padding: 0;
