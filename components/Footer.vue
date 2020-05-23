@@ -59,7 +59,7 @@ export default {
       return data.getFullYear();
     },
     openPopup() {
-      this.$store.commit('popup/open');
+      this.$store.commit('popup/openShare');
     },
   },
   components: {
@@ -115,6 +115,7 @@ export default {
   line-height: 24px;
   text-decoration: none;
   color: black;
+  border-bottom: 1px solid black;
 }
 .footer__link {
   color: #898989;

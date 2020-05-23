@@ -2,9 +2,6 @@
   <div>
     <div class="popup">
       <div class="popup__header">
-        <h2 :class="[popup__title, { popup__title_center: isTitleCenter }]">
-          {{ title }}
-        </h2>
         <div v-if="haveClose" @click="close" class="popup__close"></div>
       </div>
       <slot>Содержимое окна</slot>
@@ -15,10 +12,10 @@
 
 <script>
 import Overlay from '@/components/ui/Overlay';
+import Container from '@/components/Container';
 export default {
   props: {
     title: String,
-    haveClose: Boolean,
     isTitleCenter: Boolean,
   },
   methods: {
@@ -28,11 +25,21 @@ export default {
   },
   components: {
     Overlay,
+    container: Container,
+  },
+  computed: {
+    haveClose() {
+      const { popup } = this.$store.state;
+      return popup.isHaveClose;
+    },
   },
 };
 </script>
 
 <style scoped>
+.test {
+  padding: 15px;
+}
 .popup {
   position: fixed;
   top: 50%;
@@ -80,10 +87,34 @@ export default {
 .popup__close::after {
   transform: rotate(-45deg);
 }
-@media screen and (max-width: 650px) {
-  .popup__title {
-    font-size: 18px;
-    line-height: 21px;
+@media screen and (max-width: 1280px) {
+  .popup {
+    max-width: 800px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .popup {
+    max-width: 580px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .popup {
+    max-width: 450px;
+  }
+}
+@media screen and (max-width: 452px) {
+  .popup {
+    max-width: 290px;
+    padding: 15px;
+  }
+  .popup__close {
+    top: 15px;
+    right: 15px;
+  }
+  .popup__close::after,
+  .popup__close::before {
+    height: 17px;
   }
 }
 </style>

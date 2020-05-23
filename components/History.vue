@@ -3,87 +3,54 @@
     <section class="history">
       <SectionTitle theme="white">Истории неизлечимых привычек</SectionTitle>
       <ul class="history__cards">
-        <StoryCard
-          v-for="story in stories"
-          :key="story.id"
-          :src="story.src"
-          :id="story.id"
-          :name="story.name"
-          :description="story.description"
-        ></StoryCard>
+        <li v-for="story in stories" :key="story.id" class="history__card">
+          <story-card
+            :id="story.cards.id"
+            :src="story.cards.src"
+            :name="story.cards.name"
+            :description="story.cards.description"
+          >
+          </story-card>
+        </li>
       </ul>
-      <nuxt-link class="history__link" to="/stories">Больше статей</nuxt-link>
+      <nuxt-link
+        class="history__link"
+        to="/stories"
+        @mouseover="hover = true"
+        @mouseleave="hover = false"
+        >Больше статей</nuxt-link
+      >
     </section>
   </Container>
 </template>
+
 <script>
 import SectionTitle from '@/components/SectionTitle';
 import StoryCard from '@/components/StoryCard';
 import Container from '@/components/Container';
 export default {
+  components: {
+    Container,
+    SectionTitle,
+    'story-card': StoryCard,
+  },
+  computed: {
+    stories() {
+      if (process.browser) {
+        if (window.innerWidth > 950) {
+          return this.$store.getters['stories/getStories'].slice(0, 8);
+        } else if (window.innerWidth <= 950 && window.innerWidth >= 690) {
+          return this.$store.getters['stories/getStories'].slice(0, 9);
+        } else {
+          return this.$store.getters['stories/getStories'].slice(0, 6);
+        }
+      }
+    },
+  },
   data() {
     return {
-      stories: [
-        {
-          id: 1,
-          name: 'Владимир Тен',
-          description:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          src: '/history.png',
-        },
-        {
-          id: 2,
-          name: 'Владимир Познер',
-          description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-          src: '/history.png',
-        },
-        {
-          id: 3,
-          name: 'Александр Тарханов',
-          description:
-            'Я не могу победить свою пунктуальность в отличии от рака.',
-          src: '/history.png',
-        },
-        {
-          id: 4,
-          name: 'Владимир Тен',
-          description:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          src: '/history.png',
-        },
-        {
-          id: 5,
-          name: 'Владимир Познер',
-          description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-          src: '/history.png',
-        },
-        {
-          id: 6,
-          name: 'Александр Тарханов',
-          description:
-            'Я не могу победить свою пунктуальность в отличии от рака.',
-          src: '/history.png',
-        },
-        {
-          id: 7,
-          name: 'Владимир Тен',
-          description:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          src: '/history.png',
-        },
-        {
-          id: 8,
-          name: 'Владимир Познер',
-          description: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-          src: '/history.png',
-        },
-      ],
+      hover: false,
     };
-  },
-  components: {
-    SectionTitle,
-    StoryCard,
-    Container,
   },
 };
 </script>
@@ -133,6 +100,9 @@ export default {
   line-height: 20px;
   text-decoration: none;
   cursor: pointer;
+}
+.history__link:hover {
+  background-color: #f8f8f8;
 }
 @media screen and (max-width: 1280px) {
   .history__cards {

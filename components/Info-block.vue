@@ -16,6 +16,8 @@
               :class="{ active: isLongText }"
               name="form"
               id="long"
+              @mousemove="hover = true"
+              @mouseleave="hover = false"
               >1-й вариант</Radio
             >
             <Radio
@@ -24,30 +26,34 @@
               :class="{ active: !isLongText }"
               name="form"
               id="short"
+              @mousemove="hover = true"
+              @mouseleave="hover = false"
               >2-й вариант</Radio
             >
           </div>
-          <div class="tabs__texts">
-            <p v-if="isLongText" class="tabs__text">
-              Заполнить подробную форму прямо на сайте и мы опубликуем вашу
-              историю после проверки. Пожалуйста, заполняйте все пункты
-              корректно, если вы испытаете какие-то сложности, воспользуйтесь
-              2-м вариантом.
-            </p>
-            <p v-if="!isLongText" class="tabs__text">
-              Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
-              зададим вопросы, уточним детали вашей истории.
-            </p>
+          <div class="tabs__column">
+            <div class="tabs__texts">
+              <p v-if="isLongText" class="tabs__text">
+                Заполнить подробную форму прямо на сайте и мы опубликуем вашу
+                историю после проверки. Пожалуйста, заполняйте все пункты
+                корректно, если вы испытаете какие-то сложности, воспользуйтесь
+                2-м вариантом.
+              </p>
+              <p v-if="!isLongText" class="tabs__text">
+                Оставить контакт (почту или номер телефона) и мы свяжемся с
+                вами, зададим вопросы, уточним детали вашей истории.
+              </p>
+            </div>
             <Button
               v-if="isLongText"
-              @btn-click="openPopup"
+              @btn-click="openQuiz"
               class="form__button"
               theme="violet"
               >Заполнить форму</Button
             >
             <Button
               v-if="!isLongText"
-              @btn-click="openPopup"
+              @btn-click="openForm"
               class="form__button"
               theme="violet"
               >Оставить контакт</Button
@@ -85,9 +91,17 @@ export default {
     addShortText() {
       this.$store.commit('infoBlock/addShort');
     },
-    openPopup() {
-      this.$store.commit('popup/open');
+    openQuiz() {
+      this.$store.commit('popup/openQuiz');
     },
+    openForm() {
+      this.$store.commit('popup/openForm');
+    },
+  },
+  data() {
+    return {
+      hover: false,
+    };
   },
 };
 </script>
@@ -97,16 +111,20 @@ export default {
   background-color: #f7f7f7;
 }
 .form__container {
+  height: 100%;
   padding-top: 100px;
   padding-bottom: 100px;
+}
+.form__button {
+  max-width: 280px;
 }
 .form__content {
   margin-top: 32px;
   display: flex;
   justify-content: space-between;
   text-align: left;
+  height: 100%;
 }
-
 .form__stories {
   min-width: 105px;
   list-style: none;
@@ -114,19 +132,20 @@ export default {
   margin-left: 195px;
   margin-right: 40px;
 }
-
 .form__subtitle {
   max-width: 340px;
 }
-
-.form__button {
-  margin-top: 56px;
+.tabs__column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
 }
 .radio /deep/ {
   color: #a2a2a2;
 }
 .radio.active {
-  color: black;
+  color: #000000;
 }
 @media screen and (max-width: 1280px) {
   .form__subtitle {
@@ -136,14 +155,15 @@ export default {
     padding-top: 80px;
     padding-bottom: 80px;
   }
+  .form__button {
+    max-width: 230px;
+  }
 }
-
 @media screen and (max-width: 1024px) {
   .form__subtitle {
     max-width: 260px;
   }
 }
-
 @media screen and (max-width: 768px) {
   .form__content {
     margin-top: 26px;
@@ -159,6 +179,11 @@ export default {
   }
   .radio.active {
     border-bottom: 2px solid #613a93;
+  }
+}
+@media screen and (max-width: 425px) {
+  .form__button {
+    max-width: 100%;
   }
 }
 </style>

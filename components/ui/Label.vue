@@ -25,4 +25,24 @@ export default {
 .label__additional-text {
   color: #666;
 }
+
+@media screen and (max-width: 1280px) {
+  .label {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .label {
+    font-size: 15px;
+    line-height: 19px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .label {
+    font-size: 13px;
+    line-height: 16px;
+  }
+}
 </style>
