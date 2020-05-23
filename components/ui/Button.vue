@@ -47,6 +47,9 @@ export default {
   opacity: 0.5;
   cursor: not-allowed;
 }
+.btn_disabled:hover {
+  opacity: 0.5;
+}
 .btn_theme_share {
   padding: 0;
   font-size: 18px;

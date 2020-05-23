@@ -5,9 +5,9 @@
       <h3 class="quiz__title">{{ currentQuestion.title }}</h3>
       <p class="quiz__question">
         <span class="quiz__text-main">{{ currentQuestion.question }}</span>
-        <span class="quiz__text-additional">{{
-          currentQuestion.description
-        }}</span>
+        <span class="quiz__text-additional">
+          {{ currentQuestion.description }}
+        </span>
       </p>
       <inputForm
         class="quiz__input"
@@ -28,6 +28,7 @@
           <!-- TODO: Исправить условия -->
           <btn
             v-if="numberCurrentQuestion !== numberAllQuestions"
+            :disabled="answer == ''"
             type="submit"
             @btn-click="nextQuestion"
             class="quiz__button quiz__button_next"
@@ -36,6 +37,7 @@
           >
           <btn
             v-if="numberCurrentQuestion === numberAllQuestions"
+            :disabled="answer == ''"
             type="submit"
             @btn-click="sendQuiz"
             class="quiz__button quiz__button_next"
