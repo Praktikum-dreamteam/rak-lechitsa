@@ -132,6 +132,8 @@ export default {
   border: 1px solid #e8e8e8;
   font-family: inherit;
   font-size: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .input-container__button {
