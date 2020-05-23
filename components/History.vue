@@ -3,11 +3,7 @@
     <section class="history">
       <SectionTitle theme="white">Истории неизлечимых привычек</SectionTitle>
       <ul class="history__cards">
-        <li
-          v-for="story in stories"
-          :key="story.id"
-          class="stories-container__item"
-        >
+        <li v-for="story in stories" :key="story.id" class="history__card">
           <story-card
             :id="story.cards.id"
             :src="story.cards.src"
