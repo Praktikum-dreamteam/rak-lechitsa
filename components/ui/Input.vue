@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <input
-      @input="handleInput"
-      class="input"
-      :type="type"
-      :placeholder="placeholder"
-      v-model="content"
-    />
-  </div>
+  <input
+    @input="handleInput"
+    class="input"
+    :type="type"
+    :placeholder="placeholder"
+    v-model="content"
+  />
 </template>
 
 <script>
