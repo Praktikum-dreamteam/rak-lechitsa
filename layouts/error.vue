@@ -17,7 +17,7 @@ export default {};
   width: 100%;
   padding-top: 166px;
   padding-bottom: 238px;
-  color: #000000;
+  color: #000;
   display: flex;
   flex-direction: column;
   align-items: center;
