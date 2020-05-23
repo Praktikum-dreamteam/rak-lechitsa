@@ -1,11 +1,9 @@
 <template>
   <div class="error">
-    <h1 class="error-title">404</h1>
-    <p class="error-subtitle">
+    <h1 class="error__title">404</h1>
+    <p class="error__subtitle">
       Страница не найдена.
-      <nuxt-link to="/" class="error-subtitle_link"
-        >Перейти на главную.</nuxt-link
-      >
+      <nuxt-link to="/" class="error__link">Перейти на главную.</nuxt-link>
     </p>
   </div>
 </template>
@@ -25,16 +23,16 @@ export default {};
   align-items: center;
   text-align: center;
 }
-.error-title {
+.error__title {
   font-size: 144px;
   line-height: 174px;
 }
-.error-subtitle {
+.error__subtitle {
   max-width: 200px;
   font-size: 16px;
   line-height: 20px;
 }
-.error-subtitle_link {
+.error__link {
   color: #000000;
 }
 @media screen and (max-width: 768px) {
@@ -48,11 +46,11 @@ export default {};
     padding-top: 243px;
     padding-bottom: 288px;
   }
-  .error-title {
+  .error__title {
     font-size: 72px;
     line-height: 87px;
   }
-  .error-subtitle {
+  .error__subtitle {
     font-size: 13px;
     line-height: 16px;
   }
