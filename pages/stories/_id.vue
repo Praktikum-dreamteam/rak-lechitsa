@@ -112,13 +112,28 @@ export default {
   },
   computed: {
     stories() {
+      const allStories = this.$store.getters['stories/getStories'];
+      const stories = [];
+      for (let i = 0; i < 4; i++) {
+        if (
+          stories.includes(
+            allStories[Math.floor(Math.random() * allStories.length)]
+          )
+        ) {
+          i--;
+        } else {
+          stories.push(
+            allStories[Math.floor(Math.random() * allStories.length)]
+          );
+        }
+      }
       if (process.browser) {
         if (window.innerWidth > 950) {
-          return this.$store.getters['stories/getStories'].slice(0, 4);
+          return stories.slice(0, 4);
         } else if (window.innerWidth <= 950 && window.innerWidth >= 690) {
-          return this.$store.getters['stories/getStories'].slice(0, 3);
+          return stories.slice(0, 3);
         } else {
-          return this.$store.getters['stories/getStories'].slice(0, 2);
+          return stories.slice(0, 2);
         }
       }
     },
@@ -205,7 +220,7 @@ export default {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 10px;
+  column-gap: 40px;
 }
 .history__link {
   margin-top: 70px;
