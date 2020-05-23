@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <p class="personal-data">
-      Нажимая на кнопку «отправить», вы даете согласие на
-      <nuxt-link class="personal-data__link" to="/policy" target="_blank"
-        >обработку персональных данных</nuxt-link
-      >
-    </p>
-  </div>
+  <p class="personal-data">
+    Нажимая на кнопку «отправить», вы даете согласие на
+    <nuxt-link class="personal-data__link" to="/policy" target="_blank"
+      >обработку персональных данных</nuxt-link
+    >
+  </p>
 </template>
 
 <script>
