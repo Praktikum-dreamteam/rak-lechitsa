@@ -2,10 +2,7 @@
   <div>
     <p class="personal-data">
       Нажимая на кнопку «отправить», вы даете согласие на
-      <nuxt-link
-        @click.native="closePopup"
-        class="personal-data__link"
-        to="/policy"
+      <nuxt-link class="personal-data__link" to="/policy" target="_blank"
         >обработку персональных данных</nuxt-link
       >
     </p>
@@ -13,14 +10,7 @@
 </template>
 
 <script>
-export default {
-  methods: {
-    closePopup() {
-      console.log('ste');
-      this.$store.commit('popup/close');
-    },
-  },
-};
+export default {};
 </script>
 
 <style scoped>
