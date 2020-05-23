@@ -220,7 +220,7 @@ export default {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 10px;
+  column-gap: 40px;
 }
 .history__link {
   margin-top: 70px;
