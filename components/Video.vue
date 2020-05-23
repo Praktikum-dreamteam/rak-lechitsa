@@ -13,7 +13,7 @@
       </div>
       <div class="video__image" alt="Видео">
         <swiper class="swiper" :options="swiperOption">
-          <swiper-slide v-for="slide in slides" :key="slide">
+          <swiper-slide v-for="slide in slides" :key="slides.indexOf(slide)">
             <Slide :src="slide.src" :background="slide.background" />
           </swiper-slide>
         </swiper>

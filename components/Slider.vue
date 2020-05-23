@@ -10,8 +10,8 @@
     <swiper-slide>Slide 8</swiper-slide>
     <swiper-slide>Slide 9</swiper-slide>
     <swiper-slide>Slide 10</swiper-slide>
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
+    <div class="swiper__button swiper__button_prev" slot="button-prev"></div>
+    <div class="swiper__button swiper__button_next" slot="button-next"></div>
   </swiper>
 </template>
 
@@ -30,8 +30,8 @@ export default {
     return {
       swiperOption: {
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: '.swiper__button_next',
+          prevEl: '.swiper__button_prev',
         },
       },
     };
