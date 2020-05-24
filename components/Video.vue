@@ -2,14 +2,12 @@
   <Container>
     <section class="video" id="video">
       <div class="video__text">
-        <SectionTitle class="video__title" theme="white">
-          Истории людей, победивших рак, но не свои привычки
-        </SectionTitle>
-        <SectionText class="video__subtitle" theme="white">
-          Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
-          страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди
-          с их историями.
-        </SectionText>
+        <SectionTitle class="video__title" theme="white">{{
+          Content.title
+        }}</SectionTitle>
+        <SectionText class="video__subtitle" theme="white">{{
+          Content.text
+        }}</SectionText>
       </div>
       <div class="video__image" alt="Видео">
         <swiper class="swiper" :options="swiperOption">
@@ -19,6 +17,7 @@
         </swiper>
       </div>
       <p class="video__caption">
+        <!-- TODO: Content.note -->
         Все видео вы можете найте на нашем
         <a href="#" class="video__link">YouTube канале</a>.
       </p>
@@ -43,6 +42,9 @@ import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 import 'swiper/css/swiper.css';
 
 export default {
+  props: {
+    Content: Object,
+  },
   directives: {
     swiper: directive,
   },

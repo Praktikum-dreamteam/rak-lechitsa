@@ -1,13 +1,11 @@
 <template>
   <section class="form">
     <Container class="form__container">
-      <SectionTitle theme="white">Расскажите свою историю</SectionTitle>
+      <SectionTitle theme="white">{{ Content.title }}</SectionTitle>
       <div class="form__content">
-        <SectionText class="form__subtitle" theme="white">
-          Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
-          поделиться своей историей неизлечимых привычек, навязчивых идей и
-          болезненных привязанностей.
-        </SectionText>
+        <SectionText class="form__subtitle" theme="white">{{
+          Content.text
+        }}</SectionText>
         <div class="tabs">
           <div class="tabs__radios">
             <Radio
@@ -18,7 +16,7 @@
               id="long"
               @mousemove="hover = true"
               @mouseleave="hover = false"
-              >1-й вариант</Radio
+              >{{ Content.extraTexts[0].title }}</Radio
             >
             <Radio
               @radio-click="addShortText"
@@ -28,20 +26,16 @@
               id="short"
               @mousemove="hover = true"
               @mouseleave="hover = false"
-              >2-й вариант</Radio
+              >{{ Content.extraTexts[1].title }}</Radio
             >
           </div>
           <div class="tabs__column">
             <div class="tabs__texts">
               <p v-if="isLongText" class="tabs__text">
-                Заполнить подробную форму прямо на сайте и мы опубликуем вашу
-                историю после проверки. Пожалуйста, заполняйте все пункты
-                корректно, если вы испытаете какие-то сложности, воспользуйтесь
-                2-м вариантом.
+                {{ Content.extraTexts[0].text }}
               </p>
               <p v-if="!isLongText" class="tabs__text">
-                Оставить контакт (почту или номер телефона) и мы свяжемся с
-                вами, зададим вопросы, уточним детали вашей истории.
+                {{ Content.extraTexts[1].text }}
               </p>
             </div>
             <Button
@@ -72,6 +66,9 @@ import SectionTitle from '@/components/SectionTitle';
 import SectionText from '@/components/SectionText';
 import Container from '@/components/Container';
 export default {
+  props: {
+    Content: Object,
+  },
   components: {
     Button,
     Radio,

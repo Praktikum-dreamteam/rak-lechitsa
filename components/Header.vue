@@ -1,11 +1,9 @@
 <template>
   <header class="header">
     <Container class="header__container">
-      <nuxt-link to="/" class="header__link"
-        ><h2 class="header__title">
-          Проект Благотворительного Фонда Константина Хабенского
-        </h2></nuxt-link
-      >
+      <nuxt-link to="/" class="header__link">
+        <h2 class="header__title">{{ Content.title }}</h2>
+      </nuxt-link>
       <my-menu />
       <mobileIcon class="header__menu-icon" />
     </Container>
@@ -17,6 +15,9 @@ import Menu from '@/components/Menu';
 import MobileIcon from '@/components/ui/MobileIcon';
 import Container from '@/components/Container';
 export default {
+  props: {
+    Content: Object,
+  },
   components: {
     'my-menu': Menu,
     mobileIcon: MobileIcon,

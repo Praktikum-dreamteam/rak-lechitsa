@@ -3,14 +3,14 @@
     <client-only>
       <mobile-menu v-if="isMobileMenuOpened" class="menu__open"></mobile-menu>
     </client-only>
-    <Header />
+    <Header :Content="block('footer')" />
     <nuxt />
     <Popup v-if="popupVisible" :haveClose="true" title="Поделитесь">
       <Share v-if="shareVisible" />
       <form-quiz v-if="quizVisible" />
       <Form v-if="formVisible" />
     </Popup>
-    <Footer />
+    <Footer :Content="block('footer')" />
   </div>
 </template>
 
@@ -58,6 +58,14 @@ export default {
     Form,
     'mobile-menu': Menu,
     'form-quiz': Quiz,
+  },
+  methods: {
+    block(name) {
+      const blocks = this.$store.getters['blocks/getBlocks'];
+      const currentBlock = blocks.find(item => item.block === name);
+      console.log(currentBlock);
+      return currentBlock;
+    },
   },
 };
 </script>

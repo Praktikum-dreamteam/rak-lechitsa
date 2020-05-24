@@ -3,8 +3,8 @@
     <section class="slogan">
       <div class="slogan__container">
         <p class="slogan__content">
-          <slot></slot>
-          <span class="slogan__title">#этонелечится</span>
+          {{ Content.title }}
+          <span class="slogan__title">{{ Content.hashtag }}</span>
         </p>
       </div>
     </section>
@@ -14,6 +14,9 @@
 <script>
 import Container from '@/components/Container';
 export default {
+  props: {
+    Content: Object,
+  },
   components: {
     Container,
   },

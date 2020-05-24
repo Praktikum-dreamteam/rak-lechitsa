@@ -1,7 +1,7 @@
 <template>
   <Container>
     <section class="statistics content-margin">
-      <SectionTitle theme="white">Статистика по онкозаболеваниям</SectionTitle>
+      <SectionTitle theme="white">{{ Content.title }}</SectionTitle>
       <ul class="statistics__forms">
         <StatsCard
           v-for="stat in stats"
@@ -75,6 +75,7 @@ export default {
     StatsCard,
   },
   props: {
+    Content: Object,
     title: String,
     subtitle: String,
     author: String,
