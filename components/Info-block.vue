@@ -3,9 +3,7 @@
     <Container class="form__container">
       <SectionTitle theme="white">{{ Content.title }}</SectionTitle>
       <div class="form__content">
-        <SectionText class="form__subtitle" theme="white">{{
-          Content.text
-        }}</SectionText>
+        <div class="form__subtitle" v-html="Content.text"></div>
         <div class="tabs">
           <div class="tabs__radios">
             <Radio
@@ -31,12 +29,16 @@
           </div>
           <div class="tabs__column">
             <div class="tabs__texts">
-              <p v-if="isLongText" class="tabs__text">
-                {{ Content.extraTexts[0].text }}
-              </p>
-              <p v-if="!isLongText" class="tabs__text">
-                {{ Content.extraTexts[1].text }}
-              </p>
+              <div
+                v-if="isLongText"
+                class="tabs__text"
+                v-html="Content.extraTexts[0].text"
+              ></div>
+              <div
+                v-if="!isLongText"
+                class="tabs__text"
+                v-html="Content.extraTexts[1].text"
+              ></div>
             </div>
             <Button
               v-if="isLongText"
@@ -63,7 +65,6 @@
 import Button from '@/components/ui/Button';
 import Radio from '@/components/ui/Radio';
 import SectionTitle from '@/components/SectionTitle';
-import SectionText from '@/components/SectionText';
 import Container from '@/components/Container';
 export default {
   props: {
@@ -73,7 +74,6 @@ export default {
     Button,
     Radio,
     SectionTitle,
-    SectionText,
     Container,
   },
   computed: {
@@ -131,6 +131,9 @@ export default {
 }
 .form__subtitle {
   max-width: 340px;
+  color: #666;
+  font-size: 18px;
+  line-height: 22px;
 }
 .tabs__column {
   display: flex;
@@ -147,6 +150,8 @@ export default {
 @media screen and (max-width: 1280px) {
   .form__subtitle {
     max-width: 305px;
+    font-size: 16px;
+    line-height: 20px;
   }
   .form__container {
     padding-top: 80px;
@@ -173,6 +178,8 @@ export default {
   }
   .form__subtitle {
     max-width: 100%;
+    font-size: 13px;
+    line-height: 16px;
   }
   .radio.active {
     border-bottom: 2px solid #613a93;

@@ -28,9 +28,10 @@
           >
         </li>
       </ul>
-      <copyright class="copyright footer__copyright"
-        >{{ Content.text }} {{ getDate() }}</copyright
-      >
+      <div
+        class="copyright footer__copyright"
+        v-html="Content.text + getDate()"
+      ></div>
       <copyright>
         Сделано студентами
         <a
@@ -57,7 +58,7 @@ export default {
   methods: {
     getDate() {
       let data = new Date();
-      return data.getFullYear();
+      return `<p> ${data.getFullYear()}</p>`;
     },
     openPopup() {
       this.$store.commit('popup/openShare');
@@ -128,7 +129,11 @@ export default {
   transition: 0.3s;
 }
 .footer__copyright {
+  display: flex;
   width: 400px;
+  font-size: 18px;
+  line-height: 18px;
+  color: #898989;
 }
 @media screen and (max-width: 1280px) {
   .footer__social-link {
@@ -140,6 +145,9 @@ export default {
   }
   .footer__nav {
     margin-left: 102px;
+  }
+  .footer__copyright {
+    font-size: 16px;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -191,7 +199,7 @@ export default {
   }
 }
 @media screen and (max-width: 452px) {
-  .copyright {
+  .footer__copyright {
     font-size: 13px;
     line-height: 18px;
   }

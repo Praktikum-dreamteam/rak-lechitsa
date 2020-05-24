@@ -42,7 +42,6 @@ export default {
 .section-text_theme_violet {
   color: #dedede;
 }
-
 .section-text_theme_white {
   color: #666666;
 }

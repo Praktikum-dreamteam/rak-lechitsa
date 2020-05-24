@@ -5,9 +5,7 @@
         <SectionTitle class="video__title" theme="white">{{
           Content.title
         }}</SectionTitle>
-        <SectionText class="video__subtitle" theme="white">{{
-          Content.text
-        }}</SectionText>
+        <div class="video__subtitle" v-html="Content.text"></div>
       </div>
       <div class="video__image" alt="Видео">
         <swiper class="swiper" :options="swiperOption">
@@ -33,7 +31,6 @@
 
 <script>
 import SectionTitle from '@/components/SectionTitle';
-import SectionText from '@/components/SectionText';
 import Container from '@/components/Container';
 import Button from '@/components/ui/Button';
 import Slide from '@/components/Slide';
@@ -56,7 +53,6 @@ export default {
     Slide,
     SwiperSlide,
     SectionTitle,
-    SectionText,
     Container,
     btn: Button,
   },
@@ -111,6 +107,9 @@ export default {
 
 .video__subtitle {
   max-width: 340px;
+  color: #666;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .video__polygon {
@@ -179,6 +178,8 @@ export default {
 
   .video__subtitle {
     max-width: 305px;
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -191,6 +192,8 @@ export default {
 
   .video__subtitle {
     max-width: 260px;
+    font-size: 13px;
+    line-height: 16px;
   }
   .video__text {
     margin-right: 30px;
