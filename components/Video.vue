@@ -12,7 +12,7 @@
       <div class="video__image" alt="Видео">
         <swiper class="swiper" :options="swiperOption">
           <swiper-slide v-for="slide in slides" :key="slides.indexOf(slide)">
-            <Slide :src="slide.src" :background="slide.background" />
+            <Slide :src="slide.url" />
           </swiper-slide>
         </swiper>
       </div>
@@ -48,6 +48,7 @@ export default {
   directives: {
     swiper: directive,
   },
+
   name: 'swiper-example-navigation',
   title: 'Navigation',
   components: {
@@ -59,6 +60,14 @@ export default {
     Container,
     btn: Button,
   },
+  computed: {
+    slides() {
+      return this.$store.getters['slider/getSlides'];
+    },
+  },
+  beforeMount() {
+    this.$store.dispatch('slider/fetchSlides');
+  },
   data() {
     return {
       swiperOption: {
@@ -67,18 +76,6 @@ export default {
           prevEl: '.video__button_prev',
         },
       },
-      slides: [
-        {
-          src: 'https://www.youtube.com/embed/coOppM34GtI',
-          background:
-            'https://i0.wp.com/pozneronline.ru/wp-content/uploads/2018/11/pozner_solovetsky.jpg?resize=660%2C330&ssl=1',
-        },
-        {
-          src: 'https://www.youtube.com/embed/FFrioIZ65q0',
-          background:
-            'https://pimg.mycdn.me/getImage?disableStub=true&type=VIDEO_S_720&url=https%3A%2F%2Fvdp.mycdn.me%2FgetImage%3Fid%3D145732143782%26idx%3D0%26thumbType%3D37%26f%3D1&signatureToken=ZktJPom0cAXZG1DvUSMldA',
-        },
-      ],
     };
   },
 };
