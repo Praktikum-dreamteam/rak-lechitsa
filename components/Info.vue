@@ -1,13 +1,12 @@
 <template>
   <section class="info">
     <Container class="info__container">
-      <p class="info__title">#раклечится</p>
-      <SectionTitle theme="violet">О проекте</SectionTitle>
+      <p class="info__title">{{ Content.hashtag }}</p>
+      <SectionTitle theme="violet">{{ Content.title }}</SectionTitle>
       <div class="info__content">
-        <SectionText class="info__subtitle" theme="violet">
-          Этот проект был создан благотворительным фондом Константина
-          Хабенского.
-        </SectionText>
+        <SectionText class="info__subtitle" theme="violet">{{
+          Content.text
+        }}</SectionText>
         <div class="tabs">
           <div class="tabs__radios">
             <Radio
@@ -18,7 +17,7 @@
               id="project"
               @mousemove="hover = true"
               @mouseleave="hover = false"
-              >Рак Лечится</Radio
+              >{{ Content.extraTexts[0].title }}</Radio
             >
             <Radio
               @radio-click="addShortText"
@@ -28,23 +27,15 @@
               id="found"
               @mousemove="hover = true"
               @mouseleave="hover = false"
-              >Фонд Хабенского</Radio
+              >{{ Content.extraTexts[1].title }}</Radio
             >
           </div>
           <div class="tabs__texts">
             <p v-if="isLongText" class="tabs__text tabs__text_theme_violet">
-              Есть вещи, которые не лечатся. Особенности характера, страстные
-              увлечения, привычки, ставшие частью нашего «я», фобии, которые мы
-              приобрели в детстве. Список можно продолжать до бесконечности, но
-              одна болезнь в него точно не войдет. Эта болезнь — рак. Рак
-              лечится, и лучшее доказательство — люди с их неизлечимыми
-              особенностями, которые сумели победить рак.
+              {{ Content.extraTexts[0].text }}
             </p>
-            <p class="tabs__text tabs__text_theme_violet">
-              Рак лечится — проект Благотворительного Фонда Константина
-              Хабенского и Leo Burnett Moscow. С его помощью мы надеемся
-              изменить отношение людей к раку и заставить каждого поверить:
-              онкологическое заболевание — это не приговор.
+            <p v-else class="tabs__text tabs__text_theme_violet">
+              {{ Content.extraTexts[1].text }}
             </p>
           </div>
         </div>
@@ -59,6 +50,9 @@ import SectionText from '@/components/SectionText';
 import Radio from '@/components/ui/Radio';
 import Container from '@/components/Container';
 export default {
+  props: {
+    Content: Object,
+  },
   components: {
     SectionTitle,
     SectionText,

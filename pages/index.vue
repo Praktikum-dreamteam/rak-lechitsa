@@ -1,14 +1,14 @@
 <template>
   <div class="page">
-    <Cover />
-    <Video />
-    <Slogan>И в отличие от рака,</Slogan>
-    <History />
-    <Slogan>Рассказывайте ваши истории в Инстаграм</Slogan>
-    <Instagram />
-    <InfoBlock />
-    <Statistics />
-    <Info />
+    <Cover :Content="block('cover')" />
+    <Video :Content="block('videos')" />
+    <Slogan :Content="block('note-1')" />
+    <History :Content="block('stories')" />
+    <Slogan :Content="block('note-2')" />
+    <Instagram :Content="block('instagram')" />
+    <InfoBlock :Content="block('story')" />
+    <Statistics :Content="block('statistics')" />
+    <Info :Content="block('about')" />
   </div>
 </template>
 
@@ -36,6 +36,18 @@ export default {
     Info,
     Button,
   },
+  async fetch({ store, params }) {
+    await store.dispatch('blocks/fetchBlocks');
+  },
+  methods: {
+    block(name) {
+      const blocks = this.$store.getters['blocks/getBlocks'];
+      const currentBlock = blocks.find(item => item.block === name);
+      console.log(currentBlock);
+      return currentBlock;
+    },
+  },
+  computed: {},
 };
 </script>
 

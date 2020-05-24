@@ -1,7 +1,7 @@
 <template>
   <Container>
     <section class="history">
-      <SectionTitle theme="white">Истории неизлечимых привычек</SectionTitle>
+      <SectionTitle theme="white">{{ Content.title }}</SectionTitle>
       <ul class="history__cards">
         <li v-for="story in stories" :key="story.id" class="history__card">
           <story-card
@@ -9,8 +9,7 @@
             :src="story.cards.src"
             :name="story.cards.name"
             :description="story.cards.description"
-          >
-          </story-card>
+          ></story-card>
         </li>
       </ul>
       <nuxt-link
@@ -29,6 +28,9 @@ import SectionTitle from '@/components/SectionTitle';
 import StoryCard from '@/components/StoryCard';
 import Container from '@/components/Container';
 export default {
+  props: {
+    Content: Object,
+  },
   components: {
     Container,
     SectionTitle,

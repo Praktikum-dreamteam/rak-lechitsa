@@ -1,7 +1,7 @@
 <template>
   <section class="cover">
     <Container>
-      <h1 class="cover__title">#Раклечится</h1>
+      <h1 class="cover__title">{{ Content.hashtag }}</h1>
       <a href="#video" class="cover__polygon">
         <img src="/polygon.png" alt="стрелка вниз" />
       </a>
@@ -12,6 +12,9 @@
 <script>
 import Container from '@/components/Container';
 export default {
+  props: {
+    Content: Object,
+  },
   components: {
     Container,
   },

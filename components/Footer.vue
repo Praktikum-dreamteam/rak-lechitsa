@@ -1,9 +1,7 @@
 <template>
   <footer class="footer">
     <Container class="footer__container">
-      <h2 class="footer__title">
-        Спасибо всем, кто помог состояться этому проекту
-      </h2>
+      <h2 class="footer__title">{{ Content.title }}</h2>
       <footer-nav class="footer__nav" />
       <ul class="footer__list-items">
         <li class="footer__list-item">
@@ -31,7 +29,7 @@
         </li>
       </ul>
       <copyright class="copyright footer__copyright"
-        >Рак Лечится {{ getDate() }}</copyright
+        >{{ Content.text }} {{ getDate() }}</copyright
       >
       <copyright>
         Сделано студентами
@@ -53,6 +51,9 @@ import Button from '@/components/ui/Button';
 import Container from '@/components/Container';
 
 export default {
+  props: {
+    Content: Object,
+  },
   methods: {
     getDate() {
       let data = new Date();

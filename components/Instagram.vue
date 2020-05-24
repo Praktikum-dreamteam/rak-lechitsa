@@ -7,14 +7,11 @@
           href="https://www.instagram.com/raklechitsa/"
           target="_blank"
         >
-          <SectionTitle theme="white">Инстаграм</SectionTitle>
+          <SectionTitle theme="white">{{ Content.title }}</SectionTitle>
         </a>
-        <SectionText class="story-subtitle" theme="white">
-          Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
-          Все истории, где нет нецензурных выражений и запрещенного контента
-          попадают сюда. Следите за правильным написанием хештега, чтобы мы не
-          пропустили вашу историю.
-        </SectionText>
+        <SectionText class="story-subtitle" theme="white">{{
+          Content.text
+        }}</SectionText>
       </div>
 
       <ul class="story-images">
@@ -37,6 +34,9 @@ import SectionTitle from '@/components/SectionTitle';
 import SectionText from '@/components/SectionText';
 import Container from '@/components/Container';
 export default {
+  props: {
+    Content: Object,
+  },
   components: {
     SectionTitle,
     SectionText,
