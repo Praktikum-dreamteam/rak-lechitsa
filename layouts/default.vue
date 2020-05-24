@@ -3,7 +3,7 @@
     <client-only>
       <mobile-menu v-if="isMobileMenuOpened" class="menu__open"></mobile-menu>
     </client-only>
-    <Header :Content="block('footer')" />
+    <Header :Content="block('header')" />
     <nuxt />
     <Popup v-if="popupVisible" :haveClose="true" title="Поделитесь">
       <Share v-if="shareVisible" />

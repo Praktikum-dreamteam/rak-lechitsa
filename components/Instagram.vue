@@ -9,9 +9,7 @@
         >
           <SectionTitle theme="white">{{ Content.title }}</SectionTitle>
         </a>
-        <SectionText class="story-subtitle" theme="white">{{
-          Content.text
-        }}</SectionText>
+        <div class="story-subtitle" v-html="Content.text"></div>
       </div>
 
       <ul class="story-images">
@@ -68,6 +66,9 @@ export default {
 .story-subtitle {
   margin-top: 32px;
   max-width: 80%;
+  color: #666;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .story-src {
@@ -111,7 +112,10 @@ export default {
     grid-template-columns: repeat(4, 171px);
     grid-gap: 23px;
   }
-
+  .story-subtitle {
+    font-size: 16px;
+    line-height: 20px;
+  }
   .story-src::after {
     width: 153px;
   }
@@ -162,6 +166,10 @@ export default {
     max-width: 500px;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
+  }
+  .story-subtitle {
+    font-size: 13px;
+    line-height: 16px;
   }
 }
 @media (max-width: 550px) {

@@ -4,9 +4,7 @@
       <p class="info__title">{{ Content.hashtag }}</p>
       <SectionTitle theme="violet">{{ Content.title }}</SectionTitle>
       <div class="info__content">
-        <SectionText class="info__subtitle" theme="violet">{{
-          Content.text
-        }}</SectionText>
+        <div class="info__subtitle" v-html="Content.text"></div>
         <div class="tabs">
           <div class="tabs__radios">
             <Radio
@@ -31,12 +29,16 @@
             >
           </div>
           <div class="tabs__texts">
-            <p v-if="isLongText" class="tabs__text tabs__text_theme_violet">
-              {{ Content.extraTexts[0].text }}
-            </p>
-            <p v-else class="tabs__text tabs__text_theme_violet">
-              {{ Content.extraTexts[1].text }}
-            </p>
+            <div
+              v-if="isLongText"
+              class="tabs__text tabs__text_theme_violet"
+              v-html="Content.extraTexts[0].text"
+            ></div>
+            <div
+              v-else
+              class="tabs__text tabs__text_theme_violet"
+              v-html="Content.extraTexts[1].text"
+            ></div>
           </div>
         </div>
       </div>
@@ -114,6 +116,9 @@ export default {
 
 .info__subtitle {
   max-width: 340px;
+  color: #dedede;
+  font-size: 18px;
+  line-height: 22px;
 }
 .radio /deep/ {
   color: #c9c9c9;
@@ -124,6 +129,8 @@ export default {
 @media screen and (max-width: 1280px) {
   .info__subtitle {
     max-width: 305px;
+    font-size: 16px;
+    line-height: 20px;
   }
   .info__title {
     font-size: 58px;
@@ -162,6 +169,8 @@ export default {
   }
   .info__subtitle {
     max-width: 100%;
+    font-size: 13px;
+    line-height: 16px;
   }
   .radio.active {
     border-bottom: 2px solid white;
