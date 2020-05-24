@@ -48,7 +48,6 @@
 
 <script>
 import SectionTitle from '@/components/SectionTitle';
-import SectionText from '@/components/SectionText';
 import Radio from '@/components/ui/Radio';
 import Container from '@/components/Container';
 export default {
@@ -57,7 +56,6 @@ export default {
   },
   components: {
     SectionTitle,
-    SectionText,
     Radio,
     Container,
   },

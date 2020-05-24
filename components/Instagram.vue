@@ -29,7 +29,6 @@
 
 <script>
 import SectionTitle from '@/components/SectionTitle';
-import SectionText from '@/components/SectionText';
 import Container from '@/components/Container';
 export default {
   props: {
@@ -37,7 +36,6 @@ export default {
   },
   components: {
     SectionTitle,
-    SectionText,
     Container,
   },
   computed: {

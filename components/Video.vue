@@ -2,9 +2,9 @@
   <Container>
     <section class="video" id="video">
       <div class="video__text">
-        <SectionTitle class="video__title" theme="white">
-          {{ Content.title }}
-        </SectionTitle>
+        <SectionTitle class="video__title" theme="white">{{
+          Content.title
+        }}</SectionTitle>
         <div class="video__subtitle" v-html="Content.text"></div>
       </div>
       <div class="video__image" alt="Видео">
@@ -31,7 +31,6 @@
 
 <script>
 import SectionTitle from '@/components/SectionTitle';
-import SectionText from '@/components/SectionText';
 import Container from '@/components/Container';
 import Button from '@/components/ui/Button';
 import Slide from '@/components/Slide';
@@ -54,7 +53,6 @@ export default {
     Slide,
     SwiperSlide,
     SectionTitle,
-    SectionText,
     Container,
     btn: Button,
   },

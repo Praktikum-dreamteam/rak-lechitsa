@@ -65,7 +65,6 @@
 import Button from '@/components/ui/Button';
 import Radio from '@/components/ui/Radio';
 import SectionTitle from '@/components/SectionTitle';
-import SectionText from '@/components/SectionText';
 import Container from '@/components/Container';
 export default {
   props: {
@@ -75,7 +74,6 @@ export default {
     Button,
     Radio,
     SectionTitle,
-    SectionText,
     Container,
   },
   computed: {

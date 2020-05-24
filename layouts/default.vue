@@ -63,7 +63,6 @@ export default {
     block(name) {
       const blocks = this.$store.getters['blocks/getBlocks'];
       const currentBlock = blocks.find(item => item.block === name);
-      console.log(currentBlock);
       return currentBlock;
     },
   },
