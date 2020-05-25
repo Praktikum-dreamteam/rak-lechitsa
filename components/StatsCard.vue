@@ -2,17 +2,21 @@
   <div class="stats-card">
     <div class="stats-card__height"></div>
     <div class="stats-card__content">
-      <p class="stats-card__text">{{ title }}</p>
+      <p class="stats-card__text">{{ description }}</p>
       <div class="stats-card__graphs">
-        <ProgressBar v-if="!oldValue" :value="value" :maxValue="maxValue" />
+        <ProgressBar
+          v-if="!oldValue"
+          :value="currentValue"
+          :maxValue="maxValue"
+        />
         <DoubleProgressBar
           v-else
           :oldValue="oldValue"
-          :value="value"
+          :value="currentValue"
           :maxValue="maxValue"
         />
-        <h3 class="stats-card__subtitle">{{ subtitle }}</h3>
-        <p class="stats-card__author">{{ author }}</p>
+        <h3 class="stats-card__subtitle">{{ summary }}</h3>
+        <p class="stats-card__author">{{ source }}</p>
       </div>
     </div>
   </div>
@@ -33,10 +37,10 @@ export default {
     Container,
   },
   props: {
-    title: String,
-    subtitle: String,
-    author: String,
-    value: Number,
+    description: String,
+    summary: String,
+    source: String,
+    currentValue: Number,
     maxValue: Number,
     oldValue: Number,
   },
