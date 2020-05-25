@@ -3,6 +3,9 @@ export default {
   /*
    ** Headers of the page
    */
+  router: {
+    middleware: 'data',
+  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
