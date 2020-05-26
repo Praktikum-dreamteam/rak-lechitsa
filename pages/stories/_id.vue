@@ -2,20 +2,25 @@
   <div class="page">
     <Container class="container">
       <div class="author">
-        <img class="author__image" src="/story-author.png" alt="" />
+        <img
+          class="author__image"
+          :src="`https://strapi.kruzhok.io${getSrc}`"
+          alt=""
+        />
         <h1 class="author__name">
-          <!-- {{currentStory.title}} -->
+          {{ currentStory.title }}
         </h1>
         <div class="author__panel">
           <!-- Fix!!!! -->
           <share-btn @btn-click="openPopup" theme="share"
             >Поделитесь &#8599;</share-btn
           >
-          <p class="author__date">20 апреля 2018</p>
+          <p class="author__date">{{ getdate(currentStory.updated_at) }}</p>
         </div>
       </div>
 
       <div class="text-container">
+        <div v-html="currentStory.text"></div>
         <div class="btn-container">
           <share-btn @btn-click="openPopup" theme="share_long"
             >Поделитесь этой статьей в своих социальных сетях &#8599;</share-btn
@@ -24,20 +29,15 @@
       </div>
 
       <ul class="stories-container">
-        <li
+        <story-card
           v-for="story in stories"
           :key="story.id"
           class="stories-container__item"
-        >
-          <story-card
-            :id="story.id"
-            :src="
-              `https://strapi.kruzhok.io${story.ImageUrl[0].formats.thumbnail.url}`
-            "
-            :name="story.author"
-            :description="story.title"
-          ></story-card>
-        </li>
+          :id="story.id"
+          :src="`https://strapi.kruzhok.io${getSmallSrc(story)}`"
+          :name="story.author"
+          :description="story.title"
+        ></story-card>
       </ul>
 
       <nuxt-link
@@ -65,13 +65,45 @@ export default {
     openPopup() {
       this.$store.commit('popup/openShare');
     },
-    currentStory() {
-      return this.$store.getters['stories/getStories'].find(
-        item => item.id === this.$route.params.id
-      );
+    getdate(date) {
+      const textDate = new Date(date);
+      const month = [
+        'Января',
+        'Февраля',
+        'Марта',
+        'Апреля',
+        'Мая',
+        'Июня',
+        'Июля',
+        'Августа',
+        'Сентября',
+        'Октября',
+        'Ноября',
+        'Декабря',
+      ];
+      return `${textDate.getDate()} ${
+        month[+textDate.getMonth() - 1]
+      } ${textDate.getFullYear()}`;
+    },
+    getSmallSrc(story) {
+      if (story.ImageUrl[0].formats.small)
+        return story.ImageUrl[0].formats.small.url;
+      if (story.ImageUrl[0].formats.medium)
+        return story.ImageUrl[0].formats.medium.url;
+      if (story.ImageUrl[0].formats.large)
+        return story.ImageUrl[0].formats.large.url;
+      if (story.ImageUrl[0].formats.thumbnail)
+        return story.ImageUrl[0].formats.thumbnail.url;
+      else return '/history.png';
     },
   },
   computed: {
+    currentStory() {
+      const allStories = this.$store.getters['stories/getStories'];
+      return this.$store.getters['stories/getStories'].find(
+        item => item.id == this.$route.params.id
+      );
+    },
     stories() {
       const allStories = this.$store.getters['stories/getStories'];
       const stories = [];
@@ -97,6 +129,17 @@ export default {
           return stories.slice(0, 2);
         }
       }
+    },
+    getSrc() {
+      if (this.currentStory.ImageUrl[0].formats.large)
+        return this.currentStory.ImageUrl[0].formats.large.url;
+      if (this.currentStory.ImageUrl[0].formats.medium)
+        return this.currentStory.ImageUrl[0].formats.medium.url;
+      if (this.currentStory.ImageUrl[0].formats.small)
+        return this.currentStory.ImageUrl[0].formats.small.url;
+      if (this.currentStory.ImageUrl[0].formats.thumbnail)
+        return this.currentStory.ImageUrl[0].formats.thumbnail.url;
+      else return '/history.png';
     },
   },
 };
@@ -128,8 +171,7 @@ export default {
 
 .author__image {
   margin-right: 60px;
-  height: 580px;
-  width: 580px;
+  max-width: 580px;
   grid-row-start: 1;
   grid-row-end: 3;
 }
@@ -160,18 +202,14 @@ export default {
   margin: 0 auto;
 }
 
-.text-paragraph {
+.text-container /deep/ p {
   margin-bottom: 15px;
   font-size: 20px;
   line-height: 28px;
 }
 
-.text-paragraph__bolder {
+.text-container /deep/ blockquote {
   font-weight: 600;
-}
-
-.text-paragraph__bold {
-  font-weight: 500;
 }
 
 .stories-container {
@@ -209,8 +247,7 @@ export default {
   }
 
   .author__image {
-    height: 518px;
-    width: 518px;
+    max-width: 518px;
   }
   .btn-container {
     margin: 60px 0 150px 0;
@@ -224,8 +261,7 @@ export default {
   }
 
   .author__image {
-    height: 407px;
-    width: 407px;
+    max-width: 407px;
   }
 
   .author__panel {
@@ -237,7 +273,7 @@ export default {
     max-width: 640px;
   }
 
-  .text-paragraph {
+  p {
     font-size: 18px;
     line-height: 27px;
   }
@@ -259,8 +295,7 @@ export default {
   .author__image {
     order: 1;
     margin: 0 auto 60px;
-    height: 420px;
-    width: 420px;
+    max-width: 420px;
   }
 
   .author__name {
@@ -305,8 +340,7 @@ export default {
   }
 
   .author__image {
-    width: 290px;
-    height: 290px;
+    max-width: 290px;
     margin-bottom: 30px;
   }
 
@@ -320,7 +354,7 @@ export default {
     max-width: 290px;
   }
 
-  .text-paragraph {
+  p {
     font-size: 13px;
     line-height: 16px;
   }
