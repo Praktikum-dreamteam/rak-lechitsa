@@ -5,11 +5,9 @@
         <img
           class="author__image"
           :src="`https://strapi.kruzhok.io${getSrc}`"
-          alt=""
+          alt
         />
-        <h1 class="author__name">
-          {{ currentStory.title }}
-        </h1>
+        <h1 class="author__name">{{ currentStory.title }}</h1>
         <div class="author__panel">
           <!-- Fix!!!! -->
           <share-btn @btn-click="openPopup" theme="share"
@@ -56,6 +54,11 @@ import StoryCard from '@/components/StoryCard';
 import Button from '@/components/ui/Button';
 import Container from '@/components/Container';
 export default {
+  validate({ params, store }) {
+    return store.getters['stories/getStories'].some(
+      story => story.id == params.id
+    );
+  },
   components: {
     'story-card': StoryCard,
     'share-btn': Button,
@@ -86,15 +89,16 @@ export default {
       } ${textDate.getFullYear()}`;
     },
     getSmallSrc(story) {
-      if (story.ImageUrl[0].formats.small)
-        return story.ImageUrl[0].formats.small.url;
-      if (story.ImageUrl[0].formats.medium)
-        return story.ImageUrl[0].formats.medium.url;
-      if (story.ImageUrl[0].formats.large)
-        return story.ImageUrl[0].formats.large.url;
-      if (story.ImageUrl[0].formats.thumbnail)
-        return story.ImageUrl[0].formats.thumbnail.url;
-      else return '/history.png';
+      if (story) {
+        if (story.ImageUrl[0].formats.small)
+          return story.ImageUrl[0].formats.small.url;
+        if (story.ImageUrl[0].formats.medium)
+          return story.ImageUrl[0].formats.medium.url;
+        if (story.ImageUrl[0].formats.large)
+          return story.ImageUrl[0].formats.large.url;
+        if (story.ImageUrl[0].formats.thumbnail)
+          return story.ImageUrl[0].formats.thumbnail.url;
+      } else return '/history.png';
     },
   },
   computed: {
@@ -131,15 +135,16 @@ export default {
       }
     },
     getSrc() {
-      if (this.currentStory.ImageUrl[0].formats.large)
-        return this.currentStory.ImageUrl[0].formats.large.url;
-      if (this.currentStory.ImageUrl[0].formats.medium)
-        return this.currentStory.ImageUrl[0].formats.medium.url;
-      if (this.currentStory.ImageUrl[0].formats.small)
-        return this.currentStory.ImageUrl[0].formats.small.url;
-      if (this.currentStory.ImageUrl[0].formats.thumbnail)
-        return this.currentStory.ImageUrl[0].formats.thumbnail.url;
-      else return '/history.png';
+      if (this.currentStory) {
+        if (this.currentStory.ImageUrl[0].formats.large)
+          return this.currentStory.ImageUrl[0].formats.large.url;
+        if (this.currentStory.ImageUrl[0].formats.medium)
+          return this.currentStory.ImageUrl[0].formats.medium.url;
+        if (this.currentStory.ImageUrl[0].formats.small)
+          return this.currentStory.ImageUrl[0].formats.small.url;
+        if (this.currentStory.ImageUrl[0].formats.thumbnail)
+          return this.currentStory.ImageUrl[0].formats.thumbnail.url;
+      } else return '/history.png';
     },
   },
 };
