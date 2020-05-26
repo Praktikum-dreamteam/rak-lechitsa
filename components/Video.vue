@@ -144,7 +144,6 @@ export default {
   grid-column: 3;
   width: 100%;
   padding-top: 56.25%;
-  background-color: #ededed;
 }
 
 .video__button {
