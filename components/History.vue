@@ -148,7 +148,7 @@ export default {
 }
 @media screen and (max-width: 950px) {
   .history__cards {
-    grid-template-columns: repeat(3, minmax(200px, 300px));
+    grid-template-columns: repeat(3, minmax(180px, 300px));
     column-gap: 40px;
     row-gap: 20px;
   }
@@ -164,7 +164,7 @@ export default {
 }
 @media screen and (max-width: 690px) {
   .history__cards {
-    grid-template-columns: repeat(2, minmax(208px, 300px));
+    grid-template-columns: repeat(2, minmax(180px, 300px));
   }
 }
 @media screen and (max-width: 450px) {
