@@ -80,7 +80,7 @@ export default {
     line-height: 77px;
   }
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
   .cover {
     height: calc(100vh - 64px);
   }
