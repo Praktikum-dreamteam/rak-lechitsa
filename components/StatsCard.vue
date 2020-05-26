@@ -5,15 +5,15 @@
       <p class="stats-card__text">{{ description }}</p>
       <div class="stats-card__graphs">
         <ProgressBar
-          v-if="!oldValue"
+          v-if="oldValue == 0"
           :value="currentValue"
           :maxValue="maxValue"
         />
         <DoubleProgressBar
           v-else
-          :oldValue="oldValue"
-          :value="currentValue"
-          :maxValue="maxValue"
+          :oldValue="oldValue || 30"
+          :value="currentValue || 50"
+          :maxValue="maxValue || 100"
         />
         <h3 class="stats-card__subtitle">{{ summary }}</h3>
         <p class="stats-card__author">{{ source }}</p>
