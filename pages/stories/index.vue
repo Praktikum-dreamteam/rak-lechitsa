@@ -21,12 +21,13 @@
             class="stories-container__item"
           >
             <story-card
-              :id="story.cards.id"
-              :src="story.cards.src"
-              :name="story.cards.name"
-              :description="story.cards.description"
-            >
-            </story-card>
+              :id="story.id"
+              :src="
+                `https://strapi.kruzhok.io${story.ImageUrl[0].formats.thumbnail.url}`
+              "
+              :name="story.author"
+              :description="story.title"
+            ></story-card>
           </li>
         </ul>
       </client-only>
@@ -89,17 +90,16 @@ export default {
     },
     search() {
       const arr = this.queries.split(' ');
-      console.log(arr);
       const stories = this.$store.getters['stories/getStories'];
       this.allStories = stories.filter(item => {
+        console.log(item);
         return arr.every(el => {
-          return Object.values(item.cards)
+          return Object.values(item)
             .join('')
             .toLowerCase()
             .includes(el.toLowerCase());
         });
       });
-      console.log(this.queries, stories);
     },
   },
 };

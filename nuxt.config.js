@@ -6,6 +6,9 @@ export default {
   router: {
     middleware: 'data',
   },
+  env: {
+    baseUrl: 'https://strapi.kruzhok.io/',
+  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [

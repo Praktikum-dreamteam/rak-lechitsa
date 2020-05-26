@@ -1,7 +1,9 @@
 <template>
   <li class="history-card">
     <nuxt-link class="history-card__link" :to="`/stories/${id}`">
-      <img class="history-card__img" :src="src" alt="Фотография" />
+      <div class="history-card__img-height">
+        <img class="history-card__img" :src="src" alt="Фотография" />
+      </div>
       <h2 class="history-card__title">{{ name }}</h2>
       <p class="history-card__subtitle">{{ description }}</p>
     </nuxt-link>
@@ -32,8 +34,16 @@ export default {
   line-height: 18px;
   color: #666;
 }
+.history-card__img-height {
+  position: relative;
+  padding-top: 100%;
+}
 .history-card__img {
+  position: absolute;
+  top: 0;
+  left: 0;
   object-fit: cover;
+  height: 100%;
   width: 100%;
 }
 @media screen and (max-width: 1024px) {

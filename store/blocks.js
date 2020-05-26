@@ -9,16 +9,17 @@ export const mutations = {
     return (state[name] = value);
   },
 };
+
 export const actions = {
-  fetchBlocks(state) {
-    return axios.get('https://strapi.kruzhok.io/blocks').then(response => {
-      return state.commit('setState', {
-        name: 'blocks',
-        value: response.data,
-      });
+  async fetchBlocks({ commit }) {
+    const blocks = await this.$axios.$get('blocks');
+    commit('setState', {
+      name: 'blocks',
+      value: blocks,
     });
   },
 };
+
 export const getters = {
   getBlocks(state) {
     return state.blocks;

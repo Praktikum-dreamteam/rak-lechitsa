@@ -59,9 +59,6 @@ export default {
     'mobile-menu': Menu,
     'form-quiz': Quiz,
   },
-  async fetch({ store, params }) {
-    await store.dispatch('blocks/fetchBlocks');
-  },
   methods: {
     block(name) {
       const blocks = this.$store.getters['blocks/getBlocks'];

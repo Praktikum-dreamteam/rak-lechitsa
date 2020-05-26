@@ -17,7 +17,7 @@ export const mutations = {
 export const actions = {
   async fetchSlides({ commit }) {
     const slides = await this.$axios.$get('videos');
-    console.log({ slides });
+    // console.log({ slides });
     commit('setState', {
       name: 'slides',
       value: slides,

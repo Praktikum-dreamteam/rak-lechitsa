@@ -5,10 +5,12 @@
       <ul class="history__cards">
         <li v-for="story in stories" :key="story.id" class="history__card">
           <story-card
-            :id="story.cards.id"
-            :src="story.cards.src"
-            :name="story.cards.name"
-            :description="story.cards.description"
+            :id="story.id"
+            :src="
+              `https://strapi.kruzhok.io${story.ImageUrl[0].formats.thumbnail.url}`
+            "
+            :name="story.author"
+            :description="story.title"
           ></story-card>
         </li>
       </ul>
@@ -54,6 +56,18 @@ export default {
       hover: false,
     };
   },
+  // methods : {
+  //   getSrc(story) {
+  //     console.log(story)
+  //     if(story.ImageUrl[0].formats.small.url) return story.ImageUrl[0].formats.small.url
+  //     if(story.ImageUrl[0].formats.thumbnail.url) return story.ImageUrl[0].formats.thumbnail.url
+  //     if(story.ImageUrl[0].formats.medium.url) return story.ImageUrl[0].formats.medium.url
+  //     if(story.ImageUrl[0].formats.large.url) return story.ImageUrl[0].formats.large.url
+  //     if(story.ImageUrl[0].url) return story.ImageUrl[0].url
+
+  //     console.log(story)
+  //   }
+  // }
 };
 </script>
 
