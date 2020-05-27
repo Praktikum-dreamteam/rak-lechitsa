@@ -12,17 +12,23 @@
         <div class="story-subtitle" v-html="Content.text"></div>
       </div>
 
-      <ul class="story-images">
-        <li v-for="post in posts" :key="post.id" class="story-images__item">
-          <a class="story-images__link" :href="post.data.url" target="blank">
-            <img
-              :src="post.data.img"
-              :alt="post.data.alt"
-              class="story-images__image"
-            />
-          </a>
-        </li>
-      </ul>
+      <template>
+        <ul class="story-images">
+          <li
+            class="story-images__item"
+            v-for="photo in instagram"
+            :key="instagram.indexOf(photo)"
+          >
+            <a class="story-images__link" :href="photo.url" target="_blank">
+              <img
+                class="story-images__image"
+                :src="photo.display_url"
+                alt="Фото из инстаграма Раклечится"
+              />
+            </a>
+          </li>
+        </ul>
+      </template>
     </section>
   </Container>
 </template>
@@ -39,8 +45,8 @@ export default {
     Container,
   },
   computed: {
-    posts() {
-      return this.$store.getters['instagram-posts/getPosts'];
+    instagram() {
+      return this.$store.getters['instagram/getPosts'].slice(0, 8);
     },
   },
 };
@@ -97,13 +103,28 @@ export default {
   list-style: none;
   padding-left: 0;
   grid-template-columns: repeat(4, 195px);
+  grid-template-rows: repeat(2, 195px);
   grid-gap: 30px;
 }
 
-.story-images__image {
+.story-images__link {
   width: 100%;
-  height: 100%;
+  height: 0;
+  padding-top: 100%;
+  position: relative;
+  display: block;
 }
+
+.story-images__image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 100%;
+  width: 100%; /**либо max-width 100%, чтоб вместить всю картинку в ячейку */
+  object-fit: cover;
+}
+
 @media (max-width: 1281px) {
   .story-images {
     max-width: 765px;
@@ -152,6 +173,7 @@ export default {
   .story-images {
     max-width: 688px;
     grid-template-columns: repeat(4, 157px);
+    grid-template-rows: repeat(2, 157px);
     grid-gap: 20px;
   }
 }
@@ -162,7 +184,8 @@ export default {
 
   .story-images {
     max-width: 500px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 170px);
+    grid-template-rows: repeat(4, 170px);
     grid-gap: 20px;
   }
   .story-subtitle {
@@ -176,7 +199,8 @@ export default {
   }
   .story-images {
     max-width: 400px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 140px);
+    grid-template-rows: repeat(4, 140px);
     grid-gap: 10px;
   }
 }
@@ -188,7 +212,6 @@ export default {
 
   .story-images {
     max-width: 290px;
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .story {
