@@ -84,12 +84,11 @@ export default {
     setActive(index, event) {
       this.active = index;
       this.$emit('onPageChanged', index);
-      let t, s; //Медленная прокрутка наверх, мб убрать
-      s = document.body.scrollTop || window.pageYOffset;
-      t = setInterval(function() {
-        if (s > 0) window.scroll(0, (s -= 15));
-        else clearInterval(t);
-      }, 1);
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
     },
   },
 };

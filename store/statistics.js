@@ -1,7 +1,5 @@
-import axios from 'axios';
-
 export const state = () => ({
-  blocks: [],
+  statistics: [],
 });
 
 export const mutations = {
@@ -11,17 +9,17 @@ export const mutations = {
 };
 
 export const actions = {
-  async fetchBlocks({ commit }) {
-    const blocks = await this.$axios.$get('blocks');
+  async fetchStatistics({ commit }) {
+    const stats = await this.$axios.$get('statistics');
     commit('setState', {
-      name: 'blocks',
-      value: blocks,
+      name: 'statistics',
+      value: stats,
     });
   },
 };
 
 export const getters = {
-  getBlocks(state) {
-    return state.blocks;
+  getStatistics(state) {
+    return state.statistics;
   },
 };

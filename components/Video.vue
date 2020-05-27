@@ -10,7 +10,14 @@
       <div class="video__image" alt="Видео">
         <swiper class="swiper" :options="swiperOption">
           <swiper-slide v-for="slide in slides" :key="slides.indexOf(slide)">
-            <Slide :src="slide.url" />
+            <Slide
+              :src="slide.url"
+              :background="
+                `//img.youtube.com/vi/${slide.url.substring(
+                  slide.url.indexOf('/embed/') + 7
+                )}/maxresdefault.jpg`
+              "
+            />
           </swiper-slide>
         </swiper>
       </div>
@@ -137,7 +144,6 @@ export default {
   grid-column: 3;
   width: 100%;
   padding-top: 56.25%;
-  background-color: #ededed;
 }
 
 .video__button {
@@ -216,17 +222,25 @@ export default {
   }
   .video__text {
     grid-row: 1;
-    grid-column: 2;
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 0;
     margin: 0;
     margin-bottom: 60px;
     justify-self: center;
   }
   .video__title {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     margin-top: 0;
     max-width: 380px;
     margin-bottom: 26px;
   }
   .video__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     max-width: 380px;
   }
   .video__card {

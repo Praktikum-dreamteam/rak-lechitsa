@@ -36,9 +36,6 @@ export default {
     Info,
     Button,
   },
-  async fetch({ store, params }) {
-    await store.dispatch('blocks/fetchBlocks');
-  },
   methods: {
     block(name) {
       const blocks = this.$store.getters['blocks/getBlocks'];

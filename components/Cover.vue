@@ -2,9 +2,9 @@
   <section class="cover">
     <Container>
       <h1 class="cover__title">{{ Content.hashtag }}</h1>
-      <a href="#video" class="cover__polygon">
+      <button class="cover__polygon" v-on:click="setActive()">
         <img src="/polygon.png" alt="стрелка вниз" />
-      </a>
+      </button>
     </Container>
   </section>
 </template>
@@ -17,6 +17,15 @@ export default {
   },
   components: {
     Container,
+  },
+  methods: {
+    setActive(index, event) {
+      window.scrollBy({
+        top: window.innerHeight,
+        left: 0,
+        behavior: 'smooth',
+      });
+    },
   },
 };
 </script>
@@ -40,6 +49,9 @@ export default {
   text-transform: uppercase;
 }
 .cover__polygon {
+  background: none;
+  border: none;
+  cursor: pointer;
   position: absolute;
   min-width: 36px;
   min-height: 12px;
@@ -47,6 +59,14 @@ export default {
   bottom: 40px;
   right: 50%;
   transform: translateX(50%);
+}
+
+.cover__polygon:active {
+  outline: none;
+}
+
+.cover__polygon:focus {
+  outline: none;
 }
 @media screen and (max-width: 1280px) {
   .cover__title {

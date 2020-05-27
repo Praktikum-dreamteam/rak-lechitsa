@@ -5,10 +5,10 @@
       <ul class="history__cards">
         <li v-for="story in stories" :key="story.id" class="history__card">
           <story-card
-            :id="story.cards.id"
-            :src="story.cards.src"
-            :name="story.cards.name"
-            :description="story.cards.description"
+            :id="story.id"
+            :src="`https://strapi.kruzhok.io${getSmallSrc(story)}`"
+            :name="story.author"
+            :description="story.title"
           ></story-card>
         </li>
       </ul>
@@ -53,6 +53,19 @@ export default {
     return {
       hover: false,
     };
+  },
+  methods: {
+    getSmallSrc(story) {
+      if (story.ImageUrl[0].formats.small)
+        return story.ImageUrl[0].formats.small.url;
+      if (story.ImageUrl[0].formats.medium)
+        return story.ImageUrl[0].formats.medium.url;
+      if (story.ImageUrl[0].formats.large)
+        return story.ImageUrl[0].formats.large.url;
+      if (story.ImageUrl[0].formats.thumbnail)
+        return story.ImageUrl[0].formats.thumbnail.url;
+      else return '/history.png';
+    },
   },
 };
 </script>
@@ -135,7 +148,7 @@ export default {
 }
 @media screen and (max-width: 950px) {
   .history__cards {
-    grid-template-columns: repeat(3, minmax(200px, 300px));
+    grid-template-columns: repeat(3, minmax(180px, 300px));
     column-gap: 40px;
     row-gap: 20px;
   }
@@ -151,7 +164,7 @@ export default {
 }
 @media screen and (max-width: 690px) {
   .history__cards {
-    grid-template-columns: repeat(2, minmax(208px, 300px));
+    grid-template-columns: repeat(2, minmax(180px, 300px));
   }
 }
 @media screen and (max-width: 450px) {

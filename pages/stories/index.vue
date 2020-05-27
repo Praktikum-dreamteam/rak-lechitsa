@@ -21,12 +21,11 @@
             class="stories-container__item"
           >
             <story-card
-              :id="story.cards.id"
-              :src="story.cards.src"
-              :name="story.cards.name"
-              :description="story.cards.description"
-            >
-            </story-card>
+              :id="story.id"
+              :src="`https://strapi.kruzhok.io${getSmallSrc(story)}`"
+              :name="story.author"
+              :description="story.title"
+            ></story-card>
           </li>
         </ul>
       </client-only>
@@ -87,19 +86,29 @@ export default {
     changeIndex(index) {
       this.startIndex = (index - 1) * this.itemsPerPage;
     },
+    getSmallSrc(story) {
+      if (story.ImageUrl[0].formats.small)
+        return story.ImageUrl[0].formats.small.url;
+      if (story.ImageUrl[0].formats.medium)
+        return story.ImageUrl[0].formats.medium.url;
+      if (story.ImageUrl[0].formats.large)
+        return story.ImageUrl[0].formats.large.url;
+      if (story.ImageUrl[0].formats.thumbnail)
+        return story.ImageUrl[0].formats.thumbnail.url;
+      else return '/history.png';
+    },
     search() {
       const arr = this.queries.split(' ');
-      console.log(arr);
       const stories = this.$store.getters['stories/getStories'];
       this.allStories = stories.filter(item => {
+        console.log(item);
         return arr.every(el => {
-          return Object.values(item.cards)
+          return Object.values(item)
             .join('')
             .toLowerCase()
             .includes(el.toLowerCase());
         });
       });
-      console.log(this.queries, stories);
     },
   },
 };
