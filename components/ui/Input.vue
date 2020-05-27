@@ -2,6 +2,7 @@
   <input
     @input="handleInput"
     class="input"
+    :id="Id"
     :type="type"
     :placeholder="placeholder"
     v-model="content"
@@ -11,7 +12,7 @@
 <script>
 export default {
   props: {
-    id: String,
+    Id: String,
     placeholder: String,
     type: String,
     value: {
