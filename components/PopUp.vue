@@ -136,5 +136,8 @@ export default {
     padding-top: 85px;
     padding-bottom: 85px;
   }
+  .container::-webkit-scrollbar {
+    width: 0;
+  }
 }
 </style>
