@@ -2,7 +2,9 @@
   <div class="quiz">
     <gratitude v-if="isGratitudeShow"></gratitude>
     <form v-else class="quiz__form">
-      <h3 class="quiz__title">{{ currentQuestion.title }}</h3>
+      <h3 class="quiz__title">
+        Шаг {{ numberCurrentQuestion }} из {{ numberAllQuestions }}
+      </h3>
       <p class="quiz__question">
         <span class="quiz__text-main">{{ currentQuestion.question }}</span>
         <span class="quiz__text-additional">
@@ -89,7 +91,7 @@ export default {
     initialAnswer() {
       const { formQuiz } = this.$store.state;
       const { currentQuestion, answers } = formQuiz;
-      return answers[currentQuestion] || '';
+      return answers[this.currentQuestion.name] || '';
     },
   },
   methods: {
@@ -104,7 +106,7 @@ export default {
       this.answer = this.initialAnswer;
     },
     async sendQuiz() {
-      console.log('Пошла форма!');
+      this.nextQuestion();
       this.isGratitudeShow = true;
       this.$store.commit('popup/toggleIconClose');
       await this.$store.dispatch('formQuiz/sendQuiz');
