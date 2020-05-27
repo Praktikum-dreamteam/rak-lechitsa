@@ -50,7 +50,7 @@ export default {
   font-weight: 600;
   max-width: 340px;
 }
-.nuxt-link-exact-active /deep/ {
+/deep/ .nuxt-link-exact-active {
   border-bottom: 1px solid black;
 }
 .header__menu-icon {

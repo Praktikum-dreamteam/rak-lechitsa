@@ -1,5 +1,5 @@
 <template>
-  <form class="form">
+  <form class="form" name="form">
     <h2 class="form__title">Оставьте контакт для связи</h2>
     <p class="form__subtitle">
       Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
@@ -13,7 +13,7 @@
           class="form__label"
         />
         <inputForm
-          id="name"
+          Id="name"
           placeholder="Напишите тут"
           class="form__input"
           v-model="name"
@@ -27,7 +27,7 @@
             class="form__label"
           />
           <inputForm
-            id="email"
+            Id="email"
             placeholder="pochta@example.com"
             class="form__input"
             v-model="email"
@@ -37,7 +37,7 @@
         <div class="form__fieldset">
           <customLabel labelText="Телефон" For="phone" class="form__label" />
           <inputForm
-            id="phone"
+            Id="phone"
             placeholder="+7 000 000 00 00"
             class="form__input"
             v-model="phone"
@@ -47,11 +47,11 @@
       <div class="form__fieldset">
         <customLabel
           labelText="Напишите, если есть предпочтительный способ связи и удобное время"
-          For="comment"
+          For="preferred"
           class="form__label"
         />
         <inputForm
-          id="comment"
+          Id="preferred"
           placeholder="Телефон / почта и удобное время"
           class="form__input"
           v-model="comment"
@@ -123,6 +123,12 @@ export default {
   },
   methods: {
     sendForm() {
+      const form = document.forms.form;
+      const answer = {};
+      for (let i = 0; i < form.length; i++) {
+        if (form[i].id) answer[form[i].id] = form[i].value;
+      }
+      console.log(answer);
       this.close();
     },
     validEmail(em) {

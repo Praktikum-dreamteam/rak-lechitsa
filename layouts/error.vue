@@ -8,7 +8,7 @@
     <h1 v-else class="error__title">УПС!</h1>
     <p v-if="error.statusCode !== 404" class="error__subtitle">
       Произошла ошибка
-      <nuxt-link to="/" class="error__link">Перейти на главную.</nuxt-link>
+      <a href="/" class="error__link">Перейти на главную.</a>
     </p>
   </div>
 </template>

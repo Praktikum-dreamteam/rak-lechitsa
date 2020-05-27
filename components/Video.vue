@@ -10,14 +10,7 @@
       <div class="video__image" alt="Видео">
         <swiper class="swiper" :options="swiperOption">
           <swiper-slide v-for="slide in slides" :key="slides.indexOf(slide)">
-            <Slide
-              :src="slide.url"
-              :background="
-                `//img.youtube.com/vi/${slide.url.substring(
-                  slide.url.indexOf('/embed/') + 7
-                )}/maxresdefault.jpg`
-              "
-            />
+            <Slide :src="slide.url" :background="getBg(slide)" />
           </swiper-slide>
         </swiper>
       </div>
@@ -70,6 +63,12 @@ export default {
   },
   beforeMount() {
     this.$store.dispatch('slider/fetchSlides');
+  },
+  methods: {
+    getBg(slide) {
+      return `/video/${slide.id}.jpg`;
+      // return `//img.youtube.com/vi/${slide.url.substring(slide.url.indexOf('/embed/') + 7)}/maxresdefault.jpg`
+    },
   },
   data() {
     return {
