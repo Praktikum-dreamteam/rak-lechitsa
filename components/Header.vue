@@ -2,7 +2,7 @@
   <header class="header">
     <Container class="header__container">
       <nuxt-link to="/" class="header__link">
-        <h2 class="header__title">{{ Content.title }}</h2>
+        <h2 class="header__title">{{ HeaderBlock.title }}</h2>
       </nuxt-link>
       <my-menu />
       <mobileIcon class="header__menu-icon" />
@@ -15,13 +15,17 @@ import Menu from '@/components/Menu';
 import MobileIcon from '@/components/ui/MobileIcon';
 import Container from '@/components/Container';
 export default {
-  props: {
-    Content: Object,
-  },
   components: {
     'my-menu': Menu,
     mobileIcon: MobileIcon,
     Container,
+  },
+  computed: {
+    HeaderBlock() {
+      return this.$store.getters['blocks/getBlocks'].find(
+        el => el.block === 'header'
+      );
+    },
   },
 };
 </script>
@@ -46,7 +50,7 @@ export default {
   font-weight: 600;
   max-width: 340px;
 }
-/deep/ .nuxt-link-exact-active {
+.nuxt-link-exact-active /deep/ {
   border-bottom: 1px solid black;
 }
 .header__menu-icon {
