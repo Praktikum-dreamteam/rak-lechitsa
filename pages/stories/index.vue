@@ -10,26 +10,29 @@
           name="name"
           v-model="queries"
         />
-        <!-- Дофиксить кнопку-->
         <button class="input-container__button">Поиск</button>
       </form>
       <client-only>
-        <ul class="stories-container">
-          <li
-            v-for="story in stories"
-            :key="story.id"
-            class="stories-container__item"
-          >
-            <story-card
-              :id="story.id"
-              :src="`https://strapi.kruzhok.io${getSmallSrc(story)}`"
-              :name="story.author"
-              :description="story.title"
-            ></story-card>
-          </li>
-        </ul>
+        <template>
+          <non-search v-if="stories.length === 0" />
+          <ul class="stories-container" v-else>
+            <li
+              v-for="story in stories"
+              :key="story.id"
+              class="stories-container__item"
+            >
+              <story-card
+                :id="story.id"
+                :src="`https://strapi.kruzhok.io${getSmallSrc(story)}`"
+                :name="story.author"
+                :description="story.title"
+              ></story-card>
+            </li>
+          </ul>
+        </template>
       </client-only>
       <pagination
+        v-if="stories.length !== 0"
         href="#top"
         :totalItems="this.allStories.length"
         :itemsPerPage="itemsPerPage"
@@ -45,6 +48,7 @@ import Button from '@/components/ui/Button';
 import StoryCard from '@/components/StoryCard';
 import Pagination from '@/components/ui/Pagination';
 import Container from '@/components/Container';
+import NonSearch from '@/components/NonSearch';
 export default {
   data() {
     return {
@@ -58,6 +62,7 @@ export default {
   components: {
     'button-ui': Button,
     'story-card': StoryCard,
+    'non-search': NonSearch,
     pagination: Pagination,
     Container,
   },
@@ -101,7 +106,6 @@ export default {
       const arr = this.queries.split(' ');
       const stories = this.$store.getters['stories/getStories'];
       this.allStories = stories.filter(item => {
-        console.log(item);
         return arr.every(el => {
           return Object.values(item)
             .join('')
