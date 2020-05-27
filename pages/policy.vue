@@ -348,7 +348,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      title:
+        'РАКЛЕЧИТСЯ.РФ Политика проекта в отношении обработки персональных данных.',
+    };
+  },
+};
 </script>
 
 <style scoped>
