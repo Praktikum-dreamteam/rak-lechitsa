@@ -135,6 +135,11 @@ export default {
   line-height: 18px;
   color: #898989;
 }
+
+.footer__copyright /deep/ p {
+  margin-right: 10px;
+}
+
 @media screen and (max-width: 1280px) {
   .footer__social-link {
     font-size: 16px;
