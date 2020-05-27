@@ -106,7 +106,6 @@ export default {
       this.answer = this.initialAnswer;
     },
     async sendQuiz() {
-      this.nextQuestion();
       this.isGratitudeShow = true;
       this.$store.commit('popup/toggleIconClose');
       await this.$store.dispatch('formQuiz/sendQuiz');
