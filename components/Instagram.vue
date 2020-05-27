@@ -7,7 +7,9 @@
           href="https://www.instagram.com/raklechitsa/"
           target="_blank"
         >
-          <SectionTitle theme="white">{{ Content.title }}</SectionTitle>
+          <SectionTitle class="story-title" theme="white">{{
+            Content.title
+          }}</SectionTitle>
         </a>
         <div class="story-subtitle" v-html="Content.text"></div>
       </div>
@@ -60,6 +62,11 @@ export default {
 
 .story {
   margin-right: auto;
+}
+
+.story-title:hover {
+  opacity: 0.7;
+  transition: 0.3s ease;
 }
 
 .section-title {

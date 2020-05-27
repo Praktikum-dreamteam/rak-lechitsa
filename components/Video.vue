@@ -15,9 +15,13 @@
         </swiper>
       </div>
       <p class="video__caption">
-        <!-- TODO: Content.note -->
         Все видео вы можете найте на нашем
-        <a href="#" class="video__link">YouTube канале</a>.
+        <a
+          class="video__link"
+          href="https://www.youtube.com/channel/UCcxMSzN1R4JfW1vLu3swCaQ"
+          target="_blank"
+          >YouTube канале</a
+        >.
       </p>
       <btn theme="arrow" class="video__button video__button_next">
         <img class="video__button-img" src="/next.svg" alt="Следующее видео" />
@@ -67,7 +71,6 @@ export default {
   methods: {
     getBg(slide) {
       return `/video/${slide.id}.jpg`;
-      // return `//img.youtube.com/vi/${slide.url.substring(slide.url.indexOf('/embed/') + 7)}/maxresdefault.jpg`
     },
   },
   data() {
@@ -93,6 +96,21 @@ export default {
   display: grid;
   grid-template-columns: 40px auto 1fr;
   grid-template-rows: auto auto auto;
+}
+
+.video__caption {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.video__link {
+  border-bottom: 1px solid #000;
+}
+
+.video__link:hover {
+  transition: 0.3s ease;
+  opacity: 0.8;
 }
 
 .video__text {
