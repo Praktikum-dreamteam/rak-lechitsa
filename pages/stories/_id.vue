@@ -147,6 +147,11 @@ export default {
       } else return '/history.png';
     },
   },
+  head() {
+    return {
+      title: this.currentStory.title,
+    };
+  },
 };
 </script>
 
