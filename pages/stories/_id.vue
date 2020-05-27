@@ -149,7 +149,7 @@ export default {
   },
   head() {
     return {
-      title: this.currentStory.title,
+      title: `РАКЛЕЧИТСЯ.РФ ${this.currentStory.title}`,
     };
   },
 };

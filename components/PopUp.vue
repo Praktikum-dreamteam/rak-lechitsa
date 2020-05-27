@@ -1,12 +1,14 @@
 <template>
   <div>
-    <div class="popup">
-      <div class="popup__header">
-        <div v-if="haveClose" @click="close" class="popup__close"></div>
-      </div>
-      <slot>Содержимое окна</slot>
-    </div>
     <Overlay @overlayClick="close"></Overlay>
+    <div class="container">
+      <div class="popup">
+        <div class="popup__header">
+          <div v-if="haveClose" @click="close" class="popup__close"></div>
+        </div>
+        <slot>Содержимое окна</slot>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -41,16 +43,23 @@ export default {
   padding: 15px;
 }
 .popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   width: 100%;
   max-width: 920px;
+  margin: 0 auto;
   box-sizing: border-box;
   z-index: 2;
   padding: 38px;
   background-color: #fff;
+}
+
+.container {
+  position: fixed;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 .popup__header {
   display: flex;
@@ -115,6 +124,20 @@ export default {
   .popup__close::after,
   .popup__close::before {
     height: 17px;
+  }
+}
+@media screen and (max-height: 750px) {
+  .container {
+    height: 100vh;
+    overflow: auto;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding-top: 85px;
+    padding-bottom: 85px;
+  }
+  .container::-webkit-scrollbar {
+    width: 0;
   }
 }
 </style>

@@ -44,6 +44,11 @@ export default {
     },
   },
   computed: {},
+  head() {
+    return {
+      title: 'РАКЛЕЧИТСЯ.РФ',
+    };
+  },
 };
 </script>
 
