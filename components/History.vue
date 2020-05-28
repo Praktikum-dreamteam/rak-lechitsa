@@ -122,7 +122,7 @@ export default {
 @media screen and (max-width: 1280px) {
   .history__cards {
     row-gap: 70px;
-    margin-top: 55px;
+    margin-top: 60px;
   }
   .history__link {
     height: 78px;

@@ -70,7 +70,7 @@ export default {
 }
 @media screen and (max-width: 1280px) {
   .cover__title {
-    font-size: 72px;
+    font-size: 78px;
     line-height: 94px;
   }
 }
