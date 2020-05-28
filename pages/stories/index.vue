@@ -30,15 +30,15 @@
             </li>
           </ul>
         </template>
+        <pagination
+          v-if="stories.length !== 0"
+          href="#top"
+          :totalItems="this.allStories.length"
+          :itemsPerPage="itemsPerPage"
+          @onPageChanged="changeIndex"
+        >
+        </pagination>
       </client-only>
-      <pagination
-        v-if="stories.length !== 0"
-        href="#top"
-        :totalItems="this.allStories.length"
-        :itemsPerPage="itemsPerPage"
-        @onPageChanged="changeIndex"
-      >
-      </pagination>
     </div>
   </Container>
 </template>
