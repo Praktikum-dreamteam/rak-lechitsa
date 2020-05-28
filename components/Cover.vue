@@ -56,7 +56,7 @@ export default {
   min-width: 36px;
   min-height: 12px;
   color: #fff;
-  bottom: 40px;
+  bottom: 35px;
   right: 50%;
   transform: translateX(50%);
 }

@@ -92,7 +92,7 @@ export default {
 }
 .video {
   padding-top: 100px;
-  padding-bottom: 100px;
+  padding-bottom: 75px;
   display: grid;
   grid-template-columns: 40px auto 1fr;
   grid-template-rows: auto auto auto;
@@ -125,7 +125,7 @@ export default {
 
 .video__title {
   margin-top: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 33px;
   max-width: 413px;
 }
 
@@ -175,10 +175,6 @@ export default {
 .video__button_prev {
   grid-column: 1;
 }
-.video__button_next {
-  margin-left: 10px;
-}
-
 .video__link {
   text-decoration: none;
   color: inherit;

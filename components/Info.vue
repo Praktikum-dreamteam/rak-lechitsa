@@ -101,7 +101,8 @@ export default {
 }
 
 .info__container {
-  padding-top: 60px;
+  width: 100%;
+  padding-top: 90px;
   padding-bottom: 100px;
 }
 
@@ -123,6 +124,7 @@ export default {
 }
 .radio.active {
   color: #ffffff;
+  font-weight: 500;
 }
 @media screen and (max-width: 1280px) {
   .info__subtitle {
