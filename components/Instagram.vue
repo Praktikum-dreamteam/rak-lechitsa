@@ -3,27 +3,27 @@
     <section class="stories content-margin">
       <div class="story">
         <a
-          class="story-src"
+          class="story__src"
           href="https://www.instagram.com/raklechitsa/"
           target="_blank"
         >
-          <SectionTitle class="story-title" theme="white">{{
+          <SectionTitle class="story__title" theme="white">{{
             Content.title
           }}</SectionTitle>
         </a>
-        <div class="story-subtitle" v-html="Content.text"></div>
+        <div class="story__subtitle" v-html="Content.text"></div>
       </div>
 
       <template>
-        <ul class="story-images">
+        <ul class="story__images">
           <li
-            class="story-images__item"
+            class="story__images-item"
             v-for="photo in instagram"
             :key="instagram.indexOf(photo)"
           >
-            <a class="story-images__link" :href="photo.url" target="_blank">
+            <a class="story__images-link" :href="photo.url" target="_blank">
               <img
-                class="story-images__image"
+                class="story__image"
                 :src="photo.display_url"
                 alt="Фото из инстаграма Раклечится"
               />
@@ -57,14 +57,14 @@ export default {
 <style scoped>
 .stories {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .story {
-  margin-right: auto;
+  margin-right: 110px;
 }
 
-.story-title:hover {
+.story__title:hover {
   opacity: 0.7;
   transition: 0.3s ease;
 }
@@ -74,47 +74,41 @@ export default {
   text-align: center;
 }
 
-.story-subtitle {
+.story__subtitle {
   margin-top: 32px;
   max-width: 80%;
   color: #666;
   font-size: 18px;
   line-height: 22px;
+  max-width: 413px;
 }
 
-.story-src {
+.story__src {
   text-decoration: none;
 }
 
-.story-src::after {
+.story__src::after {
   content: '';
   height: 2px;
   background: #000;
   display: block;
   width: 174px;
 }
-.content-subtitle {
-  max-width: 413px;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: #666666;
-  text-align: left;
-}
 .content-margin {
   margin: 100px auto;
 }
-.story-images {
+.story__images {
+  width: 100%;
   max-width: 900px;
   display: grid;
   list-style: none;
   padding-left: 0;
-  grid-template-columns: repeat(4, 195px);
-  grid-auto-rows: auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: min-content;
   grid-gap: 30px;
 }
 
-.story-images__link {
+.story__images-link {
   width: 100%;
   height: 0;
   padding-top: 100%;
@@ -122,40 +116,38 @@ export default {
   display: block;
 }
 
-.story-images__image {
+.story__image {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-height: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
   object-fit: cover;
 }
 
 @media (max-width: 1281px) {
-  .story-images {
+  .story__images {
     margin-top: -10px;
-    /* max-width: 770px; */
-    grid-template-columns: repeat(4, 174px);
     grid-gap: 23px;
   }
-  .story-subtitle {
+  .story__subtitle {
     max-width: 305px;
-    font-size: 16px;
-    line-height: 20px;
   }
-  .story-src::after {
+  .story__src::after {
     width: 153px;
   }
 }
 @media (max-width: 1062px) {
-  .story-images {
+  .story__images {
     max-width: 604px;
-    grid-template-columns: repeat(4, 136px);
+    /* grid-template-columns: repeat(4, 136px); */
     grid-gap: 20px;
   }
+  .story__subtitle {
+    max-width: 260px;
+  }
 
-  .story-src::after {
+  .story__src::after {
     width: 131px;
   }
 }
@@ -174,15 +166,14 @@ export default {
     align-items: center;
   }
 
-  .story-subtitle {
+  .story__subtitle {
+    text-align: center;
     max-width: 380px;
     padding: 0;
   }
 
-  .story-images {
+  .story__images {
     max-width: 688px;
-    grid-template-columns: repeat(4, 157px);
-    grid-template-rows: repeat(2, 157px);
     grid-gap: 20px;
   }
 }
@@ -191,13 +182,12 @@ export default {
     margin-top: 70px;
   }
 
-  .story-images {
+  .story__images {
     max-width: 500px;
-    grid-template-columns: repeat(2, 170px);
-    grid-template-rows: repeat(4, 170px);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
   }
-  .story-subtitle {
+  .story__subtitle {
     font-size: 13px;
     line-height: 16px;
   }
@@ -206,10 +196,8 @@ export default {
   .stories {
     max-width: 90%;
   }
-  .story-images {
+  .story__images {
     max-width: 400px;
-    grid-template-columns: repeat(2, 140px);
-    grid-template-rows: repeat(4, 140px);
     grid-gap: 10px;
   }
 }
@@ -219,7 +207,7 @@ export default {
     margin-bottom: 50px;
   }
 
-  .story-images {
+  .story__images {
     max-width: 290px;
   }
 
