@@ -3,7 +3,7 @@
     <btn
       class="pagination__item pagination__item_type_text"
       type="button"
-      :disabled="active == 1"
+      :disabled="active === 1"
       @btn-click="setActive(1)"
     >
       Первая
@@ -11,14 +11,14 @@
     <btn
       class="pagination__item pagination__item_type_arrow"
       type="button"
-      :disabled="active == 1"
+      :disabled="active === 1"
       @btn-click="setActive(active - 1)"
     >
       <img src="/prev.svg" alt="Предыдущая страница" />
     </btn>
     <btn
       href="top"
-      v-for="index in pagesCount"
+      v-for="index in pages"
       :key="index"
       @btn-click="setActive(index)"
       type="button"
@@ -34,7 +34,7 @@
     <btn
       class="pagination__item pagination__item_type_arrow"
       type="button"
-      :disabled="active == pagesCount"
+      :disabled="active === pagesCount"
       @btn-click="setActive(active + 1)"
     >
       <img src="/next.svg" alt="Следующая страница" />
@@ -42,7 +42,7 @@
     <btn
       class="pagination__item pagination__item_type_text"
       type="button"
-      :disabled="active == pagesCount"
+      :disabled="active === pagesCount"
       @btn-click="setActive(pagesCount)"
     >
       Последняя
@@ -76,6 +76,37 @@ export default {
     };
   },
   computed: {
+    pages() {
+      let pages = [];
+      for (let i = this.rangeStart; i <= this.rangeEnd; i++) {
+        pages.push(i);
+      }
+      return pages;
+    },
+    rangeStart() {
+      if (process.browser) {
+        if (window.innerWidth > 768) {
+          this.pageRange = 2;
+        } else {
+          this.pageRange = 1;
+        }
+      }
+      const start = this.active - this.pageRange;
+      return start > 0 ? start : 1;
+    },
+    rangeEnd() {
+      if (process.browser) {
+        if (window.innerWidth > 768) {
+          this.pageRange = 4;
+        } else if (window.innerWidth > 560) {
+          this.pageRange = 3;
+        } else {
+          this.pageRange = 2;
+        }
+      }
+      const end = this.active + this.pageRange;
+      return end < this.pagesCount ? end : this.pagesCount;
+    },
     pagesCount() {
       return Math.ceil(this.totalItems / this.itemsPerPage);
     },
