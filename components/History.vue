@@ -78,7 +78,7 @@ export default {
 .history__cards {
   padding: 0;
   list-style-type: none;
-  margin-top: 65px;
+  margin-top: 70px;
   display: grid;
   grid-template-columns: repeat(4, minmax(208px, 300px));
   justify-content: center;
@@ -122,7 +122,7 @@ export default {
 @media screen and (max-width: 1280px) {
   .history__cards {
     row-gap: 70px;
-    margin-top: 55px;
+    margin-top: 60px;
   }
   .history__link {
     height: 78px;

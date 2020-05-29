@@ -46,10 +46,6 @@ export default {
   .radio {
     width: 130px;
   }
-  .radio__label {
-    font-size: 15px;
-    line-height: 19px;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -62,6 +58,10 @@ export default {
   }
   .radio.active {
     border-bottom: 2px solid #ffffff;
+  }
+  .radio__label {
+    font-size: 15px;
+    line-height: 19px;
   }
 }
 </style>

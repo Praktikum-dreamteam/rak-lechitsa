@@ -110,7 +110,7 @@ export default {
   list-style: none;
   padding-left: 0;
   grid-template-columns: repeat(4, 195px);
-  grid-template-rows: repeat(2, 195px);
+  grid-auto-rows: auto;
   grid-gap: 30px;
 }
 
@@ -128,17 +128,19 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   max-height: 100%;
-  width: 100%; /**либо max-width 100%, чтоб вместить всю картинку в ячейку */
+  width: 100%;
   object-fit: cover;
 }
 
 @media (max-width: 1281px) {
   .story-images {
-    max-width: 765px;
-    grid-template-columns: repeat(4, 171px);
+    margin-top: -10px;
+    /* max-width: 770px; */
+    grid-template-columns: repeat(4, 174px);
     grid-gap: 23px;
   }
   .story-subtitle {
+    max-width: 305px;
     font-size: 16px;
     line-height: 20px;
   }

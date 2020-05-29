@@ -56,7 +56,7 @@ export default {
   min-width: 36px;
   min-height: 12px;
   color: #fff;
-  bottom: 40px;
+  bottom: 35px;
   right: 50%;
   transform: translateX(50%);
 }
@@ -70,7 +70,7 @@ export default {
 }
 @media screen and (max-width: 1280px) {
   .cover__title {
-    font-size: 72px;
+    font-size: 78px;
     line-height: 94px;
   }
 }

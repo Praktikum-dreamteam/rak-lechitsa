@@ -1,7 +1,9 @@
 <template>
   <section class="form">
     <Container class="form__container">
-      <SectionTitle theme="white">{{ Content.title }}</SectionTitle>
+      <SectionTitle theme="white" class="form__title">{{
+        Content.title
+      }}</SectionTitle>
       <div class="form__content">
         <div class="form__subtitle" v-html="Content.text"></div>
         <div class="tabs">
@@ -141,7 +143,7 @@ export default {
   justify-content: space-between;
   min-height: 220px;
 }
-.radio /deep/ {
+.radio {
   color: #a2a2a2;
 }
 .radio.active {
@@ -152,6 +154,9 @@ export default {
     max-width: 305px;
     font-size: 16px;
     line-height: 20px;
+  }
+  .form__title {
+    max-width: 380px;
   }
   .form__container {
     padding-top: 80px;
