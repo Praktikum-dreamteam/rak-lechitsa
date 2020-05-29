@@ -84,13 +84,7 @@ export default {
       return pages;
     },
     rangeStart() {
-      if (process.browser) {
-        if (window.innerWidth > 768) {
-          this.pageRange = 2;
-        } else {
-          this.pageRange = 1;
-        }
-      }
+      this.pageRange = 0;
       const start = this.active - this.pageRange;
       return start > 0 ? start : 1;
     },
