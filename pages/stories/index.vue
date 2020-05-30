@@ -104,6 +104,7 @@ export default {
     },
     search() {
       const arr = this.queries.split(' ');
+      this.allStories = this.$store.getters['stories/getStories'];
       const stories = this.$store.getters['stories/getStories'];
       this.allStories = stories.filter(item => {
         return arr.every(el => {
