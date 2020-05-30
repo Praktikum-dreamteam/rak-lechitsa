@@ -93,7 +93,6 @@ export default {
           this.pageRange = 3;
         }
       }
-      console.log(this.pageRange);
       const start = Math.ceil(this.active - this.pageRange / 2);
       return start > 0 ? start : 1;
     },

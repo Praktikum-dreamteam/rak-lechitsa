@@ -148,6 +148,7 @@ export default {
 }
 .radio.active {
   color: #000000;
+  font-weight: 500;
 }
 @media screen and (max-width: 1280px) {
   .form__subtitle {

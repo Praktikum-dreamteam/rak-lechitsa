@@ -1,7 +1,6 @@
 <template>
   <Container>
     <div class="stories">
-      <a href="#top" name="top"></a>
       <h1 class="stories__title">Истории неизлечимых привычек</h1>
       <form class="input-container" @submit.prevent="search">
         <input
@@ -32,7 +31,6 @@
         </template>
         <pagination
           v-if="stories.length !== 0"
-          href="#top"
           :totalItems="this.allStories.length"
           :itemsPerPage="itemsPerPage"
           @onPageChanged="changeIndex"
@@ -106,6 +104,7 @@ export default {
       const arr = this.queries.split(' ');
       this.allStories = this.$store.getters['stories/getStories'];
       const stories = this.$store.getters['stories/getStories'];
+      this.changeIndex(1);
       this.allStories = stories.filter(item => {
         return arr.every(el => {
           return Object.values(item)
