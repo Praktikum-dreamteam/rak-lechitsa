@@ -10,6 +10,18 @@
           :maxValue="maxValue"
         />
         <DoubleProgressBar
+          v-else-if="number == 3"
+          :oldValue="oldValue || 61.5"
+          :value="currentValue || 80"
+          :maxValue="maxValue || 100"
+        />
+        <DoubleProgressBar
+          v-else-if="number == 4"
+          :oldValue="oldValue || 73.5"
+          :value="currentValue || 55"
+          :maxValue="maxValue || 100"
+        />
+        <DoubleProgressBar
           v-else
           :oldValue="oldValue || 30"
           :value="currentValue || 50"
@@ -33,7 +45,6 @@ export default {
     ProgressBar,
     DoubleProgressBar,
     SectionTitle,
-    SectionText,
     Container,
   },
   props: {
@@ -43,6 +54,7 @@ export default {
     currentValue: Number,
     maxValue: Number,
     oldValue: Number,
+    number: Number,
   },
 };
 </script>

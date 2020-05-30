@@ -6,6 +6,7 @@
         <StatsCard
           v-for="stat in stats"
           :key="stat.id"
+          :number="stat.id"
           :description="stat.description"
           :summary="stat.summary"
           :source="stat.source"
@@ -20,13 +21,11 @@
 
 <script>
 import SectionTitle from '@/components/SectionTitle';
-import SectionText from '@/components/SectionText';
 import Container from '@/components/Container';
 import StatsCard from '@/components/StatsCard';
 export default {
   components: {
     SectionTitle,
-    SectionText,
     Container,
     StatsCard,
   },
