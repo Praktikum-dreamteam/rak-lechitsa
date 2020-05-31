@@ -28,10 +28,9 @@
           >
         </li>
       </ul>
-      <div
-        class="copyright footer__copyright"
-        v-html="Content.text + getDate()"
-      ></div>
+      <copyright class="footer__copyright"
+        >{{ copyrightText() }} {{ getYear() }}</copyright
+      >
       <copyright>
         Сделано студентами
         <a
@@ -56,12 +55,14 @@ export default {
     Content: Object,
   },
   methods: {
-    getDate() {
-      let data = new Date();
-      return `<p> ${data.getFullYear()}</p>`;
+    getYear() {
+      return new Date().getFullYear();
     },
     openPopup() {
       this.$store.commit('popup/openShare');
+    },
+    copyrightText() {
+      return this.Content.text.replace(/\<p\>|\<\/p\>/g, '');
     },
   },
   components: {
@@ -128,16 +129,9 @@ export default {
   opacity: 0.8;
   transition: 0.3s;
 }
-.footer__copyright {
-  display: flex;
-  width: 400px;
-  font-size: 18px;
-  line-height: 18px;
-  color: #898989;
-}
 
-.footer__copyright /deep/ p {
-  margin-right: 10px;
+.footer__copyright {
+  width: 400px;
 }
 
 @media screen and (max-width: 1280px) {
@@ -150,9 +144,6 @@ export default {
   }
   .footer__nav {
     margin-left: 102px;
-  }
-  .footer__copyright {
-    font-size: 16px;
   }
 }
 @media screen and (max-width: 1024px) {
