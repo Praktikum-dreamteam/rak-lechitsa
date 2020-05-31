@@ -1,10 +1,10 @@
 <template>
   <section class="cover">
     <Container>
-      <h1 class="cover__title">#Раклечится</h1>
-      <a href="#video" class="cover__polygon">
+      <h1 class="cover__title">{{ Content.hashtag }}</h1>
+      <button class="cover__polygon" v-on:click="setActive()">
         <img src="/polygon.png" alt="стрелка вниз" />
-      </a>
+      </button>
     </Container>
   </section>
 </template>
@@ -12,8 +12,20 @@
 <script>
 import Container from '@/components/Container';
 export default {
+  props: {
+    Content: Object,
+  },
   components: {
     Container,
+  },
+  methods: {
+    setActive(index, event) {
+      window.scrollBy({
+        top: window.innerHeight,
+        left: 0,
+        behavior: 'smooth',
+      });
+    },
   },
 };
 </script>
@@ -37,17 +49,28 @@ export default {
   text-transform: uppercase;
 }
 .cover__polygon {
+  background: none;
+  border: none;
+  cursor: pointer;
   position: absolute;
   min-width: 36px;
   min-height: 12px;
   color: #fff;
-  bottom: 40px;
+  bottom: 35px;
   right: 50%;
   transform: translateX(50%);
 }
+
+.cover__polygon:active {
+  outline: none;
+}
+
+.cover__polygon:focus {
+  outline: none;
+}
 @media screen and (max-width: 1280px) {
   .cover__title {
-    font-size: 72px;
+    font-size: 78px;
     line-height: 94px;
   }
 }
@@ -57,7 +80,7 @@ export default {
     line-height: 77px;
   }
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
   .cover {
     height: calc(100vh - 64px);
   }

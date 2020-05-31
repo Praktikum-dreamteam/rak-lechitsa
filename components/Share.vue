@@ -18,29 +18,25 @@ export default {
       icons: [
         {
           id: 1,
-          href:
-            'https://www.facebook.com/sharer.php?src=sp&u=https%3A%2F%2Fraklechitsa.ru%2F&title=РАКЛЕЧИТСЯ.РФ%20—%20истории%20людей%2C%20победивших%20рак%2C%20но%20не%20свои%20привычки&utm_source=share2',
+          href: `https://www.facebook.com/sharer.php?src=sp&u=${this.$route.fullPath}%2F&title=${document.title}&utm_source=share2`,
           src: '/facebook.svg',
           alt: 'facebook',
         },
         {
           id: 2,
-          href:
-            'https://twitter.com/intent/tweet?text=РАКЛЕЧИТСЯ.РФ%20—%20истории%20людей%2C%20победивших%20рак%2C%20но%20не%20свои%20привычки&url=https%3A%2F%2Fraklechitsa.ru%2F&utm_source=share2',
+          href: `https://twitter.com/intent/tweet?text=${document.title}&url=${this.$route.fullPath}%2F&utm_source=share2`,
           src: '/twitter.svg',
           alt: 'twitter',
         },
         {
           id: 3,
-          href:
-            'https://vk.com/share.php?url=https%3A%2F%2Fraklechitsa.ru%2F&title=РАКЛЕЧИТСЯ.РФ%20—%20истории%20людей%2C%20победивших%20рак%2C%20но%20не%20свои%20привычки&utm_source=share2',
+          href: `https://vk.com/share.php?url=${this.$route.fullPath}%2F&title=${document.title}&utm_source=share2`,
           src: '/vk.svg',
           alt: 'вконтакте',
         },
         {
           id: 4,
-          href:
-            'https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&st.title=РАКЛЕЧИТСЯ.РФ+—+истории+людей%2C+победивших+рак%2C+но+не+свои+привычки&st.shareUrl=https%3A%2F%2Fraklechitsa.ru%2F',
+          href: `https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&st.title=${document.title}&st.shareUrl=${this.$route.fullPath}`,
           src: '/ok.svg',
           alt: 'одноклассники',
         },
@@ -57,6 +53,7 @@ export default {
           alt: 'ютуб',
         },
       ],
+      title: this.title,
     };
   },
 };

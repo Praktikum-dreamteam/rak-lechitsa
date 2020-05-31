@@ -348,7 +348,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      title:
+        'РАКЛЕЧИТСЯ.РФ Политика проекта в отношении обработки персональных данных.',
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -372,10 +379,6 @@ export default {};
 .policy-point__item {
   max-width: 750px;
   margin: 0 auto 82px;
-}
-
-.policy-point__item::marker {
-  font-size: 22px;
 }
 
 .policy-point__subtitle {
@@ -403,10 +406,6 @@ export default {};
   margin-bottom: 22px;
 }
 
-.policy-subpoint__item::marker {
-  font-size: 22px;
-}
-
 .policy-subpoint__text {
   font-size: 22px;
   line-height: 30px;
@@ -424,10 +423,6 @@ export default {};
     max-width: 700px;
   }
 
-  .policy-point__item::marker {
-    font-size: 20px;
-  }
-
   .policy-point__subtitle {
     font-size: 20px;
     line-height: 28px;
@@ -436,10 +431,6 @@ export default {};
   .policy-point__text {
     font-size: 20px;
     line-height: 28px;
-  }
-
-  .policy-subpoint__item::marker {
-    font-size: 20px;
   }
 
   .policy-subpoint__text {
@@ -464,10 +455,6 @@ export default {};
     margin-bottom: 55px;
   }
 
-  .policy-point__item::marker {
-    font-size: 18px;
-  }
-
   .policy-point__subtitle {
     font-size: 18px;
     line-height: 26px;
@@ -476,10 +463,6 @@ export default {};
   .policy-point__text {
     font-size: 18px;
     line-height: 26px;
-  }
-
-  .policy-subpoint__item::marker {
-    font-size: 18px;
   }
 
   .policy-subpoint__text {
@@ -512,10 +495,6 @@ export default {};
     margin-bottom: 45px;
   }
 
-  .policy-point__item::marker {
-    font-size: 13px;
-  }
-
   .policy-point__text {
     font-size: 13px;
     line-height: 16px;
@@ -527,10 +506,6 @@ export default {};
     font-size: 13px;
     line-height: 16px;
     color: #000;
-  }
-
-  .policy-subpoint__item::marker {
-    font-size: 13px;
   }
 }
 </style>

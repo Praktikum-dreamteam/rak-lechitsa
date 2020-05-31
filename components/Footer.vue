@@ -1,9 +1,7 @@
 <template>
   <footer class="footer">
     <Container class="footer__container">
-      <h2 class="footer__title">
-        Спасибо всем, кто помог состояться этому проекту
-      </h2>
+      <h2 class="footer__title">{{ Content.title }}</h2>
       <footer-nav class="footer__nav" />
       <ul class="footer__list-items">
         <li class="footer__list-item">
@@ -30,8 +28,8 @@
           >
         </li>
       </ul>
-      <copyright class="copyright footer__copyright"
-        >Рак Лечится {{ getDate() }}</copyright
+      <copyright class="footer__copyright"
+        >{{ copyrightText() }} {{ getYear() }}</copyright
       >
       <copyright>
         Сделано студентами
@@ -53,13 +51,18 @@ import Button from '@/components/ui/Button';
 import Container from '@/components/Container';
 
 export default {
+  props: {
+    Content: Object,
+  },
   methods: {
-    getDate() {
-      let data = new Date();
-      return data.getFullYear();
+    getYear() {
+      return new Date().getFullYear();
     },
     openPopup() {
       this.$store.commit('popup/openShare');
+    },
+    copyrightText() {
+      return this.Content.text.replace(/\<p\>|\<\/p\>/g, '');
     },
   },
   components: {
@@ -126,9 +129,11 @@ export default {
   opacity: 0.8;
   transition: 0.3s;
 }
+
 .footer__copyright {
   width: 400px;
 }
+
 @media screen and (max-width: 1280px) {
   .footer__social-link {
     font-size: 16px;
@@ -190,7 +195,7 @@ export default {
   }
 }
 @media screen and (max-width: 452px) {
-  .copyright {
+  .footer__copyright {
     font-size: 13px;
     line-height: 18px;
   }

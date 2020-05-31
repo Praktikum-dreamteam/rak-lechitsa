@@ -2,65 +2,19 @@
   <div class="page">
     <Container class="container">
       <div class="author">
-        <img class="author__image" src="/story-author.png" alt="" />
-        <h1 class="author__name">
-          Александр Тарханов: «Я не могу победить свою пунктуальность в отличии
-          от рака»
-        </h1>
+        <img class="author__image" :src="`${baseUrl}${getSrc}`" alt />
+        <h1 class="author__name">{{ currentStory.title }}</h1>
         <div class="author__panel">
           <!-- Fix!!!! -->
           <share-btn @btn-click="openPopup" theme="share"
             >Поделитесь &#8599;</share-btn
           >
-          <p class="author__date">20 апреля 2018</p>
+          <p class="author__date">{{ getdate(currentStory.updated_at) }}</p>
         </div>
       </div>
 
       <div class="text-container">
-        <p class="text-paragraph">
-          Я из военной семьи. Отец хоть и не был военным сам, но нас всех держал
-          в ежовых рукавицах. Думаю, поэтому мы и выросли такими ответственными.
-        </p>
-        <p class="text-paragraph">
-          У меня дома до сих пор стоят часы в каждой комнате, хотя они и не
-          нужны особо — я сам чувствую, опаздываю куда-то или нет, отстаю от
-          нужного графика или опережаю. Вот такие встроенные внутренние часы!
-          Будильник мне тоже не нужен — я всегда встаю раньше. Одеваюсь тоже
-          быстро, как в армии, за 45 секунд.
-        </p>
-        <p class="text-paragraph">
-          <span class="text-paragraph__bolder"
-            >«В футболе если команда опоздала на 15 минут, ей засчитывается
-            поражение».</span
-          >
-        </p>
-        <p class="text-paragraph">
-          Опаздывать я тоже не люблю, на все встречи прихожу заранее. Если знаю,
-          что могу попасть по дороге в пробку, то не еду на машине. В аэропорт
-          приезжаю задолго до начала регистрации. Лучше подожду и кофе попью,
-          чем опоздаю!
-        </p>
-        <p class="text-paragraph">
-          Когда мне было 16 лет, мне в школе геометрию нужно было пересдавать. Я
-          билеты выучил, знал абсолютно все. Пришел в нужное время, а
-          учительница — нет. Ну, я какое-то время подождал ее и ушел. Потом она
-          спрашивала: «Почему не дождался?». Я ответил: «В футболе если команда
-          опоздала на 15 минут, ей засчитывается поражение». Экзамен мне
-          все-таки поставили! Сейчас если кто-то из футболистов моей команды
-          опаздывает — начинаю злиться, могу и прикрикнуть потом. А если кто-то
-          опоздал на тренировку перед игрой — все, подготовка насмарку. Я сразу
-          начинаю думать тогда: «Значит, точно проиграем». Такая болезненная
-          пунктуальность уже не лечится. В отличие от рака.
-        </p>
-        <p class="text-paragraph">
-          <span class="text-paragraph__bold"
-            >«Сейчас если кто-то из футболистов моей команды опаздывает —
-            начинаю злиться, могу и прикрикнуть потом. А если кто-то опоздал на
-            тренировку перед игрой — все, подготовка насмарку. Я сразу начинаю
-            думать тогда: «Значит, точно проиграем». Такая болезненная
-            пунктуальность уже не лечится».</span
-          >
-        </p>
+        <div v-html="currentStory.text"></div>
         <div class="btn-container">
           <share-btn @btn-click="openPopup" theme="share_long"
             >Поделитесь этой статьей в своих социальных сетях &#8599;</share-btn
@@ -69,19 +23,15 @@
       </div>
 
       <ul class="stories-container">
-        <li
+        <story-card
           v-for="story in stories"
           :key="story.id"
           class="stories-container__item"
-        >
-          <story-card
-            :id="story.cards.id"
-            :src="story.cards.src"
-            :name="story.cards.name"
-            :description="story.cards.description"
-          >
-          </story-card>
-        </li>
+          :id="story.id"
+          :src="`${baseUrl}${getSmallSrc(story)}`"
+          :name="story.author"
+          :description="story.title"
+        ></story-card>
       </ul>
 
       <nuxt-link
@@ -100,6 +50,16 @@ import StoryCard from '@/components/StoryCard';
 import Button from '@/components/ui/Button';
 import Container from '@/components/Container';
 export default {
+  validate({ params, store }) {
+    return store.getters['stories/getStories'].some(
+      story => story.id == params.id
+    );
+  },
+  data() {
+    return {
+      baseUrl: process.env.baseUrl,
+    };
+  },
   components: {
     'story-card': StoryCard,
     'share-btn': Button,
@@ -109,8 +69,46 @@ export default {
     openPopup() {
       this.$store.commit('popup/openShare');
     },
+    getdate(date) {
+      const textDate = new Date(date);
+      const month = [
+        'Января',
+        'Февраля',
+        'Марта',
+        'Апреля',
+        'Мая',
+        'Июня',
+        'Июля',
+        'Августа',
+        'Сентября',
+        'Октября',
+        'Ноября',
+        'Декабря',
+      ];
+      return `${textDate.getDate()} ${
+        month[+textDate.getMonth() - 1]
+      } ${textDate.getFullYear()}`;
+    },
+    getSmallSrc(story) {
+      if (story) {
+        if (story.ImageUrl[0].formats.small)
+          return story.ImageUrl[0].formats.small.url.slice(1);
+        if (story.ImageUrl[0].formats.medium)
+          return story.ImageUrl[0].formats.medium.url.slice(1);
+        if (story.ImageUrl[0].formats.large)
+          return story.ImageUrl[0].formats.large.url.slice(1);
+        if (story.ImageUrl[0].formats.thumbnail)
+          return story.ImageUrl[0].formats.thumbnail.url.slice(1);
+      } else return 'history.png';
+    },
   },
   computed: {
+    currentStory() {
+      const allStories = this.$store.getters['stories/getStories'];
+      return this.$store.getters['stories/getStories'].find(
+        item => item.id == this.$route.params.id
+      );
+    },
     stories() {
       const allStories = this.$store.getters['stories/getStories'];
       const stories = [];
@@ -128,15 +126,32 @@ export default {
         }
       }
       if (process.browser) {
-        if (window.innerWidth > 950) {
+        if (window.innerWidth > 1000) {
           return stories.slice(0, 4);
-        } else if (window.innerWidth <= 950 && window.innerWidth >= 690) {
+        } else if (window.innerWidth <= 1000 && window.innerWidth >= 690) {
           return stories.slice(0, 3);
         } else {
           return stories.slice(0, 2);
         }
       }
     },
+    getSrc() {
+      if (this.currentStory) {
+        if (this.currentStory.ImageUrl[0].formats.large)
+          return this.currentStory.ImageUrl[0].formats.large.url.slice(1);
+        if (this.currentStory.ImageUrl[0].formats.medium)
+          return this.currentStory.ImageUrl[0].formats.medium.url.slice(1);
+        if (this.currentStory.ImageUrl[0].formats.small)
+          return this.currentStory.ImageUrl[0].formats.small.url.slice(1);
+        if (this.currentStory.ImageUrl[0].formats.thumbnail)
+          return this.currentStory.ImageUrl[0].formats.thumbnail.url.slice(1);
+      } else return '/history.png';
+    },
+  },
+  head() {
+    return {
+      title: `РАКЛЕЧИТСЯ.РФ ${this.currentStory.title}`,
+    };
   },
 };
 </script>
@@ -167,8 +182,7 @@ export default {
 
 .author__image {
   margin-right: 60px;
-  height: 580px;
-  width: 580px;
+  max-width: 580px;
   grid-row-start: 1;
   grid-row-end: 3;
 }
@@ -199,27 +213,22 @@ export default {
   margin: 0 auto;
 }
 
-.text-paragraph {
+.text-container /deep/ p {
   margin-bottom: 15px;
   font-size: 20px;
   line-height: 28px;
 }
 
-.text-paragraph__bolder {
+.text-container /deep/ blockquote {
   font-weight: 600;
 }
 
-.text-paragraph__bold {
-  font-weight: 500;
-}
-
 .stories-container {
-  max-width: 922px;
   margin: 0 auto;
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(208px, 300px));
   column-gap: 40px;
 }
 .history__link {
@@ -248,8 +257,7 @@ export default {
   }
 
   .author__image {
-    height: 518px;
-    width: 518px;
+    max-width: 518px;
   }
   .btn-container {
     margin: 60px 0 150px 0;
@@ -261,10 +269,11 @@ export default {
     font-size: 30px;
     line-height: 38px;
   }
-
+  .stories-container {
+    column-gap: 30px;
+  }
   .author__image {
-    height: 407px;
-    width: 407px;
+    max-width: 407px;
   }
 
   .author__panel {
@@ -276,7 +285,7 @@ export default {
     max-width: 640px;
   }
 
-  .text-paragraph {
+  p {
     font-size: 18px;
     line-height: 27px;
   }
@@ -287,7 +296,7 @@ export default {
   }
 }
 
-@media (max-width: 855px) {
+@media (max-width: 1000px) {
   .author {
     display: flex;
     flex-direction: column;
@@ -298,8 +307,7 @@ export default {
   .author__image {
     order: 1;
     margin: 0 auto 60px;
-    height: 420px;
-    width: 420px;
+    max-width: 420px;
   }
 
   .author__name {
@@ -317,7 +325,6 @@ export default {
   }
 
   .stories-container {
-    max-width: 688px;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 20px;
   }
@@ -344,8 +351,7 @@ export default {
   }
 
   .author__image {
-    width: 290px;
-    height: 290px;
+    max-width: 290px;
     margin-bottom: 30px;
   }
 
@@ -359,7 +365,7 @@ export default {
     max-width: 290px;
   }
 
-  .text-paragraph {
+  p {
     font-size: 13px;
     line-height: 16px;
   }

@@ -1,17 +1,17 @@
 <template>
   <div>
-    <div class="popup">
-      <div class="popup__header">
-        <div v-if="haveClose" @click="close" class="popup__close"></div>
+    <div class="container">
+      <div class="popup">
+        <div class="popup__header">
+          <div v-if="haveClose" @click="close" class="popup__close"></div>
+        </div>
+        <slot>Содержимое окна</slot>
       </div>
-      <slot>Содержимое окна</slot>
     </div>
-    <Overlay @overlayClick="close"></Overlay>
   </div>
 </template>
 
 <script>
-import Overlay from '@/components/ui/Overlay';
 import Container from '@/components/Container';
 export default {
   props: {
@@ -24,7 +24,6 @@ export default {
     },
   },
   components: {
-    Overlay,
     container: Container,
   },
   computed: {
@@ -37,20 +36,25 @@ export default {
 </script>
 
 <style scoped>
-.test {
-  padding: 15px;
-}
 .popup {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  z-index: 1;
+  padding: 38px;
+  background-color: #fff;
+}
+
+.container {
+  box-sizing: border-box;
   position: fixed;
+  max-width: 920px;
+  width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 920px;
-  box-sizing: border-box;
   z-index: 2;
-  padding: 38px;
-  background-color: #fff;
 }
 .popup__header {
   display: flex;
@@ -88,23 +92,23 @@ export default {
   transform: rotate(-45deg);
 }
 @media screen and (max-width: 1280px) {
-  .popup {
+  .container {
     max-width: 800px;
   }
 }
 
 @media screen and (max-width: 900px) {
-  .popup {
+  .container {
     max-width: 580px;
   }
 }
 @media screen and (max-width: 600px) {
-  .popup {
+  .container {
     max-width: 450px;
   }
 }
 @media screen and (max-width: 452px) {
-  .popup {
+  .container {
     max-width: 290px;
     padding: 15px;
   }
@@ -115,6 +119,20 @@ export default {
   .popup__close::after,
   .popup__close::before {
     height: 17px;
+  }
+}
+@media screen and (max-height: 750px) {
+  .container {
+    height: 100vh;
+    overflow: auto;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding-top: 85px;
+    padding-bottom: 85px;
+  }
+  .container::-webkit-scrollbar {
+    width: 0;
   }
 }
 </style>

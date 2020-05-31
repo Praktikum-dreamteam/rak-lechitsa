@@ -1,5 +1,5 @@
 <template>
-  <form class="form">
+  <form class="form" name="form">
     <h2 class="form__title">Оставьте контакт для связи</h2>
     <p class="form__subtitle">
       Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
@@ -9,11 +9,11 @@
       <div class="form__fieldset">
         <customLabel
           labelText="Как вас зовут?"
-          for="name"
+          For="name"
           class="form__label"
         />
         <inputForm
-          id="name"
+          Id="name"
           placeholder="Напишите тут"
           class="form__input"
           v-model="name"
@@ -23,20 +23,21 @@
         <div class="form__fieldset">
           <customLabel
             labelText="Электронная почта"
-            for="email"
+            For="email"
             class="form__label"
           />
           <inputForm
-            id="email"
+            Id="email"
             placeholder="pochta@example.com"
             class="form__input"
             v-model="email"
+            type="email"
           />
         </div>
         <div class="form__fieldset">
-          <customLabel labelText="Телефон" for="phone" class="form__label" />
+          <customLabel labelText="Телефон" For="phone" class="form__label" />
           <inputForm
-            id="phone"
+            Id="phone"
             placeholder="+7 000 000 00 00"
             class="form__input"
             v-model="phone"
@@ -46,11 +47,11 @@
       <div class="form__fieldset">
         <customLabel
           labelText="Напишите, если есть предпочтительный способ связи и удобное время"
-          for="comment"
+          For="preferred"
           class="form__label"
         />
         <inputForm
-          id="comment"
+          Id="preferred"
           placeholder="Телефон / почта и удобное время"
           class="form__input"
           v-model="comment"
@@ -60,7 +61,9 @@
     <div class="form__buttons">
       <btn
         @btn-click="sendForm"
-        :disabled="!!!(this.email && this.name && this.phone && this.comment)"
+        :disabled="
+          !(validateEmail && validateName && validatePhone && validateComment)
+        "
         type="submit"
         class="form__button"
         theme="violet"
@@ -105,13 +108,48 @@ export default {
       },
       set(value) {},
     },
+    validateEmail() {
+      return this.validEmail(this.email);
+    },
+    validateName() {
+      return this.name.length > 1;
+    },
+    validatePhone() {
+      return this.validPhone(this.phone);
+    },
+    validateComment() {
+      return this.comment.length > 1;
+    },
   },
   methods: {
     sendForm() {
+      const form = document.forms.form;
+      const answer = {};
+      for (let i = 0; i < form.length; i++) {
+        if (form[i].id) answer[form[i].id] = form[i].value;
+      }
+      console.log(answer);
       this.close();
+    },
+    validEmail(em) {
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(em);
+    },
+    validPhone(tel) {
+      const re = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+      return re.test(tel);
     },
     close() {
       this.$store.commit('popup/close');
+    },
+    checkDisabled() {
+      console.log(this.validateEmail);
+      return (
+        this.validateEmail &&
+        this.validateName &&
+        this.validatePhone &&
+        this.validateComment
+      );
     },
   },
 };
@@ -164,6 +202,9 @@ export default {
 .form__container {
   display: flex;
   justify-content: stretch;
+}
+.form__container .form__fieldset {
+  width: 100%;
 }
 
 @media screen and (max-width: 1280px) {

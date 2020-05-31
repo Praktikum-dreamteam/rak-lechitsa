@@ -1,20 +1,28 @@
 <template>
   <div>
     <client-only>
-      <mobile-menu v-if="isMobileMenuOpened" class="menu__open"></mobile-menu>
+      <transition name="menu">
+        <mobile-menu v-if="isMobileMenuOpened" class="menu__open"></mobile-menu>
+      </transition>
     </client-only>
-    <Header />
+    <Header :Content="block('header')" />
     <nuxt />
-    <Popup v-if="popupVisible" :haveClose="true" title="Поделитесь">
-      <Share v-if="shareVisible" />
-      <form-quiz v-if="quizVisible" />
-      <Form v-if="formVisible" />
-    </Popup>
-    <Footer />
+    <transition name="fade">
+      <Popup v-if="popupVisible" :haveClose="true" title="Поделитесь">
+        <Share v-if="shareVisible" />
+        <form-quiz v-if="quizVisible" />
+        <Form v-if="formVisible" />
+      </Popup>
+    </transition>
+    <transition name="overlay">
+      <Overlay @overlayClick="closeByOverlay" v-if="popupVisible" />
+    </transition>
+    <Footer :Content="block('footer')" />
   </div>
 </template>
 
 <script>
+import Overlay from '@/components/ui/Overlay';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Popup from '@/components/PopUp';
@@ -58,6 +66,17 @@ export default {
     Form,
     'mobile-menu': Menu,
     'form-quiz': Quiz,
+    Overlay,
+  },
+  methods: {
+    block(name) {
+      const blocks = this.$store.getters['blocks/getBlocks'];
+      const currentBlock = blocks.find(item => item.block === name);
+      return currentBlock;
+    },
+    closeByOverlay() {
+      this.$store.commit('popup/close');
+    },
   },
 };
 </script>
@@ -81,6 +100,7 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
+
 .menu.menu__open {
   display: none;
 }

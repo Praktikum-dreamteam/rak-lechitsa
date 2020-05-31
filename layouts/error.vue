@@ -1,15 +1,22 @@
 <template>
   <div class="error">
-    <h1 class="error__title">404</h1>
-    <p class="error__subtitle">
+    <h1 v-if="error.statusCode === 404" class="error__title">404</h1>
+    <p v-if="error.statusCode === 404" class="error__subtitle">
       Страница не найдена.
       <nuxt-link to="/" class="error__link">Перейти на главную.</nuxt-link>
+    </p>
+    <h1 v-else class="error__title">УПС!</h1>
+    <p v-if="error.statusCode !== 404" class="error__subtitle">
+      Произошла ошибка
+      <a href="/" class="error__link">Перейти на главную.</a>
     </p>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['error'],
+};
 </script>
 
 <style scoped>

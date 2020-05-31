@@ -3,6 +3,12 @@ export default {
   /*
    ** Headers of the page
    */
+  router: {
+    middleware: 'data',
+  },
+  env: {
+    baseUrl: 'https://strapi.kruzhok.io/',
+  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -47,7 +53,9 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: 'https://strapi.kruzhok.io/',
+  },
   /*
    ** Build configuration
    */

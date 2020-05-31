@@ -2,17 +2,33 @@
   <div class="stats-card">
     <div class="stats-card__height"></div>
     <div class="stats-card__content">
-      <p class="stats-card__text">{{ title }}</p>
+      <p class="stats-card__text">{{ description }}</p>
       <div class="stats-card__graphs">
-        <ProgressBar v-if="!oldValue" :value="value" :maxValue="maxValue" />
-        <DoubleProgressBar
-          v-else
-          :oldValue="oldValue"
-          :value="value"
+        <ProgressBar
+          v-if="oldValue == 0"
+          :value="currentValue"
           :maxValue="maxValue"
         />
-        <h3 class="stats-card__subtitle">{{ subtitle }}</h3>
-        <p class="stats-card__author">{{ author }}</p>
+        <DoubleProgressBar
+          v-else-if="number == 3"
+          :oldValue="oldValue || 61.5"
+          :value="currentValue || 80"
+          :maxValue="maxValue || 100"
+        />
+        <DoubleProgressBar
+          v-else-if="number == 4"
+          :oldValue="oldValue || 73.5"
+          :value="currentValue || 55"
+          :maxValue="maxValue || 100"
+        />
+        <DoubleProgressBar
+          v-else
+          :oldValue="oldValue || 30"
+          :value="currentValue || 50"
+          :maxValue="maxValue || 100"
+        />
+        <h3 class="stats-card__subtitle">{{ summary }}</h3>
+        <p class="stats-card__author">{{ source }}</p>
       </div>
     </div>
   </div>
@@ -29,16 +45,16 @@ export default {
     ProgressBar,
     DoubleProgressBar,
     SectionTitle,
-    SectionText,
     Container,
   },
   props: {
-    title: String,
-    subtitle: String,
-    author: String,
-    value: Number,
+    description: String,
+    summary: String,
+    source: String,
+    currentValue: Number,
     maxValue: Number,
     oldValue: Number,
+    number: Number,
   },
 };
 </script>

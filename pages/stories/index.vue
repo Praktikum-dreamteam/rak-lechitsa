@@ -1,7 +1,6 @@
 <template>
   <Container>
     <div class="stories">
-      <a href="#top" name="top"></a>
       <h1 class="stories__title">Истории неизлечимых привычек</h1>
       <form class="input-container" @submit.prevent="search">
         <input
@@ -10,33 +9,34 @@
           name="name"
           v-model="queries"
         />
-        <!-- Дофиксить кнопку-->
         <button class="input-container__button">Поиск</button>
       </form>
       <client-only>
-        <ul class="stories-container">
-          <li
-            v-for="story in stories"
-            :key="story.id"
-            class="stories-container__item"
-          >
-            <story-card
-              :id="story.cards.id"
-              :src="story.cards.src"
-              :name="story.cards.name"
-              :description="story.cards.description"
+        <template>
+          <non-search v-if="stories.length === 0" />
+          <ul class="stories-container" v-else>
+            <li
+              v-for="story in stories"
+              :key="story.id"
+              class="stories-container__item"
             >
-            </story-card>
-          </li>
-        </ul>
+              <story-card
+                :id="story.id"
+                :src="`${baseUrl}${getSmallSrc(story)}`"
+                :name="story.author"
+                :description="story.title"
+              ></story-card>
+            </li>
+          </ul>
+        </template>
+        <pagination
+          v-if="stories.length !== 0"
+          :totalItems="this.allStories.length"
+          :itemsPerPage="itemsPerPage"
+          @onPageChanged="changeIndex"
+        >
+        </pagination>
       </client-only>
-      <pagination
-        href="#top"
-        :totalItems="this.allStories.length"
-        :itemsPerPage="itemsPerPage"
-        @onPageChanged="changeIndex"
-      >
-      </pagination>
     </div>
   </Container>
 </template>
@@ -46,6 +46,7 @@ import Button from '@/components/ui/Button';
 import StoryCard from '@/components/StoryCard';
 import Pagination from '@/components/ui/Pagination';
 import Container from '@/components/Container';
+import NonSearch from '@/components/NonSearch';
 export default {
   data() {
     return {
@@ -54,11 +55,13 @@ export default {
       startIndex: 0,
       itemsPerPage: 16,
       allStories: '',
+      baseUrl: process.env.baseUrl,
     };
   },
   components: {
     'button-ui': Button,
     'story-card': StoryCard,
+    'non-search': NonSearch,
     pagination: Pagination,
     Container,
   },
@@ -87,20 +90,36 @@ export default {
     changeIndex(index) {
       this.startIndex = (index - 1) * this.itemsPerPage;
     },
+    getSmallSrc(story) {
+      if (story.ImageUrl[0].formats.small)
+        return story.ImageUrl[0].formats.small.url.slice(1);
+      if (story.ImageUrl[0].formats.medium)
+        return story.ImageUrl[0].formats.medium.url.slice(1);
+      if (story.ImageUrl[0].formats.large)
+        return story.ImageUrl[0].formats.large.url.slice(1);
+      if (story.ImageUrl[0].formats.thumbnail)
+        return story.ImageUrl[0].formats.thumbnail.url.slice(1);
+      else return 'history.png';
+    },
     search() {
       const arr = this.queries.split(' ');
-      console.log(arr);
+      this.allStories = this.$store.getters['stories/getStories'];
       const stories = this.$store.getters['stories/getStories'];
+      this.changeIndex(1);
       this.allStories = stories.filter(item => {
         return arr.every(el => {
-          return Object.values(item.cards)
+          return Object.values(item)
             .join('')
             .toLowerCase()
             .includes(el.toLowerCase());
         });
       });
-      console.log(this.queries, stories);
     },
+  },
+  head() {
+    return {
+      title: 'РАКЛЕЧИТСЯ.РФ Истории неизлечимых привычек',
+    };
   },
 };
 </script>
@@ -126,6 +145,7 @@ export default {
 }
 
 .input-container__input {
+  outline: none;
   width: 81.36%;
   margin-right: 1.52%;
   height: 52px;
@@ -134,6 +154,11 @@ export default {
   font-size: 18px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.input-container__input:focus {
+  outline-offset: -2px;
+  outline: 3px solid #613a93;
 }
 
 .input-container__button {

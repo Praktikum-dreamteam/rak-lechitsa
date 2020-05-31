@@ -1,11 +1,9 @@
 <template>
   <header class="header">
     <Container class="header__container">
-      <nuxt-link to="/" class="header__link"
-        ><h2 class="header__title">
-          Проект Благотворительного Фонда Константина Хабенского
-        </h2></nuxt-link
-      >
+      <nuxt-link to="/" class="header__link">
+        <h2 class="header__title">{{ HeaderBlock.title }}</h2>
+      </nuxt-link>
       <my-menu />
       <mobileIcon class="header__menu-icon" />
     </Container>
@@ -21,6 +19,13 @@ export default {
     'my-menu': Menu,
     mobileIcon: MobileIcon,
     Container,
+  },
+  computed: {
+    HeaderBlock() {
+      return this.$store.getters['blocks/getBlocks'].find(
+        el => el.block === 'header'
+      );
+    },
   },
 };
 </script>
