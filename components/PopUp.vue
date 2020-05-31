@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Overlay @overlayClick="close"></Overlay>
     <div class="container">
       <div class="popup">
         <div class="popup__header">
@@ -13,7 +12,6 @@
 </template>
 
 <script>
-import Overlay from '@/components/ui/Overlay';
 import Container from '@/components/Container';
 export default {
   props: {
@@ -26,7 +24,6 @@ export default {
     },
   },
   components: {
-    Overlay,
     container: Container,
   },
   computed: {
@@ -39,27 +36,25 @@ export default {
 </script>
 
 <style scoped>
-.test {
-  padding: 15px;
-}
 .popup {
   position: relative;
   width: 100%;
-  max-width: 920px;
   margin: 0 auto;
   box-sizing: border-box;
-  z-index: 2;
+  z-index: 1;
   padding: 38px;
   background-color: #fff;
 }
 
 .container {
+  box-sizing: border-box;
   position: fixed;
+  max-width: 920px;
   width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 2;
 }
 .popup__header {
   display: flex;
@@ -97,23 +92,23 @@ export default {
   transform: rotate(-45deg);
 }
 @media screen and (max-width: 1280px) {
-  .popup {
+  .container {
     max-width: 800px;
   }
 }
 
 @media screen and (max-width: 900px) {
-  .popup {
+  .container {
     max-width: 580px;
   }
 }
 @media screen and (max-width: 600px) {
-  .popup {
+  .container {
     max-width: 450px;
   }
 }
 @media screen and (max-width: 452px) {
-  .popup {
+  .container {
     max-width: 290px;
     padding: 15px;
   }
