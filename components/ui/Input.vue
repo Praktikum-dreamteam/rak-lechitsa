@@ -42,6 +42,7 @@ export default {
 
 <style scoped>
 .input {
+  outline: none;
   width: 100%;
   padding: 10px 0;
   border: none;
@@ -53,8 +54,8 @@ export default {
   color: #000;
 }
 .input:focus {
-  outline: none;
-  border-bottom: 1px solid #3c9dd0;
+  padding-bottom: 9px;
+  border-bottom: 2px solid #613a93;
 }
 
 @media screen and (max-width: 1280px) {

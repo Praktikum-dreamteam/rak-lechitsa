@@ -145,6 +145,7 @@ export default {
 }
 
 .input-container__input {
+  outline: none;
   width: 81.36%;
   margin-right: 1.52%;
   height: 52px;
@@ -153,6 +154,11 @@ export default {
   font-size: 18px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.input-container__input:focus {
+  outline-offset: -2px;
+  outline: 3px solid #613a93;
 }
 
 .input-container__button {
