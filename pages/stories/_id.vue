@@ -2,11 +2,7 @@
   <div class="page">
     <Container class="container">
       <div class="author">
-        <img
-          class="author__image"
-          :src="`https://strapi.kruzhok.io${getSrc}`"
-          alt
-        />
+        <img class="author__image" :src="`${baseUrl}${getSrc}`" alt />
         <h1 class="author__name">{{ currentStory.title }}</h1>
         <div class="author__panel">
           <!-- Fix!!!! -->
@@ -32,7 +28,7 @@
           :key="story.id"
           class="stories-container__item"
           :id="story.id"
-          :src="`https://strapi.kruzhok.io${getSmallSrc(story)}`"
+          :src="`${baseUrl}${getSmallSrc(story)}`"
           :name="story.author"
           :description="story.title"
         ></story-card>
@@ -58,6 +54,11 @@ export default {
     return store.getters['stories/getStories'].some(
       story => story.id == params.id
     );
+  },
+  data() {
+    return {
+      baseUrl: process.env.baseUrl,
+    };
   },
   components: {
     'story-card': StoryCard,
@@ -91,14 +92,14 @@ export default {
     getSmallSrc(story) {
       if (story) {
         if (story.ImageUrl[0].formats.small)
-          return story.ImageUrl[0].formats.small.url;
+          return story.ImageUrl[0].formats.small.url.slice(1);
         if (story.ImageUrl[0].formats.medium)
-          return story.ImageUrl[0].formats.medium.url;
+          return story.ImageUrl[0].formats.medium.url.slice(1);
         if (story.ImageUrl[0].formats.large)
-          return story.ImageUrl[0].formats.large.url;
+          return story.ImageUrl[0].formats.large.url.slice(1);
         if (story.ImageUrl[0].formats.thumbnail)
-          return story.ImageUrl[0].formats.thumbnail.url;
-      } else return '/history.png';
+          return story.ImageUrl[0].formats.thumbnail.url.slice(1);
+      } else return 'history.png';
     },
   },
   computed: {
@@ -137,13 +138,13 @@ export default {
     getSrc() {
       if (this.currentStory) {
         if (this.currentStory.ImageUrl[0].formats.large)
-          return this.currentStory.ImageUrl[0].formats.large.url;
+          return this.currentStory.ImageUrl[0].formats.large.url.slice(1);
         if (this.currentStory.ImageUrl[0].formats.medium)
-          return this.currentStory.ImageUrl[0].formats.medium.url;
+          return this.currentStory.ImageUrl[0].formats.medium.url.slice(1);
         if (this.currentStory.ImageUrl[0].formats.small)
-          return this.currentStory.ImageUrl[0].formats.small.url;
+          return this.currentStory.ImageUrl[0].formats.small.url.slice(1);
         if (this.currentStory.ImageUrl[0].formats.thumbnail)
-          return this.currentStory.ImageUrl[0].formats.thumbnail.url;
+          return this.currentStory.ImageUrl[0].formats.thumbnail.url.slice(1);
       } else return '/history.png';
     },
   },

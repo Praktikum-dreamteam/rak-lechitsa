@@ -6,7 +6,7 @@
         <li v-for="story in stories" :key="story.id" class="history__card">
           <story-card
             :id="story.id"
-            :src="`https://strapi.kruzhok.io${getSmallSrc(story)}`"
+            :src="`${baseUrl}${getSmallSrc(story)}`"
             :name="story.author"
             :description="story.title"
           ></story-card>
@@ -52,19 +52,20 @@ export default {
   data() {
     return {
       hover: false,
+      baseUrl: process.env.baseUrl,
     };
   },
   methods: {
     getSmallSrc(story) {
       if (story.ImageUrl[0].formats.small)
-        return story.ImageUrl[0].formats.small.url;
+        return story.ImageUrl[0].formats.small.url.slice(1);
       if (story.ImageUrl[0].formats.medium)
-        return story.ImageUrl[0].formats.medium.url;
+        return story.ImageUrl[0].formats.medium.url.slice(1);
       if (story.ImageUrl[0].formats.large)
-        return story.ImageUrl[0].formats.large.url;
+        return story.ImageUrl[0].formats.large.url.slice(1);
       if (story.ImageUrl[0].formats.thumbnail)
-        return story.ImageUrl[0].formats.thumbnail.url;
-      else return '/history.png';
+        return story.ImageUrl[0].formats.thumbnail.url.slice(1);
+      else return 'history.png';
     },
   },
 };
