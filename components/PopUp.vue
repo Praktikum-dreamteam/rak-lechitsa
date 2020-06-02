@@ -91,6 +91,28 @@ export default {
 .popup__close::after {
   transform: rotate(-45deg);
 }
+.popup.share__popup {
+  padding: 40px 0 108px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 800px;
+}
+
+@media screen and (max-width: 900px) {
+  .popup.share__popup {
+    width: 580px;
+    padding: 25px 0 70px 0;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .popup.share__popup {
+    width: 290px;
+    padding: 35px 0 70px 0;
+  }
+}
 @media screen and (max-width: 1280px) {
   .container {
     max-width: 800px;
