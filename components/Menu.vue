@@ -30,9 +30,28 @@ export default {
   align-items: center;
 }
 
+.menu.menu__open {
+  display: none;
+}
+
 @media screen and (max-width: 792px) {
   .menu {
     display: none;
+  }
+}
+@media screen and (max-width: 792px) {
+  .menu.menu__open {
+    display: flex;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 18px 50px;
+  }
+}
+@media screen and (max-width: 452px) {
+  .menu.menu__open {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 18px 15px;
   }
 }
 </style>
