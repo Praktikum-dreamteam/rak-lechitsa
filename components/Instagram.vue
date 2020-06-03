@@ -51,13 +51,15 @@ export default {
       return this.$store.getters['instagram/getPosts'].slice(0, 8);
     },
   },
+  async created() {
+    await this.$store.dispatch('instagram/GET_PHOTOS');
+  },
 };
 </script>
 
 <style scoped>
 .stories {
   display: flex;
-  /* justify-content: space-between; */
 }
 
 .story {
@@ -140,7 +142,6 @@ export default {
 @media (max-width: 1062px) {
   .story__images {
     max-width: 604px;
-    /* grid-template-columns: repeat(4, 136px); */
     grid-gap: 20px;
   }
   .story__subtitle {
