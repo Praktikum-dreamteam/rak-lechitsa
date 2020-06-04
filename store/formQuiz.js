@@ -106,14 +106,21 @@ export const mutations = {
     state.answers = {};
   },
 };
-
+export const getters = {
+  getNumberAllQuestions(state) {
+    return Object.keys(state.questions).length;
+  },
+};
 export const actions = {
   async nextQuestion({ commit, state }, { answer }) {
     const { currentQuestion } = state;
     await commit('saveAnswer', { answer, currentQuestion });
-    await commit('setCurrentQuestion', {
-      currentQuestion: currentQuestion + 1,
-    });
+
+    if (currentQuestion < getters.getNumberAllQuestions(state)) {
+      await commit('setCurrentQuestion', {
+        currentQuestion: currentQuestion + 1,
+      });
+    }
   },
   prevQuestion({ commit, state }) {
     const { currentQuestion } = state;

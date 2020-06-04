@@ -7,9 +7,9 @@
       </h3>
       <p class="quiz__question">
         <span class="quiz__text-main">{{ currentQuestion.question }}</span>
-        <span class="quiz__text-additional">
-          {{ currentQuestion.description }}
-        </span>
+        <span class="quiz__text-additional">{{
+          currentQuestion.description
+        }}</span>
       </p>
       <inputForm
         class="quiz__input"
@@ -85,8 +85,7 @@ export default {
       return formQuiz.currentQuestion;
     },
     numberAllQuestions() {
-      const { formQuiz } = this.$store.state;
-      return Object.keys(formQuiz.questions).length;
+      return this.$store.getters['formQuiz/getNumberAllQuestions'];
     },
     initialAnswer() {
       const { formQuiz } = this.$store.state;
@@ -106,6 +105,9 @@ export default {
       this.answer = this.initialAnswer;
     },
     async sendQuiz() {
+      await this.$store.dispatch('formQuiz/nextQuestion', {
+        answer: this.answer,
+      });
       this.isGratitudeShow = true;
       this.$store.commit('popup/toggleIconClose');
       await this.$store.dispatch('formQuiz/sendQuiz');
