@@ -9,61 +9,63 @@
       <div class="form__fieldset">
         <customLabel
           labelText="Как вас зовут?"
-          For="name"
+          for="name"
           class="form__label"
         />
         <inputForm
-          Id="name"
+          id="name"
           placeholder="Напишите тут"
           class="form__input"
           v-model="name"
+          :isValid="true"
         />
       </div>
       <div class="form__container">
         <div class="form__fieldset">
           <customLabel
             labelText="Электронная почта"
-            For="email"
+            for="email"
             class="form__label"
           />
           <inputForm
-            Id="email"
+            id="email"
             placeholder="pochta@example.com"
             class="form__input"
             v-model="email"
             type="email"
+            :isValid="true"
           />
         </div>
         <div class="form__fieldset">
-          <customLabel labelText="Телефон" For="phone" class="form__label" />
+          <customLabel labelText="Телефон" for="phone" class="form__label" />
           <inputForm
-            Id="phone"
+            id="phone"
             placeholder="+7 000 000 00 00"
             class="form__input"
             v-model="phone"
+            :isValid="true"
           />
         </div>
       </div>
       <div class="form__fieldset">
         <customLabel
           labelText="Напишите, если есть предпочтительный способ связи и удобное время"
-          For="preferred"
+          for="preferred"
           class="form__label"
         />
         <inputForm
-          Id="preferred"
+          id="preferred"
           placeholder="Телефон / почта и удобное время"
           class="form__input"
           v-model="comment"
+          :isValid="true"
         />
       </div>
     </div>
     <div class="form__buttons">
       <btn
         @btn-click="sendForm"
-        :disabled="
-          !(validateEmail && validateName && validatePhone && validateComment)
-        "
+        :disabled="!((validateEmail || validatePhone) && validateName)"
         type="submit"
         class="form__button"
         theme="violet"
@@ -80,13 +82,6 @@ import Input from '@/components/ui/Input';
 import Label from '@/components/ui/Label';
 import PersonalDataConsent from '@/components/PersonalDataConsent';
 export default {
-  props: [
-    'formQuestion',
-    'description',
-    'answer',
-    'isLast',
-    'isDisabledBackButton',
-  ],
   components: {
     btn: Button,
     inputForm: Input,
@@ -122,13 +117,13 @@ export default {
     },
   },
   methods: {
-    sendForm() {
+    async sendForm() {
       const form = document.forms.form;
       const answer = {};
       for (let i = 0; i < form.length; i++) {
         if (form[i].id) answer[form[i].id] = form[i].value;
       }
-      console.log(answer);
+      this.$store.dispatch('form/SEND_FORM', answer);
       this.close();
     },
     validEmail(em) {

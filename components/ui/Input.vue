@@ -1,18 +1,23 @@
 <template>
-  <input
-    @input="handleInput"
-    class="input"
-    :id="Id"
-    :type="type"
-    :placeholder="placeholder"
-    v-model="content"
-  />
+  <div>
+    <input
+      @input="handleInput"
+      :class="['input', { input_error: !isValid }]"
+      :id="id"
+      :type="type"
+      :placeholder="placeholder"
+      v-model="content"
+    />
+    <p v-if="!isValid" class="text-error">{{ textError }}</p>
+  </div>
 </template>
 
 <script>
 export default {
   props: {
-    Id: String,
+    id: String,
+    isValid: Boolean,
+    textError: String,
     placeholder: String,
     type: String,
     value: {
@@ -41,6 +46,12 @@ export default {
 </script>
 
 <style scoped>
+.text-error {
+  font-size: 16px;
+  line-height: 24px;
+  position: absolute;
+  color: #cc0000;
+}
 .input {
   outline: none;
   width: 100%;
@@ -57,8 +68,12 @@ export default {
   padding-bottom: 9px;
   border-bottom: 2px solid #613a93;
 }
-
+.input_error:focus,
+.input_error {
+  border-bottom: 2px solid #cc0000;
+}
 @media screen and (max-width: 1280px) {
+  .text-error,
   .input {
     font-size: 16px;
     line-height: 22px;
@@ -71,6 +86,7 @@ export default {
   }
 }
 @media screen and (max-width: 650px) {
+  .text-error,
   .input {
     font-size: 13px;
     line-height: 16px;

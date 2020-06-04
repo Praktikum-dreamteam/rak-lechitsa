@@ -1,6 +1,6 @@
 <template>
   <div class="label">
-    <label class="label__main-text" :for="For">{{ labelText }}</label>
+    <label class="label__main-text" :for="forlbl">{{ labelText }}</label>
     <span class="label__additional-text">{{ additionalText }}</span>
   </div>
 </template>
@@ -9,7 +9,7 @@
 export default {
   //TODO По случаю переделать компонент
   props: {
-    For: String,
+    forlbl: String,
     labelText: String,
     additionalText: String,
   },

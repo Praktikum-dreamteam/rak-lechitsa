@@ -7,15 +7,18 @@
       </h3>
       <p class="quiz__question">
         <span class="quiz__text-main">{{ currentQuestion.question }}</span>
-        <span class="quiz__text-additional">{{
-          currentQuestion.description
-        }}</span>
+        <span class="quiz__text-additional">
+          {{ currentQuestion.description }}
+        </span>
       </p>
       <inputForm
         class="quiz__input"
         placeholder="Напишите тут"
         type="text"
+        @input="valid"
         v-model="answer"
+        :isValid="isValid"
+        :textError="textError"
       />
       <div class="quiz__footer">
         <div class="quiz__buttons">
@@ -30,7 +33,7 @@
           <!-- TODO: Исправить условия -->
           <btn
             v-if="numberCurrentQuestion !== numberAllQuestions"
-            :disabled="answer == ''"
+            :disabled="!isValid || answer == ''"
             type="submit"
             @btn-click="nextQuestion"
             class="quiz__button quiz__button_next"
@@ -39,7 +42,7 @@
           >
           <btn
             v-if="numberCurrentQuestion === numberAllQuestions"
-            :disabled="answer == ''"
+            :disabled="!isValid || answer == ''"
             type="submit"
             @btn-click="sendQuiz"
             class="quiz__button quiz__button_next"
@@ -72,6 +75,8 @@ export default {
     return {
       answer: '',
       isGratitudeShow: false,
+      isValid: true,
+      textError: '',
     };
   },
   computed: {
@@ -92,8 +97,27 @@ export default {
       const { currentQuestion, answers } = formQuiz;
       return answers[this.currentQuestion.name] || '';
     },
+    isValidInput() {
+      return this.isValid;
+    },
   },
   methods: {
+    valid() {
+      const rePhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+      const reEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (this.currentQuestion.name == 'phone') {
+        this.isValid = rePhone.test(this.answer);
+        this.textError = 'Введите корректный номер телефона';
+        return;
+      }
+      if (this.currentQuestion.name == 'email') {
+        this.isValid = reEmail.test(this.answer);
+        this.textError = 'Введите корректный адрес электронной почты';
+        return;
+      }
+      this.isValid = this.answer != '';
+      this.textError = 'Поле необходимо заполнить';
+    },
     async nextQuestion() {
       await this.$store.dispatch('formQuiz/nextQuestion', {
         answer: this.answer,
@@ -110,7 +134,7 @@ export default {
       });
       this.isGratitudeShow = true;
       this.$store.commit('popup/toggleIconClose');
-      await this.$store.dispatch('formQuiz/sendQuiz');
+      await this.$store.dispatch('formQuiz/SEND_QUIZ');
     },
   },
 };

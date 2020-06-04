@@ -130,7 +130,7 @@ export default {
   }
 }
 @media screen and (max-width: 452px) {
-  .container {
+  .popup {
     max-width: 290px;
     padding: 15px;
   }
