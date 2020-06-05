@@ -5,20 +5,32 @@
     @click.prevent="$emit('btn-click')"
     :class="['btn', `btn_theme_${theme}`, { btn_disabled: disabled }]"
   >
-    <p v-if="haveLoading">загрузка</p>
-    <slot v-else></slot>
+    <div v-if="haveLoading" class="btn__loader">
+      <svg
+        class="btn__spinner"
+        width="65"
+        height="65"
+        viewBox="0 0 66 66"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          class="btn__spinner-path"
+          fill="none"
+          stroke-width="6"
+          stroke-linecap="round"
+          cx="33"
+          cy="33"
+          r="30"
+          stroke="#000"
+        ></circle>
+      </svg>
+    </div>
+    <slot></slot>
   </button>
 </template>
-
 <script>
 export default {
-  props: ['theme', 'type', 'disabled'],
-  computed: {
-    haveLoading() {
-      const { popup } = this.$store.state;
-      return popup.isLoading;
-    },
-  },
+  props: ['theme', 'type', 'disabled', 'haveLoading'],
 };
 </script>
 
@@ -31,9 +43,13 @@ export default {
   background: none;
   border: none;
   cursor: pointer;
+  position: relative;
 }
 .btn:focus {
   outline: none;
+}
+.btn_transperent {
+  color: transparent;
 }
 .btn_theme_violet {
   color: #fff;
@@ -89,6 +105,53 @@ export default {
   border: none;
   width: 40px;
   height: 40px;
+}
+
+.btn__loader {
+  position: absolute;
+  cursor: inherit;
+  background-color: inherit;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.btn__spinner {
+  height: 100%;
+  width: 100%;
+  animation: rotator 2s linear infinite;
+}
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+.btn__spinner-path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation: dash 2s ease-in-out infinite;
+  stroke: white;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 47;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
 }
 
 @media screen and (max-width: 1280px) {
