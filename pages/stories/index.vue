@@ -9,10 +9,14 @@
           name="name"
           v-model="queries"
         />
-        <button class="input-container__clear">
+        <button
+          class="input-container__clear"
+          @click="resetSearch"
+          type="button"
+        >
           Очистить
         </button>
-        <button class="input-container__button">Поиск</button>
+        <button class="input-container__button" type="submit">Поиск</button>
       </form>
       <client-only>
         <template>
@@ -80,7 +84,7 @@ export default {
         }
       }
       if (!this.allStories) {
-        this.allStories = this.$store.getters['stories/getStories'];
+        this.allStories = this.getAllStories();
       }
       return this.allStories.filter(
         (item, index) =>
@@ -106,8 +110,8 @@ export default {
     },
     search() {
       const arr = this.queries.split(' ');
-      this.allStories = this.$store.getters['stories/getStories'];
-      const stories = this.$store.getters['stories/getStories'];
+      this.allStories = this.getAllStories();
+      const stories = this.allStories;
       this.changeIndex(1);
       this.allStories = stories.filter(item => {
         return arr.every(el => {
@@ -117,6 +121,13 @@ export default {
             .includes(el.toLowerCase());
         });
       });
+    },
+    resetSearch() {
+      this.queries = '';
+      this.allStories = this.getAllStories();
+    },
+    getAllStories() {
+      return this.$store.getters['stories/getStories'];
     },
   },
   head() {
