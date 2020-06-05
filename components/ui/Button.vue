@@ -5,13 +5,20 @@
     @click.prevent="$emit('btn-click')"
     :class="['btn', `btn_theme_${theme}`, { btn_disabled: disabled }]"
   >
-    <slot></slot>
+    <p v-if="haveLoading">загрузка</p>
+    <slot v-else></slot>
   </button>
 </template>
 
 <script>
 export default {
   props: ['theme', 'type', 'disabled'],
+  computed: {
+    haveLoading() {
+      const { popup } = this.$store.state;
+      return popup.isLoading;
+    },
+  },
 };
 </script>
 

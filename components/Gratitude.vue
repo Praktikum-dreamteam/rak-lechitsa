@@ -16,7 +16,6 @@ export default {
   methods: {
     close() {
       this.$store.commit('popup/close');
-      console.log('Закрыто');
       this.$store.commit('popup/toggleIconClose');
     },
   },

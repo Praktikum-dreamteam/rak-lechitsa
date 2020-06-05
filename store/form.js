@@ -9,13 +9,6 @@ export const mutations = {
 export const actions = {
   async SEND_FORM({ commit, state }, data) {
     await commit('saveData', data);
-    this.$axios
-      .$post('forms/contacts', state.dataForm)
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    await this.$axios.$post('forms/contacts', state.dataForm);
   },
 };

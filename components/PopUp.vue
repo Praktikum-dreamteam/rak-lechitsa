@@ -7,6 +7,11 @@
         </div>
         <slot>Содержимое окна</slot>
       </div>
+      <div v-if="haveError" class="popup__error">
+        <p class="popup__error-text">
+          Ошибка отправки данных, пожалуйста, попробуйте еще раз.
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -31,6 +36,10 @@ export default {
       const { popup } = this.$store.state;
       return popup.isHaveClose;
     },
+    haveError() {
+      const { popup } = this.$store.state;
+      return popup.isError;
+    },
   },
 };
 </script>
@@ -45,7 +54,16 @@ export default {
   padding: 38px;
   background-color: #fff;
 }
-
+.popup__error {
+  background-color: #f0f0f0;
+  padding: 16px 0;
+  text-align: center;
+}
+.popup__error-text {
+  color: red;
+  font-size: 14px;
+  line-height: 17px;
+}
 .container {
   box-sizing: border-box;
   position: fixed;
@@ -128,11 +146,22 @@ export default {
   .container {
     max-width: 450px;
   }
+  .popup__error {
+    padding: 18px 0;
+  }
+  .popup__error-text {
+    font-size: 11px;
+    line-height: 13px;
+  }
 }
 @media screen and (max-width: 452px) {
   .popup {
     max-width: 290px;
     padding: 15px;
+  }
+  .popup__error {
+    max-width: 290px;
+    margin: 0 auto;
   }
   .popup__close {
     top: 15px;
@@ -141,6 +170,9 @@ export default {
   .popup__close::after,
   .popup__close::before {
     height: 17px;
+  }
+  .popup__error {
+    padding: 12px 25px;
   }
 }
 @media screen and (max-height: 750px) {

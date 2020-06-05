@@ -13,7 +13,7 @@
           class="form__label"
         />
         <inputForm
-          id="name"
+          id="full_name"
           placeholder="Напишите тут"
           class="form__input"
           v-model="name"
@@ -119,12 +119,21 @@ export default {
   methods: {
     async sendForm() {
       const form = document.forms.form;
-      const answer = {};
+      const answers = {};
       for (let i = 0; i < form.length; i++) {
-        if (form[i].id) answer[form[i].id] = form[i].value;
+        if (form[i].id) answers[form[i].id] = form[i].value;
       }
-      this.$store.dispatch('form/SEND_FORM', answer);
-      this.close();
+      await this.$store.commit('popup/toggleLoading');
+      await this.$store
+        .dispatch('form/SEND_FORM', answers)
+        .then(() => {
+          this.$store.commit('popup/removeErrorElement');
+          this.close();
+        })
+        .catch(() => {
+          this.$store.commit('popup/addErrorElement');
+        })
+        .finally(() => this.$store.commit('popup/toggleLoading'));
     },
     validEmail(em) {
       const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -138,7 +147,6 @@ export default {
       this.$store.commit('popup/close');
     },
     checkDisabled() {
-      console.log(this.validateEmail);
       return (
         this.validateEmail &&
         this.validateName &&

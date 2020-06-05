@@ -110,12 +110,12 @@ export default {
         this.textError = 'Введите корректный номер телефона';
         return;
       }
-      if (this.currentQuestion.name == 'email') {
+      if (this.currentQuestion.name === 'email') {
         this.isValid = reEmail.test(this.answer);
         this.textError = 'Введите корректный адрес электронной почты';
         return;
       }
-      this.isValid = this.answer != '';
+      this.isValid = this.answer !== '';
       this.textError = 'Поле необходимо заполнить';
     },
     async nextQuestion() {
@@ -132,9 +132,18 @@ export default {
       await this.$store.dispatch('formQuiz/nextQuestion', {
         answer: this.answer,
       });
-      this.isGratitudeShow = true;
-      this.$store.commit('popup/toggleIconClose');
-      await this.$store.dispatch('formQuiz/SEND_QUIZ');
+      await this.$store.commit('popup/toggleLoading');
+      await this.$store
+        .dispatch('formQuiz/SEND_QUIZ')
+        .then(() => {
+          this.isGratitudeShow = true;
+          this.$store.commit('popup/removeErrorElement');
+          this.$store.commit('popup/toggleIconClose');
+        })
+        .catch(err => {
+          this.$store.commit('popup/addErrorElement');
+        })
+        .finally(() => this.$store.commit('popup/toggleLoading'));
     },
   },
 };

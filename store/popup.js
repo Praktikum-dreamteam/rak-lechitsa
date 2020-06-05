@@ -4,6 +4,8 @@ export const state = () => ({
   isQuiz: false,
   isForm: false,
   isHaveClose: true,
+  isError: false,
+  isLoading: false,
 });
 
 export const mutations = {
@@ -33,5 +35,14 @@ export const mutations = {
   },
   toggleIconClose(state) {
     state.isHaveClose = !state.isHaveClose;
+  },
+  addErrorElement(state) {
+    state.isError = true;
+  },
+  removeErrorElement(state) {
+    state.isError = false;
+  },
+  toggleLoading(state) {
+    state.isLoading = !state.isLoading;
   },
 };
