@@ -2,13 +2,15 @@
   <div>
     <input
       @input="handleInput"
-      :class="['input', { input_error: !isValid }]"
+      @blur="deactivationFocus"
+      @focus="actiovationFocus"
+      :class="['input', { input_error: !isFocus && !isValid }]"
       :id="id"
       :type="type"
       :placeholder="placeholder"
       v-model="content"
     />
-    <p v-if="!isValid" class="text-error">{{ textError }}</p>
+    <p v-if="!isFocus && !isValid" class="text-error">{{ textError }}</p>
   </div>
 </template>
 
@@ -28,6 +30,7 @@ export default {
   data() {
     return {
       content: this.value,
+      isFocus: false,
     };
   },
   watch: {
@@ -40,6 +43,13 @@ export default {
   methods: {
     handleInput() {
       this.$emit('input', this.content);
+    },
+    actiovationFocus() {
+      this.isFocus = true;
+    },
+    deactivationFocus() {
+      this.$emit('blur');
+      this.isFocus = false;
     },
   },
 };
