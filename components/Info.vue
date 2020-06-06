@@ -78,6 +78,9 @@ export default {
     addShortText() {
       this.$store.commit('info/addShort');
     },
+    openPopup() {
+      this.$store.commit('popup/openQuiz');
+    },
   },
   data() {
     return {
@@ -130,6 +133,7 @@ export default {
   color: #dedede;
   font-size: 18px;
   line-height: 22px;
+  margin-bottom: 32px;
 }
 .radio /deep/ {
   color: #c9c9c9;
@@ -178,6 +182,14 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
+    padding-bottom: 120px;
+  }
+  .info__button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(-50%);
   }
   .info__subtitle {
     max-width: 100%;
@@ -186,6 +198,12 @@ export default {
   }
   .radio.active {
     border-bottom: 2px solid white;
+  }
+}
+@media screen and (max-width: 550px) {
+  .info__content {
+    width: 100%;
+    padding-bottom: 80px;
   }
 }
 </style>
