@@ -55,6 +55,42 @@ export default {
       story => story.id == params.id
     );
   },
+  head() {
+    return {
+      title: `${this.currentStory.author} - РАКЛЕЧИТСЯ.РФ`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            `${this.currentStory.author}. РАКЛЕЧИТСЯ.РФ — проект Фонда Хабенского. Истории людей, победивших рак, но не свои привычки.` ||
+            '',
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: 'РАКЛЕЧИТСЯ.РФ, раклечится, этонелечится' || '',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `${this.currentStory.author} - РАКЛЕЧИТСЯ.РФ` || '',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            `${this.currentStory.author}. РАКЛЕЧИТСЯ.РФ — проект Фонда Хабенского. Истории людей, победивших рак, но не свои привычки.` ||
+            '',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `${this.currentStory.ImageUrl[0].url}` || '',
+        },
+      ],
+    };
+  },
   data() {
     return {
       baseUrl: process.env.baseUrl,
@@ -148,11 +184,6 @@ export default {
       } else return '/history.png';
     },
   },
-  head() {
-    return {
-      title: `РАКЛЕЧИТСЯ.РФ ${this.currentStory.title}`,
-    };
-  },
 };
 </script>
 
@@ -181,6 +212,7 @@ export default {
 }
 
 .author__image {
+  width: 100%;
   margin-right: 60px;
   max-width: 580px;
   grid-row-start: 1;
