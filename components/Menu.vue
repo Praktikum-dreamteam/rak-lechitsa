@@ -30,7 +30,7 @@ export default {
   align-items: center;
 }
 
-.menu__button {
+.menu /deep/ .menu__button {
   background-color: #613a93;
   color: #fff;
   margin-left: 40px;
@@ -40,7 +40,7 @@ export default {
   display: none;
 }
 @media screen and (max-width: 1280px) {
-  .menu__button {
+  .menu /deep/ .menu__button {
     margin-left: 30px;
   }
 }
@@ -61,7 +61,7 @@ export default {
     align-items: flex-start;
     padding: 18px 15px;
   }
-  .menu__button {
+  .menu /deep/ .menu__button {
     margin: 0 0 18px 0;
   }
 }
