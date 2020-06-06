@@ -182,10 +182,11 @@ export default {
     font-size: 13px;
     line-height: 16px;
   }
-  .radio.active {
+  .tabs__radio.radio.active {
     border-bottom: 2px solid #613a93;
   }
 }
+
 @media screen and (max-width: 425px) {
   .form__button {
     max-width: 100%;
