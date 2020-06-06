@@ -207,13 +207,13 @@ export default {
 .author {
   margin: 0 auto 130px;
   display: grid;
+  grid-column-gap: 60px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
 }
 
 .author__image {
   width: 100%;
-  margin-right: 60px;
   max-width: 580px;
   grid-row-start: 1;
   grid-row-end: 3;
