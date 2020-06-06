@@ -45,8 +45,48 @@ export default {
   },
   computed: {},
   head() {
+    if (this.metas) {
+      return {
+        title: this.metas.meta_title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: this.metas.meta_description || '',
+          },
+          {
+            hid: 'keywords',
+            name: 'keywords',
+            content: this.metas.meta_keywords || '',
+          },
+          {
+            hid: 'og:title',
+            property: 'og:title',
+            content: this.metas.meta_title || '',
+          },
+          {
+            hid: 'og:description',
+            property: 'og:description',
+            content: this.metas.meta_description || '',
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: this.metas.og_image || '',
+          },
+        ],
+      };
+    }
+  },
+  data() {
     return {
-      title: 'РАКЛЕЧИТСЯ.РФ',
+      metas: {
+        meta_title: 'РАКЛЕЧИТСЯ.РФ',
+        meta_description:
+          'Информационный проект Фонда Хабенского. Есть вещи, которые не лечатся. В отличие от рака. #раклечится Вместе мы изменим отношение людей!  Какая привычка или фобия не лечится у вас? #этонелечится',
+        og_image: 'static/Pozner.jpg',
+        meta_keywords: 'РАКЛЕЧИТСЯ.РФ, раклечится, этонелечится',
+      },
     };
   },
 };
