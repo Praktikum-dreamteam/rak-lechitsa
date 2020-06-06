@@ -6,9 +6,9 @@
       <div class="info__content">
         <div class="info__column">
           <div class="info__subtitle" v-html="Content.text"></div>
-          <btn @btn-click="openPopup" theme="history" class="info__button">
-            Рассказать историю
-          </btn>
+          <btn @btn-click="openPopup" theme="history" class="info__button"
+            >Рассказать историю</btn
+          >
         </div>
         <div class="tabs">
           <div class="tabs__radios">
@@ -147,6 +147,9 @@ export default {
     max-width: 305px;
     font-size: 16px;
     line-height: 20px;
+  }
+  .tabs__radio {
+    min-width: 160px;
   }
   .info__title {
     font-size: 58px;
