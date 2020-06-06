@@ -40,7 +40,7 @@ export default {
 .cover {
   position: relative;
   width: 100%;
-  height: calc(100vh - 76px);
+  height: calc(100vh - 85px);
   background-color: #613a93;
   display: flex;
   flex-direction: column;
