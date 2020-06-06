@@ -2,7 +2,11 @@
   <Container>
     <section class="history">
       <ul class="history__cards history__cards_four">
-        <li v-for="story in fourStories" :key="story.id" class="history__card">
+        <li
+          v-for="story in celebritiesStories"
+          :key="story.id"
+          class="history__card"
+        >
           <story-card
             :id="story.id"
             :src="`${baseUrl}${getSmallSrc(story)}`"
@@ -50,17 +54,17 @@ export default {
     stories() {
       if (process.browser) {
         if (window.innerWidth > 950) {
-          return this.$store.getters['stories/getSortStories'].slice(4, 12);
+          return this.$store.getters['stories/getStories'].slice(0, 8);
         } else if (window.innerWidth <= 950 && window.innerWidth >= 690) {
-          return this.$store.getters['stories/getSortStories'].slice(4, 13);
+          return this.$store.getters['stories/getStories'].slice(0, 9);
         } else {
-          return this.$store.getters['stories/getSortStories'].slice(4, 10);
+          return this.$store.getters['stories/getStories'].slice(0, 6);
         }
       }
     },
-    fourStories() {
+    celebritiesStories() {
       if (process.browser) {
-        return this.$store.getters['stories/getSortStories'].slice(0, 4);
+        return this.$store.getters['stories/getСelebritiesStories'].slice(0, 4);
       }
     },
   },
