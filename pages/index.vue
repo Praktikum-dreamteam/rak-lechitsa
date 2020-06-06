@@ -5,7 +5,7 @@
     <Slogan :Content="block('note-1')" />
     <History :Content="block('stories')" />
     <Slogan :Content="block('note-2')" />
-    <Instagram :Content="block('instagram')" />
+    <!-- <Instagram :Content="block('instagram')" /> -->
     <InfoBlock :Content="block('story')" />
     <Statistics :Content="block('statistics')" />
     <Info :Content="block('about')" />
