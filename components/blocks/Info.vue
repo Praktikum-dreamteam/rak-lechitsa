@@ -177,6 +177,9 @@ export default {
   .info__title {
     display: none;
   }
+  .tabs__radio {
+    min-width: auto;
+  }
   .info__content {
     margin-top: 26px;
     margin-left: auto;
