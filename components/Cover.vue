@@ -69,6 +69,10 @@ export default {
   outline: none;
   cursor: pointer;
 }
+.cover__btn:hover {
+  opacity: 0.6;
+  transition: 0.3s;
+}
 .cover__polygon {
   background: none;
   border: none;
@@ -103,6 +107,7 @@ export default {
   .cover__title {
     font-size: 78px;
     line-height: 94px;
+    margin-bottom: 20px;
   }
   .cover__btn {
     font-size: 20px;
@@ -113,6 +118,7 @@ export default {
   .cover__title {
     font-size: 64px;
     line-height: 77px;
+    margin-bottom: 30px;
   }
 }
 @media screen and (max-width: 600px) {
@@ -120,6 +126,7 @@ export default {
     height: calc(100vh - 64px);
   }
   .cover__title {
+    margin-bottom: 18px;
     font-size: 42px;
     line-height: 44px;
   }
