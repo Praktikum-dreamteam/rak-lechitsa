@@ -2,9 +2,9 @@
   <Container>
     <section class="video" id="video">
       <div class="video__text">
-        <SectionTitle class="video__title" theme="white">{{
-          Content.title
-        }}</SectionTitle>
+        <SectionTitle class="video__title" theme="white">
+          {{ Content.title }}
+        </SectionTitle>
         <div class="video__subtitle" v-html="Content.text"></div>
       </div>
       <div class="video__image" alt="Видео">
@@ -24,10 +24,38 @@
         >.
       </p>
       <btn theme="arrow" class="video__button video__button_next">
-        <img class="video__button-img" src="/next.svg" alt="Следующее видео" />
+        <svg
+          class="video__button-img"
+          width="11"
+          height="18"
+          viewBox="0 0 11 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="video__arrow"
+            d="M1 17L9 9L1 1"
+            stroke="white"
+            stroke-width="2"
+          />
+        </svg>
       </btn>
       <btn theme="arrow" class="video__button video__button_prev">
-        <img class="video__button-img" src="/prev.svg" alt="Предыдущее видео" />
+        <svg
+          class="video__button-img"
+          width="11"
+          height="18"
+          viewBox="0 0 11 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="video__arrow"
+            d="M10 1L2 9L10 17"
+            stroke="white"
+            stroke-width="2"
+          />
+        </svg>
       </btn>
     </section>
   </Container>
@@ -166,10 +194,9 @@ export default {
 .video__button {
   width: 40px;
   height: 40px;
-  background-color: #fbfbfb;
+  background-color: #613a93;
   grid-row: 2;
   align-self: end;
-  bottom: 110px;
 }
 
 .video__button_prev {
@@ -284,6 +311,9 @@ export default {
   }
   .video__image {
     grid-column: 1/-1;
+  }
+  .video__arrow {
+    stroke: #000;
   }
   .video__button {
     background-color: transparent;

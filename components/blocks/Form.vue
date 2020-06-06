@@ -75,6 +75,7 @@
       <btn
         @btn-click="sendForm"
         :disabled="isDisabledBtn"
+        :haveLoading="haveLoading"
         type="submit"
         class="form__button"
         theme="violet"
@@ -123,6 +124,10 @@ export default {
         }
       }
       return true;
+    },
+    haveLoading() {
+      const { popup } = this.$store.state;
+      return popup.isLoading;
     },
   },
   methods: {
