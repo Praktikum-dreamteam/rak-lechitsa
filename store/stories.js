@@ -34,12 +34,14 @@ export const getters = {
   getStories(state) {
     return state.stories;
   },
-  getMainStories(state) {
-    const mainStories = state.stories.slice();
-    mainStories.sort(a => {
-      return state.mainStoriesId.includes(a.id) ? -1 : 1;
+  getСelebritiesStories(state) {
+    const celebritiesStories = [];
+    state.stories.forEach(item => {
+      if (item.celebrity) {
+        celebritiesStories.push(item);
+      }
     });
-    return mainStories;
+    return celebritiesStories;
   },
   getCurrentStory(state) {
     return state.currentStory;

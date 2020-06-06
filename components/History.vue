@@ -1,6 +1,20 @@
 <template>
   <Container>
     <section class="history">
+      <ul class="history__cards history__cards_four">
+        <li
+          v-for="story in celebritiesStories"
+          :key="story.id"
+          class="history__card"
+        >
+          <story-card
+            :id="story.id"
+            :src="`${baseUrl}${getSmallSrc(story)}`"
+            :name="story.author"
+            :description="story.title"
+          ></story-card>
+        </li>
+      </ul>
       <SectionTitle theme="white">{{ Content.title }}</SectionTitle>
       <ul class="history__cards">
         <li v-for="story in stories" :key="story.id" class="history__card">
@@ -40,12 +54,17 @@ export default {
     stories() {
       if (process.browser) {
         if (window.innerWidth > 950) {
-          return this.$store.getters['stories/getMainStories'].slice(0, 8);
+          return this.$store.getters['stories/getStories'].slice(0, 8);
         } else if (window.innerWidth <= 950 && window.innerWidth >= 690) {
-          return this.$store.getters['stories/getMainStories'].slice(0, 9);
+          return this.$store.getters['stories/getStories'].slice(0, 9);
         } else {
-          return this.$store.getters['stories/getMainStories'].slice(0, 6);
+          return this.$store.getters['stories/getStories'].slice(0, 6);
         }
+      }
+    },
+    celebritiesStories() {
+      if (process.browser) {
+        return this.$store.getters['stories/getСelebritiesStories'].slice(0, 4);
       }
     },
   },
@@ -87,6 +106,10 @@ export default {
   column-gap: 40px;
   row-gap: 70px;
 }
+.history__cards_four {
+  margin-top: 0;
+  margin-bottom: 70px;
+}
 .history__card-title {
   margin-top: 20px;
   font-weight: 600;
@@ -122,20 +145,35 @@ export default {
   background-color: #f8f8f8;
 }
 @media screen and (max-width: 1280px) {
+  .history {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
   .history__cards {
     row-gap: 70px;
     margin-top: 60px;
+  }
+  .history__cards_four {
+    margin-top: 0;
   }
   .history__link {
     height: 78px;
   }
 }
 @media screen and (max-width: 1024px) {
+  .history {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
   .history__cards {
     row-gap: 70px;
     margin-top: 55px;
     row-gap: 45px;
     column-gap: 30px;
+  }
+  .history__cards_four {
+    margin-top: 0;
+    margin-bottom: 6 0px;
   }
   .history__card-title {
     margin-top: 14px;
@@ -154,6 +192,11 @@ export default {
     column-gap: 40px;
     row-gap: 20px;
   }
+  .history__cards_four {
+    margin-top: 0;
+    grid-template-columns: repeat(2, minmax(180px, 300px));
+    margin-bottom: 70px;
+  }
   .history__card-title {
     font-size: 18px;
     line-height: 22px;
@@ -168,10 +211,21 @@ export default {
   .history__cards {
     grid-template-columns: repeat(2, minmax(180px, 300px));
   }
+  .history__cards_four {
+    margin-top: 0;
+  }
 }
 @media screen and (max-width: 450px) {
+  .history {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
   .history__cards {
     grid-template-columns: repeat(1, minmax(208px, 300px));
+  }
+  .history__cards_four {
+    margin-top: 0;
+    margin-bottom: 50px;
   }
   .history__card-subtitle {
     max-width: 290px;
