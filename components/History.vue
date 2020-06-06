@@ -40,17 +40,18 @@ export default {
     stories() {
       if (process.browser) {
         if (window.innerWidth > 950) {
-          return this.$store.getters['stories/getStories'].slice(0, 8);
+          return this.$store.getters['stories/getMainStories'].slice(0, 8);
         } else if (window.innerWidth <= 950 && window.innerWidth >= 690) {
-          return this.$store.getters['stories/getStories'].slice(0, 9);
+          return this.$store.getters['stories/getMainStories'].slice(0, 9);
         } else {
-          return this.$store.getters['stories/getStories'].slice(0, 6);
+          return this.$store.getters['stories/getMainStories'].slice(0, 6);
         }
       }
     },
   },
   data() {
     return {
+      mainStories: [8, 7, 6, 5],
       hover: false,
       baseUrl: process.env.baseUrl,
     };

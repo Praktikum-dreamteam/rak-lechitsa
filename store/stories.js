@@ -6,13 +6,15 @@ Vue.use(Vuex);
 
 //data storage
 export const state = () => ({
+  mainStoriesId: [8, 7, 6, 5],
   stories: [],
   currentStory: {},
 });
 
 export const actions = {
-  async fetchStories({ commit }) {
+  async fetchStories({ commit, state }) {
     const stories = await this.$axios.$get('stories');
+
     commit('setState', {
       name: 'stories',
       value: stories,
@@ -30,7 +32,16 @@ export const mutations = {
 //get data about state
 export const getters = {
   getStories(state) {
+    console.log(state.stories);
     return state.stories;
+  },
+  getMainStories(state) {
+    const mainStories = state.stories.slice();
+    mainStories.sort(a => {
+      console.log(state.mainStoriesId.indexOf(a.id));
+      return state.mainStoriesId.includes(a.id) ? -1 : 1;
+    });
+    return mainStories;
   },
   getCurrentStory(state) {
     return state.currentStory;
