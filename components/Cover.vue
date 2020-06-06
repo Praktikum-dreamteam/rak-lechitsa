@@ -94,6 +94,20 @@ export default {
     font-size: 78px;
     line-height: 94px;
   }
+  .cover__btn {
+    font-size: 22px;
+    padding: 11px 27px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .cover__title {
+    font-size: 78px;
+    line-height: 94px;
+  }
+  .cover__btn {
+    font-size: 20px;
+    padding: 10px 17px;
+  }
 }
 @media screen and (max-width: 768px) {
   .cover__title {
@@ -109,11 +123,20 @@ export default {
     font-size: 42px;
     line-height: 44px;
   }
+  .cover__btn {
+    font-size: 18px;
+    line-height: 24px;
+    padding: 12px;
+  }
 }
 @media screen and (max-width: 420px) {
   .cover__title {
     font-size: 36px;
     line-height: 44px;
+  }
+  .cover__btn {
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 </style>
