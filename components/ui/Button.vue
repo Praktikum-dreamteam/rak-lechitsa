@@ -93,8 +93,8 @@ export default {
 }
 .btn_theme_history {
   padding: 0;
-  margin-left: 40px;
-  font-size: 18px;
+  font-size: 16px;
+  padding: 10px 24px;
   line-height: 24px;
   background-color: transparent;
   border: none;
@@ -156,8 +156,8 @@ export default {
 
 @media screen and (max-width: 1280px) {
   .btn_theme_history {
-    font-size: 16px;
-    margin-left: 30px;
+    font-size: 15px;
+    line-height: 18px;
   }
   .btn_theme_violet {
     padding: 14px 0;
@@ -181,9 +181,6 @@ export default {
   .btn_theme_share {
     font-size: 13px;
     line-height: 15px;
-  }
-  .btn_theme_history {
-    margin: 0 0 18px 0;
   }
   .menu .btn_theme_history {
     font-size: 13px;

@@ -4,7 +4,12 @@
       <p class="info__title">{{ Content.hashtag }}</p>
       <SectionTitle theme="violet">{{ Content.title }}</SectionTitle>
       <div class="info__content">
-        <div class="info__subtitle" v-html="Content.text"></div>
+        <div class="info__column">
+          <div class="info__subtitle" v-html="Content.text"></div>
+          <btn @btn-click="openPopup" theme="history" class="info__button">
+            Рассказать историю
+          </btn>
+        </div>
         <div class="tabs">
           <div class="tabs__radios">
             <Radio
@@ -49,6 +54,7 @@
 <script>
 import SectionTitle from '@/components/SectionTitle';
 import Radio from '@/components/ui/Radio';
+import Button from '@/components/ui/Button';
 import Container from '@/components/Container';
 export default {
   props: {
@@ -58,6 +64,7 @@ export default {
     SectionTitle,
     Radio,
     Container,
+    btn: Button,
   },
   computed: {
     isLongText() {
@@ -104,6 +111,11 @@ export default {
   width: 100%;
   padding-top: 90px;
   padding-bottom: 100px;
+}
+
+.info__button {
+  color: #000;
+  background-color: #fff;
 }
 
 .info__content {
