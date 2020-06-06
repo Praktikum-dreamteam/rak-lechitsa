@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import Button from '@/components/ui/Button';
-import Nav from '@/components/ui/Nav';
+import Button from '~/components/ui/Button';
+import Nav from '~/components/ui/Nav';
 
 export default {
   components: {

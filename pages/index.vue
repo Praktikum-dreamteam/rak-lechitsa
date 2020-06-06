@@ -5,7 +5,7 @@
     <Slogan :Content="block('note-1')" />
     <History :Content="block('stories')" />
     <Slogan :Content="block('note-2')" />
-    <!-- <Instagram :Content="block('instagram')" /> -->
+    <Instagram :Content="block('instagram')" />
     <InfoBlock :Content="block('story')" />
     <Statistics :Content="block('statistics')" />
     <Info :Content="block('about')" />
@@ -13,15 +13,15 @@
 </template>
 
 <script>
-import Logo from '@/components/Logo.vue';
-import Cover from '@/components/Cover';
-import Video from '@/components/Video';
-import Slogan from '@/components/Slogan';
-import History from '@/components/History';
-import Instagram from '@/components/Instagram';
-import InfoBlock from '@/components/Info-block';
-import Statistics from '@/components/Statistics';
-import Info from '@/components/Info';
+import Logo from '~/components/blocks/Logo.vue';
+import Cover from '~/components/blocks/Cover';
+import Video from '~/components/blocks/Video';
+import Slogan from '~/components/blocks/Slogan';
+import History from '~/components/blocks/History';
+import Instagram from '~/components/blocks/Instagram';
+import InfoBlock from '~/components/blocks/Info-block';
+import Statistics from '~/components/blocks/Statistics';
+import Info from '~/components/blocks/Info';
 import Button from '@/components/ui/Button';
 export default {
   components: {

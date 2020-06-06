@@ -46,9 +46,9 @@
 </template>
 
 <script>
-import StoryCard from '@/components/StoryCard';
+import StoryCard from '~/components/blocks/StoryCard';
 import Button from '@/components/ui/Button';
-import Container from '@/components/Container';
+import Container from '~/components/blocks/Container';
 export default {
   validate({ params, store }) {
     return store.getters['stories/getStories'].some(

@@ -23,13 +23,13 @@
 
 <script>
 import Overlay from '@/components/ui/Overlay';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import Popup from '@/components/PopUp';
-import Share from '@/components/Share';
-import Menu from '@/components/Menu';
-import Quiz from '@/components/Quiz';
-import Form from '@/components/Form';
+import Footer from '~/components/blocks/Footer';
+import Header from '~/components/blocks/Header';
+import Popup from '~/components/blocks/PopUp';
+import Share from '~/components/blocks/Share';
+import Menu from '~/components/blocks/Menu';
+import Quiz from '~/components/blocks/Quiz';
+import Form from '~/components/blocks/Form';
 
 export default {
   data() {

@@ -86,10 +86,10 @@
 </template>
 
 <script>
-import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input';
-import Label from '@/components/ui/Label';
-import PersonalDataConsent from '@/components/PersonalDataConsent';
+import Button from '~/components/ui/Button';
+import Input from '~/components/ui/Input';
+import Label from '~/components/ui/Label';
+import PersonalDataConsent from '~/components/blocks/PersonalDataConsent';
 export default {
   components: {
     btn: Button,

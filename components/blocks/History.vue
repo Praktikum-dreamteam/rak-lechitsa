@@ -38,9 +38,9 @@
 </template>
 
 <script>
-import SectionTitle from '@/components/SectionTitle';
-import StoryCard from '@/components/StoryCard';
-import Container from '@/components/Container';
+import SectionTitle from '~/components/blocks/SectionTitle';
+import StoryCard from '~/components/blocks/StoryCard';
+import Container from '~/components/blocks/Container';
 export default {
   props: {
     Content: Object,
