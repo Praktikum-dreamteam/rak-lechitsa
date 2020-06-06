@@ -43,6 +43,7 @@
           <btn
             v-if="numberCurrentQuestion === numberAllQuestions"
             :disabled="!isValid || answer == ''"
+            :haveLoading="haveLoading"
             type="submit"
             @btn-click="sendQuiz"
             class="quiz__button quiz__button_next"
@@ -80,6 +81,10 @@ export default {
     };
   },
   computed: {
+    haveLoading() {
+      const { popup } = this.$store.state;
+      return popup.isLoading;
+    },
     currentQuestion() {
       const { formQuiz } = this.$store.state;
       const { currentQuestion, questions } = formQuiz;
