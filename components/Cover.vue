@@ -2,6 +2,9 @@
   <section class="cover">
     <Container>
       <h1 class="cover__title">{{ Content.hashtag }}</h1>
+      <button class="cover__btn" v-on:click="openQuiz">
+        Расссказать историю
+      </button>
       <button class="cover__polygon" v-on:click="setActive()">
         <img src="/polygon.png" alt="стрелка вниз" />
       </button>
@@ -26,6 +29,9 @@ export default {
         behavior: 'smooth',
       });
     },
+    openQuiz() {
+      this.$store.commit('popup/openQuiz');
+    },
   },
 };
 </script>
@@ -47,6 +53,25 @@ export default {
   font-size: 92px;
   line-height: 111px;
   text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.cover__btn {
+  display: block;
+  color: #fff;
+  margin: 0 auto;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  padding: 12px 37px;
+  border: 2px solid #ffffff;
+  border-radius: 60px;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+.cover__btn:hover {
+  opacity: 0.6;
+  transition: 0.3s;
 }
 .cover__polygon {
   background: none;
@@ -73,11 +98,27 @@ export default {
     font-size: 78px;
     line-height: 94px;
   }
+  .cover__btn {
+    font-size: 22px;
+    padding: 11px 27px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .cover__title {
+    font-size: 78px;
+    line-height: 94px;
+    margin-bottom: 20px;
+  }
+  .cover__btn {
+    font-size: 20px;
+    padding: 10px 17px;
+  }
 }
 @media screen and (max-width: 768px) {
   .cover__title {
     font-size: 64px;
     line-height: 77px;
+    margin-bottom: 30px;
   }
 }
 @media screen and (max-width: 600px) {
@@ -85,14 +126,24 @@ export default {
     height: calc(100vh - 64px);
   }
   .cover__title {
+    margin-bottom: 18px;
     font-size: 42px;
     line-height: 44px;
+  }
+  .cover__btn {
+    font-size: 18px;
+    line-height: 24px;
+    padding: 12px;
   }
 }
 @media screen and (max-width: 420px) {
   .cover__title {
     font-size: 36px;
     line-height: 44px;
+  }
+  .cover__btn {
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 </style>
