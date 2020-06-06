@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Container from '@/components/Container';
+import Container from '~/components/blocks/Container';
 export default {
   props: {
     Content: Object,

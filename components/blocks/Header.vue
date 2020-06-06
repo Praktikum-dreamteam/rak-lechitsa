@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu';
-import MobileIcon from '@/components/ui/MobileIcon';
-import Container from '@/components/Container';
+import Menu from '~/components/blocks/Menu';
+import MobileIcon from '~/components/ui/MobileIcon';
+import Container from '~/components/blocks/Container';
 export default {
   components: {
     'my-menu': Menu,

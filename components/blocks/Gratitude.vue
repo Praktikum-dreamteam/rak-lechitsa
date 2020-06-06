@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Button from '@/components/ui/Button';
+import Button from '~/components/ui/Button';
 export default {
   components: {
     btn: Button,

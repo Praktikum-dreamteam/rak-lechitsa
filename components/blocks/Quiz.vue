@@ -61,10 +61,10 @@
 </template>
 
 <script>
-import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input';
-import PersonalDataConsent from '@/components/PersonalDataConsent';
-import Gratitude from '@/components/Gratitude';
+import Button from '~/components/ui/Button';
+import Input from '~/components/ui/Input';
+import PersonalDataConsent from '~/components/blocks/PersonalDataConsent';
+import Gratitude from '~/components/blocks/Gratitude';
 export default {
   components: {
     btn: Button,

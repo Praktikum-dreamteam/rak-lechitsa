@@ -62,10 +62,10 @@
 </template>
 
 <script>
-import SectionTitle from '@/components/SectionTitle';
-import Container from '@/components/Container';
-import Button from '@/components/ui/Button';
-import Slide from '@/components/Slide';
+import SectionTitle from '~/components/blocks/SectionTitle';
+import Container from '~/components/blocks/Container';
+import Button from '~/components/ui/Button';
+import Slide from '~/components/blocks/Slide';
 
 import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 import 'swiper/css/swiper.css';

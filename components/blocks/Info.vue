@@ -52,10 +52,10 @@
 </template>
 
 <script>
-import SectionTitle from '@/components/SectionTitle';
-import Radio from '@/components/ui/Radio';
-import Button from '@/components/ui/Button';
-import Container from '@/components/Container';
+import SectionTitle from '~/components/blocks/SectionTitle';
+import Radio from '~/components/ui/Radio';
+import Button from '~/components/ui/Button';
+import Container from '~/components/blocks/Container';
 export default {
   props: {
     Content: Object,

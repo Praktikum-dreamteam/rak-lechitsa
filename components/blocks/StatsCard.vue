@@ -35,11 +35,11 @@
 </template>
 
 <script>
-import ProgressBar from '@/components/ui/ProgressBar';
-import DoubleProgressBar from '@/components/ui/DoubleProgressBar';
-import SectionTitle from '@/components/SectionTitle';
-import SectionText from '@/components/SectionText';
-import Container from '@/components/Container';
+import ProgressBar from '~/components/ui/ProgressBar';
+import DoubleProgressBar from '~/components/ui/DoubleProgressBar';
+import SectionTitle from '~/components/blocks/SectionTitle';
+import SectionText from '~/components/blocks/SectionText';
+import Container from '~/components/blocks/Container';
 export default {
   components: {
     ProgressBar,

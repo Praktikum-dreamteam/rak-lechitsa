@@ -32,6 +32,7 @@ export const mutations = {
     state.isShare = false;
     state.isQuiz = false;
     state.isForm = false;
+    state.isError = false;
   },
   toggleIconClose(state) {
     state.isHaveClose = !state.isHaveClose;

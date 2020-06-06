@@ -36,8 +36,8 @@
 </template>
 
 <script>
-import SectionTitle from '@/components/SectionTitle';
-import Container from '@/components/Container';
+import SectionTitle from '~/components/blocks/SectionTitle';
+import Container from '~/components/blocks/Container';
 export default {
   props: {
     Content: Object,

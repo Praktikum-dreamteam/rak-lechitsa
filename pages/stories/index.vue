@@ -43,10 +43,10 @@
 
 <script>
 import Button from '@/components/ui/Button';
-import StoryCard from '@/components/StoryCard';
+import StoryCard from '~/components/blocks/StoryCard';
 import Pagination from '@/components/ui/Pagination';
-import Container from '@/components/Container';
-import NonSearch from '@/components/NonSearch';
+import Container from '~/components/blocks/Container';
+import NonSearch from '~/components/blocks/NonSearch';
 export default {
   head() {
     if (this.metas) {
