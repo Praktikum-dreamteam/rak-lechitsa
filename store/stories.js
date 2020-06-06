@@ -32,16 +32,14 @@ export const mutations = {
 //get data about state
 export const getters = {
   getStories(state) {
-    console.log(state.stories);
     return state.stories;
   },
-  getMainStories(state) {
-    const mainStories = state.stories.slice();
-    mainStories.sort(a => {
-      console.log(state.mainStoriesId.indexOf(a.id));
+  getSortStories(state) {
+    const sortStories = state.stories.slice();
+    sortStories.sort(a => {
       return state.mainStoriesId.includes(a.id) ? -1 : 1;
     });
-    return mainStories;
+    return sortStories;
   },
   getCurrentStory(state) {
     return state.currentStory;

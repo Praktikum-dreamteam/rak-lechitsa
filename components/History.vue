@@ -50,17 +50,17 @@ export default {
     stories() {
       if (process.browser) {
         if (window.innerWidth > 950) {
-          return this.$store.getters['stories/getMainStories'].slice(4, 12);
+          return this.$store.getters['stories/getSortStories'].slice(4, 12);
         } else if (window.innerWidth <= 950 && window.innerWidth >= 690) {
-          return this.$store.getters['stories/getMainStories'].slice(4, 13);
+          return this.$store.getters['stories/getSortStories'].slice(4, 13);
         } else {
-          return this.$store.getters['stories/getMainStories'].slice(4, 10);
+          return this.$store.getters['stories/getSortStories'].slice(4, 10);
         }
       }
     },
     fourStories() {
       if (process.browser) {
-        return this.$store.getters['stories/getMainStories'].slice(0, 4);
+        return this.$store.getters['stories/getSortStories'].slice(0, 4);
       }
     },
   },
