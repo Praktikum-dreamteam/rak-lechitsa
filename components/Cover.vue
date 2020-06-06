@@ -2,6 +2,9 @@
   <section class="cover">
     <Container>
       <h1 class="cover__title">{{ Content.hashtag }}</h1>
+      <button class="cover__btn" v-on:click="openQuiz">
+        Расссказать историю
+      </button>
       <button class="cover__polygon" v-on:click="setActive()">
         <img src="/polygon.png" alt="стрелка вниз" />
       </button>
@@ -26,6 +29,9 @@ export default {
         behavior: 'smooth',
       });
     },
+    openQuiz() {
+      this.$store.commit('popup/openQuiz');
+    },
   },
 };
 </script>
@@ -47,6 +53,21 @@ export default {
   font-size: 92px;
   line-height: 111px;
   text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.cover__btn {
+  display: block;
+  color: #fff;
+  margin: 0 auto;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  padding: 12px 37px;
+  border: 2px solid #ffffff;
+  border-radius: 60px;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
 }
 .cover__polygon {
   background: none;
