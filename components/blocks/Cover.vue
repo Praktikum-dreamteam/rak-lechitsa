@@ -129,6 +129,7 @@ export default {
 }
 @media screen and (max-width: 1280px) {
   .cover {
+    position: relative;
     height: calc(100vh - 78px);
   }
   .cover__title {
