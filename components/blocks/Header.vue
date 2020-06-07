@@ -41,6 +41,7 @@ export default {
   padding-bottom: 20px;
 }
 .header {
+  background: #fff;
   width: 100%;
   border-bottom: 1px solid #e8e8e8;
 }

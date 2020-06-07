@@ -1,5 +1,16 @@
 <template>
   <section class="cover">
+    <div class="cover__video-wrap">
+      <div class="cover__video-box">
+        <video
+          class="cover__video"
+          src="/video/VideoBg.mp4"
+          autoplay
+          muted
+          loop
+        ></video>
+      </div>
+    </div>
     <Container>
       <h1 class="cover__title">{{ Content.hashtag }}</h1>
       <button class="cover__btn" v-on:click="openQuiz">
@@ -38,14 +49,45 @@ export default {
 
 <style scoped>
 .cover {
-  position: relative;
+  overflow: hidden;
   width: 100%;
   height: calc(100vh - 85px);
-  background-color: #613a93;
+  background-color: #613a9367;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
+.cover__video-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+.cover__video-box {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+}
+.cover__video {
+  display: inline-block;
+  height: 100%;
+  transform: translateX(-50%);
+  min-height: 768px;
+}
+
+/* .cover__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+} */
 .cover__title {
   color: #fff;
   text-align: center;
@@ -94,6 +136,9 @@ export default {
   outline: none;
 }
 @media screen and (max-width: 1280px) {
+  .cover {
+    height: calc(100vh - 78px);
+  }
   .cover__title {
     font-size: 78px;
     line-height: 94px;
@@ -123,7 +168,7 @@ export default {
 }
 @media screen and (max-width: 600px) {
   .cover {
-    height: calc(100vh - 64px);
+    height: calc(100vh - 76px);
   }
   .cover__title {
     margin-bottom: 18px;
@@ -137,6 +182,9 @@ export default {
   }
 }
 @media screen and (max-width: 420px) {
+  .cover {
+    height: calc(100vh - 72px);
+  }
   .cover__title {
     font-size: 36px;
     line-height: 44px;
