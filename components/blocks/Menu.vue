@@ -26,6 +26,7 @@ export default {
 
 <style scoped>
 .menu {
+  background: #fff;
   display: flex;
   align-items: center;
 }
