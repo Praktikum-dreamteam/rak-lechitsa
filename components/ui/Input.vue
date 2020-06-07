@@ -10,7 +10,7 @@
       :placeholder="placeholder"
       v-model="content"
     />
-    <p v-if="!isFocus && !isValid" class="text-error">{{ textError }}</p>
+    <p v-if="!isFocus && !isValid" class="input__text-error">{{ textError }}</p>
   </div>
 </template>
 
@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style scoped>
-.text-error {
+.input__text-error {
   font-size: 16px;
   line-height: 24px;
   position: absolute;
@@ -83,7 +83,7 @@ export default {
   border-bottom: 2px solid #cc0000;
 }
 @media screen and (max-width: 1280px) {
-  .text-error,
+  .input__text-error,
   .input {
     font-size: 16px;
     line-height: 22px;
@@ -96,7 +96,7 @@ export default {
   }
 }
 @media screen and (max-width: 650px) {
-  .text-error,
+  .input__text-error,
   .input {
     font-size: 13px;
     line-height: 16px;
