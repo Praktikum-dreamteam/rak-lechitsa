@@ -75,7 +75,7 @@ export default {
 }
 .cover__video {
   display: inline-block;
-  height: 100%;
+  height: 120%;
   transform: translateX(-50%);
   min-height: 768px;
 }
