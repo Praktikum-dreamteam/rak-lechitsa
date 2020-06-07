@@ -4,7 +4,12 @@
       <p class="info__title">{{ Content.hashtag }}</p>
       <SectionTitle theme="violet">{{ Content.title }}</SectionTitle>
       <div class="info__content">
-        <div class="info__subtitle" v-html="Content.text"></div>
+        <div class="info__column">
+          <div class="info__subtitle" v-html="Content.text"></div>
+          <btn @btn-click="openPopup" theme="history" class="info__button"
+            >Рассказать историю</btn
+          >
+        </div>
         <div class="tabs">
           <div class="tabs__radios">
             <Radio
@@ -47,9 +52,10 @@
 </template>
 
 <script>
-import SectionTitle from '@/components/SectionTitle';
-import Radio from '@/components/ui/Radio';
-import Container from '@/components/Container';
+import SectionTitle from '~/components/blocks/SectionTitle';
+import Radio from '~/components/ui/Radio';
+import Button from '~/components/ui/Button';
+import Container from '~/components/blocks/Container';
 export default {
   props: {
     Content: Object,
@@ -58,6 +64,7 @@ export default {
     SectionTitle,
     Radio,
     Container,
+    btn: Button,
   },
   computed: {
     isLongText() {
@@ -70,6 +77,9 @@ export default {
     },
     addShortText() {
       this.$store.commit('info/addShort');
+    },
+    openPopup() {
+      this.$store.commit('popup/openQuiz');
     },
   },
   data() {
@@ -106,6 +116,11 @@ export default {
   padding-bottom: 100px;
 }
 
+.info__button {
+  color: #000;
+  background-color: #fff;
+}
+
 .info__content {
   margin-top: 32px;
   display: flex;
@@ -118,6 +133,7 @@ export default {
   color: #dedede;
   font-size: 18px;
   line-height: 22px;
+  margin-bottom: 32px;
 }
 .radio /deep/ {
   color: #c9c9c9;
@@ -131,6 +147,9 @@ export default {
     max-width: 305px;
     font-size: 16px;
     line-height: 20px;
+  }
+  .tabs__radio {
+    min-width: 160px;
   }
   .info__title {
     font-size: 58px;
@@ -158,6 +177,9 @@ export default {
   .info__title {
     display: none;
   }
+  .tabs__radio {
+    min-width: auto;
+  }
   .info__content {
     margin-top: 26px;
     margin-left: auto;
@@ -166,6 +188,14 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
+    padding-bottom: 120px;
+  }
+  .info__button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(-50%);
   }
   .info__subtitle {
     max-width: 100%;
@@ -174,6 +204,12 @@ export default {
   }
   .radio.active {
     border-bottom: 2px solid white;
+  }
+}
+@media screen and (max-width: 550px) {
+  .info__content {
+    width: 100%;
+    padding-bottom: 80px;
   }
 }
 </style>

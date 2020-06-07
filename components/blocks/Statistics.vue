@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import SectionTitle from '@/components/SectionTitle';
-import Container from '@/components/Container';
-import StatsCard from '@/components/StatsCard';
+import SectionTitle from '~/components/blocks/SectionTitle';
+import Container from '~/components/blocks/Container';
+import StatsCard from '~/components/blocks/StatsCard';
 export default {
   components: {
     SectionTitle,

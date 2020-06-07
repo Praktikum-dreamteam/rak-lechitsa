@@ -1,9 +1,7 @@
 <template>
   <section class="form">
     <Container class="form__container">
-      <SectionTitle theme="white" class="form__title">{{
-        Content.title
-      }}</SectionTitle>
+      <SectionTitle theme="white">{{ Content.title }}</SectionTitle>
       <div class="form__content">
         <div class="form__subtitle" v-html="Content.text"></div>
         <div class="tabs">
@@ -64,10 +62,10 @@
 </template>
 
 <script>
-import Button from '@/components/ui/Button';
-import Radio from '@/components/ui/Radio';
-import SectionTitle from '@/components/SectionTitle';
-import Container from '@/components/Container';
+import Button from '~/components/ui/Button';
+import Radio from '~/components/ui/Radio';
+import SectionTitle from '~/components/blocks/SectionTitle';
+import Container from '~/components/blocks/Container';
 export default {
   props: {
     Content: Object,
@@ -156,9 +154,6 @@ export default {
     font-size: 16px;
     line-height: 20px;
   }
-  .form__title {
-    max-width: 380px;
-  }
   .form__container {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -187,10 +182,11 @@ export default {
     font-size: 13px;
     line-height: 16px;
   }
-  .radio.active {
+  .tabs__radio.radio.active {
     border-bottom: 2px solid #613a93;
   }
 }
+
 @media screen and (max-width: 425px) {
   .form__button {
     max-width: 100%;

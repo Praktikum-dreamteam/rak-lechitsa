@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Button from '@/components/ui/Button';
+import Button from '~/components/ui/Button';
 export default {
   components: {
     btn: Button,
@@ -16,7 +16,6 @@ export default {
   methods: {
     close() {
       this.$store.commit('popup/close');
-      console.log('Закрыто');
       this.$store.commit('popup/toggleIconClose');
     },
   },

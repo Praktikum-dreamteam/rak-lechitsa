@@ -130,15 +130,8 @@ export const actions = {
     commit('setCurrentQuestion', { currentQuestion: currentQuestion - 1 });
   },
   async SEND_QUIZ({ commit, state }) {
+    await this.$axios.$post('forms/stories', state.answers);
     await commit('setCurrentQuestion', { currentQuestion: 1 });
-    this.$axios
-      .$post('forms/stories', state.answers)
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error);
-      });
     await commit('resetAnswers');
   },
 };

@@ -22,6 +22,7 @@ export default {
 
 <style scoped>
 .mobile-button {
+  flex-shrink: 0;
   width: 32px;
   height: 26px;
   background-image: url("data:image/svg+xml, %3Csvg width='32' height='26' viewBox='0 0 32 26' fill='none' xmlns='http://www.w3.org/2000/svg' %3E%3Cline y1='1.5' x2='32' y2='1.5' stroke='black' stroke-width='3' /%3E%3Cline y1='12.5' x2='32' y2='12.5' stroke='black' stroke-width='3' /%3E%3Cline y1='22.5' x2='32' y2='22.5' stroke='black' stroke-width='3' /%3E%3C/svg%3E");

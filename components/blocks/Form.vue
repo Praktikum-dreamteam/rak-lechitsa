@@ -13,11 +13,14 @@
           class="form__label"
         />
         <inputForm
-          id="name"
+          id="full_name"
+          @input="validName"
+          @blur="validName"
+          :textError="name.error"
           placeholder="Напишите тут"
           class="form__input"
-          v-model="name"
-          :isValid="true"
+          v-model="name.content"
+          :isValid="!name.error"
         />
       </div>
       <div class="form__container">
@@ -29,21 +32,27 @@
           />
           <inputForm
             id="email"
+            @blur="validEmail"
+            @input="validPhone"
+            :textError="email.error"
             placeholder="pochta@example.com"
             class="form__input"
-            v-model="email"
+            v-model="email.content"
             type="email"
-            :isValid="true"
+            :isValid="!email.error"
           />
         </div>
         <div class="form__fieldset">
           <customLabel labelText="Телефон" for="phone" class="form__label" />
           <inputForm
             id="phone"
+            @blur="validPhone"
+            @input="validEmail"
+            :textError="phone.error"
             placeholder="+7 000 000 00 00"
             class="form__input"
-            v-model="phone"
-            :isValid="true"
+            v-model="phone.content"
+            :isValid="!phone.error"
           />
         </div>
       </div>
@@ -65,7 +74,8 @@
     <div class="form__buttons">
       <btn
         @btn-click="sendForm"
-        :disabled="!((validateEmail || validatePhone) && validateName)"
+        :disabled="isDisabledBtn"
+        :haveLoading="haveLoading"
         type="submit"
         class="form__button"
         theme="violet"
@@ -77,10 +87,10 @@
 </template>
 
 <script>
-import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input';
-import Label from '@/components/ui/Label';
-import PersonalDataConsent from '@/components/PersonalDataConsent';
+import Button from '~/components/ui/Button';
+import Input from '~/components/ui/Input';
+import Label from '~/components/ui/Label';
+import PersonalDataConsent from '~/components/blocks/PersonalDataConsent';
 export default {
   components: {
     btn: Button,
@@ -90,61 +100,97 @@ export default {
   },
   data() {
     return {
-      email: '',
-      name: '',
-      phone: '',
+      valid: true,
+      email: {
+        content: '',
+        error: '',
+      },
+      name: {
+        content: '',
+        error: '',
+      },
+      phone: {
+        content: '',
+        error: '',
+      },
       comment: '',
     };
   },
   computed: {
-    currentAnswer: {
-      get() {
-        return this.answer;
-      },
-      set(value) {},
+    isDisabledBtn() {
+      if ((this.email.content || this.phone.content) && this.name.content) {
+        if (!this.email.error && !this.name.error && !this.phone.error) {
+          return false;
+        }
+      }
+      return true;
     },
-    validateEmail() {
-      return this.validEmail(this.email);
-    },
-    validateName() {
-      return this.name.length > 1;
-    },
-    validatePhone() {
-      return this.validPhone(this.phone);
-    },
-    validateComment() {
-      return this.comment.length > 1;
+    haveLoading() {
+      const { popup } = this.$store.state;
+      return popup.isLoading;
     },
   },
   methods: {
     async sendForm() {
-      const form = document.forms.form;
-      const answer = {};
-      for (let i = 0; i < form.length; i++) {
-        if (form[i].id) answer[form[i].id] = form[i].value;
+      if (!this.checkAllFieldValid()) {
+        return;
       }
-      this.$store.dispatch('form/SEND_FORM', answer);
-      this.close();
+      const form = document.forms.form;
+      const answers = {};
+      for (let i = 0; i < form.length; i++) {
+        if (form[i].id) answers[form[i].id] = form[i].value;
+      }
+      await this.$store.commit('popup/toggleLoading');
+      await this.$store
+        .dispatch('form/SEND_FORM', answers)
+        .then(() => {
+          this.$store.commit('popup/removeErrorElement');
+          this.close();
+        })
+        .catch(() => {
+          this.$store.commit('popup/addErrorElement');
+        })
+        .finally(() => this.$store.commit('popup/toggleLoading'));
     },
-    validEmail(em) {
+    checkAllFieldValid() {
+      return this.validEmail() && this.validPhone() && this.validName();
+    },
+    validEmail() {
       const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(em);
+      if (!this.email.content && !this.phone.content) {
+        this.email.error = 'не заполнено';
+        return false;
+      }
+      if (!re.test(this.email.content) && this.email.content) {
+        this.email.error = 'введите корректный email';
+        return false;
+      }
+      this.email.error = '';
+      return true;
     },
-    validPhone(tel) {
+    validPhone() {
       const re = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
-      return re.test(tel);
+      if (!this.email.content.length && !this.phone.content) {
+        this.phone.error = 'не заполнено';
+        return false;
+      }
+      if (!re.test(this.phone.content) && this.phone.content) {
+        this.phone.error = 'введите корректный номер телефона';
+        return false;
+      }
+      this.phone.error = '';
+      return true;
+    },
+    validName() {
+      if (this.name.content.length < 1) {
+        this.name.error = 'не заполнено';
+        return false;
+      }
+      this.name.error = '';
+      return true;
     },
     close() {
       this.$store.commit('popup/close');
-    },
-    checkDisabled() {
-      console.log(this.validateEmail);
-      return (
-        this.validateEmail &&
-        this.validateName &&
-        this.validatePhone &&
-        this.validateComment
-      );
     },
   },
 };

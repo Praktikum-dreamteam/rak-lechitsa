@@ -50,11 +50,45 @@
 
 <script>
 import Button from '@/components/ui/Button';
-import StoryCard from '@/components/StoryCard';
+import StoryCard from '~/components/blocks/StoryCard';
 import Pagination from '@/components/ui/Pagination';
-import Container from '@/components/Container';
-import NonSearch from '@/components/NonSearch';
+import Container from '~/components/blocks/Container';
+import NonSearch from '~/components/blocks/NonSearch';
 export default {
+  head() {
+    if (this.metas) {
+      return {
+        title: this.metas.meta_title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: this.metas.meta_description || '',
+          },
+          {
+            hid: 'keywords',
+            name: 'keywords',
+            content: this.metas.meta_keywords || '',
+          },
+          {
+            hid: 'og:title',
+            property: 'og:title',
+            content: this.metas.meta_title || '',
+          },
+          {
+            hid: 'og:description',
+            property: 'og:description',
+            content: this.metas.meta_description || '',
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: this.metas.og_image || '',
+          },
+        ],
+      };
+    }
+  },
   data() {
     return {
       storiesName: '',
@@ -63,6 +97,13 @@ export default {
       itemsPerPage: 16,
       allStories: '',
       baseUrl: process.env.baseUrl,
+      metas: {
+        meta_title: 'РАКЛЕЧИТСЯ.РФ',
+        meta_description:
+          'Есть вещи, которые не лечатся. Особенности характера, страстные увлечения. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с их историями.',
+        og_image: 'static/bg-2.png',
+        meta_keywords: 'РАКЛЕЧИТСЯ.РФ, раклечится, этонелечится',
+      },
     };
   },
   components: {
@@ -129,11 +170,6 @@ export default {
     getAllStories() {
       return this.$store.getters['stories/getStories'];
     },
-  },
-  head() {
-    return {
-      title: 'РАКЛЕЧИТСЯ.РФ Истории неизлечимых привычек',
-    };
   },
 };
 </script>

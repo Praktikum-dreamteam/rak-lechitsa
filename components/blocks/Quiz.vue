@@ -43,6 +43,7 @@
           <btn
             v-if="numberCurrentQuestion === numberAllQuestions"
             :disabled="!isValid || answer == ''"
+            :haveLoading="haveLoading"
             type="submit"
             @btn-click="sendQuiz"
             class="quiz__button quiz__button_next"
@@ -60,10 +61,10 @@
 </template>
 
 <script>
-import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input';
-import PersonalDataConsent from '@/components/PersonalDataConsent';
-import Gratitude from '@/components/Gratitude';
+import Button from '~/components/ui/Button';
+import Input from '~/components/ui/Input';
+import PersonalDataConsent from '~/components/blocks/PersonalDataConsent';
+import Gratitude from '~/components/blocks/Gratitude';
 export default {
   components: {
     btn: Button,
@@ -80,6 +81,10 @@ export default {
     };
   },
   computed: {
+    haveLoading() {
+      const { popup } = this.$store.state;
+      return popup.isLoading;
+    },
     currentQuestion() {
       const { formQuiz } = this.$store.state;
       const { currentQuestion, questions } = formQuiz;
@@ -110,12 +115,12 @@ export default {
         this.textError = 'Введите корректный номер телефона';
         return;
       }
-      if (this.currentQuestion.name == 'email') {
+      if (this.currentQuestion.name === 'email') {
         this.isValid = reEmail.test(this.answer);
         this.textError = 'Введите корректный адрес электронной почты';
         return;
       }
-      this.isValid = this.answer != '';
+      this.isValid = this.answer !== '';
       this.textError = 'Поле необходимо заполнить';
     },
     async nextQuestion() {
@@ -132,9 +137,18 @@ export default {
       await this.$store.dispatch('formQuiz/nextQuestion', {
         answer: this.answer,
       });
-      this.isGratitudeShow = true;
-      this.$store.commit('popup/toggleIconClose');
-      await this.$store.dispatch('formQuiz/SEND_QUIZ');
+      await this.$store.commit('popup/toggleLoading');
+      await this.$store
+        .dispatch('formQuiz/SEND_QUIZ')
+        .then(() => {
+          this.isGratitudeShow = true;
+          this.$store.commit('popup/removeErrorElement');
+          this.$store.commit('popup/toggleIconClose');
+        })
+        .catch(err => {
+          this.$store.commit('popup/addErrorElement');
+        })
+        .finally(() => this.$store.commit('popup/toggleLoading'));
     },
   },
 };

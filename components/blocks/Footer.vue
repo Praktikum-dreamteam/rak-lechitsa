@@ -45,10 +45,10 @@
 </template>
 
 <script>
-import Nav from '@/components/ui/Nav';
-import Copyright from '@/components/Copyright';
-import Button from '@/components/ui/Button';
-import Container from '@/components/Container';
+import Nav from '~/components/ui/Nav';
+import Copyright from '~/components/blocks/Copyright';
+import Button from '~/components/ui/Button';
+import Container from '~/components/blocks/Container';
 
 export default {
   props: {
