@@ -9,7 +9,14 @@
           name="name"
           v-model="queries"
         />
-        <button class="input-container__button">Поиск</button>
+        <button
+          class="input-container__clear"
+          @click="resetSearch"
+          type="button"
+        >
+          Очистить
+        </button>
+        <button class="input-container__button" type="submit">Поиск</button>
       </form>
       <client-only>
         <template>
@@ -118,7 +125,7 @@ export default {
         }
       }
       if (!this.allStories) {
-        this.allStories = this.$store.getters['stories/getStories'];
+        this.allStories = this.getAllStories();
       }
       return this.allStories.filter(
         (item, index) =>
@@ -144,8 +151,8 @@ export default {
     },
     search() {
       const arr = this.queries.split(' ');
-      this.allStories = this.$store.getters['stories/getStories'];
-      const stories = this.$store.getters['stories/getStories'];
+      this.allStories = this.getAllStories();
+      const stories = this.allStories;
       this.changeIndex(1);
       this.allStories = stories.filter(item => {
         return arr.every(el => {
@@ -155,6 +162,13 @@ export default {
             .includes(el.toLowerCase());
         });
       });
+    },
+    resetSearch() {
+      this.queries = '';
+      this.allStories = this.getAllStories();
+    },
+    getAllStories() {
+      return this.$store.getters['stories/getStories'];
     },
   },
 };
@@ -178,6 +192,28 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-bottom: 70px;
+  position: relative;
+}
+
+.input-container__clear {
+  position: absolute;
+  right: 20%;
+  top: 29.46%;
+  color: #666;
+  background: none;
+  border: none;
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+}
+
+.input-container__clear:focus {
+  outline: none;
+}
+
+.input-container__clear:hover {
+  opacity: 0.9;
+  transition: ease 0.3s;
 }
 
 .input-container__input {
@@ -235,6 +271,16 @@ export default {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .input-container__clear {
+    right: 21%;
+  }
+}
+
+@media (max-width: 1230px) {
+  .input-container__clear {
+    right: 22%;
+  }
 }
 
 @media (max-width: 1180px) {
@@ -249,6 +295,23 @@ export default {
   .stories-container {
     grid-column-gap: 30px;
     grid-row-gap: 46px;
+  }
+  .input-container__clear {
+    top: 26%;
+    right: 23%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .input-container__clear {
+    font-size: 15px;
+    right: 24%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .input-container__clear {
+    right: 26%;
   }
 }
 
@@ -270,6 +333,30 @@ export default {
     grid-column-gap: 20px;
     grid-row-gap: 40px;
   }
+
+  .input-container__clear {
+    right: 27.5%;
+  }
+}
+
+@media (max-width: 840px) {
+  .input-container__clear {
+    color: transparent;
+    font-size: 1px;
+    width: 20px;
+    height: 20px;
+    top: 29%;
+    right: 31%;
+    background-repeat: no-repeat;
+    background-image: url('/search-reset.png');
+    background-position: center;
+  }
+}
+
+@media (max-width: 750px) {
+  .input-container__clear {
+    right: 32.5%;
+  }
 }
 
 @media (max-width: 685px) {
@@ -278,6 +365,22 @@ export default {
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 20px;
+  }
+
+  .input-container__clear {
+    right: 35.5%;
+  }
+}
+
+@media (max-width: 610px) {
+  .input-container__clear {
+    right: 38%;
+  }
+}
+
+@media (max-width: 555px) {
+  .input-container__clear {
+    right: 41%;
   }
 }
 
@@ -290,6 +393,10 @@ export default {
     line-height: 21px;
     font-size: 18px;
     text-align: left;
+  }
+
+  .input-container__clear {
+    right: 21%;
   }
 
   .input-container__button {
@@ -305,6 +412,13 @@ export default {
     max-width: 290px;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(9, 1fr);
+  }
+
+  /* why not? */
+  @media (max-width: 230px) {
+    .input-container__clear {
+      right: 27%;
+    }
   }
 }
 </style>
