@@ -49,15 +49,15 @@ export default {
 
 <style scoped>
 .cover {
+  position: relative;
   overflow: hidden;
   width: 100%;
   height: calc(100vh - 85px);
-  background-color: #613a9367;
+  background-color: rgba(97, 58, 147, 0.8);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
 .cover__video-wrap {
   position: absolute;
   top: 0;
@@ -75,7 +75,9 @@ export default {
 }
 .cover__video {
   display: inline-block;
-  height: 120%;
+  height: 100%;
+  width: 200%;
+  object-fit: cover;
   transform: translateX(-50%);
   min-height: 768px;
 }
@@ -129,7 +131,6 @@ export default {
 }
 @media screen and (max-width: 1280px) {
   .cover {
-    position: relative;
     height: calc(100vh - 78px);
   }
   .cover__title {
