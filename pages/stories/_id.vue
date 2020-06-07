@@ -9,7 +9,7 @@
           <share-btn @btn-click="openPopup" theme="share"
             >Поделитесь &#8599;</share-btn
           >
-          <p class="author__date">{{ getdate(currentStory.updated_at) }}</p>
+          <p class="author__date">{{ getdate(currentStory.date) }}</p>
         </div>
       </div>
 
@@ -122,7 +122,7 @@ export default {
         'Декабря',
       ];
       return `${textDate.getDate()} ${
-        month[+textDate.getMonth() - 1]
+        month[+textDate.getMonth()]
       } ${textDate.getFullYear()}`;
     },
     getSmallSrc(story) {
