@@ -93,6 +93,7 @@ export default {
   flex-basis: calc((100% - 120px) / 4);
   height: 100%;
   position: relative;
+  border: 1px solid #efefef;
 }
 .statistics__form:last-of-type {
   margin: 0;
