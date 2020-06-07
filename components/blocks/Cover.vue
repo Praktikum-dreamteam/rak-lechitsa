@@ -80,14 +80,6 @@ export default {
   min-height: 768px;
 }
 
-/* .cover__video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-} */
 .cover__title {
   color: #fff;
   text-align: center;
@@ -160,6 +152,9 @@ export default {
   }
 }
 @media screen and (max-width: 768px) {
+  .cover {
+    height: calc(100vh - 77px);
+  }
   .cover__title {
     font-size: 64px;
     line-height: 77px;
@@ -167,9 +162,6 @@ export default {
   }
 }
 @media screen and (max-width: 600px) {
-  .cover {
-    height: calc(100vh - 76px);
-  }
   .cover__title {
     margin-bottom: 18px;
     font-size: 42px;
