@@ -30,6 +30,10 @@ export default {
 </script>
 
 <style scoped>
+/deep/ .nuxt-link-exact-active {
+  pointer-events: none;
+}
+
 .nav__list-items {
   display: flex;
   list-style: none;

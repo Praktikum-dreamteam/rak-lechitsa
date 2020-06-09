@@ -27,6 +27,13 @@ html {
   100% { transform: translate(0,100%);
     opacity: 0}
 }
+@keyframes transl {
+  0%   { transform: translate(0,100%);
+    opacity: 0}
+  100% { transform: translate(0,0%);
+    opacity: 1}
+}
+
 
 .page-enter-active, .page-leave-active {
   transition: opacity .3s;
@@ -54,7 +61,7 @@ html {
 }
 
 .menu-enter-active, .menu-leave-active {
-  animation: translating .5s reverse;
+  animation: transl .5s ;
 }
 .menu-enter, .menu-leave-active {
   animation: translating .5s ;

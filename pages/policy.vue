@@ -350,9 +350,47 @@
 <script>
 export default {
   head() {
+    if (this.metas) {
+      return {
+        title: this.metas.meta_title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: this.metas.meta_description || '',
+          },
+          {
+            hid: 'keywords',
+            name: 'keywords',
+            content: this.metas.meta_keywords || '',
+          },
+          {
+            hid: 'og:title',
+            property: 'og:title',
+            content: this.metas.meta_title || '',
+          },
+          {
+            hid: 'og:description',
+            property: 'og:description',
+            content: this.metas.meta_description || '',
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: this.metas.og_image || '',
+          },
+        ],
+      };
+    }
+  },
+  data() {
     return {
-      title:
-        'РАКЛЕЧИТСЯ.РФ Политика проекта в отношении обработки персональных данных.',
+      metas: {
+        meta_title: 'Политика конфиденциальности - РАКЛЕЧИТСЯ.РФ',
+        meta_description: 'Политика в отношении обработки персональных данных',
+        og_image: 'static/Pozner.jpg',
+        meta_keywords: 'РАКЛЕЧИТСЯ.РФ, раклечится, этонелечится',
+      },
     };
   },
 };
