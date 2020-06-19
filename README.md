@@ -30,7 +30,8 @@ https://github.com/tttatttu
 
 https://github.com/SidorovN/
 
-<h2>Инструкция по запуску проекта</h2>
+
+### Инструкция по запуску проекта
 ```bash
 
 # установка зависимостей
