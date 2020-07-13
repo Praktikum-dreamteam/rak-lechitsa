@@ -1,6 +1,6 @@
 <h1>Perfect project by awesome team</h1>
 
-<h2>Посмотреть проект можно по ссылке</h2>
+<h2>Посмотреть проект можно по ссылке:</h2>
   <p>https://prakt-rak-lechitsa.herokuapp.com</p>
 <h2>Реализовано:</h2>
 <ul>
