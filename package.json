@@ -14,7 +14,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^3.0.0-0",
     "nuxt": "^2.0.0",
-    "swiper": "^5.4.0",
+    "swiper": "^6.5.1",
     "vue-awesome-swiper": "^4.1.1"
   },
   "devDependencies": {
